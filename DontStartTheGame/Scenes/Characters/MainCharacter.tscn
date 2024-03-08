@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtdssf5kyh7yh"]
+
+[ext_resource type="Script" path="res://Scenes/Characters/MainCharacter.gd" id="1_6kdyp"]
+[ext_resource type="Texture2D" uid="uid://doaio6qiwewxo" path="res://Sprites/Character/Player/SpriteSheet.png" id="1_mmbrd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h154s"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8at6u"]
+
+[node name="MainCharacter" type="CharacterBody2D"]
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_6kdyp")
+SPEED = 150
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h154s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mmbrd")
+hframes = 4
+vframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_8at6u")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3.895, 3.895)

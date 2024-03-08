@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://juwee80ljxvq"]
+
+[ext_resource type="PackedScene" uid="uid://dtdssf5kyh7yh" path="res://Scenes/Characters/MainCharacter.tscn" id="1_1grki"]
+[ext_resource type="Script" path="res://Scenes/Main.gd" id="1_mehqf"]
+[ext_resource type="PackedScene" uid="uid://drlv0oshwlrm7" path="res://Scenes/Levels/Level1.tscn" id="2_2gncy"]
+[ext_resource type="PackedScene" uid="uid://b41s6myqpr0d2" path="res://Scenes/InventoryBox.tscn" id="3_afhwo"]
+[ext_resource type="Texture2D" uid="uid://umcmyn2fq3pt" path="res://Sprites/GUI/InventoryBox.png" id="3_d760y"]
+[ext_resource type="AudioStream" uid="uid://dleqvnp3nh44a" path="res://Sounds/13 - Mystical.ogg" id="4_avfjl"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_mehqf")
+
+[node name="MainCharacter" parent="." instance=ExtResource("1_1grki")]
+z_index = 1
+
+[node name="TileMap" parent="." instance=ExtResource("2_2gncy")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RuleBox" type="TextureRect" parent="CanvasLayer"]
+show_behind_parent = true
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 396.0
+offset_bottom = 119.0
+texture = ExtResource("3_d760y")
+
+[node name="RuleLister" type="RichTextLabel" parent="CanvasLayer/RuleBox"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.082
+anchor_top = 0.274
+anchor_right = 0.91
+anchor_bottom = 0.731
+offset_left = 7.43
+offset_top = -0.414001
+offset_right = 3.64999
+offset_bottom = 1.859
+text = "Test Rule: No sussy business"
+
+[node name="LeftInventorySlot" parent="CanvasLayer" instance=ExtResource("3_afhwo")]
+anchor_bottom = 0.164
+offset_left = 0.119934
+offset_bottom = -0.272018
+
+[node name="RightInventorySlot" parent="CanvasLayer" instance=ExtResource("3_afhwo")]
+anchor_left = 0.523
+anchor_top = 0.0
+anchor_right = 0.584
+anchor_bottom = 0.164
+offset_left = -0.135986
+offset_top = 1.0
+offset_right = -0.407959
+offset_bottom = -0.272018
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_avfjl")
+autoplay = true
