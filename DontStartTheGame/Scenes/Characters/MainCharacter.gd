@@ -41,6 +41,12 @@ func _physics_process(delta):
 		
 		itemToPickup.get_parent().remove_child(itemToPickup)
 	
+	# Traverses inventory using number keys
+	for i in MAX_INVENTORY:
+		if Input.is_physical_key_pressed((KEY_1 + i) % (KEY_9 + 1)):
+			highlighted = i
+			updatedHighlightedItem.emit(i)
+	
 	if Input.is_action_just_released("MWU"):
 		if highlighted < MAX_INVENTORY-1:
 			highlighted += 1
@@ -54,7 +60,6 @@ func _physics_process(delta):
 		else:
 			highlighted = MAX_INVENTORY-1
 		updatedHighlightedItem.emit(highlighted)
-	
 	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		#print("Attempting to use item: " + str(highlighted))
