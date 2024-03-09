@@ -42,7 +42,7 @@ func _physics_process(delta):
 		itemToPickup.get_parent().remove_child(itemToPickup)
 	
 	# Traverses inventory using number keys
-	for i in MAX_INVENTORY:
+	for i in min(MAX_INVENTORY, 10):
 		if Input.is_physical_key_pressed((KEY_1 + i) % (KEY_9 + 1)):
 			highlighted = i
 			updatedHighlightedItem.emit(i)
