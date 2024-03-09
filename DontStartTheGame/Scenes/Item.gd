@@ -4,6 +4,10 @@ extends Sprite2D
 var player = null
 var popupNode
 var sceneID
+var effect
+var effectNode
+
+signal effectPlayed
 
 func _ready():
 	popupNode = $Popup
@@ -18,10 +22,13 @@ func _on_area_2d_body_entered(body):
 	player = body
 	player.nearbyItems.append(self)
 	popupNode.visible = true
-	
 
 
 func _on_area_2d_body_exited(body):
 	player.nearbyItems.erase(self)
 	player = null
 	popupNode.visible = false
+
+
+func _on_effect_effect_played():
+	effectPlayed.emit()

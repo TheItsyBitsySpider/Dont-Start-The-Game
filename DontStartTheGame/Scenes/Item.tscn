@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd27rs1lpil6h"]
+[gd_scene load_steps=5 format=3 uid="uid://dd27rs1lpil6h"]
 
 [ext_resource type="Texture2D" uid="uid://brlyklee01cw3" path="res://Sprites/Items/Onigiri.png" id="1_vc1nr"]
 [ext_resource type="Script" path="res://Scenes/Item.gd" id="2_lyvtq"]
+[ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Effects/EatingEffect.tscn" id="3_ess84"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2mvom"]
 
@@ -37,5 +38,8 @@ offset_right = 22.0
 offset_bottom = 40.0
 text = "E"
 
+[node name="Effect" parent="." instance=ExtResource("3_ess84")]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="effectPlayed" from="Effect" to="." method="_on_effect_effect_played"]
