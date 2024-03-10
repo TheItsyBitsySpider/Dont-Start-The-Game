@@ -1,40 +1,28 @@
 extends Node2D
 
+@onready var player := $MainCharacter
+@onready var current_level := $TileMap
+@onready var inventory_manager := $CanvasLayer/InventoryManager
+@onready var rules_list := $CanvasLayer/RuleBox/RuleLister
 
-var inventory
-var player
-var currentLevel
-var ruleList
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	player = $MainCharacter
-	inventory = $CanvasLayer/InventoryManager
-	currentLevel = $TileMap
-	ruleList = $CanvasLayer/RuleBox/RuleLister
-	player.MAX_INVENTORY = inventory.get_child_count()
-	
-	player.addToInventory.connect(inventory.addItemToInventory)
-	player.removeFromInventory.connect(inventory.removeItemFromInventory)
-	player.updatedHighlightedItem.connect(inventory.updateHighlightedItem)
-	
-	updateRules()
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+	player.add_to_inventory.connect(inventory_manager.add_item)
+	player.remove_from_inventory.connect(inventory_manager.remove_item)
+	player.change_selected_inventory_slot.connect(inventory_manager.change_selected)
+	update_rules()
+
+func _process(_delta):
 	pass
 
-func updateRules():
-	var allRules = currentLevel.ruleManager.get_children()
-	var allRuleText = ""
-	for rule in allRules:
-		if not rule.ruleCompleted.is_connected(updateRules):
-			rule.ruleCompleted.connect(updateRules)
-		if rule.completed:
-			allRuleText += "[s]"
-			allRuleText += rule.ruleText
-			allRuleText += "[/s]"
+func update_rules():
+	var rules = current_level.rule_manager.get_children()
+	var rules_text = ""
+	for rule in rules:
+		if not rule.complete_rule.is_connected(update_rules):
+			rule.complete_rule.connect(update_rules)
+		if rule.rule_completed:
+			rules_text += "[s]" + rule.rule_text + "[/s]"
 		else:
-			allRuleText += rule.ruleText
-		allRuleText += "\n"
-	ruleList.set_text(allRuleText)
+			rules_text += rule.rule_text
+		rules_text += "\n"
+	rules_list.set_text(rules_text)

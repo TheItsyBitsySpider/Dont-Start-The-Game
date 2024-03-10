@@ -2,78 +2,71 @@ extends CharacterBody2D
 
 @export var SPEED: int
 
-var MAX_INVENTORY
-var nearbyItems = []
-var inventory = []
-var highlighted = 0
+const MAX_INVENTORY := 4
 
-signal addToInventory
-signal removeFromInventory
-signal updatedHighlightedItem
-signal usedItem
+var nearby_items := []
+var inventory_items := []
+var selected_inventory_slot := 0
 
-func _physics_process(delta):
+signal add_to_inventory
+signal remove_from_inventory
+signal change_selected_inventory_slot
+signal consume_item
 
-	var directionX = Input.get_axis("moveLeft", "moveRight")
-	var directionY = Input.get_axis("moveUp", "moveDown")
-	
-	velocity = Vector2(directionX*SPEED, directionY*SPEED)
-
+func _physics_process(_delta):
+	# Controls movement
+	var direction_x = Input.get_axis("move_left", "move_right")
+	var direction_y = Input.get_axis("move_up", "move_down")
+	velocity = Vector2(direction_x * SPEED, direction_y * SPEED)
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("Interact") and not nearbyItems.is_empty():
-		var itemToPickup
-		
-		if null in inventory:
-			itemToPickup = nearbyItems.pop_front()
-			inventory[inventory.find(null)] = itemToPickup.effect
-			addToInventory.emit(itemToPickup)
-		
-		
-		elif len(inventory) < MAX_INVENTORY:
-			itemToPickup = nearbyItems.pop_front()
-			inventory.append(itemToPickup.effect)
-			addToInventory.emit(itemToPickup)
-
-		else:
-			# If inventory slots are full, don't do anything
-			return
-		
-		itemToPickup.get_parent().remove_child(itemToPickup)
+	# Picks up nearby item
+	if Input.is_action_just_pressed("interact") and not nearby_items.is_empty():
+		if null in inventory_items:
+			var item = nearby_items.pop_front()
+			inventory_items[inventory_items.find(null)] = item.effect
+			add_to_inventory.emit(item)
+			item.get_parent().remove_child(item)
+		elif len(inventory_items) < MAX_INVENTORY:
+			var item = nearby_items.pop_front()
+			inventory_items.append(item.effect)
+			add_to_inventory.emit(item)
+			item.get_parent().remove_child(item)
 	
 	# Traverses inventory using number keys
 	for i in min(MAX_INVENTORY, 10):
 		if Input.is_physical_key_pressed((KEY_1 + i) % (KEY_9 + 1)):
-			highlighted = i
-			updatedHighlightedItem.emit(i)
+			_change_selected_inventory_slot(i)
 	
-	if Input.is_action_just_released("MWU"):
-		if highlighted < MAX_INVENTORY-1:
-			highlighted += 1
+	# Traverses inventory using mouse wheel
+	if Input.is_action_just_released("mwu"):
+		_change_selected_inventory_slot((selected_inventory_slot + 1) % MAX_INVENTORY)
+	if Input.is_action_just_released("mwd"):
+		if selected_inventory_slot == 0:
+			_change_selected_inventory_slot(MAX_INVENTORY - 1)
 		else:
-			highlighted = 0
-		updatedHighlightedItem.emit(highlighted)
+			_change_selected_inventory_slot(selected_inventory_slot - 1)
 	
-	if Input.is_action_just_released("MWD"):
-		if highlighted > 0:
-			highlighted -= 1
-		else:
-			highlighted = MAX_INVENTORY-1
-		updatedHighlightedItem.emit(highlighted)
-	
+	# Uses selected item
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		#print("Attempting to use item: " + str(highlighted))
-		if  highlighted >= len(inventory):
+		# print("Attempting to use item at index: " + str(selected_inventory_slot))
+		if selected_inventory_slot >= len(inventory_items):
 			return
-		if inventory.is_empty() or inventory[highlighted] == null:
+		if inventory_items[selected_inventory_slot] == null:
 			return
-		var isConsumable = inventory[highlighted].call(self)
-		usedItem.emit(inventory[highlighted])
-		if isConsumable:
-			inventory[highlighted] = null
-			removeFromInventory.emit(highlighted)
-		#print(inventory)
-			
-func playSound(resource):
-	$SFX.set_stream(resource)
+		consume_item.emit(inventory_items[selected_inventory_slot])
+		var is_consumable = inventory_items[selected_inventory_slot].call(self)
+		if is_consumable:
+			inventory_items[selected_inventory_slot] = null
+			remove_from_inventory.emit(selected_inventory_slot)
+		# print(inventory)
+
+func _change_selected_inventory_slot(i: int):
+	if selected_inventory_slot < 0 or selected_inventory_slot >= MAX_INVENTORY:
+		return
+	selected_inventory_slot = i
+	change_selected_inventory_slot.emit(i)
+
+func play_sound(sound_resource):
+	$SFX.set_stream(sound_resource)
 	$SFX.play()

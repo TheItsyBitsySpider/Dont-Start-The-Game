@@ -25,7 +25,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_bxpfm")
 
-[node name="Slot1" parent="CanvasLayer/InventoryManager" instance=ExtResource("3_afhwo")]
+[node name="InventorySlot" parent="CanvasLayer/InventoryManager" instance=ExtResource("3_afhwo")]
 layout_mode = 1
 anchor_bottom = 0.164
 offset_left = 489.4
@@ -33,7 +33,7 @@ offset_top = 0.92
 offset_right = 551.0
 offset_bottom = 102.44
 
-[node name="Slot2" parent="CanvasLayer/InventoryManager" instance=ExtResource("3_afhwo")]
+[node name="InventorySlot2" parent="CanvasLayer/InventoryManager" instance=ExtResource("3_afhwo")]
 layout_mode = 1
 anchor_left = 0.523
 anchor_top = 0.0
@@ -44,14 +44,14 @@ offset_top = 1.0
 offset_right = 642.64
 offset_bottom = 100.44
 
-[node name="InventoryBox" parent="CanvasLayer/InventoryManager" instance=ExtResource("3_afhwo")]
+[node name="InventorySlot3" parent="CanvasLayer/InventoryManager" instance=ExtResource("3_afhwo")]
 layout_mode = 1
 offset_left = 672.4
 offset_top = 4.92
 offset_right = 734.0
 offset_bottom = 97.56
 
-[node name="InventoryBox2" parent="CanvasLayer/InventoryManager" instance=ExtResource("3_afhwo")]
+[node name="InventorySlot4" parent="CanvasLayer/InventoryManager" instance=ExtResource("3_afhwo")]
 layout_mode = 1
 offset_left = 768.4
 offset_top = 4.92

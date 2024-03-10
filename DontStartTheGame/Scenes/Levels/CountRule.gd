@@ -1,26 +1,21 @@
 extends Node2D
 
-@export var ruleText: String
-@export var amount: int
+@export var rule_text: String
+@export var target: int
 
+var rule_completed := false
+var count := 0
 
-var completed = false
-var curCount = 0
+signal complete_rule
 
-signal ruleCompleted
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
-	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
-
-func addToCount():
-	curCount += 1
-	if curCount >= amount:
-		completed = true
-		ruleCompleted.emit()
+func increment_count():
+	count += 1
+	if count >= target:
+		rule_completed = true
+		complete_rule.emit()

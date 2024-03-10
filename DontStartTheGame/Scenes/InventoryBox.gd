@@ -1,36 +1,32 @@
 extends TextureRect
 
-var spriteToUse
-var effect
-var itemID
-var highlightBox
+@onready var sprite := $ItemSprite
+@onready var highlight_effect := $Highlight
 
-# Called when the node enters the scene tree for the first time.
+var item_ID = null
+var item_effect = null
+
 func _ready():
-	spriteToUse = $ItemSprite
-	highlightBox = $Highlight
-	highlightBox.visible = false
-	spriteToUse.visible = false
+	sprite.visible = false
+	highlight_effect.visible = false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
-func addItem(item):
-	spriteToUse.texture = item.texture
-	spriteToUse.visible = true
-	effect = item.effect
-	itemID = item.sceneID
+func add_item(item):
+	sprite.texture = item.texture
+	sprite.visible = true
+	item_ID = item.scene_ID
+	item_effect = item.effect
 
-func removeItem():
-	spriteToUse.texture = null
-	spriteToUse.visible = false
-	effect = null
-	itemID = null
+func remove_item():
+	sprite.texture = null
+	sprite.visible = false
+	item_ID = null
+	item_effect = null
 
-func makeHighlighted():
-	highlightBox.visible = true
+func highlight():
+	highlight_effect.visible = true
 
-func unmakeHighlighted():
-	highlightBox.visible = false
+func unhighlight():
+	highlight_effect.visible = false

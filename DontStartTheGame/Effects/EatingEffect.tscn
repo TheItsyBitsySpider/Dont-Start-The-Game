@@ -5,4 +5,4 @@
 
 [node name="Effect" type="Node2D"]
 script = ExtResource("1_v8ye7")
-EatSFX = ExtResource("2_rpmmf")
+eat_sfx = ExtResource("2_rpmmf")

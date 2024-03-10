@@ -29,14 +29,12 @@ position = Vector2(-8, 36)
 [node name="Item5" parent="." instance=ExtResource("2_orgnf")]
 position = Vector2(55, 25)
 
-[node name="RULES" type="Node2D" parent="."]
+[node name="Rules" type="Node2D" parent="."]
 
-[node name="CountRule" parent="RULES" instance=ExtResource("3_0cs3k")]
-ruleText = "Don't use the prototype items"
-amount = 5
+[node name="CountRule" parent="Rules" instance=ExtResource("3_0cs3k")]
 
-[connection signal="effectPlayed" from="Item" to="RULES/CountRule" method="addToCount"]
-[connection signal="effectPlayed" from="Item2" to="RULES/CountRule" method="addToCount"]
-[connection signal="effectPlayed" from="Item3" to="RULES/CountRule" method="addToCount"]
-[connection signal="effectPlayed" from="Item4" to="RULES/CountRule" method="addToCount"]
-[connection signal="effectPlayed" from="Item5" to="RULES/CountRule" method="addToCount"]
+[connection signal="play_effect" from="Item" to="Rules/CountRule" method="increment_count"]
+[connection signal="play_effect" from="Item2" to="Rules/CountRule" method="increment_count"]
+[connection signal="play_effect" from="Item3" to="Rules/CountRule" method="increment_count"]
+[connection signal="play_effect" from="Item4" to="Rules/CountRule" method="increment_count"]
+[connection signal="play_effect" from="Item5" to="Rules/CountRule" method="increment_count"]

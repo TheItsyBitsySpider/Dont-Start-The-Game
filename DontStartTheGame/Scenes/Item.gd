@@ -1,34 +1,27 @@
 extends Sprite2D
 
+@onready var popup_node = $Popup
+@onready var scene_ID := scene_file_path
 
 var player = null
-var popupNode
-var sceneID
+
 var effect
-var effectNode
+var effect_node
 
-signal effectPlayed
+signal play_effect
 
-func _ready():
-	popupNode = $Popup
-	sceneID = scene_file_path
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
-
 
 func _on_area_2d_body_entered(body):
 	player = body
-	player.nearbyItems.append(self)
-	popupNode.visible = true
+	player.nearby_items.append(self)
+	popup_node.visible = true
 
-
-func _on_area_2d_body_exited(body):
-	player.nearbyItems.erase(self)
+func _on_area_2d_body_exited(_body):
+	player.nearby_items.erase(self)
 	player = null
-	popupNode.visible = false
-
+	popup_node.visible = false
 
 func _on_effect_effect_played():
-	effectPlayed.emit()
+	play_effect.emit()

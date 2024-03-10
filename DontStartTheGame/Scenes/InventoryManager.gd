@@ -1,33 +1,27 @@
 extends Control
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
 	pass
 
+func _process(_delta):
+	pass
 
-func addItemToInventory(item):
-	var allInventorySlots = get_children()
-	for slot in allInventorySlots:
-		if slot.itemID == null:
-			slot.addItem(item)
+func add_item(item):
+	var inventory_slots = get_children()
+	for inventory_slot in inventory_slots:
+		if inventory_slot.item_ID == null:
+			inventory_slot.add_item(item)
 			return
 
-func removeItemFromInventory(index):
-	var allInventorySlots = get_children()
-	for slotIndex in range(len(allInventorySlots)):
-		if slotIndex == index:
-			allInventorySlots[slotIndex].removeItem()
+func remove_item(i):
+	var inventory_slots = get_children()
+	if i >= 0 and i < len(inventory_slots):
+		inventory_slots[i].remove_item()
 
-func updateHighlightedItem(highlight):
-	
-	for slot in get_children():
-		slot.unmakeHighlighted()
-	
-	get_children()[highlight].makeHighlighted()
-
+func change_selected(i):
+	var inventory_slots = get_children()
+	if i < 0 or i >= len(inventory_slots):
+		return
+	for inventory_slot in inventory_slots:
+		inventory_slot.unhighlight()
+	inventory_slots[i].highlight()

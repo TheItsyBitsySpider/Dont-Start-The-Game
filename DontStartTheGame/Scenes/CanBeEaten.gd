@@ -1,21 +1,18 @@
 extends Node2D
 
-@export var EatSFX: Resource
+@export var eat_sfx: Resource
 
-signal effectPlayed
+signal play_effect
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	get_parent().effect = EatEffect
-	get_parent().effectNode = self
+	get_parent().effect = play_eat_sfx
+	get_parent().effect_node = self
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
-func EatEffect(player):
-	if EatSFX:
-		player.playSound(EatSFX)
-	effectPlayed.emit()
+func play_eat_sfx(player):
+	if eat_sfx:
+		player.play_sound(eat_sfx)
+	play_effect.emit()
 	return true
