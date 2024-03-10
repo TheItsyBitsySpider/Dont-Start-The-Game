@@ -4,6 +4,7 @@ extends Node2D
 @onready var player := $MainCharacter
 @onready var current_level = null
 @onready var inventory_manager := $CanvasLayer/InventoryManager
+@onready var rule_box := $CanvasLayer/RuleBox
 @onready var rules_list := $CanvasLayer/RuleBox/RuleLister
 
 func _ready():
@@ -39,6 +40,7 @@ func load_level_helper(level):
 	current_level = level.instantiate()
 	add_child(current_level)
 	if current_level.name == "EndingScreen":
+		set_gui_visibility(false)
 		remove_child(player)
 		return
 	player.position = current_level.get_spawnpoint()
@@ -47,3 +49,9 @@ func load_level_helper(level):
 
 func update_connections():
 	player.add_to_inventory.connect(current_level._on_main_character_add_to_inventory)
+
+func set_gui_visibility(visibility: bool):
+	for inventory_slot in inventory_manager.get_children():
+		inventory_slot.visible = visibility
+	rule_box.visible = visibility
+	rules_list.visible = visibility
