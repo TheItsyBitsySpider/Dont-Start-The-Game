@@ -10,11 +10,10 @@
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_mehqf")
+starting_level = ExtResource("2_2gncy")
 
 [node name="MainCharacter" parent="." instance=ExtResource("1_1grki")]
 z_index = 1
-
-[node name="TileMap" parent="." instance=ExtResource("2_2gncy")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -83,5 +82,3 @@ bbcode_enabled = true
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_00wia")
 autoplay = true
-
-[connection signal="add_to_inventory" from="MainCharacter" to="TileMap" method="_on_main_character_add_to_inventory"]

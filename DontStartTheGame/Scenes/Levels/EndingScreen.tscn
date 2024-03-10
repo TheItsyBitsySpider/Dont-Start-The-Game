@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bwmbm5xutb0ov"]
+
+[node name="EndingScreen" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -156.0
+offset_top = -44.0
+offset_right = -68.0
+offset_bottom = -14.0
+scale = Vector2(3.71538, 3.30769)
+text = "You did it!"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.69, 1.69)
