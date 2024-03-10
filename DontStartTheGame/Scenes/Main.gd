@@ -2,7 +2,7 @@ extends Node2D
 
 @export var starting_level: PackedScene
 @onready var player := $MainCharacter
-@onready var current_level := $TileMap
+@onready var current_level = null
 @onready var inventory_manager := $CanvasLayer/InventoryManager
 @onready var rules_list := $CanvasLayer/RuleBox/RuleLister
 
@@ -30,14 +30,16 @@ func update_rules():
 		current_level.unlock_elevator()
 
 func load_level(level):
+	call_deferred("load_level_helper", level)
+
+func load_level_helper(level):
 	if current_level != null:
 		current_level.queue_free()
 	current_level = level.instantiate()
+	add_child(current_level)
 	if current_level.name == "EndingScreen":
 		remove_child(player)
-		add_child(current_level)
 		return
-	add_child(current_level)
 	player.position = current_level.get_spawnpoint()
 	update_rules()
 	update_connections()
