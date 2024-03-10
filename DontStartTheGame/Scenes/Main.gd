@@ -10,6 +10,7 @@ func _ready():
 	player.add_to_inventory.connect(inventory_manager.add_item)
 	player.remove_from_inventory.connect(inventory_manager.remove_item)
 	player.change_selected_inventory_slot.connect(inventory_manager.change_selected)
+	inventory_manager.change_selected(0)
 	load_level(starting_level)
 
 func update_rules():

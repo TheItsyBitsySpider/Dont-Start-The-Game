@@ -62,7 +62,7 @@ func _physics_process(_delta):
 		# print(inventory)
 
 func _change_selected_inventory_slot(i: int):
-	if selected_inventory_slot < 0 or selected_inventory_slot >= MAX_INVENTORY:
+	if i < 0 or i >= MAX_INVENTORY:
 		return
 	selected_inventory_slot = i
 	change_selected_inventory_slot.emit(i)
