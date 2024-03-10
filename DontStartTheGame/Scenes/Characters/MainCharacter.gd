@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var SPEED: int
+@onready var sprite := $Sprite2D
 
 const MAX_INVENTORY := 4
 
@@ -8,10 +9,16 @@ var nearby_items := []
 var inventory_items := []
 var selected_inventory_slot := 0
 
+enum Directions { UP, DOWN, LEFT, RIGHT }
+var direction_facing := Directions.DOWN
+
 signal add_to_inventory
 signal remove_from_inventory
 signal change_selected_inventory_slot
 signal consume_item
+
+func _ready():
+	sprite.flip_h = 1
 
 func _physics_process(_delta):
 	# Controls movement
@@ -19,6 +26,22 @@ func _physics_process(_delta):
 	var direction_y = Input.get_axis("move_up", "move_down")
 	velocity = Vector2(direction_x * SPEED, direction_y * SPEED)
 	move_and_slide()
+	
+	# Determines direction facing
+	if Input.is_action_just_pressed("move_up") and not Input.is_action_just_pressed("move_down"):
+		direction_facing = Directions.UP
+	if Input.is_action_just_pressed("move_down"):
+		direction_facing = Directions.DOWN
+	if Input.is_action_just_pressed("move_left") and not Input.is_action_just_pressed("move_right"):
+		direction_facing = Directions.LEFT
+	if Input.is_action_just_pressed("move_right"):
+		direction_facing = Directions.RIGHT
+	
+	# Transforms sprite according to direction facing
+	if direction_facing == Directions.LEFT:
+		sprite.flip_h = 0
+	elif direction_facing == Directions.RIGHT:
+		sprite.flip_h = 1
 	
 	# Picks up nearby item
 	if Input.is_action_just_pressed("interact") and not nearby_items.is_empty():
