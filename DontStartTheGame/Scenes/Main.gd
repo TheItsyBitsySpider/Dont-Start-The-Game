@@ -38,6 +38,7 @@ func load_level_helper(level):
 	if current_level != null:
 		current_level.queue_free()
 	current_level = level.instantiate()
+	player.current_level = current_level
 	add_child(current_level)
 	if current_level.name == "EndingScreen":
 		set_gui_visibility(false)

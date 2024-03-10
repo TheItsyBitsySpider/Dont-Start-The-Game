@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var SPEED: int
+@export var current_level: Node
 @onready var sprite := $Sprite2D
 
 const MAX_INVENTORY := 4
@@ -43,18 +44,25 @@ func _physics_process(_delta):
 	elif direction_facing == Directions.RIGHT:
 		sprite.flip_h = 1
 	
+	# Determines whether a nearby item could be picked up
+	var interactable_item = null
+	for nearby_item in nearby_items:
+		if nearby_item.velocity == Vector2.ZERO:
+			interactable_item = nearby_item
+			break
+	
 	# Picks up nearby item
-	if Input.is_action_just_pressed("interact") and not nearby_items.is_empty():
+	if Input.is_action_just_pressed("interact") and interactable_item != null:
 		if null in inventory_items:
-			var item = nearby_items.pop_front()
-			inventory_items[inventory_items.find(null)] = item.effect
-			add_to_inventory.emit(item)
-			item.get_parent().remove_child(item)
+			nearby_items.erase(interactable_item)
+			inventory_items[inventory_items.find(null)] = interactable_item
+			add_to_inventory.emit(interactable_item)
+			interactable_item.get_parent().remove_child(interactable_item)
 		elif len(inventory_items) < MAX_INVENTORY:
-			var item = nearby_items.pop_front()
-			inventory_items.append(item.effect)
-			add_to_inventory.emit(item)
-			item.get_parent().remove_child(item)
+			nearby_items.erase(interactable_item)
+			inventory_items.append(interactable_item)
+			add_to_inventory.emit(interactable_item)
+			interactable_item.get_parent().remove_child(interactable_item)
 	
 	# Traverses inventory using number keys
 	for i in min(MAX_INVENTORY, 10):
@@ -70,19 +78,34 @@ func _physics_process(_delta):
 		else:
 			_change_selected_inventory_slot(selected_inventory_slot - 1)
 	
+	# Determines whether an inventory item is selected
+	var selected_item = null
+	if selected_inventory_slot < len(inventory_items) and inventory_items[selected_inventory_slot] != null:
+		selected_item = inventory_items[selected_inventory_slot]
+	
 	# Uses selected item
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		# print("Attempting to use item at index: " + str(selected_inventory_slot))
-		if selected_inventory_slot >= len(inventory_items):
-			return
-		if inventory_items[selected_inventory_slot] == null:
-			return
-		consume_item.emit(inventory_items[selected_inventory_slot])
-		var is_consumable = inventory_items[selected_inventory_slot].call(self)
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and selected_item != null:
+		consume_item.emit(selected_item.effect)
+		var is_consumable = selected_item.effect.call(self)
 		if is_consumable:
 			inventory_items[selected_inventory_slot] = null
 			remove_from_inventory.emit(selected_inventory_slot)
-		# print(inventory)
+	
+	# Throws selected item
+	if Input.is_physical_key_pressed(KEY_SPACE) and selected_item != null and current_level != null:
+		inventory_items[selected_inventory_slot] = null
+		remove_from_inventory.emit(selected_inventory_slot)
+		selected_item.position = position
+		var throw_speed = 5000.0 / selected_item.weight
+		if direction_facing == Directions.UP:
+			selected_item.velocity = Vector2(0.0, -throw_speed)
+		elif direction_facing == Directions.DOWN:
+			selected_item.velocity = Vector2(0.0, throw_speed)
+		elif direction_facing == Directions.LEFT:
+			selected_item.velocity = Vector2(-throw_speed, 0.0)
+		else:
+			selected_item.velocity = Vector2(throw_speed, 0.0)
+		current_level.add_child(selected_item)
 
 func _change_selected_inventory_slot(i: int):
 	if i < 0 or i >= MAX_INVENTORY:
