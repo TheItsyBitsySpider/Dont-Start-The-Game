@@ -98,13 +98,13 @@ func _physics_process(_delta):
 		selected_item.position = position
 		var throw_speed = 5000.0 / selected_item.weight
 		if direction_facing == Directions.UP:
-			selected_item.velocity = Vector2(0.0, -throw_speed)
+			selected_item.throw(Vector2(0.0, -throw_speed))
 		elif direction_facing == Directions.DOWN:
-			selected_item.velocity = Vector2(0.0, throw_speed)
+			selected_item.throw(Vector2(0.0, throw_speed))
 		elif direction_facing == Directions.LEFT:
-			selected_item.velocity = Vector2(-throw_speed, 0.0)
+			selected_item.throw(Vector2(-throw_speed, 0.0))
 		else:
-			selected_item.velocity = Vector2(throw_speed, 0.0)
+			selected_item.throw(Vector2(throw_speed, 0.0))
 		current_level.add_child(selected_item)
 
 func _change_selected_inventory_slot(i: int):

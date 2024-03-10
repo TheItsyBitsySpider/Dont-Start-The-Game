@@ -13,6 +13,7 @@ var effect_node
 var velocity := Vector2.ZERO
 
 signal play_effect
+signal on_item_thrown
 
 func _physics_process(delta):
 	position += velocity * delta
@@ -34,3 +35,7 @@ func _on_area_2d_body_exited(body):
 
 func _on_effect_effect_played():
 	play_effect.emit()
+
+func throw(throw_speed: Vector2):
+	velocity += throw_speed
+	on_item_thrown.emit()

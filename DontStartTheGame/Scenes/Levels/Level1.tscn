@@ -64,6 +64,10 @@ rule_text = "Don't press the Left Mouse button to use an item."
 target = 1
 
 [node name="CountRule3" parent="Rules" instance=ExtResource("3_0cs3k")]
+rule_text = "Don't press the Space key to throw an item."
+target = 1
+
+[node name="CountRule4" parent="Rules" instance=ExtResource("3_0cs3k")]
 rule_text = "Don't use all of the items."
 
 [node name="Elevator" parent="." instance=ExtResource("6_ae6ls")]
@@ -72,13 +76,18 @@ rule_text = "Don't use all of the items."
 position = Vector2(-8, -108)
 
 [connection signal="on_item_picked_up" from="." to="Rules/CountRule" method="increment_count"]
+[connection signal="on_item_thrown" from="Item" to="Rules/CountRule3" method="increment_count"]
 [connection signal="play_effect" from="Item" to="Rules/CountRule2" method="increment_count"]
-[connection signal="play_effect" from="Item" to="Rules/CountRule3" method="increment_count"]
+[connection signal="play_effect" from="Item" to="Rules/CountRule4" method="increment_count"]
+[connection signal="on_item_thrown" from="Item2" to="Rules/CountRule3" method="increment_count"]
 [connection signal="play_effect" from="Item2" to="Rules/CountRule2" method="increment_count"]
-[connection signal="play_effect" from="Item2" to="Rules/CountRule3" method="increment_count"]
+[connection signal="play_effect" from="Item2" to="Rules/CountRule4" method="increment_count"]
+[connection signal="on_item_thrown" from="Item3" to="Rules/CountRule3" method="increment_count"]
 [connection signal="play_effect" from="Item3" to="Rules/CountRule2" method="increment_count"]
-[connection signal="play_effect" from="Item3" to="Rules/CountRule3" method="increment_count"]
+[connection signal="play_effect" from="Item3" to="Rules/CountRule4" method="increment_count"]
+[connection signal="on_item_thrown" from="Item4" to="Rules/CountRule3" method="increment_count"]
 [connection signal="play_effect" from="Item4" to="Rules/CountRule2" method="increment_count"]
-[connection signal="play_effect" from="Item4" to="Rules/CountRule3" method="increment_count"]
+[connection signal="play_effect" from="Item4" to="Rules/CountRule4" method="increment_count"]
+[connection signal="on_item_thrown" from="Item5" to="Rules/CountRule3" method="increment_count"]
 [connection signal="play_effect" from="Item5" to="Rules/CountRule2" method="increment_count"]
-[connection signal="play_effect" from="Item5" to="Rules/CountRule3" method="increment_count"]
+[connection signal="play_effect" from="Item5" to="Rules/CountRule4" method="increment_count"]
