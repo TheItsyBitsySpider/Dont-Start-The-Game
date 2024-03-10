@@ -1,11 +1,5 @@
 extends Control
 
-func _ready():
-	pass
-
-func _process(_delta):
-	pass
-
 func add_item(item):
 	var inventory_slots = get_children()
 	for inventory_slot in inventory_slots:

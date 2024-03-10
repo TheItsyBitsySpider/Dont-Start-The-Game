@@ -10,9 +10,6 @@ var effect_node
 
 signal play_effect
 
-func _process(_delta):
-	pass
-
 func _on_area_2d_body_entered(body):
 	player = body
 	player.nearby_items.append(self)

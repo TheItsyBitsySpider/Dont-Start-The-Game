@@ -10,9 +10,6 @@ func _ready():
 	sprite.visible = false
 	highlight_effect.visible = false
 
-func _process(_delta):
-	pass
-
 func add_item(item):
 	sprite.texture = item.texture
 	sprite.visible = true

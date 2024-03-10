@@ -1,17 +1,15 @@
 extends Node2D
 
 @export var rule_text: String
-@export var target: int
+@export var target_action: String
 
 var rule_completed := false
-var count := 0
 
 signal complete_rule
 
-func increment_count():
-	if rule_completed == true:
+func _unhandled_input(event):
+	if rule_completed:
 		return
-	count += 1
-	if count >= target:
+	if event.is_action_pressed(target_action):
 		rule_completed = true
 		complete_rule.emit()

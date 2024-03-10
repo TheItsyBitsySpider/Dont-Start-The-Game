@@ -74,12 +74,14 @@ anchor_left = 0.082
 anchor_top = 0.274
 anchor_right = 0.91
 anchor_bottom = 0.731
-offset_left = 7.43
-offset_top = -0.414001
-offset_right = 3.64999
-offset_bottom = 1.859
+offset_left = 8.43
+offset_top = 2.586
+offset_right = 118.65
+offset_bottom = 314.859
 bbcode_enabled = true
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_00wia")
 autoplay = true
+
+[connection signal="add_to_inventory" from="MainCharacter" to="TileMap" method="_on_main_character_add_to_inventory"]

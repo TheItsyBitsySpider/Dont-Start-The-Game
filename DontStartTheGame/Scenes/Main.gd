@@ -11,9 +11,6 @@ func _ready():
 	player.change_selected_inventory_slot.connect(inventory_manager.change_selected)
 	update_rules()
 
-func _process(_delta):
-	pass
-
 func update_rules():
 	var rules = current_level.rule_manager.get_children()
 	var rules_text = ""
