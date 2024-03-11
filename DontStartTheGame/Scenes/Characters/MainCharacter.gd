@@ -7,6 +7,7 @@ extends CharacterBody2D
 const MAX_INVENTORY := 4
 
 var nearby_items := []
+var nearby_interactables := []
 var inventory_items := []
 var selected_inventory_slot := 0
 
@@ -53,16 +54,11 @@ func _physics_process(_delta):
 	
 	# Picks up nearby item
 	if Input.is_action_just_pressed("interact") and interactable_item != null:
-		if null in inventory_items:
-			nearby_items.erase(interactable_item)
-			inventory_items[inventory_items.find(null)] = interactable_item
-			add_to_inventory.emit(interactable_item)
-			interactable_item.get_parent().remove_child(interactable_item)
-		elif len(inventory_items) < MAX_INVENTORY:
-			nearby_items.erase(interactable_item)
-			inventory_items.append(interactable_item)
-			add_to_inventory.emit(interactable_item)
-			interactable_item.get_parent().remove_child(interactable_item)
+		add_item_to_inventory(interactable_item)
+	
+	# Interacts with an object
+	if Input.is_action_just_pressed("interact") and not nearby_interactables.is_empty():
+		interact_with_object(nearby_interactables.front())
 	
 	# Traverses inventory using number keys
 	for i in min(MAX_INVENTORY, 10):
@@ -116,3 +112,20 @@ func _change_selected_inventory_slot(i: int):
 func play_sound(sound_resource):
 	$SFX.set_stream(sound_resource)
 	$SFX.play()
+
+func add_item_to_inventory(item):
+	if null in inventory_items:
+		nearby_items.erase(item)
+		inventory_items[inventory_items.find(null)] = item
+		add_to_inventory.emit(item)
+		item.get_parent().remove_child(item)
+	elif len(inventory_items) < MAX_INVENTORY:
+		nearby_items.erase(item)
+		inventory_items.append(item)
+		add_to_inventory.emit(item)
+		item.get_parent().remove_child(item)
+
+func interact_with_object(interactable):
+		var is_consumable = interactable.effect.call(self)
+		if is_consumable:
+			interactable.queue_free()

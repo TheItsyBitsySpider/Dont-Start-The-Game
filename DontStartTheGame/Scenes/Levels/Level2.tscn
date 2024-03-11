@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c55774fkgrigf"]
+[gd_scene load_steps=8 format=3 uid="uid://c55774fkgrigf"]
 
 [ext_resource type="TileSet" uid="uid://dna5am6weug3i" path="res://Sprites/Map/FloorAndWalls.tres" id="1_qdwyj"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="2_yursi"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://elevator.tscn" id="3_ljh0b"]
 [ext_resource type="PackedScene" uid="uid://k7akkqqm4ifu" path="res://Rules/CountRule.tscn" id="4_7ub6b"]
 [ext_resource type="PackedScene" uid="uid://dd27rs1lpil6h" path="res://Scenes/Item.tscn" id="5_lnj50"]
+[ext_resource type="PackedScene" uid="uid://d31b6krl6qhyh" path="res://interactable_object.tscn" id="7_nrbd2"]
 
 [node name="Level2" type="TileMap"]
 tile_set = ExtResource("1_qdwyj")
@@ -34,6 +35,9 @@ position = Vector2(120, 4)
 
 [node name="Spawnpoint" type="Node2D" parent="."]
 position = Vector2(-51, 10)
+
+[node name="InteractableObject" parent="." instance=ExtResource("7_nrbd2")]
+position = Vector2(121, -25)
 
 [connection signal="play_effect" from="Item" to="Rules/CountRule" method="increment_count"]
 [connection signal="play_effect" from="Item2" to="Rules/CountRule" method="increment_count"]

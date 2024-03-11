@@ -8,7 +8,8 @@
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8at6u"]
 
 [node name="MainCharacter" type="CharacterBody2D"]
-collision_mask = 3
+collision_layer = 5
+collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_6kdyp")
 SPEED = 150

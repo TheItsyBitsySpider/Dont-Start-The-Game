@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://drlv0oshwlrm7"]
+[gd_scene load_steps=9 format=3 uid="uid://drlv0oshwlrm7"]
 
 [ext_resource type="TileSet" uid="uid://dna5am6weug3i" path="res://Sprites/Map/FloorAndWalls.tres" id="1_h13xc"]
 [ext_resource type="PackedScene" uid="uid://dd27rs1lpil6h" path="res://Scenes/Item.tscn" id="2_orgnf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c55774fkgrigf" path="res://Scenes/Levels/Level2.tscn" id="3_v6h6i"]
 [ext_resource type="Script" path="res://Scenes/Levels/TutorialRule.gd" id="5_p4ukl"]
 [ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://elevator.tscn" id="6_ae6ls"]
+[ext_resource type="PackedScene" uid="uid://d31b6krl6qhyh" path="res://interactable_object.tscn" id="8_uopk6"]
 
 [node name="TileMap" type="TileMap"]
 tile_set = ExtResource("1_h13xc")
@@ -74,6 +75,9 @@ rule_text = "Don't use all of the items."
 
 [node name="Spawnpoint" type="Node2D" parent="."]
 position = Vector2(-8, -108)
+
+[node name="InteractableObject" parent="." instance=ExtResource("8_uopk6")]
+position = Vector2(-80, -17)
 
 [connection signal="on_item_picked_up" from="." to="Rules/CountRule" method="increment_count"]
 [connection signal="on_item_thrown" from="Item" to="Rules/CountRule3" method="increment_count"]
