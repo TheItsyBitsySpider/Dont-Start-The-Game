@@ -119,11 +119,14 @@ func add_item_to_inventory(item):
 		inventory_items[inventory_items.find(null)] = item
 		add_to_inventory.emit(item)
 		item.get_parent().remove_child(item)
+		return true
 	elif len(inventory_items) < MAX_INVENTORY:
 		nearby_items.erase(item)
 		inventory_items.append(item)
 		add_to_inventory.emit(item)
 		item.get_parent().remove_child(item)
+		return true
+	return false
 
 func interact_with_object(interactable):
 		var is_consumable = interactable.effect.call(self)

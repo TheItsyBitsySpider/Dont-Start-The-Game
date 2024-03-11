@@ -13,5 +13,6 @@ func give_item_effect(player):
 		return
 	var item_instance = item_to_give.instantiate()
 	add_child(item_instance)
-	player.add_item_to_inventory(item_instance)
+	if not player.add_item_to_inventory(item_instance):
+		item_instance.queue_free()
 	return false
