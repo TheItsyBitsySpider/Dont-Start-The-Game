@@ -57,7 +57,7 @@ func _physics_process(_delta):
 		add_item_to_inventory(interactable_item)
 	
 	# Interacts with an object
-	if Input.is_action_just_pressed("interact") and not nearby_interactables.is_empty():
+	elif Input.is_action_just_pressed("interact") and not nearby_interactables.is_empty():
 		interact_with_object(nearby_interactables.front())
 	
 	# Traverses inventory using number keys
