@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d31b6krl6qhyh"]
+[gd_scene load_steps=9 format=3 uid="uid://d31b6krl6qhyh"]
 
 [ext_resource type="Texture2D" uid="uid://doptbkt6c8b1d" path="res://Sprites/Map/TilesetElement.png" id="1_enp8i"]
 [ext_resource type="Script" path="res://interactable_object.gd" id="2_1anse"]
 [ext_resource type="Script" path="res://GiveItemEffect.gd" id="3_7p02t"]
+[ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://popup.tscn" id="3_filg0"]
 [ext_resource type="PackedScene" uid="uid://dd27rs1lpil6h" path="res://Scenes/Item.tscn" id="4_rpdrt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s74pn"]
@@ -35,21 +36,7 @@ collision_layer = 4
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_wa41v")
 
-[node name="Popup" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Popup"]
-modulate = Color(0, 1, 0, 1)
-layout_mode = 0
-offset_left = 7.0
-offset_top = -27.0
-offset_right = 23.0
-offset_bottom = -3.0
-text = "E"
+[node name="Popup" parent="." instance=ExtResource("3_filg0")]
 
 [node name="GiveItemEffect" type="Node2D" parent="."]
 script = ExtResource("3_7p02t")

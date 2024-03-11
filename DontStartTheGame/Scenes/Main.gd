@@ -32,6 +32,7 @@ func update_rules():
 		current_level.unlock_elevator()
 
 func load_level(level):
+	get_tree().call_group("Residuals", "on_level_exit")
 	call_deferred("load_level_helper", level)
 
 func load_level_helper(level):
