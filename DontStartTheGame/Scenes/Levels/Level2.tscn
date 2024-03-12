@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c55774fkgrigf"]
+[gd_scene load_steps=10 format=3 uid="uid://c55774fkgrigf"]
 
 [ext_resource type="TileSet" uid="uid://dna5am6weug3i" path="res://Sprites/Map/FloorAndWalls.tres" id="1_qdwyj"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="2_yursi"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dd27rs1lpil6h" path="res://Scenes/Item.tscn" id="5_lnj50"]
 [ext_resource type="PackedScene" uid="uid://d31b6krl6qhyh" path="res://interactable_object.tscn" id="7_nrbd2"]
 [ext_resource type="PackedScene" uid="uid://cnhi2habb66eh" path="res://light_switch.tscn" id="8_4dygi"]
+[ext_resource type="PackedScene" uid="uid://bba7qmvrw0ily" path="res://Scenes/Items/PaperAirplane.tscn" id="9_pih7e"]
 
 [node name="Level2" type="TileMap"]
 tile_set = ExtResource("1_qdwyj")
@@ -23,7 +24,16 @@ position = Vector2(-50, 9)
 [node name="Rules" type="Node2D" parent="."]
 
 [node name="CountRule" parent="Rules" instance=ExtResource("4_7ub6b")]
+rule_text = "Don't consume the 3 onigiri test items"
 target = 3
+
+[node name="CountRule2" parent="Rules" instance=ExtResource("4_7ub6b")]
+rule_text = "Don't throw the paper airplane"
+target = 1
+
+[node name="CountRule3" parent="Rules" instance=ExtResource("4_7ub6b")]
+rule_text = "Don't flick the lightswitch repeatedly"
+target = 10
 
 [node name="Item" parent="." instance=ExtResource("5_lnj50")]
 position = Vector2(202, 5)
@@ -43,6 +53,11 @@ position = Vector2(121, -25)
 [node name="LightSwitch" parent="." instance=ExtResource("8_4dygi")]
 position = Vector2(200, -25)
 
+[node name="PaperAirplane" parent="." instance=ExtResource("9_pih7e")]
+position = Vector2(119, 41)
+
 [connection signal="play_effect" from="Item" to="Rules/CountRule" method="increment_count"]
 [connection signal="play_effect" from="Item2" to="Rules/CountRule" method="increment_count"]
 [connection signal="play_effect" from="Item3" to="Rules/CountRule" method="increment_count"]
+[connection signal="play_effect" from="LightSwitch" to="Rules/CountRule3" method="increment_count"]
+[connection signal="on_item_thrown" from="PaperAirplane" to="Rules/CountRule2" method="increment_count"]

@@ -20,7 +20,7 @@ func light_switch_effect(_player):
 	elif not on:
 		on = true
 		get_tree().get_root().remove_child(lighting_instance)
-		
+	play_effect.emit()
 	return false
 
 func on_level_exit():

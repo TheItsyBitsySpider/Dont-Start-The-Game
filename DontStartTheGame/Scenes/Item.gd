@@ -1,6 +1,7 @@
 extends Sprite2D
 
 @export var weight := 10
+@export var floatiness := 1.0
 
 @onready var popup_node := $Popup
 @onready var scene_ID := scene_file_path
@@ -17,7 +18,7 @@ signal on_item_thrown
 
 func _physics_process(delta):
 	position += velocity * delta
-	velocity = velocity.move_toward(Vector2.ZERO, 750.0 * delta)
+	velocity = velocity.move_toward(Vector2.ZERO, 750.0 * delta * floatiness)
 
 func _on_area_2d_body_entered(body):
 	if body is CharacterBody2D:
