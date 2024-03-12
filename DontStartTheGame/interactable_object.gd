@@ -18,7 +18,7 @@ func _on_interact_area_body_entered(body):
 	popup_node.visible = true
 
 
-func _on_interact_area_body_exited(body):
+func _on_interact_area_body_exited(_body):
 	player.nearby_interactables.erase(self)
 	player = null
 	popup_node.visible = false

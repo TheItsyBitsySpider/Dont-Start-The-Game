@@ -13,7 +13,7 @@ func _ready():
 	get_parent().effect_node = self
 	lighting_instance = lighting_effect.instantiate()
 
-func light_switch_effect(player):
+func light_switch_effect(_player):
 	if on:
 		on = false
 		get_tree().get_root().add_child(lighting_instance)
