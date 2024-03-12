@@ -24,4 +24,5 @@ func light_switch_effect(_player):
 	return false
 
 func on_level_exit():
-	get_tree().get_root().remove_child(lighting_instance)
+	if lighting_instance in get_tree().get_root().get_children():
+		get_tree().get_root().remove_child(lighting_instance)
