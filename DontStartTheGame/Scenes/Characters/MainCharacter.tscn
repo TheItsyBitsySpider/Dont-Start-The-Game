@@ -1,32 +1,87 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtdssf5kyh7yh"]
+[gd_scene load_steps=8 format=3 uid="uid://dtdssf5kyh7yh"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/MainCharacter.gd" id="1_6kdyp"]
-[ext_resource type="Texture2D" uid="uid://doaio6qiwewxo" path="res://Sprites/Character/Player/SpriteSheet.png" id="1_mmbrd"]
+[ext_resource type="Texture2D" uid="uid://cem8i6cbi8o8" path="res://Sprites/Character/Player/Player.png" id="2_p4wws"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h154s"]
+size = Vector2(12, 15)
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8at6u"]
+[sub_resource type="Animation" id="Animation_7yuun"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_5gqgj"]
+resource_name = "idle_front_right"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_2cjt5"]
+resource_name = "idle_front_right"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 2,
+"values": [1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5vj77"]
+_data = {
+"RESET": SubResource("Animation_7yuun"),
+"idle_front_right": SubResource("Animation_5gqgj"),
+"walk_front_right": SubResource("Animation_2cjt5")
+}
 
 [node name="MainCharacter" type="CharacterBody2D"]
 collision_layer = 5
 collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_6kdyp")
-SPEED = 150
+SPEED = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_h154s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_mmbrd")
-hframes = 4
-vframes = 7
+texture = ExtResource("2_p4wws")
+hframes = 6
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_8at6u")
+libraries = {
+"": SubResource("AnimationLibrary_5vj77")
+}
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3.895, 3.895)

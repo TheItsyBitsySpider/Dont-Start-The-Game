@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var SPEED: int
 @export var current_level: Node
 @onready var sprite := $Sprite2D
+@onready var animation_player := $AnimationPlayer
 
 const MAX_INVENTORY := 4
 
@@ -20,14 +21,22 @@ signal change_selected_inventory_slot
 signal consume_item
 
 func _ready():
-	sprite.flip_h = 1
+	animation_player.play("idle_front_right")
 
 func _physics_process(_delta):
 	# Controls movement
+	var player_moved = false
 	var direction_x = Input.get_axis("move_left", "move_right")
 	var direction_y = Input.get_axis("move_up", "move_down")
 	velocity = Vector2(direction_x * SPEED, direction_y * SPEED)
+	player_moved = velocity != Vector2.ZERO
 	move_and_slide()
+	
+	# Controls animation
+	if player_moved and animation_player.current_animation != "walk_front_right":
+		animation_player.play("walk_front_right")
+	elif not player_moved and animation_player.current_animation != "idle_front_right":
+		animation_player.play("idle_front_right")
 	
 	# Determines direction facing
 	if Input.is_action_just_pressed("move_up") and not Input.is_action_just_pressed("move_down"):
@@ -41,9 +50,9 @@ func _physics_process(_delta):
 	
 	# Transforms sprite according to direction facing
 	if direction_facing == Directions.LEFT:
-		sprite.flip_h = 0
-	elif direction_facing == Directions.RIGHT:
 		sprite.flip_h = 1
+	elif direction_facing == Directions.RIGHT:
+		sprite.flip_h = 0
 	
 	# Determines whether a nearby item could be picked up
 	var interactable_item = null
@@ -93,7 +102,7 @@ func _physics_process(_delta):
 		remove_from_inventory.emit(selected_inventory_slot)
 		selected_item.position = position
 		var throw_speed = 5000.0 / selected_item.weight
-		selected_item.throw(position.direction_to(get_global_mouse_position())*throw_speed)
+		selected_item.throw(position.direction_to(get_global_mouse_position()) * throw_speed)
 		current_level.add_child(selected_item)
 
 func _change_selected_inventory_slot(i: int):
