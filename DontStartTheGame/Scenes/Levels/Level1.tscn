@@ -1,14 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://drlv0oshwlrm7"]
+[gd_scene load_steps=7 format=3 uid="uid://drlv0oshwlrm7"]
 
 [ext_resource type="TileSet" uid="uid://dna5am6weug3i" path="res://Sprites/Map/FloorAndWalls.tres" id="1_h13xc"]
-[ext_resource type="PackedScene" uid="uid://dd27rs1lpil6h" path="res://Scenes/Item.tscn" id="2_orgnf"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="2_wxf60"]
-[ext_resource type="PackedScene" uid="uid://k7akkqqm4ifu" path="res://Rules/CountRule.tscn" id="3_0cs3k"]
 [ext_resource type="PackedScene" uid="uid://c55774fkgrigf" path="res://Scenes/Levels/Level2.tscn" id="3_v6h6i"]
+[ext_resource type="Script" path="res://Scenes/Levels/AutoCompleteRule.gd" id="4_23f38"]
 [ext_resource type="Script" path="res://Scenes/Levels/TutorialRule.gd" id="5_p4ukl"]
 [ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://elevator.tscn" id="6_ae6ls"]
-[ext_resource type="PackedScene" uid="uid://d31b6krl6qhyh" path="res://interactable_object.tscn" id="8_uopk6"]
-[ext_resource type="PackedScene" uid="uid://cnhi2habb66eh" path="res://light_switch.tscn" id="9_srjxq"]
 
 [node name="TileMap" type="TileMap"]
 tile_set = ExtResource("1_h13xc")
@@ -20,22 +17,11 @@ layer_1/tile_data = PackedInt32Array(-327683, 589825, 1, -393215, 917505, 1, -45
 script = ExtResource("2_wxf60")
 next_level = ExtResource("3_v6h6i")
 
-[node name="Item" parent="." instance=ExtResource("2_orgnf")]
-position = Vector2(-104, 39)
-
-[node name="Item2" parent="." instance=ExtResource("2_orgnf")]
-position = Vector2(88, 38)
-
-[node name="Item3" parent="." instance=ExtResource("2_orgnf")]
-position = Vector2(-64, 25)
-
-[node name="Item4" parent="." instance=ExtResource("2_orgnf")]
-position = Vector2(-8, 36)
-
-[node name="Item5" parent="." instance=ExtResource("2_orgnf")]
-position = Vector2(55, 25)
-
 [node name="Rules" type="Node2D" parent="."]
+
+[node name="TutorialRule5" type="Node2D" parent="Rules"]
+script = ExtResource("4_23f38")
+rule_text = "Don't be late."
 
 [node name="TutorialRule" type="Node2D" parent="Rules"]
 script = ExtResource("5_p4ukl")
@@ -57,45 +43,7 @@ script = ExtResource("5_p4ukl")
 rule_text = "Don’t press Right or the D key to move right."
 target_action = "move_right"
 
-[node name="CountRule" parent="Rules" instance=ExtResource("3_0cs3k")]
-rule_text = "Don't press the E key to pick up an item."
-target = 1
-
-[node name="CountRule2" parent="Rules" instance=ExtResource("3_0cs3k")]
-rule_text = "Don't press the Left Mouse button to use an item."
-target = 1
-
-[node name="CountRule3" parent="Rules" instance=ExtResource("3_0cs3k")]
-rule_text = "Don't press the Space key to throw an item."
-target = 1
-
-[node name="CountRule4" parent="Rules" instance=ExtResource("3_0cs3k")]
-rule_text = "Don't use all of the items."
-
 [node name="Elevator" parent="." instance=ExtResource("6_ae6ls")]
 
 [node name="Spawnpoint" type="Node2D" parent="."]
-position = Vector2(-8, -108)
-
-[node name="InteractableObject" parent="." instance=ExtResource("8_uopk6")]
-position = Vector2(-80, -17)
-
-[node name="LightSwitch" parent="." instance=ExtResource("9_srjxq")]
-position = Vector2(65, -19)
-
-[connection signal="on_item_picked_up" from="." to="Rules/CountRule" method="increment_count"]
-[connection signal="on_item_thrown" from="Item" to="Rules/CountRule3" method="increment_count"]
-[connection signal="play_effect" from="Item" to="Rules/CountRule2" method="increment_count"]
-[connection signal="play_effect" from="Item" to="Rules/CountRule4" method="increment_count"]
-[connection signal="on_item_thrown" from="Item2" to="Rules/CountRule3" method="increment_count"]
-[connection signal="play_effect" from="Item2" to="Rules/CountRule2" method="increment_count"]
-[connection signal="play_effect" from="Item2" to="Rules/CountRule4" method="increment_count"]
-[connection signal="on_item_thrown" from="Item3" to="Rules/CountRule3" method="increment_count"]
-[connection signal="play_effect" from="Item3" to="Rules/CountRule2" method="increment_count"]
-[connection signal="play_effect" from="Item3" to="Rules/CountRule4" method="increment_count"]
-[connection signal="on_item_thrown" from="Item4" to="Rules/CountRule3" method="increment_count"]
-[connection signal="play_effect" from="Item4" to="Rules/CountRule2" method="increment_count"]
-[connection signal="play_effect" from="Item4" to="Rules/CountRule4" method="increment_count"]
-[connection signal="on_item_thrown" from="Item5" to="Rules/CountRule3" method="increment_count"]
-[connection signal="play_effect" from="Item5" to="Rules/CountRule2" method="increment_count"]
-[connection signal="play_effect" from="Item5" to="Rules/CountRule4" method="increment_count"]
+position = Vector2(-8, 56.05)
