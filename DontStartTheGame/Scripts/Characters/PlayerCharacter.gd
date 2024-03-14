@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var sprite := $Sprite2D
 @onready var shadow = $Shadow
 @onready var animation_player := $AnimationPlayer
+@onready var sfx := $SFX
 
 const MAX_INVENTORY := 4
 
@@ -120,8 +121,8 @@ func _change_selected_inventory_slot(i: int):
 	change_selected_inventory_slot.emit(i)
 
 func play_sound(sound_resource):
-	$SFX.set_stream(sound_resource)
-	$SFX.play()
+	sfx.set_stream(sound_resource)
+	sfx.play()
 
 func add_item_to_inventory(item):
 	if null in inventory_items:

@@ -1,12 +1,16 @@
 extends Node2D
 
 @export var starting_level: PackedScene
+@export var rule_completed_sfx_1: Resource
+@export var rule_completed_sfx_2: Resource
 @onready var player := $PlayerCharacter
 @onready var current_level = null
 @onready var inventory_manager := $CanvasLayer/InventoryManager
 @onready var rule_box := $CanvasLayer/RuleBox
 @onready var rules_label := $CanvasLayer/RuleBox/RuleListerLabel
 @onready var rules_list := $CanvasLayer/RuleBox/RuleLister
+
+var rng = RandomNumberGenerator.new()
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color.hex(0x212123ff))
@@ -17,13 +21,20 @@ func _ready():
 	inventory_manager.change_selected(0)
 	load_level(starting_level)
 
+func _on_rule_completed():
+	if rng.randi_range(0, 1) == 0:
+		player.play_sound(rule_completed_sfx_1)
+	else:
+		player.play_sound(rule_completed_sfx_2)
+	update_rules()
+
 func update_rules():
 	var rules = current_level.rule_manager.get_children()
 	var rules_text = ""
 	var rule_completion_count = 0
 	for rule in rules:
-		if not rule.complete_rule.is_connected(update_rules):
-			rule.complete_rule.connect(update_rules)
+		if not rule.complete_rule.is_connected(_on_rule_completed):
+			rule.complete_rule.connect(_on_rule_completed)
 		if rule.rule_completed:
 			rule_completion_count += 1
 			rules_text += "[s]" + rule.rule_text + "[/s]"
