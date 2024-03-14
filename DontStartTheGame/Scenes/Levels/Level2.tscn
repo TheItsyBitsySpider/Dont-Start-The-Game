@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scenes/Levels/CountRule.gd" id="5_fg66b"]
 [ext_resource type="PackedScene" uid="uid://dhmcd026kml5u" path="res://Scenes/Objects/water_cooler.tscn" id="8_1i88t"]
 [ext_resource type="PackedScene" uid="uid://dcjormrjy1761" path="res://Scenes/Objects/Plant.tscn" id="9_4rkk6"]
-[ext_resource type="PackedScene" uid="uid://wn6sn7rh4lfx" path="res://Scenes/Items/Mug.tscn" id="9_7g7wr"]
+[ext_resource type="PackedScene" path="res://Scenes/Items/Mug.tscn" id="9_7g7wr"]
 [ext_resource type="PackedScene" uid="uid://c6cs2cfnf18tj" path="res://Scenes/Objects/Computer.tscn" id="10_my8iq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u0ndt"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Objects/non_interactable_Computer.gd" id="1_j3h31"]
 [ext_resource type="Texture2D" uid="uid://doptbkt6c8b1d" path="res://Sprites/Map/TilesetElement.png" id="2_cfopc"]
-[ext_resource type="PackedScene" uid="uid://d0erkvsfbp0iv" path="res://Scenes/Items/WaterMug.tscn" id="2_uy8mw"]
+[ext_resource type="PackedScene" path="res://Scenes/Items/WaterMug.tscn" id="2_uy8mw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_edg6c"]
 

@@ -45,7 +45,6 @@ func throw(throw_speed: Vector2):
 func give_signal_connections_to(item):
 	var play_effect_connections = play_effect.get_connections()
 	var on_item_thrown_connections = on_item_thrown.get_connections()
-	
 	for connection in play_effect_connections:
 		item.play_effect.connect(connection["callable"])
 	for connection in on_item_thrown_connections:
