@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmxgcwu76w4cp"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/NoninteractableObjects/BirthdayBalloonObject.gd" id="1_yrvs5"]
+[ext_resource type="Texture2D" uid="uid://cg410s636bx14" path="res://Resources/Sprites/Items/Temporary/SeedBig1.png" id="2_7udu0"]
+[ext_resource type="AudioStream" uid="uid://txahyaesvocb" path="res://Resources/Sounds/SoundEffects/Coin.wav" id="3_c5xns"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_edg6c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pqqf4"]
+radius = 15.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ko1st"]
+size = Vector2(10, 13)
+
+[node name="BirthdayBalloonObject" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_edg6c")
+script = ExtResource("1_yrvs5")
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource("CircleShape2D_pqqf4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ko1st")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7udu0")
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_c5xns")
+
+[connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1egalx5bm7s5"]
+
+[ext_resource type="Texture2D" uid="uid://cgam7c82uiavm" path="res://Resources/Sprites/Items/Temporary/#2Pencil.png" id="1_23png"]
+[ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_g3hbl"]
+[ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="3_rjnb4"]
+[ext_resource type="Script" path="res://Scripts/Effects/NullEffect.gd" id="4_ghih7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6qke"]
+size = Vector2(18, 7)
+
+[node name="PencilItem" type="Sprite2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_23png")
+script = ExtResource("2_g3hbl")
+
+[node name="Popup" parent="." instance=ExtResource("3_rjnb4")]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 6
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_l6qke")
+
+[node name="Effect" type="Node2D" parent="."]
+script = ExtResource("4_ghih7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

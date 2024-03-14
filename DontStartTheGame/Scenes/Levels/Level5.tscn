@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://4gkw4ngocmxk"]
+
+[ext_resource type="TileSet" uid="uid://dna5am6weug3i" path="res://Resources/Sprites/Map/Temporary/FloorAndWalls.tres" id="1_napxa"]
+[ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_c16tq"]
+[ext_resource type="PackedScene" uid="uid://bwmbm5xutb0ov" path="res://Scenes/Levels/EndingScreen.tscn" id="3_eycxu"]
+[ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://Scenes/Levels/Elevator.tscn" id="4_mg4gu"]
+[ext_resource type="Script" path="res://Scripts/Rules/CountRule.gd" id="6_p6g4f"]
+[ext_resource type="PackedScene" uid="uid://b1egalx5bm7s5" path="res://Scenes/Items/PencilItem.tscn" id="7_0tt36"]
+[ext_resource type="PackedScene" uid="uid://dmxgcwu76w4cp" path="res://Scenes/Objects/NoninteractableObjects/BirthdayBalloonObject.tscn" id="8_lt578"]
+[ext_resource type="PackedScene" uid="uid://cv2uu5bg561ju" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObject.tscn" id="9_7q8hg"]
+
+[node name="Level5" type="TileMap"]
+tile_set = ExtResource("1_napxa")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65542, 65536, 7, -5, 65536, 7, 65532, 65536, 7, 131069, 65536, 7, 196606, 65536, 7, -6, 65536, 7, 65530, 65536, 7, 131066, 65536, 7, 196602, 65536, 7, -65541, 65536, 7, 65531, 65536, 7, 131067, 65536, 7, 196603, 65536, 7, -65540, 65536, 7, -4, 65536, 7, 131068, 65536, 7, 196604, 65536, 7, -65539, 65536, 7, -3, 65536, 7, 65533, 65536, 7, 196605, 65536, 7, -65538, 65536, 7, -2, 65536, 7, 65534, 65536, 7, 131070, 65536, 7, -196609, 720896, 0, -131073, 720896, 1, -65537, 720896, 1, -1, 720896, 1, 65535, 720896, 1, 131071, 720896, 1, 196607, 720896, 1, 262143, 720896, 1, 327679, 720896, 2, -262144, 786432, 0, -196608, 786432, 1, -131072, 786432, 1, -65536, 786432, 1, 0, 786432, 1, 65536, 786432, 1, 131072, 786432, 1, 196608, 786432, 1, 262144, 786432, 2, -262143, 786432, 0, -196607, 786432, 1, -131071, 917504, 3, -65535, 786432, 1, 1, 786432, 1, 65537, 786432, 1, 131073, 917504, 3, 196609, 786432, 1, 262145, 786432, 2, -262142, 786432, 0, -196606, 786432, 1, -131070, 786432, 1, -65534, 786432, 1, 2, 786432, 1, 65538, 786432, 1, 131074, 786432, 1, 196610, 786432, 1, 262146, 786432, 2, -262141, 786432, 0, -196605, 786432, 1, -131069, 786432, 1, -65533, 786432, 1, 3, 786432, 1, 65539, 786432, 1, 131075, 786432, 1, 196611, 786432, 1, 262147, 786432, 2, -262140, 786432, 0, -196604, 786432, 1, -131068, 786432, 1, -65532, 786432, 1, 4, 786432, 1, 65540, 786432, 1, 131076, 786432, 1, 196612, 786432, 1, 262148, 786432, 2, -262139, 786432, 0, -196603, 786432, 1, -131067, 786432, 1, -65531, 786432, 1, 5, 786432, 1, 65541, 786432, 1, 131077, 786432, 1, 196613, 786432, 1, 262149, 786432, 2, -262138, 786432, 0, -196602, 786432, 1, -131066, 786432, 1, -65530, 786432, 1, 6, 786432, 1, 65542, 786432, 1, 131078, 786432, 1, 196614, 786432, 1, 262150, 786432, 2, -262137, 786432, 0, -196601, 786432, 1, -131065, 917504, 3, -65529, 786432, 1, 7, 786432, 1, 65543, 786432, 1, 131079, 917504, 3, 196615, 786432, 1, 262151, 786432, 2, -262136, 786432, 0, -196600, 786432, 1, -131064, 786432, 1, -65528, 786432, 1, 8, 786432, 1, 65544, 786432, 1, 131080, 786432, 1, 196616, 786432, 1, 262152, 786432, 2, -262135, 786432, 0, -196599, 786432, 1, -131063, 786432, 1, -65527, 786432, 1, 9, 786432, 1, 65545, 786432, 1, 131081, 786432, 1, 196617, 786432, 1, 262153, 786432, 2, -262134, 786432, 0, -196598, 786432, 1, -131062, 786432, 1, -65526, 786432, 1, 10, 786432, 1, 65546, 786432, 1, 131082, 786432, 1, 196618, 786432, 1, 262154, 786432, 2, -262133, 786432, 0, -196597, 786432, 1, -131061, 786432, 1, -65525, 786432, 1, 11, 786432, 1, 65547, 786432, 1, 131083, 786432, 1, 196619, 786432, 1, 262155, 786432, 2, -262132, 786432, 0, -196596, 786432, 1, -131060, 917504, 3, -65524, 786432, 1, 12, 786432, 1, 65548, 786432, 1, 131084, 917504, 3, 196620, 786432, 1, 262156, 786432, 2, -262131, 786432, 0, -196595, 786432, 1, -131059, 786432, 1, -65523, 786432, 1, 13, 786432, 1, 65549, 786432, 1, 131085, 786432, 1, 196621, 786432, 1, 262157, 786432, 2, -262130, 851968, 0, -196594, 851968, 1, -131058, 851968, 1, -65522, 851968, 1, 14, 851968, 1, 65550, 851968, 1, 131086, 851968, 1, 196622, 851968, 1, 262158, 851968, 2)
+layer_1/tile_data = PackedInt32Array(-65538, 720897, 0, -65539, 851969, 0, -65540, 851969, 0, -65541, 851969, 0, -65542, 655361, 0, -6, 720897, 5, 65530, 720897, 5, 131066, 720897, 5, 196602, 655361, 9, 196603, 851969, 9, 196604, 851969, 9, 196605, 851969, 9, 196606, 720897, 9)
+script = ExtResource("2_c16tq")
+next_level = ExtResource("3_eycxu")
+
+[node name="Spawnpoint" type="Node2D" parent="."]
+position = Vector2(-51, 10)
+
+[node name="Elevator" parent="." instance=ExtResource("4_mg4gu")]
+position = Vector2(-50, 9)
+
+[node name="Rules" type="Node2D" parent="."]
+
+[node name="ThrowSharpRule" type="Node2D" parent="Rules"]
+script = ExtResource("6_p6g4f")
+rule_text = "Don’t throw sharp objects."
+target = 1
+
+[node name="BalloonRule" type="Node2D" parent="Rules"]
+script = ExtResource("6_p6g4f")
+rule_text = "Don’t pop the birthday balloons."
+target = 3
+
+[node name="BagRule" type="Node2D" parent="Rules"]
+script = ExtResource("6_p6g4f")
+
+[node name="FoodRule" type="Node2D" parent="Rules"]
+script = ExtResource("6_p6g4f")
+
+[node name="ThrowCakeRule" type="Node2D" parent="Rules"]
+script = ExtResource("6_p6g4f")
+
+[node name="PencilItem" parent="." instance=ExtResource("7_0tt36")]
+position = Vector2(24, 40)
+
+[node name="CoworkerObject" parent="." instance=ExtResource("9_7q8hg")]
+position = Vector2(121, 37)
+
+[node name="BirthdayBalloonObject" parent="." instance=ExtResource("8_lt578")]
+position = Vector2(132, 21)
+
+[node name="BirthdayBalloonObject2" parent="." instance=ExtResource("8_lt578")]
+position = Vector2(146, 9)
+
+[node name="BirthdayBalloonObject3" parent="." instance=ExtResource("8_lt578")]
+position = Vector2(149, 24)
+
+[connection signal="on_item_thrown" from="PencilItem" to="Rules/ThrowSharpRule" method="increment_count"]
+[connection signal="play_effect" from="BirthdayBalloonObject" to="Rules/BalloonRule" method="increment_count"]
+[connection signal="play_effect" from="BirthdayBalloonObject2" to="Rules/BalloonRule" method="increment_count"]
+[connection signal="play_effect" from="BirthdayBalloonObject3" to="Rules/BalloonRule" method="increment_count"]
