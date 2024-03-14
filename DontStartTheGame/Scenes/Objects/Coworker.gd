@@ -7,8 +7,8 @@ var effect
 var effect_node
 var effect_happened := false
 
-signal play_effect
 signal is_mad
+signal play_effect
 
 func _process(_delta):
 	if player != null \
@@ -29,12 +29,12 @@ func _on_interact_area_body_entered(body):
 		play_effect.emit()
 	elif body.collision_layer == 5:
 		player = body
-		player.shouted.connect(angry)
+		player.shouted.connect(anger)
 
 func _on_interact_area_body_exited(_body):
 	if player != null:
-		player.shouted.disconnect(angry)
+		player.shouted.disconnect(anger)
 		player = null
 
-func angry():
+func anger():
 	is_mad.emit()

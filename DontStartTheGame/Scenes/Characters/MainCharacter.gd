@@ -107,6 +107,7 @@ func _physics_process(_delta):
 		
 	item_held = selected_item
 	
+	# Shouts
 	if Input.is_action_just_pressed("shout"):
 		$SFX.set_stream(shout_sfx)
 		$SFX.play()

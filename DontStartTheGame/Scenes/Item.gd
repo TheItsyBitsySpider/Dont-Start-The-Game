@@ -5,20 +5,17 @@ extends Sprite2D
 @export var post_consume_item: PackedScene
 
 @onready var popup_node := $Popup
+@onready var collision_layer = $Area2D.collision_layer
 @onready var scene_ID := scene_file_path
 
 var player = null
 
 var effect
 var effect_node
-var collision_layer
 var velocity := Vector2.ZERO
 
 signal play_effect
 signal on_item_thrown
-
-func _ready():
-	collision_layer = $Area2D.collision_layer
 
 func _physics_process(delta):
 	position += velocity * delta
