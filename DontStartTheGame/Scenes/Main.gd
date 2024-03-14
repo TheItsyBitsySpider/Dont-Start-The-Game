@@ -8,6 +8,7 @@ extends Node2D
 @onready var rules_list := $CanvasLayer/RuleBox/RuleLister
 
 func _ready():
+	RenderingServer.set_default_clear_color(Color.hex(0x212123ff))
 	player.add_to_inventory.connect(inventory_manager.add_item)
 	player.remove_from_inventory.connect(inventory_manager.remove_item)
 	player.change_selected_inventory_slot.connect(inventory_manager.change_selected)
