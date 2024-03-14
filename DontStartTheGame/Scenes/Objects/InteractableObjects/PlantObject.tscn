@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dcjormrjy1761"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/InteractableObject.gd" id="1_lluj6"]
-[ext_resource type="Texture2D" uid="uid://doptbkt6c8b1d" path="res://Sprites/Map/TilesetElement.png" id="2_lbie8"]
+[ext_resource type="Texture2D" uid="uid://doptbkt6c8b1d" path="res://Resources/Sprites/Map/Temporary/TilesetElement.png" id="2_lbie8"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="2_mybo3"]
 [ext_resource type="Script" path="res://Scripts/Items/ItemEffects/WaterPlant.gd" id="4_dd3g0"]
 [ext_resource type="PackedScene" uid="uid://d0erkvsfbp0iv" path="res://Scenes/Items/WaterMugItem.tscn" id="5_ojlur"]

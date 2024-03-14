@@ -1,17 +1,17 @@
 [gd_scene load_steps=8 format=3 uid="uid://d0erkvsfbp0iv"]
 
-[ext_resource type="Texture2D" uid="uid://6q50lyv504i7" path="res://Sprites/Items/WaterPot.png" id="1_mfjvu"]
+[ext_resource type="Texture2D" uid="uid://6q50lyv504i7" path="res://Resources/Sprites/Items/Temporary/WaterPot.png" id="1_xuc4k"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_dxutu"]
 [ext_resource type="PackedScene" uid="uid://wn6sn7rh4lfx" path="res://Scenes/Items/MugItem.tscn" id="3_hxxnc"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="4_c6n4s"]
 [ext_resource type="Script" path="res://Scripts/Effects/SpillEffect.gd" id="5_favsh"]
-[ext_resource type="AudioStream" uid="uid://deo7npjppbb7a" path="res://Resources/Sounds/Magic2.wav" id="6_28rhp"]
+[ext_resource type="AudioStream" uid="uid://deo7npjppbb7a" path="res://Resources/Sounds/SoundEffects/Magic2.wav" id="6_fo7a5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ssym"]
 size = Vector2(8, 10)
 
 [node name="WaterMugItem" type="Sprite2D"]
-texture = ExtResource("1_mfjvu")
+texture = ExtResource("1_xuc4k")
 script = ExtResource("2_dxutu")
 post_consume_item = ExtResource("3_hxxnc")
 
@@ -26,7 +26,7 @@ shape = SubResource("RectangleShape2D_8ssym")
 
 [node name="SpillEffect" type="Node2D" parent="."]
 script = ExtResource("5_favsh")
-spill_sfx = ExtResource("6_28rhp")
+spill_sfx = ExtResource("6_fo7a5")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://dtdssf5kyh7yh"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/PlayerCharacter.gd" id="1_6kdyp"]
-[ext_resource type="Texture2D" uid="uid://cem8i6cbi8o8" path="res://Sprites/Character/Player/Player.png" id="2_p4wws"]
-[ext_resource type="AudioStream" uid="uid://txahyaesvocb" path="res://Resources/Sounds/Coin.wav" id="2_uewhj"]
-[ext_resource type="Texture2D" uid="uid://bomphqy12pyod" path="res://Sprites/Character/Player/PlayerShadow.png" id="3_plx14"]
+[ext_resource type="Texture2D" uid="uid://cem8i6cbi8o8" path="res://Resources/Sprites/Character/Player/Player.png" id="2_p4wws"]
+[ext_resource type="AudioStream" uid="uid://txahyaesvocb" path="res://Resources/Sounds/SoundEffects/Coin.wav" id="2_uewhj"]
+[ext_resource type="Texture2D" uid="uid://bomphqy12pyod" path="res://Resources/Sprites/Character/Player/PlayerShadow.png" id="3_plx14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h154s"]
 size = Vector2(12, 15)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dtrpsdayuxfqx"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/NoninteractableObjects/WindowObject.gd" id="1_qskt7"]
-[ext_resource type="Texture2D" uid="uid://pmby12eehful" path="res://Sprites/Items/ScrollEmpty.png" id="2_x77ww"]
-[ext_resource type="AudioStream" uid="uid://txahyaesvocb" path="res://Resources/Sounds/Coin.wav" id="3_6dnyl"]
+[ext_resource type="Texture2D" uid="uid://pmby12eehful" path="res://Resources/Sprites/Items/Temporary/ScrollEmpty.png" id="2_x77ww"]
+[ext_resource type="AudioStream" uid="uid://txahyaesvocb" path="res://Resources/Sounds/SoundEffects/Coin.wav" id="3_tykiq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_edg6c"]
 
@@ -31,7 +31,7 @@ shape = SubResource("RectangleShape2D_ko1st")
 texture = ExtResource("2_x77ww")
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_6dnyl")
+stream = ExtResource("3_tykiq")
 
 [connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="area_shape_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]

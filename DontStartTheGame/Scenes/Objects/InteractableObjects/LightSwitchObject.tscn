@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Objects/InteractableObject.gd" id="1_j6hbt"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="2_173t5"]
-[ext_resource type="Texture2D" uid="uid://doptbkt6c8b1d" path="res://Sprites/Map/TilesetElement.png" id="3_6x4rv"]
+[ext_resource type="Texture2D" uid="uid://doptbkt6c8b1d" path="res://Resources/Sprites/Map/Temporary/TilesetElement.png" id="3_6x4rv"]
 [ext_resource type="Script" path="res://Scripts/Effects/LightSwitchEffect.gd" id="4_avw4e"]
 [ext_resource type="PackedScene" uid="uid://brkmixknj2m12" path="res://Scenes/Effects/DarkEffect.tscn" id="5_bp7ko"]
 

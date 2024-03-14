@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Objects/NoninteractableObjects/CoworkerObject.gd" id="1_hxw16"]
 [ext_resource type="PackedScene" uid="uid://bba7qmvrw0ily" path="res://Scenes/Items/PaperAirplaneItem.tscn" id="2_j6vxs"]
-[ext_resource type="Texture2D" uid="uid://cem8i6cbi8o8" path="res://Sprites/Character/Player/Player.png" id="3_iusfi"]
+[ext_resource type="Texture2D" uid="uid://cem8i6cbi8o8" path="res://Resources/Sprites/Character/Player/Player.png" id="3_iusfi"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hfun6"]
 

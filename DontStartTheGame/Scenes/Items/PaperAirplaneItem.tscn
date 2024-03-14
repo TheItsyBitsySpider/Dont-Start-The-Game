@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bba7qmvrw0ily"]
 
-[ext_resource type="Texture2D" uid="uid://c7147ehxjkiko" path="res://Sprites/Items/Letter.png" id="1_wavxt"]
+[ext_resource type="Texture2D" uid="uid://c7147ehxjkiko" path="res://Resources/Sprites/Items/Temporary/Letter.png" id="1_rdpbf"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_8lyip"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="3_ls8j1"]
 [ext_resource type="PackedScene" uid="uid://bo06eknr1ojr4" path="res://Scenes/Effects/NullEffect.tscn" id="4_hxt2k"]
@@ -9,7 +9,7 @@
 size = Vector2(10, 8)
 
 [node name="PaperAirplaneItem" type="Sprite2D"]
-texture = ExtResource("1_wavxt")
+texture = ExtResource("1_rdpbf")
 script = ExtResource("2_8lyip")
 weight = 40
 floatiness = 0.1

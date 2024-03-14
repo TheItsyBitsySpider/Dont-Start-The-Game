@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdrl7jcmus5dk"]
 
-[ext_resource type="TileSet" uid="uid://dna5am6weug3i" path="res://Sprites/Map/FloorAndWalls.tres" id="1_r5tax"]
+[ext_resource type="TileSet" uid="uid://dna5am6weug3i" path="res://Resources/Sprites/Map/Temporary/FloorAndWalls.tres" id="1_r5tax"]
 [ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_4p0go"]
 
 [node name="OfficeTilemap" type="TileMap"]

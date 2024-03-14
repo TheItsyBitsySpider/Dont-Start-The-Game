@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Objects/InteractableObject.gd" id="1_xtfwy"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="2_nq1hs"]
-[ext_resource type="Texture2D" uid="uid://doptbkt6c8b1d" path="res://Sprites/Map/TilesetElement.png" id="3_c1qvi"]
+[ext_resource type="Texture2D" uid="uid://doptbkt6c8b1d" path="res://Resources/Sprites/Map/Temporary/TilesetElement.png" id="3_c1qvi"]
 [ext_resource type="Script" path="res://Scripts/Items/ItemEffects/GiveItemEffect.gd" id="4_53xs2"]
 [ext_resource type="PackedScene" uid="uid://d0erkvsfbp0iv" path="res://Scenes/Items/WaterMugItem.tscn" id="5_8rivn"]
 [ext_resource type="PackedScene" uid="uid://wn6sn7rh4lfx" path="res://Scenes/Items/MugItem.tscn" id="6_ucm1e"]

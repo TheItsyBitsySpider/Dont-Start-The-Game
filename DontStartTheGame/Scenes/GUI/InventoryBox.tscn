@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b41s6myqpr0d2"]
 
-[ext_resource type="Texture2D" uid="uid://umcmyn2fq3pt" path="res://Sprites/GUI/InventoryBox.png" id="1_e7c0j"]
+[ext_resource type="Texture2D" uid="uid://umcmyn2fq3pt" path="res://Resources/Sprites/Map/Temporary/InventoryBox.png" id="1_e7c0j"]
 [ext_resource type="Script" path="res://Scripts/GUI/InventoryBox.gd" id="2_g1ee2"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_obxyo"]
