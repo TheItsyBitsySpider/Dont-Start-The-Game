@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dphr3n1v0k4i0"]
+[gd_scene load_steps=7 format=3 uid="uid://dphr3n1v0k4i0"]
 
 [ext_resource type="TileSet" uid="uid://d2rpavaogyt1m" path="res://Resources/Sprites/Map/TileSets/TileSet.tres" id="1_grpac"]
 [ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_x6kxr"]
 [ext_resource type="PackedScene" uid="uid://bwmbm5xutb0ov" path="res://Scenes/Levels/EndingScreen.tscn" id="3_oo5k4"]
 [ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://Scenes/Levels/Elevator.tscn" id="4_e8uy5"]
+[ext_resource type="Script" path="res://Scripts/Rules/AutoCompleteRule.gd" id="5_3dilb"]
+[ext_resource type="Script" path="res://Scripts/Rules/TutorialRule.gd" id="6_d8250"]
 
 [node name="Floor" type="TileMap"]
 tile_set = ExtResource("1_grpac")
@@ -50,3 +52,27 @@ position = Vector2(248, 120)
 position = Vector2(-50, 9)
 
 [node name="Rules" type="Node2D" parent="."]
+
+[node name="LateRule" type="Node2D" parent="Rules"]
+script = ExtResource("5_3dilb")
+rule_text = "1. Don't be late."
+
+[node name="MoveUpRule" type="Node2D" parent="Rules"]
+script = ExtResource("6_d8250")
+rule_text = "2. Don’t press Up or the W key to move up."
+target_action = "move_up"
+
+[node name="MoveDownRule" type="Node2D" parent="Rules"]
+script = ExtResource("6_d8250")
+rule_text = "3. Don’t press Down or the S key to move down."
+target_action = "move_down"
+
+[node name="MoveLeftRule" type="Node2D" parent="Rules"]
+script = ExtResource("6_d8250")
+rule_text = "4. Don’t press Left or the A key to move left."
+target_action = "move_left"
+
+[node name="MoveRightRule" type="Node2D" parent="Rules"]
+script = ExtResource("6_d8250")
+rule_text = "5. Don’t press Right or the D key to move right."
+target_action = "move_right"
