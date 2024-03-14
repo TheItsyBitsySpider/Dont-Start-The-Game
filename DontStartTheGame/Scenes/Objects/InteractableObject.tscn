@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://d31b6krl6qhyh"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/InteractableObject.gd" id="1_i4sup"]
+[ext_resource type="Texture2D" uid="uid://doptbkt6c8b1d" path="res://Sprites/Map/TilesetElement.png" id="2_rwcrs"]
+[ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="3_2fdqr"]
+[ext_resource type="Script" path="res://Scripts/Items/ItemEffects/GiveItemEffect.gd" id="4_ex15t"]
+[ext_resource type="PackedScene" uid="uid://dd27rs1lpil6h" path="res://Scenes/Items/Item.tscn" id="5_6v8ni"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s74pn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1701"]
+size = Vector2(15, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wa41v"]
+radius = 17.0
+
+[node name="InteractableObject" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_s74pn")
+script = ExtResource("1_i4sup")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rwcrs")
+hframes = 15
+vframes = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_b1701")
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_wa41v")
+
+[node name="Popup" parent="." instance=ExtResource("3_2fdqr")]
+
+[node name="GiveItemEffect" type="Node2D" parent="."]
+script = ExtResource("4_ex15t")
+item_to_give = ExtResource("5_6v8ni")
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
+[connection signal="play_effect" from="GiveItemEffect" to="." method="_on_give_item_effect_play_effect"]

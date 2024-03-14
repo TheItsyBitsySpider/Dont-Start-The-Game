@@ -1,15 +1,15 @@
 [gd_scene load_steps=12 format=3 uid="uid://c55774fkgrigf"]
 
 [ext_resource type="TileSet" uid="uid://dna5am6weug3i" path="res://Sprites/Map/FloorAndWalls.tres" id="1_qdwyj"]
-[ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="2_yursi"]
-[ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://elevator.tscn" id="3_ljh0b"]
+[ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_yursi"]
+[ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://Scenes/Levels/Elevator.tscn" id="3_ljh0b"]
 [ext_resource type="PackedScene" uid="uid://cvs1oa4crbnq3" path="res://Scenes/Levels/Level3.tscn" id="3_uih6a"]
-[ext_resource type="Script" path="res://Scenes/Levels/PickupRule.gd" id="5_1sduh"]
-[ext_resource type="Script" path="res://Scenes/Levels/CountRule.gd" id="5_fg66b"]
-[ext_resource type="PackedScene" uid="uid://dhmcd026kml5u" path="res://Scenes/Objects/water_cooler.tscn" id="8_1i88t"]
-[ext_resource type="PackedScene" uid="uid://dcjormrjy1761" path="res://Scenes/Objects/Plant.tscn" id="9_4rkk6"]
-[ext_resource type="PackedScene" uid="uid://wn6sn7rh4lfx" path="res://Scenes/Items/Mug.tscn" id="9_7g7wr"]
-[ext_resource type="PackedScene" uid="uid://c6cs2cfnf18tj" path="res://Scenes/Objects/Computer.tscn" id="10_my8iq"]
+[ext_resource type="Script" path="res://Scripts/Rules/CountRule.gd" id="5_fg66b"]
+[ext_resource type="Script" path="res://Scripts/Rules/PickupRule.gd" id="5_uiwhm"]
+[ext_resource type="PackedScene" uid="uid://wn6sn7rh4lfx" path="res://Scenes/Items/MugItem.tscn" id="6_0hben"]
+[ext_resource type="PackedScene" uid="uid://dhmcd026kml5u" path="res://Scenes/Objects/InteractableObjects/WaterCoolerObject.tscn" id="8_fsrg5"]
+[ext_resource type="PackedScene" uid="uid://dcjormrjy1761" path="res://Scenes/Objects/InteractableObjects/PlantObject.tscn" id="9_dm8rj"]
+[ext_resource type="PackedScene" uid="uid://c6cs2cfnf18tj" path="res://Scenes/Objects/NoninteractableObjects/ComputerObject.tscn" id="10_hdpjg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u0ndt"]
 
@@ -21,16 +21,19 @@ layer_1/tile_data = PackedInt32Array(-65538, 720897, 0, -65539, 851969, 0, -6554
 script = ExtResource("2_yursi")
 next_level = ExtResource("3_uih6a")
 
+[node name="Spawnpoint" type="Node2D" parent="."]
+position = Vector2(-51, 10)
+
 [node name="Elevator" parent="." instance=ExtResource("3_ljh0b")]
 position = Vector2(-50, 9)
 
 [node name="Rules" type="Node2D" parent="."]
 
 [node name="PickupRule" type="Node2D" parent="Rules"]
-script = ExtResource("5_1sduh")
+script = ExtResource("5_uiwhm")
 rule_text = "Don't press the E key to pick up the Mug."
 target = 1
-target_item = ExtResource("9_7g7wr")
+target_item = ExtResource("6_0hben")
 
 [node name="InteractRule" type="Node2D" parent="Rules"]
 script = ExtResource("5_fg66b")
@@ -52,32 +55,29 @@ script = ExtResource("5_fg66b")
 rule_text = "Don’t bring drinks near the computers."
 target = 1
 
-[node name="Spawnpoint" type="Node2D" parent="."]
-position = Vector2(-51, 10)
+[node name="MugItem" parent="." instance=ExtResource("6_0hben")]
+position = Vector2(24, -25)
 
-[node name="water_cooler" parent="." instance=ExtResource("8_1i88t")]
+[node name="WaterCoolerObject" parent="." instance=ExtResource("8_fsrg5")]
 position = Vector2(120, -24)
 physics_material_override = SubResource("PhysicsMaterial_u0ndt")
 
-[node name="Mug" parent="." instance=ExtResource("9_7g7wr")]
-position = Vector2(24, -25)
-
-[node name="Plant" parent="." instance=ExtResource("9_4rkk6")]
+[node name="PlantObject" parent="." instance=ExtResource("9_dm8rj")]
 position = Vector2(23, 36)
 
-[node name="Plant2" parent="." instance=ExtResource("9_4rkk6")]
+[node name="PlantObject2" parent="." instance=ExtResource("9_dm8rj")]
 position = Vector2(120, 37)
 
-[node name="Plant3" parent="." instance=ExtResource("9_4rkk6")]
+[node name="PlantObject3" parent="." instance=ExtResource("9_dm8rj")]
 position = Vector2(200, 37)
 
-[node name="Computer" parent="." instance=ExtResource("10_my8iq")]
+[node name="ComputerObject" parent="." instance=ExtResource("10_hdpjg")]
 position = Vector2(200, -26)
 
 [connection signal="on_item_picked_up" from="." to="Rules/PickupRule" method="increment_count_item"]
-[connection signal="play_effect" from="water_cooler" to="Rules/InteractRule" method="increment_count"]
-[connection signal="play_effect" from="Mug" to="Rules/CountRule" method="increment_count"]
-[connection signal="play_effect" from="Plant" to="Rules/CountRule2" method="increment_count"]
-[connection signal="play_effect" from="Plant2" to="Rules/CountRule2" method="increment_count"]
-[connection signal="play_effect" from="Plant3" to="Rules/CountRule2" method="increment_count"]
-[connection signal="play_effect" from="Computer" to="Rules/CountRule3" method="increment_count"]
+[connection signal="play_effect" from="MugItem" to="Rules/CountRule" method="increment_count"]
+[connection signal="play_effect" from="WaterCoolerObject" to="Rules/InteractRule" method="increment_count"]
+[connection signal="play_effect" from="PlantObject" to="Rules/CountRule2" method="increment_count"]
+[connection signal="play_effect" from="PlantObject2" to="Rules/CountRule2" method="increment_count"]
+[connection signal="play_effect" from="PlantObject3" to="Rules/CountRule2" method="increment_count"]
+[connection signal="play_effect" from="ComputerObject" to="Rules/CountRule3" method="increment_count"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2a15aky6e23r"]
+
+[ext_resource type="Texture2D" uid="uid://cg410s636bx14" path="res://Sprites/Items/SeedBig1.png" id="1_3ad8p"]
+[ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_o5aj1"]
+[ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="3_d4i0h"]
+[ext_resource type="Script" path="res://Scripts/Effects/NullEffect.gd" id="4_lihv1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d6xt8"]
+radius = 7.07107
+
+[node name="KeyboardItem" type="Sprite2D"]
+texture = ExtResource("1_3ad8p")
+script = ExtResource("2_o5aj1")
+
+[node name="Popup" parent="." instance=ExtResource("3_d4i0h")]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 6
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_d6xt8")
+
+[node name="Effect" type="Node2D" parent="."]
+script = ExtResource("4_lihv1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

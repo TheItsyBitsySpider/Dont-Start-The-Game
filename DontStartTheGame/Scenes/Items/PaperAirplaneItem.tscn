@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bba7qmvrw0ily"]
+
+[ext_resource type="Texture2D" uid="uid://c7147ehxjkiko" path="res://Sprites/Items/Letter.png" id="1_wavxt"]
+[ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_8lyip"]
+[ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="3_ls8j1"]
+[ext_resource type="PackedScene" uid="uid://bo06eknr1ojr4" path="res://Scenes/Effects/NullEffect.tscn" id="4_hxt2k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l12ti"]
+size = Vector2(10, 8)
+
+[node name="PaperAirplaneItem" type="Sprite2D"]
+texture = ExtResource("1_wavxt")
+script = ExtResource("2_8lyip")
+weight = 40
+floatiness = 0.1
+
+[node name="Popup" parent="." instance=ExtResource("3_ls8j1")]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 6
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_l12ti")
+
+[node name="NullEffect" parent="." instance=ExtResource("4_hxt2k")]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

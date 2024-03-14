@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://brkmixknj2m12"]
+
+[node name="DarkEffect" type="CanvasModulate"]
+color = Color(0.25098, 0.25098, 0.25098, 1)

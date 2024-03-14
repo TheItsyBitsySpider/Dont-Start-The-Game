@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://dcjormrjy1761"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/InteractableObject.gd" id="1_lluj6"]
+[ext_resource type="Texture2D" uid="uid://doptbkt6c8b1d" path="res://Sprites/Map/TilesetElement.png" id="2_lbie8"]
+[ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="2_mybo3"]
+[ext_resource type="Script" path="res://Scripts/Items/ItemEffects/WaterPlant.gd" id="4_dd3g0"]
+[ext_resource type="PackedScene" uid="uid://d0erkvsfbp0iv" path="res://Scenes/Items/WaterMugItem.tscn" id="5_ojlur"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hfun6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w6ld4"]
+radius = 20.0998
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffgch"]
+size = Vector2(13, 19)
+
+[node name="PlantObject" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_hfun6")
+script = ExtResource("1_lluj6")
+
+[node name="InteractArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource("CircleShape2D_w6ld4")
+
+[node name="Popup" parent="." instance=ExtResource("2_mybo3")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lbie8")
+hframes = 16
+vframes = 12
+frame = 96
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_ffgch")
+
+[node name="WaterPlant" type="Node2D" parent="." node_paths=PackedStringArray("plant_sprite")]
+script = ExtResource("4_dd3g0")
+required_item = ExtResource("5_ojlur")
+plant_sprite = NodePath("../Sprite2D")
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
+[connection signal="play_effect" from="WaterPlant" to="." method="_on_give_item_effect_play_effect"]

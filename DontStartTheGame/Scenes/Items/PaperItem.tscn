@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://fji8ex54nd5a"]
+
+[ext_resource type="PackedScene" uid="uid://bba7qmvrw0ily" path="res://Scenes/Items/PaperAirplaneItem.tscn" id="2_nm77h"]
+[ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_s4hm2"]
+[ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="4_oapju"]
+[ext_resource type="Script" path="res://Scripts/Effects/SpillEffect.gd" id="5_l5ukw"]
+[ext_resource type="AudioStream" uid="uid://deo7npjppbb7a" path="res://Resources/Sounds/Magic2.wav" id="6_mepdq"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hm4rk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ssym"]
+size = Vector2(1, 1)
+
+[node name="PaperItem" type="Sprite2D"]
+position = Vector2(-2.38419e-07, -2.38419e-07)
+scale = Vector2(6, 6)
+texture = SubResource("CanvasTexture_hm4rk")
+script = ExtResource("2_s4hm2")
+post_consume_item = ExtResource("2_nm77h")
+
+[node name="Popup" parent="." instance=ExtResource("4_oapju")]
+scale = Vector2(0.0721511, 0.0748046)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 6
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3.97364e-08, 2.48353e-08)
+shape = SubResource("RectangleShape2D_8ssym")
+
+[node name="CraftEffect" type="Node2D" parent="."]
+script = ExtResource("5_l5ukw")
+spill_sfx = ExtResource("6_mepdq")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="play_effect" from="CraftEffect" to="." method="_on_effect_effect_played"]

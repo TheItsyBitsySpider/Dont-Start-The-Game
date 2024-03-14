@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpt37lchpgfrk"]
+
+[ext_resource type="Texture2D" uid="uid://dj46sf8lclsvi" path="res://Sprites/Items/GoldCup.png" id="1_5tspr"]
+[ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_pebwo"]
+[ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="3_tf8ua"]
+[ext_resource type="Script" path="res://Scripts/Items/ItemEffects/CanBeEaten.gd" id="4_8jfcc"]
+[ext_resource type="AudioStream" uid="uid://txahyaesvocb" path="res://Resources/Sounds/Coin.wav" id="5_16gc5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pfxo"]
+size = Vector2(8, 10)
+
+[node name="RubberDuckItem" type="Sprite2D"]
+texture = ExtResource("1_5tspr")
+script = ExtResource("2_pebwo")
+
+[node name="Popup" parent="." instance=ExtResource("3_tf8ua")]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 6
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_3pfxo")
+
+[node name="SFX-Effect" type="Node2D" parent="."]
+script = ExtResource("4_8jfcc")
+eat_sfx = ExtResource("5_16gc5")
+is_consumed = false
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="play_effect" from="SFX-Effect" to="." method="_on_effect_effect_played"]

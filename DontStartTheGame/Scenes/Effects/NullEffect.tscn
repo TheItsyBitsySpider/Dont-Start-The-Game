@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo06eknr1ojr4"]
+
+[ext_resource type="Script" path="res://Scripts/Effects/NullEffect.gd" id="1_36411"]
+
+[node name="NullEffect" type="Node2D"]
+script = ExtResource("1_36411")

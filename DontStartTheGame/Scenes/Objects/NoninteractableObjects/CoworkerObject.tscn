@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv2uu5bg561ju"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/NoninteractableObjects/CoworkerObject.gd" id="1_hxw16"]
+[ext_resource type="PackedScene" uid="uid://bba7qmvrw0ily" path="res://Scenes/Items/PaperAirplaneItem.tscn" id="2_j6vxs"]
+[ext_resource type="Texture2D" uid="uid://cem8i6cbi8o8" path="res://Sprites/Character/Player/Player.png" id="3_iusfi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hfun6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w6ld4"]
+radius = 20.0998
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffgch"]
+size = Vector2(13, 19)
+
+[node name="CoworkerObject" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_hfun6")
+script = ExtResource("1_hxw16")
+required_item = ExtResource("2_j6vxs")
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource("CircleShape2D_w6ld4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_ffgch")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_iusfi")
+hframes = 6
+
+[connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

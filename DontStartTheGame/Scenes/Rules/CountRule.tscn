@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://k7akkqqm4ifu"]
+
+[ext_resource type="Script" path="res://Scripts/Rules/CountRule.gd" id="1_3egfr"]
+
+[node name="CountRule" type="Node2D"]
+script = ExtResource("1_3egfr")
+rule_text = "Don't use all the items."
+target = 5
