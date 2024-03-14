@@ -1,5 +1,6 @@
-[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://d2rpavaogyt1m"]
+[gd_resource type="TileSet" load_steps=19 format=3 uid="uid://d2rpavaogyt1m"]
 
+[ext_resource type="Texture2D" uid="uid://ghvhbsgf40q2" path="res://Sprites/Map/Decor2.png" id="1_7sqr7"]
 [ext_resource type="Texture2D" uid="uid://cb4xhiw8d0x7h" path="res://Sprites/Map/Decor.png" id="1_b6ck8"]
 [ext_resource type="Texture2D" uid="uid://d3srut5l0h4c8" path="res://Sprites/Map/Building.png" id="1_dklhg"]
 [ext_resource type="Texture2D" uid="uid://c7s5h34cvyusp" path="res://Sprites/Map/Floor.png" id="1_fads3"]
@@ -238,6 +239,7 @@ texture = ExtResource("1_b6ck8")
 2:0/0 = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7, -2, 1, -2, 1, 8, -7, 8)
 3:0/0 = 0
 3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_0/angular_velocity = 0.0
@@ -265,6 +267,26 @@ texture = ExtResource("1_b6ck8")
 4:2/0 = 0
 4:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:2/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dt7bo"]
+texture = ExtResource("1_7sqr7")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 3, -8, 3)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -8, 4, -8, 4, 3, -5, 3)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pm4nd"]
 texture = ExtResource("8_r01mg")
@@ -318,3 +340,4 @@ sources/10 = SubResource("TileSetAtlasSource_yknsm")
 sources/5 = SubResource("TileSetAtlasSource_ssdjd")
 sources/8 = SubResource("TileSetAtlasSource_pm4nd")
 sources/9 = SubResource("TileSetAtlasSource_fpy7g")
+sources/6 = SubResource("TileSetAtlasSource_dt7bo")
