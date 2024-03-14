@@ -74,11 +74,13 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_h154s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 3
 texture = ExtResource("2_p4wws")
 hframes = 6
 frame = 1
 
 [node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(0, 1)
 texture = ExtResource("3_plx14")
 
