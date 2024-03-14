@@ -26,9 +26,8 @@ func _ready():
 func _physics_process(_delta):
 	# Controls movement
 	var player_moved = false
-	var direction_x = Input.get_axis("move_left", "move_right")
-	var direction_y = Input.get_axis("move_up", "move_down")
-	velocity = Vector2(direction_x * SPEED, direction_y * SPEED)
+	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	velocity = direction * SPEED
 	player_moved = velocity != Vector2.ZERO
 	move_and_slide()
 	
