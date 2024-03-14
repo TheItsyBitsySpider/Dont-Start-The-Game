@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var eat_sfx: Resource
+@export var is_consumed := true
 
 signal play_effect
 
@@ -15,4 +16,4 @@ func play_eat_sfx(player):
 	if eat_sfx:
 		player.play_sound(eat_sfx)
 	play_effect.emit()
-	return true
+	return is_consumed

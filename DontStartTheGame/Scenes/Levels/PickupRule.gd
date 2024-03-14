@@ -10,8 +10,9 @@ var count := 0
 signal complete_rule
 
 func increment_count_item(item):
-	if rule_completed == true \
-	or item.scene_file_path != target_item.resource_path:
+	if rule_completed == true:
+		return
+	if item.scene_file_path != target_item.resource_path:
 		return
 	count += 1
 	if count >= target:

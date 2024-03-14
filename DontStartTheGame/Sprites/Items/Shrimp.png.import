@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7s5h34cvyusp"
-path="res://.godot/imported/Floor.png-4f14191d1c030e0e785422cf229da436.ctex"
+uid="uid://dsgc4eqa7icv2"
+path="res://.godot/imported/Shrimp.png-4cb5670e90d025654598452f489e1fc3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Map/Floor.png"
-dest_files=["res://.godot/imported/Floor.png-4f14191d1c030e0e785422cf229da436.ctex"]
+source_file="res://Sprites/Items/Shrimp.png"
+dest_files=["res://.godot/imported/Shrimp.png-4cb5670e90d025654598452f489e1fc3.ctex"]
 
 [params]
 

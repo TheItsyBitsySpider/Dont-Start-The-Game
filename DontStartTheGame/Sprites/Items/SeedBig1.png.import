@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf3gugjs2mijx"
-path="res://.godot/imported/WallShadow.png-898a538ed96cb88de8ffdfd284d8a96d.ctex"
+uid="uid://cg410s636bx14"
+path="res://.godot/imported/SeedBig1.png-523ca2a0b61090314e075dadd5c6e910.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Map/WallShadow.png"
-dest_files=["res://.godot/imported/WallShadow.png-898a538ed96cb88de8ffdfd284d8a96d.ctex"]
+source_file="res://Sprites/Items/SeedBig1.png"
+dest_files=["res://.godot/imported/SeedBig1.png-523ca2a0b61090314e075dadd5c6e910.ctex"]
 
 [params]
 

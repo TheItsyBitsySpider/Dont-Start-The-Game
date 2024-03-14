@@ -84,6 +84,6 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4.5, 4.5)
+zoom = Vector2(3.895, 3.895)
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]

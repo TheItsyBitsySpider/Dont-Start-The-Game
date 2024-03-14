@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be1k7koj7rwna"
-path="res://.godot/imported/Wall.png-c5375d58bf7783e3bb14b7ad0ed47508.ctex"
+uid="uid://dpxrvm7j3to0p"
+path="res://.godot/imported/SeedLarge.png-df80998e0719d5702c8aa014f9da3b0c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Map/Wall.png"
-dest_files=["res://.godot/imported/Wall.png-c5375d58bf7783e3bb14b7ad0ed47508.ctex"]
+source_file="res://Sprites/Items/SeedLarge.png"
+dest_files=["res://.godot/imported/SeedLarge.png-df80998e0719d5702c8aa014f9da3b0c.ctex"]
 
 [params]
 

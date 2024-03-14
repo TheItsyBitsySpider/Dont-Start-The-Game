@@ -18,6 +18,8 @@ post_consume_item = ExtResource("3_pvfkk")
 [node name="Popup" parent="." instance=ExtResource("3_aansm")]
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 6
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_8ssym")
@@ -26,4 +28,6 @@ shape = SubResource("RectangleShape2D_8ssym")
 script = ExtResource("4_6tv3y")
 spill_sfx = ExtResource("5_cpig8")
 
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="play_effect" from="SpillEffect" to="." method="_on_effect_effect_played"]

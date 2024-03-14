@@ -6,9 +6,10 @@ extends Sprite2D
 
 @onready var popup_node := $Popup
 @onready var scene_ID := scene_file_path
+@onready var area_of_effect := $Area2D
 
 var player = null
-
+var collision_layer
 var effect
 var effect_node
 
@@ -16,6 +17,9 @@ var velocity := Vector2.ZERO
 
 signal play_effect
 signal on_item_thrown
+
+func _ready():
+	collision_layer = area_of_effect.collision_layer
 
 func _physics_process(delta):
 	position += velocity * delta
@@ -45,6 +49,7 @@ func throw(throw_speed: Vector2):
 func give_signal_connections_to(item):
 	var play_effect_connections = play_effect.get_connections()
 	var on_item_thrown_connections = on_item_thrown.get_connections()
+	
 	for connection in play_effect_connections:
 		item.play_effect.connect(connection["callable"])
 	for connection in on_item_thrown_connections:

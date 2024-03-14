@@ -27,8 +27,9 @@ func _ready():
 func _physics_process(_delta):
 	# Controls movement
 	var player_moved = false
-	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = direction * SPEED
+	var direction_x = Input.get_axis("move_left", "move_right")
+	var direction_y = Input.get_axis("move_up", "move_down")
+	velocity = Vector2(direction_x * SPEED, direction_y * SPEED)
 	player_moved = velocity != Vector2.ZERO
 	move_and_slide()
 	
@@ -89,7 +90,7 @@ func _physics_process(_delta):
 		selected_item = inventory_items[selected_inventory_slot]
 	
 	# Uses selected item
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and selected_item != null:
+	if Input.is_action_just_pressed("use") and selected_item != null:
 		use_item(selected_item)
 
 	# Throws selected item
