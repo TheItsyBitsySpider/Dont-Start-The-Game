@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://c55774fkgrigf"]
+[gd_scene load_steps=12 format=3 uid="uid://c55774fkgrigf"]
 
 [ext_resource type="TileSet" uid="uid://dna5am6weug3i" path="res://Sprites/Map/FloorAndWalls.tres" id="1_qdwyj"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="2_yursi"]
 [ext_resource type="PackedScene" uid="uid://bwmbm5xutb0ov" path="res://Scenes/Levels/EndingScreen.tscn" id="3_dqf0p"]
 [ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://elevator.tscn" id="3_ljh0b"]
-[ext_resource type="PackedScene" uid="uid://k7akkqqm4ifu" path="res://Rules/CountRule.tscn" id="4_7ub6b"]
-[ext_resource type="PackedScene" uid="uid://dd27rs1lpil6h" path="res://Scenes/Item.tscn" id="5_lnj50"]
-[ext_resource type="PackedScene" uid="uid://d31b6krl6qhyh" path="res://interactable_object.tscn" id="7_nrbd2"]
-[ext_resource type="PackedScene" uid="uid://cnhi2habb66eh" path="res://light_switch.tscn" id="8_4dygi"]
-[ext_resource type="PackedScene" uid="uid://bba7qmvrw0ily" path="res://Scenes/Items/PaperAirplane.tscn" id="9_pih7e"]
+[ext_resource type="Script" path="res://Scenes/Levels/PickupRule.gd" id="5_1sduh"]
+[ext_resource type="Script" path="res://Scenes/Levels/CountRule.gd" id="5_fg66b"]
+[ext_resource type="PackedScene" uid="uid://dhmcd026kml5u" path="res://Scenes/Objects/water_cooler.tscn" id="8_1i88t"]
+[ext_resource type="PackedScene" uid="uid://dcjormrjy1761" path="res://Scenes/Objects/Plant.tscn" id="9_4rkk6"]
+[ext_resource type="PackedScene" uid="uid://wn6sn7rh4lfx" path="res://Scenes/Items/Mug.tscn" id="9_7g7wr"]
+[ext_resource type="PackedScene" uid="uid://c6cs2cfnf18tj" path="res://Scenes/Objects/Computer.tscn" id="10_my8iq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_u0ndt"]
 
 [node name="Level2" type="TileMap"]
 tile_set = ExtResource("1_qdwyj")
@@ -23,41 +26,58 @@ position = Vector2(-50, 9)
 
 [node name="Rules" type="Node2D" parent="."]
 
-[node name="CountRule" parent="Rules" instance=ExtResource("4_7ub6b")]
-rule_text = "Don't consume the 3 onigiri test items"
-target = 3
+[node name="PickupRule" type="Node2D" parent="Rules"]
+script = ExtResource("5_1sduh")
+rule_text = "Don't press the E key to pick up the Mug."
+target = 1
+target_item = ExtResource("9_7g7wr")
 
-[node name="CountRule2" parent="Rules" instance=ExtResource("4_7ub6b")]
-rule_text = "Don't throw the paper airplane"
+[node name="InteractRule" type="Node2D" parent="Rules"]
+script = ExtResource("5_fg66b")
+rule_text = "Don’t press the E key to interact with the water cooler."
 target = 1
 
-[node name="CountRule3" parent="Rules" instance=ExtResource("4_7ub6b")]
-rule_text = "Don't flick the lightswitch repeatedly"
-target = 10
+[node name="CountRule" type="Node2D" parent="Rules"]
+script = ExtResource("5_fg66b")
+rule_text = "Don’t flood the office."
+target = 1
 
-[node name="Item" parent="." instance=ExtResource("5_lnj50")]
-position = Vector2(202, 5)
+[node name="CountRule2" type="Node2D" parent="Rules"]
+script = ExtResource("5_fg66b")
+rule_text = "Don’t overwater the plants."
+target = 3
 
-[node name="Item2" parent="." instance=ExtResource("5_lnj50")]
-position = Vector2(22, 3)
-
-[node name="Item3" parent="." instance=ExtResource("5_lnj50")]
-position = Vector2(120, 4)
+[node name="CountRule3" type="Node2D" parent="Rules"]
+script = ExtResource("5_fg66b")
+rule_text = "Don’t bring drinks near the computers."
+target = 1
 
 [node name="Spawnpoint" type="Node2D" parent="."]
 position = Vector2(-51, 10)
 
-[node name="InteractableObject" parent="." instance=ExtResource("7_nrbd2")]
-position = Vector2(121, -25)
+[node name="water_cooler" parent="." instance=ExtResource("8_1i88t")]
+position = Vector2(120, -24)
+physics_material_override = SubResource("PhysicsMaterial_u0ndt")
 
-[node name="LightSwitch" parent="." instance=ExtResource("8_4dygi")]
-position = Vector2(200, -25)
+[node name="Mug" parent="." instance=ExtResource("9_7g7wr")]
+position = Vector2(24, -25)
 
-[node name="PaperAirplane" parent="." instance=ExtResource("9_pih7e")]
-position = Vector2(119, 41)
+[node name="Plant" parent="." instance=ExtResource("9_4rkk6")]
+position = Vector2(23, 36)
 
-[connection signal="play_effect" from="Item" to="Rules/CountRule" method="increment_count"]
-[connection signal="play_effect" from="Item2" to="Rules/CountRule" method="increment_count"]
-[connection signal="play_effect" from="Item3" to="Rules/CountRule" method="increment_count"]
-[connection signal="play_effect" from="LightSwitch" to="Rules/CountRule3" method="increment_count"]
-[connection signal="on_item_thrown" from="PaperAirplane" to="Rules/CountRule2" method="increment_count"]
+[node name="Plant2" parent="." instance=ExtResource("9_4rkk6")]
+position = Vector2(120, 37)
+
+[node name="Plant3" parent="." instance=ExtResource("9_4rkk6")]
+position = Vector2(200, 37)
+
+[node name="Computer" parent="." instance=ExtResource("10_my8iq")]
+position = Vector2(200, -26)
+
+[connection signal="on_item_picked_up" from="." to="Rules/PickupRule" method="increment_count_item"]
+[connection signal="play_effect" from="water_cooler" to="Rules/InteractRule" method="increment_count"]
+[connection signal="play_effect" from="Mug" to="Rules/CountRule" method="increment_count"]
+[connection signal="play_effect" from="Plant" to="Rules/CountRule2" method="increment_count"]
+[connection signal="play_effect" from="Plant2" to="Rules/CountRule2" method="increment_count"]
+[connection signal="play_effect" from="Plant3" to="Rules/CountRule2" method="increment_count"]
+[connection signal="play_effect" from="Computer" to="Rules/CountRule3" method="increment_count"]

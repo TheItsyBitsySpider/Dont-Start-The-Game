@@ -7,8 +7,8 @@ extends TileMap
 
 signal on_item_picked_up
 
-func _on_main_character_add_to_inventory(_item):
-	on_item_picked_up.emit()
+func _on_main_character_add_to_inventory(item):
+	on_item_picked_up.emit(item)
 
 func unlock_elevator():
 	level_elevator.unlock_elevator()

@@ -11,6 +11,7 @@ var nearby_items := []
 var nearby_interactables := []
 var inventory_items := []
 var selected_inventory_slot := 0
+var item_held = null
 
 enum Directions { UP, DOWN, LEFT, RIGHT }
 var direction_facing := Directions.DOWN
@@ -89,20 +90,17 @@ func _physics_process(_delta):
 	
 	# Uses selected item
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and selected_item != null:
-		consume_item.emit(selected_item.effect)
-		var is_consumable = selected_item.effect.call(self)
-		if is_consumable:
-			inventory_items[selected_inventory_slot] = null
-			remove_from_inventory.emit(selected_inventory_slot)
-	
+		use_item(selected_item)
+
 	# Throws selected item
 	if Input.is_physical_key_pressed(KEY_SPACE) and selected_item != null and current_level != null:
-		inventory_items[selected_inventory_slot] = null
-		remove_from_inventory.emit(selected_inventory_slot)
+		remove_item_from_inventory(selected_inventory_slot)
 		selected_item.position = position
 		var throw_speed = 5000.0 / selected_item.weight
 		selected_item.throw(position.direction_to(get_global_mouse_position()) * throw_speed)
 		current_level.add_child(selected_item)
+		
+	item_held = selected_item
 
 func _change_selected_inventory_slot(i: int):
 	if i < 0 or i >= MAX_INVENTORY:
@@ -133,3 +131,21 @@ func interact_with_object(interactable):
 		var is_consumable = interactable.effect.call(self)
 		if is_consumable:
 			interactable.queue_free()
+
+func use_item(selected_item):
+	consume_item.emit(selected_item.effect)
+	var is_consumable = selected_item.effect.call(self)
+	if is_consumable:
+		if selected_item.post_consume_item != null:
+			var new_item_instance = selected_item.post_consume_item.instantiate()
+			add_child(new_item_instance)
+			selected_item.give_signal_connections_to(new_item_instance)
+			remove_item_from_inventory(selected_inventory_slot)	
+			if not add_item_to_inventory(new_item_instance):
+				new_item_instance.queue_free()
+		else:
+			remove_item_from_inventory(selected_inventory_slot)	
+
+func remove_item_from_inventory(index):
+	inventory_items[index] = null
+	remove_from_inventory.emit(index)
