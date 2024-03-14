@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dsgc4eqa7icv2" path="res://Resources/Sprites/Items/Temporary/Shrimp.png" id="1_iwjma"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_2qily"]
 [ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Scenes/Effects/EatingEffect.tscn" id="3_g0cn1"]
-[ext_resource type="Script" path="res://Scenes/Effects/BagPopEffect.gd" id="4_3u0pj"]
+[ext_resource type="Script" path="res://Scripts/Effects/BagPopEffect.gd" id="4_a1vsb"]
 [ext_resource type="AudioStream" uid="uid://deo7npjppbb7a" path="res://Resources/Sounds/SoundEffects/Magic2.wav" id="5_ms83v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2mvom"]
@@ -42,7 +42,7 @@ offset_bottom = 40.0
 text = "E"
 
 [node name="Effect" parent="." instance=ExtResource("3_g0cn1")]
-script = ExtResource("4_3u0pj")
+script = ExtResource("4_a1vsb")
 pop_sfx = ExtResource("5_ms83v")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
