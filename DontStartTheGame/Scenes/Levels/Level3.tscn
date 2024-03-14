@@ -5,12 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://elevator.tscn" id="3_gwdqu"]
 [ext_resource type="PackedScene" uid="uid://bwmbm5xutb0ov" path="res://Scenes/Levels/EndingScreen.tscn" id="3_snedx"]
 [ext_resource type="Script" path="res://Scenes/Levels/CountRule.gd" id="4_60aw6"]
-[ext_resource type="PackedScene" uid="uid://dpt37lchpgfrk" path="res://Scenes/Items/Rubber Duck.tscn" id="5_hnkmr"]
 [ext_resource type="PackedScene" uid="uid://b2a15aky6e23r" path="res://Scenes/Items/Keyboard.tscn" id="6_c1vak"]
 [ext_resource type="Script" path="res://Scenes/Levels/PickupRule.gd" id="6_hk2if"]
 [ext_resource type="PackedScene" uid="uid://fmpmmr8rxspt" path="res://Scenes/Items/Monitor.tscn" id="7_5g0mn"]
 [ext_resource type="PackedScene" uid="uid://it1giy30tru2" path="res://Scenes/Items/ComputerItem.tscn" id="8_2qou6"]
 [ext_resource type="PackedScene" uid="uid://dtrpsdayuxfqx" path="res://Scenes/Objects/Window.tscn" id="9_fh06w"]
+[ext_resource type="PackedScene" uid="uid://dpt37lchpgfrk" path="res://Scenes/Items/RubberDuck.tscn" id="10_jjiwa"]
 
 [node name="Level3" type="TileMap"]
 tile_set = ExtResource("1_01t4d")
@@ -60,7 +60,7 @@ script = ExtResource("4_60aw6")
 rule_text = "Don’t repeatedly squeeze the Rubber Duck."
 target = 10
 
-[node name="RubberDuck" parent="." instance=ExtResource("5_hnkmr")]
+[node name="RubberDuck" parent="." instance=ExtResource("10_jjiwa")]
 position = Vector2(-60, 0)
 
 [node name="Keyboard" parent="." instance=ExtResource("6_c1vak")]
