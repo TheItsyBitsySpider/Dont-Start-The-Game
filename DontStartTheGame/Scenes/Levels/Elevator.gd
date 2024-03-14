@@ -5,9 +5,9 @@ func _ready():
 	body_entered.connect(get_parent().change_level)
 
 func lock_elevator():
-	monitorable = false
-	monitoring = false
+	set_deferred("monitorable", false)
+	set_deferred("monitoring", false)
 	
 func unlock_elevator():
-	monitorable = true
-	monitoring = true
+	set_deferred("monitorable", true)
+	set_deferred("monitoring", true)

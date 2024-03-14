@@ -8,7 +8,7 @@ var count := 0
 
 signal complete_rule
 
-func increment_count():
+func increment_count(_obj = null):
 	if rule_completed == true:
 		return
 	count += 1
