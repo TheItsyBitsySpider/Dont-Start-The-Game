@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var SPEED: int
 @export var current_level: Node
+@export var shout_sfx: Resource
 @onready var sprite := $Sprite2D
 @onready var shadow = $Shadow
 @onready var animation_player := $AnimationPlayer
@@ -21,6 +22,7 @@ signal add_to_inventory
 signal remove_from_inventory
 signal change_selected_inventory_slot
 signal consume_item
+signal shouted
 
 func _ready():
 	animation_player.play("idle_front_right")
@@ -104,6 +106,11 @@ func _physics_process(_delta):
 		current_level.add_child(selected_item)
 		
 	item_held = selected_item
+	
+	if Input.is_action_just_pressed("shout"):
+		$SFX.set_stream(shout_sfx)
+		$SFX.play()
+		shouted.emit()
 
 func _change_selected_inventory_slot(i: int):
 	if i < 0 or i >= MAX_INVENTORY:

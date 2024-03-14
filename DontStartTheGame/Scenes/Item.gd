@@ -11,11 +11,14 @@ var player = null
 
 var effect
 var effect_node
-
+var collision_layer
 var velocity := Vector2.ZERO
 
 signal play_effect
 signal on_item_thrown
+
+func _ready():
+	collision_layer = $Area2D.collision_layer
 
 func _physics_process(delta):
 	position += velocity * delta
@@ -40,7 +43,7 @@ func _on_effect_effect_played():
 
 func throw(throw_speed: Vector2):
 	velocity += throw_speed
-	on_item_thrown.emit()
+	on_item_thrown.emit(self)
 
 func give_signal_connections_to(item):
 	var play_effect_connections = play_effect.get_connections()
