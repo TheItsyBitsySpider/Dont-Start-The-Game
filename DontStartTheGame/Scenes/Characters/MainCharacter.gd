@@ -94,7 +94,7 @@ func _physics_process(_delta):
 		selected_item = inventory_items[selected_inventory_slot]
 	
 	# Uses selected item
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and selected_item != null:
+	if Input.is_action_just_pressed("use") and selected_item != null:
 		use_item(selected_item)
 
 	# Throws selected item

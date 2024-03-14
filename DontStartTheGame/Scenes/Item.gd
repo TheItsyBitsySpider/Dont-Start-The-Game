@@ -9,7 +9,6 @@ extends Sprite2D
 @onready var scene_ID := scene_file_path
 
 var player = null
-
 var effect
 var effect_node
 var velocity := Vector2.ZERO
