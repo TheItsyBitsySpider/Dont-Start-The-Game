@@ -5,10 +5,12 @@ extends Node2D
 @onready var current_level = null
 @onready var inventory_manager := $CanvasLayer/InventoryManager
 @onready var rule_box := $CanvasLayer/RuleBox
+@onready var rules_label := $CanvasLayer/RuleBox/RuleListerLabel
 @onready var rules_list := $CanvasLayer/RuleBox/RuleLister
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color.hex(0x212123ff))
+	get_tree().get_root().size_changed.connect(resize)
 	player.add_to_inventory.connect(inventory_manager.add_item)
 	player.remove_from_inventory.connect(inventory_manager.remove_item)
 	player.change_selected_inventory_slot.connect(inventory_manager.change_selected)
@@ -58,3 +60,21 @@ func set_gui_visibility(visibility: bool):
 		inventory_slot.visible = visibility
 	rule_box.visible = visibility
 	rules_list.visible = visibility
+
+func resize():
+	if get_viewport_rect().size.x >= 1600:
+		rule_box.position = Vector2(32, 32)
+		rule_box.size = Vector2(624, 272)
+		rules_label.set("theme_override_font_sizes/font_size", 40)
+		rules_list.position = Vector2(40, 54)
+		rules_list.size = Vector2(560, 202)
+		rules_list.set("theme_override_font_sizes/normal_font_size", 32)
+		rules_list.set("theme_override_constants/line_separation", -12)
+	else:
+		rule_box.position = Vector2(16, 16)
+		rule_box.size = Vector2(464, 208)
+		rules_label.set("theme_override_font_sizes/font_size", 32)
+		rules_list.position = Vector2(32, 46)
+		rules_list.size = Vector2(408, 146)
+		rules_list.set("theme_override_font_sizes/normal_font_size", 24)
+		rules_list.set("theme_override_constants/line_separation", -10)
