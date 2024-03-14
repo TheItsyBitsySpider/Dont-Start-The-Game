@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://4gkw4ngocmxk"]
+[gd_scene load_steps=11 format=3 uid="uid://4gkw4ngocmxk"]
 
 [ext_resource type="TileSet" uid="uid://dna5am6weug3i" path="res://Resources/Sprites/Map/Temporary/FloorAndWalls.tres" id="1_napxa"]
 [ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_c16tq"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://b1egalx5bm7s5" path="res://Scenes/Items/PencilItem.tscn" id="7_0tt36"]
 [ext_resource type="PackedScene" uid="uid://dmxgcwu76w4cp" path="res://Scenes/Objects/NoninteractableObjects/BirthdayBalloonObject.tscn" id="8_lt578"]
 [ext_resource type="PackedScene" uid="uid://cv2uu5bg561ju" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObject.tscn" id="9_7q8hg"]
+[ext_resource type="PackedScene" uid="uid://cq630tyyau6y0" path="res://Scenes/Items/BagOfChipsItem.tscn" id="9_qof0k"]
+[ext_resource type="PackedScene" uid="uid://bqga264qiwpvw" path="res://Scenes/Items/CakeItem.tscn" id="10_3rdhj"]
 
 [node name="Level5" type="TileMap"]
 tile_set = ExtResource("1_napxa")
@@ -37,18 +39,25 @@ target = 3
 
 [node name="BagRule" type="Node2D" parent="Rules"]
 script = ExtResource("6_p6g4f")
+rule_text = "Don’t pop the Bag of Chips."
+target = 1
 
 [node name="FoodRule" type="Node2D" parent="Rules"]
 script = ExtResource("6_p6g4f")
+rule_text = "Don’t eat your coworkers’ food."
+target = 1
 
 [node name="ThrowCakeRule" type="Node2D" parent="Rules"]
 script = ExtResource("6_p6g4f")
+rule_text = "Don’t throw the Birthday Cake at your coworker’s face."
+target = 1
 
 [node name="PencilItem" parent="." instance=ExtResource("7_0tt36")]
 position = Vector2(24, 40)
 
 [node name="CoworkerObject" parent="." instance=ExtResource("9_7q8hg")]
 position = Vector2(121, 37)
+required_item = ExtResource("10_3rdhj")
 
 [node name="BirthdayBalloonObject" parent="." instance=ExtResource("8_lt578")]
 position = Vector2(132, 21)
@@ -59,7 +68,24 @@ position = Vector2(146, 9)
 [node name="BirthdayBalloonObject3" parent="." instance=ExtResource("8_lt578")]
 position = Vector2(149, 24)
 
+[node name="BagOfChipsItem" parent="." instance=ExtResource("9_qof0k")]
+position = Vector2(24, -23)
+
+[node name="CakeItem" parent="." instance=ExtResource("10_3rdhj")]
+position = Vector2(151, 41)
+
+[node name="CakeItem2" parent="." instance=ExtResource("10_3rdhj")]
+position = Vector2(166, 43)
+
+[node name="CakeItem3" parent="." instance=ExtResource("10_3rdhj")]
+position = Vector2(157, 53)
+
 [connection signal="on_item_thrown" from="PencilItem" to="Rules/ThrowSharpRule" method="increment_count"]
+[connection signal="play_effect" from="CoworkerObject" to="Rules/ThrowCakeRule" method="increment_count"]
 [connection signal="play_effect" from="BirthdayBalloonObject" to="Rules/BalloonRule" method="increment_count"]
 [connection signal="play_effect" from="BirthdayBalloonObject2" to="Rules/BalloonRule" method="increment_count"]
 [connection signal="play_effect" from="BirthdayBalloonObject3" to="Rules/BalloonRule" method="increment_count"]
+[connection signal="play_effect" from="BagOfChipsItem" to="Rules/BagRule" method="increment_count"]
+[connection signal="play_effect" from="CakeItem" to="Rules/FoodRule" method="increment_count"]
+[connection signal="play_effect" from="CakeItem2" to="Rules/FoodRule" method="increment_count"]
+[connection signal="play_effect" from="CakeItem3" to="Rules/FoodRule" method="increment_count"]
