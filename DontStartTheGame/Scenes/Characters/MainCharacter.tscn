@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtdssf5kyh7yh"]
+[gd_scene load_steps=9 format=3 uid="uid://dtdssf5kyh7yh"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/MainCharacter.gd" id="1_6kdyp"]
 [ext_resource type="Texture2D" uid="uid://cem8i6cbi8o8" path="res://Sprites/Character/Player/Player.png" id="2_p4wws"]
+[ext_resource type="Texture2D" uid="uid://bomphqy12pyod" path="res://Sprites/Character/Player/PlayerShadow.png" id="3_plx14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h154s"]
 size = Vector2(12, 15)
@@ -76,6 +77,10 @@ shape = SubResource("RectangleShape2D_h154s")
 texture = ExtResource("2_p4wws")
 hframes = 6
 frame = 1
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("3_plx14")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")

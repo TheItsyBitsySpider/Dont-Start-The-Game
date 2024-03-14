@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var SPEED: int
 @export var current_level: Node
 @onready var sprite := $Sprite2D
+@onready var shadow = $Shadow
 @onready var animation_player := $AnimationPlayer
 
 const MAX_INVENTORY := 4
@@ -51,8 +52,10 @@ func _physics_process(_delta):
 	# Transforms sprite according to direction facing
 	if direction_facing == Directions.LEFT:
 		sprite.flip_h = 1
+		shadow.flip_h = 1
 	elif direction_facing == Directions.RIGHT:
 		sprite.flip_h = 0
+		shadow.flip_h = 0
 	
 	# Determines whether a nearby item could be picked up
 	var interactable_item = null
