@@ -1,0 +1,29 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0erkvsfbp0iv"]
+
+[ext_resource type="Texture2D" uid="uid://6q50lyv504i7" path="res://Sprites/Items/WaterPot.png" id="1_41qgg"]
+[ext_resource type="Script" path="res://Scenes/Item.gd" id="2_tkb55"]
+[ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://popup.tscn" id="3_aansm"]
+[ext_resource type="PackedScene" uid="uid://wn6sn7rh4lfx" path="res://Scenes/Items/Mug.tscn" id="3_pvfkk"]
+[ext_resource type="Script" path="res://Scenes/Items/SpillEffect.gd" id="4_6tv3y"]
+[ext_resource type="AudioStream" uid="uid://deo7npjppbb7a" path="res://Sounds/Magic2.wav" id="5_cpig8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ssym"]
+size = Vector2(8, 10)
+
+[node name="WaterMug" type="Sprite2D"]
+texture = ExtResource("1_41qgg")
+script = ExtResource("2_tkb55")
+post_consume_item = ExtResource("3_pvfkk")
+
+[node name="Popup" parent="." instance=ExtResource("3_aansm")]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_8ssym")
+
+[node name="SpillEffect" type="Node2D" parent="."]
+script = ExtResource("4_6tv3y")
+spill_sfx = ExtResource("5_cpig8")
+
+[connection signal="play_effect" from="SpillEffect" to="." method="_on_effect_effect_played"]

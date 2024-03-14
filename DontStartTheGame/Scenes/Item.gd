@@ -2,6 +2,7 @@ extends Sprite2D
 
 @export var weight := 10
 @export var floatiness := 1.0
+@export var post_consume_item: PackedScene
 
 @onready var popup_node := $Popup
 @onready var scene_ID := scene_file_path
@@ -40,3 +41,12 @@ func _on_effect_effect_played():
 func throw(throw_speed: Vector2):
 	velocity += throw_speed
 	on_item_thrown.emit()
+
+func give_signal_connections_to(item):
+	var play_effect_connections = play_effect.get_connections()
+	var on_item_thrown_connections = on_item_thrown.get_connections()
+	
+	for connection in play_effect_connections:
+		item.play_effect.connect(connection["callable"])
+	for connection in on_item_thrown_connections:
+		item.on_item_thrown.connect(connection["callable"])

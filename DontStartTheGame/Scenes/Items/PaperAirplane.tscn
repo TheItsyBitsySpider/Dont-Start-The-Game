@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c7147ehxjkiko" path="res://Sprites/Items/Letter.png" id="1_2dt60"]
 [ext_resource type="Script" path="res://Scenes/Item.gd" id="2_wytxj"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://popup.tscn" id="2_xp87d"]
-[ext_resource type="Script" path="res://Scenes/Items/NullEffect.gd" id="3_avgh2"]
+[ext_resource type="PackedScene" uid="uid://bo06eknr1ojr4" path="res://Effects/null_effect.tscn" id="4_ehght"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l12ti"]
 size = Vector2(10, 8)
@@ -23,9 +23,7 @@ collision_mask = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_l12ti")
 
-[node name="NullEffect" type="Node2D" parent="."]
-script = ExtResource("3_avgh2")
+[node name="NullEffect" parent="." instance=ExtResource("4_ehght")]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="play_effect" from="NullEffect" to="." method="_on_effect_effect_played"]
