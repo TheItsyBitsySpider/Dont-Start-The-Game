@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0da1i5bamuix"]
+[gd_scene load_steps=5 format=3 uid="uid://c1pqr5wgkibmi"]
 
 [ext_resource type="Texture2D" uid="uid://d22ri6gxuvmat" path="res://Resources/Sprites/Items/open-stapler.png" id="1_xs20i"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_ix25t"]
-[ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Scenes/Effects/EatingEffect.tscn" id="3_2gj1t"]
-[ext_resource type="PackedScene" uid="uid://b8glwhonmkb6j" path="res://Scenes/Items/StaplerItem.tscn" id="3_j1jef"]
-[ext_resource type="Script" path="res://Scripts/Effects/SpillEffect.gd" id="4_3wma4"]
+[ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Scenes/Effects/EatingEffect.tscn" id="3_u8ws7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2mvom"]
 
@@ -13,7 +11,6 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_xs20i")
 script = ExtResource("2_ix25t")
 description = "Just your normal office stapler. You’ve always wanted to wield it like a staple gun, but you’re not fond of spending time in a jail cell."
-post_consume_item = ExtResource("3_j1jef")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6
@@ -44,9 +41,8 @@ offset_right = 22.0
 offset_bottom = 40.0
 text = "E"
 
-[node name="Effect" parent="." instance=ExtResource("3_2gj1t")]
-script = ExtResource("4_3wma4")
-spill_sfx = null
+[node name="Effect" parent="." instance=ExtResource("3_u8ws7")]
+is_consumed = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
