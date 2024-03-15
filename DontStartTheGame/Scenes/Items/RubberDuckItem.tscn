@@ -1,17 +1,18 @@
 [gd_scene load_steps=7 format=3 uid="uid://dpt37lchpgfrk"]
 
-[ext_resource type="Texture2D" uid="uid://dj46sf8lclsvi" path="res://Resources/Sprites/Items/Temporary/GoldCup.png" id="1_5tspr"]
+[ext_resource type="Texture2D" uid="uid://dydvk7koj5w3y" path="res://Resources/Sprites/Items/duck.png" id="1_whmsc"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_pebwo"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="3_tf8ua"]
 [ext_resource type="Script" path="res://Scripts/Items/ItemEffects/CanBeEaten.gd" id="4_8jfcc"]
 [ext_resource type="AudioStream" uid="uid://txahyaesvocb" path="res://Resources/Sounds/SoundEffects/Temporary/Coin.wav" id="5_gnv8y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pfxo"]
-size = Vector2(8, 10)
+size = Vector2(14, 12)
 
 [node name="RubberDuckItem" type="Sprite2D"]
-texture = ExtResource("1_5tspr")
+texture = ExtResource("1_whmsc")
 script = ExtResource("2_pebwo")
+description = "The only therapist that you can currently afford. Conversations are usually one-sided though."
 
 [node name="Popup" parent="." instance=ExtResource("3_tf8ua")]
 
