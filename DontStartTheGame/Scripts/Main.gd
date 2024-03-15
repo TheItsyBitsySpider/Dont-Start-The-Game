@@ -28,7 +28,7 @@ func _ready():
 func _on_rule_completed():
 	var rule_completed_sfx_list := [ rule_completed_sfx_1, rule_completed_sfx_2 ]
 	var i := rng.randi_range(0, len(rule_completed_sfx_list) - 1)
-	player.play_sound(rule_completed_sfx_list[i])
+	play_sound_effect(rule_completed_sfx_list[i])
 	update_rules()
 
 func _on_level_completed():
@@ -44,7 +44,7 @@ func _on_level_completed_helper():
 		level_completed_sfx_4
 	]
 	var i := rng.randi_range(0, len(level_completed_sfx_list) - 1)
-	player.play_sound(level_completed_sfx_list[i])
+	play_sound_effect(level_completed_sfx_list[i])
 
 func update_rules():
 	var rules = current_level.rule_manager.get_children()
@@ -114,3 +114,10 @@ func resize():
 		for i in range(inventory_manager.get_children().size()):
 			inventory_manager.get_children()[i].position.x = 496 + 108 * i
 			inventory_manager.get_children()[i].position.y = 16
+
+func play_sound_effect(sound_effect: Resource):
+	var sfx := AudioStreamPlayer.new()
+	add_child(sfx)
+	sfx.set_stream(sound_effect)
+	sfx.play()
+	sfx.connect("finished", sfx.queue_free)
