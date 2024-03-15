@@ -14,6 +14,8 @@ script = ExtResource("2_o5aj1")
 description = "The daily victim to your rage and stress when the yet-to-be finished 8-paged document of the week is due in 20 minutes."
 
 [node name="Popup" parent="." instance=ExtResource("3_d4i0h")]
+offset_top = -14.0
+offset_bottom = 26.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6

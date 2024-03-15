@@ -14,6 +14,8 @@ script = ExtResource("2_mphex")
 description = "The bane of your existence."
 
 [node name="Popup" parent="." instance=ExtResource("3_4ft1u")]
+offset_top = -14.0
+offset_bottom = 26.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6
