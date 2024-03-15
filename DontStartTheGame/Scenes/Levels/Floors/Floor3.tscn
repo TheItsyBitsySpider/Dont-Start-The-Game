@@ -61,7 +61,12 @@ position = Vector2(265, 132)
 
 [node name="ThrowAnythingRule" type="Node2D" parent="Rules"]
 script = ExtResource("7_w2xq6")
-rule_text = "Don't press the Space key to throw an item."
+rule_text = "Don't press the Left Mouse Button to throw an item."
+target = 1
+
+[node name="UseAnythingRule" type="Node2D" parent="Rules"]
+script = ExtResource("7_w2xq6")
+rule_text = "Don't press the Space key to use an item."
 target = 1
 
 [node name="DefenestrateKeyboard" type="Node2D" parent="Rules"]
@@ -107,7 +112,7 @@ position = Vector2(210, 200)
 
 [node name="RubberDuckItem" parent="." instance=ExtResource("12_xh0ls")]
 z_index = 1
-position = Vector2(260, 170)
+position = Vector2(259, 171)
 scale = Vector2(0.25, 0.25)
 
 [connection signal="play_effect" from="WindowObject" to="Rules/DefenestrateKeyboard" method="increment_count_item"]
@@ -117,3 +122,4 @@ scale = Vector2(0.25, 0.25)
 [connection signal="on_item_thrown" from="MonitorItem" to="Rules/ThrowAnythingRule" method="increment_count"]
 [connection signal="on_item_thrown" from="KeyboardItem" to="Rules/ThrowAnythingRule" method="increment_count"]
 [connection signal="play_effect" from="RubberDuckItem" to="Rules/UseDuckRule" method="increment_count"]
+[connection signal="play_effect" from="RubberDuckItem" to="Rules/UseAnythingRule" method="increment_count"]
