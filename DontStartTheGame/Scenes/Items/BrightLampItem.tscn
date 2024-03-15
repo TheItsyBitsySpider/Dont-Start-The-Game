@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgi358fm0p4hp"]
+[gd_scene load_steps=6 format=3 uid="uid://veqv6mfsjr51"]
 
 [ext_resource type="Texture2D" uid="uid://cg410s636bx14" path="res://Resources/Sprites/Items/Temporary/SeedBig1.png" id="1_r5uw4"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_dc2ro"]

@@ -1,7 +1,6 @@
 extends StaticBody2D
 
 @export var description := "None of the rules say defenestration isn’t allowed."
-
 @onready var window_sfx := $SFX
 
 var player = null

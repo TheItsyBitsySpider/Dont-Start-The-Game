@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://n45u5rj4f2cy"]
+[gd_scene load_steps=6 format=3 uid="uid://bxrqtjrhoa6or"]
 
 [ext_resource type="Texture2D" uid="uid://brlyklee01cw3" path="res://Resources/Sprites/Items/Temporary/Onigiri.png" id="1_di4br"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_ccthb"]

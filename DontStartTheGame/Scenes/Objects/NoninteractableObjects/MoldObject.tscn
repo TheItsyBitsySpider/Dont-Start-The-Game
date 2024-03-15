@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://jn5tgdc2i0sl"]
+[gd_scene load_steps=6 format=3 uid="uid://co2pjhy4ov8ih"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/NoninteractableObjects/MoldObject.gd" id="1_sm80i"]
 [ext_resource type="Texture2D" uid="uid://pmby12eehful" path="res://Resources/Sprites/Items/Temporary/ScrollEmpty.png" id="2_s0cvp"]

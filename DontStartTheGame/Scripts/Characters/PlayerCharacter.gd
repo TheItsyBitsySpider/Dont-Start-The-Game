@@ -89,6 +89,7 @@ func _physics_process(_delta):
 	# Gets the description of a non-interactable object
 	elif Input.is_action_just_pressed("interact") and not nearby_objects_with_descriptions.is_empty():
 		get_description(nearby_objects_with_descriptions.front())
+	
 	# Traverses inventory using number keys
 	for i in min(MAX_INVENTORY, 10):
 		if Input.is_physical_key_pressed((KEY_1 + i) % (KEY_9 + 1)):
