@@ -40,10 +40,10 @@ script = ExtResource("4_bxpfm")
 [node name="InventorySlot" parent="CanvasLayer/InventoryManager" instance=ExtResource("3_afhwo")]
 layout_mode = 1
 anchor_bottom = 0.164
-offset_left = 489.4
-offset_top = 0.92
-offset_right = 551.0
-offset_bottom = 102.44
+offset_left = 478.4
+offset_top = 15.92
+offset_right = 576.0
+offset_bottom = 109.44
 
 [node name="InventorySlot2" parent="CanvasLayer/InventoryManager" instance=ExtResource("3_afhwo")]
 layout_mode = 1
@@ -51,24 +51,24 @@ anchor_left = 0.523
 anchor_top = 0.0
 anchor_right = 0.584
 anchor_bottom = 0.164
-offset_left = 581.08
-offset_top = 1.0
-offset_right = 642.64
-offset_bottom = 100.44
+offset_left = 583.08
+offset_top = 16.0
+offset_right = 680.64
+offset_bottom = 109.44
 
 [node name="InventorySlot3" parent="CanvasLayer/InventoryManager" instance=ExtResource("3_afhwo")]
 layout_mode = 1
-offset_left = 672.4
-offset_top = 4.92
-offset_right = 734.0
-offset_bottom = 97.56
+offset_left = 694.4
+offset_top = 15.92
+offset_right = 792.0
+offset_bottom = 109.56
 
 [node name="InventorySlot4" parent="CanvasLayer/InventoryManager" instance=ExtResource("3_afhwo")]
 layout_mode = 1
-offset_left = 768.4
-offset_top = 4.92
-offset_right = 830.0
-offset_bottom = 103.56
+offset_left = 802.4
+offset_top = 15.92
+offset_right = 900.0
+offset_bottom = 109.56
 
 [node name="RuleBox" type="TextureRect" parent="CanvasLayer"]
 show_behind_parent = true

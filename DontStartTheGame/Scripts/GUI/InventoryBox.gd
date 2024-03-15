@@ -1,29 +1,30 @@
 extends TextureRect
 
-@onready var sprite := $ItemSprite
-@onready var highlight_effect := $Highlight
+@export var sprite: Resource
+@export var sprite_selected: Resource
+@onready var item_sprite := $ItemSprite
 
 var item_ID = null
 var item_effect = null
 
 func _ready():
-	sprite.visible = false
-	highlight_effect.visible = false
+	texture = sprite
+	item_sprite.visible = false
 
 func add_item(item):
-	sprite.texture = item.texture
-	sprite.visible = true
+	item_sprite.texture = item.texture
+	item_sprite.visible = true
 	item_ID = item.scene_ID
 	item_effect = item.effect
 
 func remove_item():
-	sprite.texture = null
-	sprite.visible = false
+	item_sprite.texture = null
+	item_sprite.visible = false
 	item_ID = null
 	item_effect = null
 
 func highlight():
-	highlight_effect.visible = true
+	texture = sprite_selected
 
 func unhighlight():
-	highlight_effect.visible = false
+	texture = sprite

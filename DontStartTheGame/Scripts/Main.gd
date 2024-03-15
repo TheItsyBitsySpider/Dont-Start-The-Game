@@ -66,9 +66,9 @@ func update_rules():
 
 func load_level(level):
 	get_tree().call_group("Residuals", "on_level_exit")
-	call_deferred("load_level_helper", level)
+	call_deferred("_load_level_helper", level)
 
-func load_level_helper(level):
+func _load_level_helper(level):
 	if current_level != null:
 		current_level.queue_free()
 	current_level = level.instantiate()
@@ -100,6 +100,9 @@ func resize():
 		rules_list.size = Vector2(560, 202)
 		rules_list.set("theme_override_font_sizes/normal_font_size", 32)
 		rules_list.set("theme_override_constants/line_separation", -12)
+		for i in range(inventory_manager.get_children().size()):
+			inventory_manager.get_children()[i].position.x = 672 + 108 * i
+			inventory_manager.get_children()[i].position.y = 32
 	else:
 		rule_box.position = Vector2(16, 16)
 		rule_box.size = Vector2(464, 208)
@@ -108,3 +111,6 @@ func resize():
 		rules_list.size = Vector2(408, 146)
 		rules_list.set("theme_override_font_sizes/normal_font_size", 24)
 		rules_list.set("theme_override_constants/line_separation", -10)
+		for i in range(inventory_manager.get_children().size()):
+			inventory_manager.get_children()[i].position.x = 496 + 108 * i
+			inventory_manager.get_children()[i].position.y = 16
