@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dbsbi2ibpsica"
-path="res://.godot/imported/Cake.png-27b456faa94d4adf0ebdeed30cfc5a09.ctex"
+path="res://.godot/imported/cake.png-962c95e60692f56505568d81f6b3e8a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Sprites/Items/Cake.png"
-dest_files=["res://.godot/imported/Cake.png-27b456faa94d4adf0ebdeed30cfc5a09.ctex"]
+source_file="res://Resources/Sprites/Items/cake.png"
+dest_files=["res://.godot/imported/cake.png-962c95e60692f56505568d81f6b3e8a1.ctex"]
 
 [params]
 
