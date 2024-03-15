@@ -1,16 +1,18 @@
 [gd_scene load_steps=6 format=3 uid="uid://wn6sn7rh4lfx"]
 
-[ext_resource type="Texture2D" uid="uid://de30f5xbepeh4" path="res://Resources/Sprites/Items/Temporary/EmptyPot.png" id="1_7s3va"]
+[ext_resource type="Texture2D" uid="uid://v5cl8kthobbo" path="res://Resources/Sprites/Items/Mug.png" id="1_a2ujx"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_04kwh"]
 [ext_resource type="PackedScene" uid="uid://bo06eknr1ojr4" path="res://Scenes/Effects/NullEffect.tscn" id="3_ik06x"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="4_rmbef"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sjd3d"]
-size = Vector2(8, 10)
+size = Vector2(12, 12)
 
 [node name="MugItem" type="Sprite2D"]
-texture = ExtResource("1_7s3va")
+z_index = 5
+texture = ExtResource("1_a2ujx")
 script = ExtResource("2_04kwh")
+description = "Your key to survival. This is the compromise after being told you weren’t allowed to take the whole coffee pot."
 
 [node name="NullEffect" parent="." instance=ExtResource("3_ik06x")]
 
@@ -22,6 +24,10 @@ collision_mask = 5
 shape = SubResource("RectangleShape2D_sjd3d")
 
 [node name="Popup" parent="." instance=ExtResource("4_rmbef")]
+offset_left = -1.0
+offset_top = -12.0
+offset_right = 39.0
+offset_bottom = 28.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -13,10 +13,12 @@ extends Node2D
 @onready var rule_box := $CanvasLayer/RuleBox
 @onready var rules_label := $CanvasLayer/RuleBox/RuleListerLabel
 @onready var rules_list := $CanvasLayer/RuleBox/RuleLister
+@onready var description_box := $CanvasLayer/DescriptionBox
 
 var rng := RandomNumberGenerator.new()
 
 func _ready():
+	call_deferred("resize")
 	RenderingServer.set_default_clear_color(Color.hex(0x212123ff))
 	get_tree().get_root().size_changed.connect(resize)
 	player.add_to_inventory.connect(inventory_manager.add_item)
@@ -98,7 +100,7 @@ func set_gui_visibility(visibility: bool):
 	for inventory_slot in inventory_manager.get_children():
 		inventory_slot.visible = visibility
 	rule_box.visible = visibility
-	rules_list.visible = visibility
+	description_box.visible = visibility
 
 func resize():
 	if get_viewport_rect().size.x >= 1600:
@@ -114,14 +116,14 @@ func resize():
 			inventory_manager.get_children()[i].position.y = 32
 	else:
 		rule_box.position = Vector2(16, 16)
-		rule_box.size = Vector2(464, 224)
+		rule_box.size = Vector2(480, 224)
 		rules_label.set("theme_override_font_sizes/font_size", 32)
 		rules_list.position = Vector2(32, 46)
-		rules_list.size = Vector2(408, 162)
-		rules_list.set("theme_override_font_sizes/normal_font_size", 24)
+		rules_list.size = Vector2(424, 162)
+		rules_list.set("theme_override_font_sizes/normal_font_size", 25)
 		rules_list.set("theme_override_constants/line_separation", -10)
 		for i in range(inventory_manager.get_children().size()):
-			inventory_manager.get_children()[i].position.x = 496 + 108 * i
+			inventory_manager.get_children()[i].position.x = 512 + 108 * i
 			inventory_manager.get_children()[i].position.y = 16
 
 func play_sound_effect(sound_effect: Resource):

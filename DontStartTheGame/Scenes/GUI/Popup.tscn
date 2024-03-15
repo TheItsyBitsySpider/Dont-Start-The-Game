@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://b82wwxcm0kjdy"]
+[gd_scene load_steps=2 format=3 uid="uid://b82wwxcm0kjdy"]
+
+[ext_resource type="Texture2D" uid="uid://cxk043w5hjtp" path="res://Resources/Sprites/Effects/InteractEffect.png" id="1_kyffs"]
 
 [node name="Popup" type="Control"]
 visible = false
@@ -7,11 +9,5 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-modulate = Color(0, 1, 0, 1)
-layout_mode = 0
-offset_left = 7.0
-offset_top = -27.0
-offset_right = 23.0
-offset_bottom = -3.0
-text = "E"
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kyffs")

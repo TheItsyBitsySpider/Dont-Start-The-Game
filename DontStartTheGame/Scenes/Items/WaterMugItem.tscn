@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://d0erkvsfbp0iv"]
 
-[ext_resource type="Texture2D" uid="uid://6q50lyv504i7" path="res://Resources/Sprites/Items/Temporary/WaterPot.png" id="1_xuc4k"]
+[ext_resource type="Texture2D" uid="uid://cyhmuhquyq5i7" path="res://Resources/Sprites/Items/MugFilled.png" id="1_816nj"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_dxutu"]
 [ext_resource type="PackedScene" uid="uid://wn6sn7rh4lfx" path="res://Scenes/Items/MugItem.tscn" id="3_hxxnc"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="4_c6n4s"]
@@ -8,14 +8,15 @@
 [ext_resource type="AudioStream" uid="uid://deo7npjppbb7a" path="res://Resources/Sounds/SoundEffects/Temporary/Magic2.wav" id="6_fo7a5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ssym"]
-size = Vector2(8, 10)
+size = Vector2(12, 12)
 
 [node name="WaterMugItem" type="Sprite2D"]
-texture = ExtResource("1_xuc4k")
+z_index = 5
+texture = ExtResource("1_816nj")
 script = ExtResource("2_dxutu")
+description = "Your key to survival. This is the compromise after being told you weren’t allowed to take the whole coffee pot."
+weight = 30
 post_consume_item = ExtResource("3_hxxnc")
-
-[node name="Popup" parent="." instance=ExtResource("4_c6n4s")]
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6
@@ -27,6 +28,13 @@ shape = SubResource("RectangleShape2D_8ssym")
 [node name="SpillEffect" type="Node2D" parent="."]
 script = ExtResource("5_favsh")
 spill_sfx = ExtResource("6_fo7a5")
+
+[node name="Popup" parent="." instance=ExtResource("4_c6n4s")]
+visible = true
+offset_left = -1.0
+offset_top = -11.0
+offset_right = 39.0
+offset_bottom = 29.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

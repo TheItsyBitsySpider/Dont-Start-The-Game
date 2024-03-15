@@ -119,7 +119,7 @@ func _physics_process(_delta):
 		use_item(selected_item)
 
 	# Throws selected item
-	if Input.is_physical_key_pressed(KEY_SPACE) and selected_item != null and current_level != null:
+	if Input.is_action_just_pressed("throw") and selected_item != null and current_level != null:
 		remove_item_from_inventory(selected_inventory_slot)
 		selected_item.position = position
 		var throw_speed = 5000.0 / selected_item.weight

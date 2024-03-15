@@ -14,6 +14,8 @@ var effect
 var effect_node
 var velocity := Vector2.ZERO
 
+var bounce_timer: SceneTreeTimer = null
+
 signal play_effect
 signal on_item_thrown
 
@@ -27,7 +29,9 @@ func _on_area_2d_body_entered(body):
 		player.nearby_items.append(self)
 		popup_node.visible = true
 	else:
-		velocity = velocity.bounce(velocity.normalized()) / 2
+		if bounce_timer == null or bounce_timer.time_left == 0:
+			velocity = velocity.bounce(velocity.normalized()) / 2
+			bounce_timer = get_tree().create_timer(0.01)
 
 func _on_area_2d_body_exited(body):
 	if body is CharacterBody2D:

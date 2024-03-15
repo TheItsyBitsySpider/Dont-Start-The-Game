@@ -48,6 +48,9 @@ func _start_closing_doors():
 func _close_doors():
 	doors.visible = true
 	add_child(door_collision)
+	if doors_closed_at_least_once_flag:
+		set_deferred("monitorable", true)
+		set_deferred("monitoring", true)
 	doors_closed_at_least_once_flag = true
 
 func _physics_process(_delta):
@@ -61,8 +64,6 @@ func lock_elevator():
 
 func unlock_elevator():
 	is_locked = false
-	set_deferred("monitorable", true)
-	set_deferred("monitoring", true)
 	var timer: SceneTreeTimer = get_tree().create_timer(1.5)
 	timer.timeout.connect(_start_opening_doors)
 
