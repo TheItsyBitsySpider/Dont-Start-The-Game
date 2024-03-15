@@ -13,7 +13,7 @@ func _on_main_character_add_to_inventory(item):
 func unlock_elevator():
 	level_elevator.unlock_elevator()
 
-func change_level(_player):
+func change_level(_player = null):
 	get_parent().load_level(next_level)
 
 func get_spawnpoint():

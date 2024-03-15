@@ -1,18 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://dphr3n1v0k4i0"]
+[gd_scene load_steps=11 format=3 uid="uid://e7j7lvkolmu4"]
 
-[ext_resource type="TileSet" uid="uid://d2rpavaogyt1m" path="res://Resources/Sprites/Map/TileSets/TileSet.tres" id="1_grpac"]
-[ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_x6kxr"]
-[ext_resource type="PackedScene" uid="uid://e7j7lvkolmu4" path="res://Scenes/Levels/Floors/Floor2.tscn" id="3_bowlg"]
-[ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://Scenes/Levels/Elevator.tscn" id="4_e8uy5"]
-[ext_resource type="Script" path="res://Scripts/Rules/AutoCompleteRule.gd" id="5_3dilb"]
-[ext_resource type="Script" path="res://Scripts/Rules/TutorialRule.gd" id="6_d8250"]
-[ext_resource type="Script" path="res://Scripts/Rules/CountRule.gd" id="7_4r5as"]
-[ext_resource type="PackedScene" uid="uid://bjb036p4caw3x" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectFacingLeft.tscn" id="7_oh7c7"]
-[ext_resource type="PackedScene" uid="uid://cv2uu5bg561ju" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectFacingRight.tscn" id="8_bggxo"]
-[ext_resource type="PackedScene" uid="uid://fgwc3iilkyyd" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectWorking.tscn" id="9_pwsao"]
+[ext_resource type="TileSet" uid="uid://d2rpavaogyt1m" path="res://Resources/Sprites/Map/TileSets/TileSet.tres" id="1_ap05j"]
+[ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_mhqt5"]
+[ext_resource type="PackedScene" uid="uid://bwmbm5xutb0ov" path="res://Scenes/Levels/EndingScreen.tscn" id="3_eni4j"]
+[ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://Scenes/Levels/Elevator.tscn" id="4_pk16q"]
+[ext_resource type="Script" path="res://Scripts/Rules/AutoCompleteRule.gd" id="5_rr7vn"]
+[ext_resource type="Script" path="res://Scripts/Rules/TutorialRule.gd" id="6_hxp2a"]
+[ext_resource type="Script" path="res://Scripts/Rules/CountRule.gd" id="7_kokqn"]
+[ext_resource type="PackedScene" uid="uid://bjb036p4caw3x" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectFacingLeft.tscn" id="8_o8ooo"]
+[ext_resource type="PackedScene" uid="uid://cv2uu5bg561ju" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectFacingRight.tscn" id="9_vv2ri"]
+[ext_resource type="PackedScene" uid="uid://fgwc3iilkyyd" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectWorking.tscn" id="10_0mko1"]
 
-[node name="Floor1" type="TileMap"]
-tile_set = ExtResource("1_grpac")
+[node name="Floor" type="TileMap"]
+tile_set = ExtResource("1_ap05j")
 format = 2
 layer_0/name = "Overhang"
 layer_0/z_index = 5
@@ -46,62 +46,62 @@ layer_10/tile_data = PackedInt32Array(1310732, 65546, 0, 1310733, 65546, 0, 1310
 layer_11/name = "Building"
 layer_11/z_index = -4
 layer_11/tile_data = PackedInt32Array(851979, 4, 0, 851980, 65540, 0, 851981, 65540, 0, 851982, 65540, 0, 851983, 65540, 0, 851984, 65540, 0, 851985, 65540, 0, 851986, 262148, 0, 917515, 4, 1, 983051, 4, 2, 1048587, 4, 2, 917516, 65540, 1, 917517, 131076, 1, 917518, 131076, 1, 917519, 131076, 1, 917520, 131076, 1, 917521, 196612, 1, 917522, 262148, 1, 983052, 65540, 2, 983053, 131076, 2, 983054, 131076, 2, 983055, 131076, 2, 983056, 131076, 2, 983057, 196612, 2, 983058, 262148, 2, 1048588, 65540, 3, 1048593, 196612, 3, 1048589, 131076, 3, 1048590, 131076, 3, 1048591, 131076, 3, 1048592, 131076, 3, 1114124, 65540, 4, 1114125, 131076, 4, 1114126, 131076, 4, 1114127, 131076, 4, 1114128, 131076, 4, 1114129, 196612, 4, 1179660, 65540, 2, 1179661, 131076, 2, 1179662, 131076, 2, 1179663, 131076, 2, 1179664, 131076, 2, 1179665, 196612, 2, 1245196, 65540, 3, 1245197, 131076, 3, 1245198, 131076, 3, 1245199, 131076, 3, 1245200, 131076, 3, 1245201, 196612, 3, 1114130, 262148, 2, 1179666, 262148, 2, 1245202, 262148, 2, 1114123, 4, 2, 1179659, 4, 2, 1245195, 4, 2, 1048594, 262148, 2, 1310732, 65540, 4, 1310733, 131076, 4, 1310734, 131076, 4, 1310735, 131076, 4, 1310736, 131076, 4, 1310737, 196612, 4, 1310738, 262148, 2, 1310731, 4, 2)
-script = ExtResource("2_x6kxr")
-next_level = ExtResource("3_bowlg")
+script = ExtResource("2_mhqt5")
+next_level = ExtResource("3_eni4j")
 
-[node name="Elevator" parent="." instance=ExtResource("4_e8uy5")]
+[node name="Spawnpoint" type="Node2D" parent="."]
+position = Vector2(248, 120)
+
+[node name="Elevator" parent="." instance=ExtResource("4_pk16q")]
 position = Vector2(265, 132)
 
 [node name="Rules" type="Node2D" parent="."]
 
 [node name="LateRule" type="Node2D" parent="Rules"]
-script = ExtResource("5_3dilb")
+script = ExtResource("5_rr7vn")
 rule_text = "1. Don't be late."
 
 [node name="MoveUpRule" type="Node2D" parent="Rules"]
-script = ExtResource("6_d8250")
+script = ExtResource("6_hxp2a")
 rule_text = "2. Don’t press Up or the W key to move up."
 target_action = "move_up"
 
 [node name="MoveDownRule" type="Node2D" parent="Rules"]
-script = ExtResource("6_d8250")
+script = ExtResource("6_hxp2a")
 rule_text = "3. Don’t press Down or the S key to move down."
 target_action = "move_down"
 
 [node name="MoveLeftRule" type="Node2D" parent="Rules"]
-script = ExtResource("6_d8250")
+script = ExtResource("6_hxp2a")
 rule_text = "4. Don’t press Left or the A key to move left."
 target_action = "move_left"
 
 [node name="MoveRightRule" type="Node2D" parent="Rules"]
-script = ExtResource("6_d8250")
+script = ExtResource("6_hxp2a")
 rule_text = "5. Don’t press Right or the D key to move right."
 target_action = "move_right"
 
 [node name="ShoutRule" type="Node2D" parent="Rules"]
-script = ExtResource("6_d8250")
+script = ExtResource("6_hxp2a")
 rule_text = "6. Don’t press the Z key to shout."
 target_action = "shout"
 
 [node name="AngerRule" type="Node2D" parent="Rules"]
-script = ExtResource("7_4r5as")
+script = ExtResource("7_kokqn")
 rule_text = "7. Don’t annoy your coworkers with your shouting."
 target = 1
 
-[node name="CoworkerObjectFacingLeft" parent="." instance=ExtResource("7_oh7c7")]
+[node name="CoworkerObjectFacingLeft" parent="." instance=ExtResource("8_o8ooo")]
 position = Vector2(223, 142)
 
-[node name="CoworkerObjectFacingRight" parent="." instance=ExtResource("8_bggxo")]
+[node name="CoworkerObjectFacingRight" parent="." instance=ExtResource("9_vv2ri")]
 position = Vector2(192, 142)
 
-[node name="CoworkerObjectWorking" parent="." instance=ExtResource("9_pwsao")]
+[node name="CoworkerObjectWorking" parent="." instance=ExtResource("10_0mko1")]
 position = Vector2(208, 168)
 
-[node name="CoworkerObjectWorking2" parent="." instance=ExtResource("9_pwsao")]
+[node name="CoworkerObjectWorking2" parent="." instance=ExtResource("10_0mko1")]
 position = Vector2(272, 168)
-
-[node name="Spawnpoint" type="Node2D" parent="."]
-position = Vector2(248, 120)
 
 [connection signal="is_mad" from="CoworkerObjectFacingLeft" to="Rules/AngerRule" method="increment_count"]
 [connection signal="is_mad" from="CoworkerObjectFacingRight" to="Rules/AngerRule" method="increment_count"]

@@ -66,6 +66,7 @@ func update_rules():
 
 func load_level(level):
 	get_tree().call_group("Residuals", "on_level_exit")
+	player.frozen = true
 	call_deferred("_load_level_helper", level)
 
 func _load_level_helper(level):
@@ -78,9 +79,17 @@ func _load_level_helper(level):
 		set_gui_visibility(false)
 		remove_child(player)
 		return
+	set_gui_visibility(false)
+	visible = false
+	current_level.level_elevator.relinquished_control.connect(_on_elevator_relinquished_control)
 	player.position = current_level.get_spawnpoint()
 	update_rules()
 	update_connections()
+
+func _on_elevator_relinquished_control():
+	set_gui_visibility(true)
+	visible = true
+	player.unfreeze()
 
 func update_connections():
 	player.add_to_inventory.connect(current_level._on_main_character_add_to_inventory)

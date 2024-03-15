@@ -16,6 +16,8 @@ const MAX_INVENTORY := 4
 
 var rng := RandomNumberGenerator.new()
 
+var frozen := true
+
 var nearby_items := []
 var nearby_interactables := []
 var nearby_objects_with_descriptions := []
@@ -36,6 +38,9 @@ func _ready():
 	animation_player.play("idle_front_right")
 
 func _physics_process(_delta):
+	if frozen:
+		return
+	
 	# Controls movement
 	var player_moved = false
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -145,6 +150,9 @@ func _change_selected_inventory_slot(i: int):
 func play_sound(sound_resource):
 	sfx.set_stream(sound_resource)
 	sfx.play()
+
+func unfreeze():
+	frozen = false
 
 func add_item_to_inventory(item):
 	if null in inventory_items:

@@ -33,6 +33,8 @@ func _on_interact_area_body_entered(body):
 		return
 	if body is Area2D:
 		body = body.get_parent()
+	if body is Area2D:
+		return
 	if body.collision_layer == 6 \
 	and body.scene_file_path == required_item.resource_path:
 		play_effect.emit()
