@@ -1,5 +1,6 @@
 extends Sprite2D
 
+@export var description := "This is truly one of the items of all time!"
 @export var weight := 10
 @export var floatiness := 1.0
 @export var post_consume_item: PackedScene
