@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://wn6sn7rh4lfx" path="res://Scenes/Items/MugItem.tscn" id="3_hxxnc"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="4_c6n4s"]
 [ext_resource type="Script" path="res://Scripts/Effects/SpillEffect.gd" id="5_favsh"]
-[ext_resource type="AudioStream" uid="uid://deo7npjppbb7a" path="res://Resources/Sounds/SoundEffects/Magic2.wav" id="6_fo7a5"]
+[ext_resource type="AudioStream" uid="uid://deo7npjppbb7a" path="res://Resources/Sounds/SoundEffects/Temporary/Magic2.wav" id="6_fo7a5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ssym"]
 size = Vector2(8, 10)

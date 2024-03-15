@@ -2,13 +2,18 @@ extends CharacterBody2D
 
 @export var SPEED: int
 @export var current_level: Node
-@export var shout_sfx: Resource
+@export var shout_sfx_1: Resource
+@export var shout_sfx_2: Resource
+@export var shout_sfx_3: Resource
+@export var shout_sfx_4: Resource
 @onready var sprite := $Sprite2D
 @onready var shadow = $Shadow
 @onready var animation_player := $AnimationPlayer
 @onready var sfx := $SFX
 
 const MAX_INVENTORY := 4
+
+var rng := RandomNumberGenerator.new()
 
 var nearby_items := []
 var nearby_interactables := []
@@ -110,8 +115,15 @@ func _physics_process(_delta):
 	
 	# Shouts
 	if Input.is_action_just_pressed("shout"):
-		$SFX.set_stream(shout_sfx)
-		$SFX.play()
+		var shout_sfx_list := [
+			shout_sfx_1,
+			shout_sfx_2,
+			shout_sfx_3,
+			shout_sfx_4
+		]
+		var i := rng.randi_range(0, len(shout_sfx_list) - 1)
+		sfx.set_stream(shout_sfx_list[i])
+		sfx.play()
 		shouted.emit()
 
 func _change_selected_inventory_slot(i: int):

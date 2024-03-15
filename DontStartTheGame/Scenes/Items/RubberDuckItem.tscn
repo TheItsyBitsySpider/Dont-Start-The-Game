@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_pebwo"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="3_tf8ua"]
 [ext_resource type="Script" path="res://Scripts/Items/ItemEffects/CanBeEaten.gd" id="4_8jfcc"]
-[ext_resource type="AudioStream" uid="uid://txahyaesvocb" path="res://Resources/Sounds/SoundEffects/Coin.wav" id="5_gnv8y"]
+[ext_resource type="AudioStream" uid="uid://txahyaesvocb" path="res://Resources/Sounds/SoundEffects/Temporary/Coin.wav" id="5_gnv8y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3pfxo"]
 size = Vector2(14, 12)

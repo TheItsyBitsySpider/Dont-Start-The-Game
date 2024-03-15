@@ -14,7 +14,7 @@ extends Node2D
 @onready var rules_label := $CanvasLayer/RuleBox/RuleListerLabel
 @onready var rules_list := $CanvasLayer/RuleBox/RuleLister
 
-var rng = RandomNumberGenerator.new()
+var rng := RandomNumberGenerator.new()
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color.hex(0x212123ff))

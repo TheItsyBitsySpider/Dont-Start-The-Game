@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Objects/NoninteractableObjects/WindowObject.gd" id="1_qskt7"]
 [ext_resource type="Texture2D" uid="uid://pmby12eehful" path="res://Resources/Sprites/Items/Temporary/ScrollEmpty.png" id="2_x77ww"]
-[ext_resource type="AudioStream" uid="uid://txahyaesvocb" path="res://Resources/Sounds/SoundEffects/Coin.wav" id="3_tykiq"]
+[ext_resource type="AudioStream" uid="uid://txahyaesvocb" path="res://Resources/Sounds/SoundEffects/Temporary/Coin.wav" id="3_tykiq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_edg6c"]
 
