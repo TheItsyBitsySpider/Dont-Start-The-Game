@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhg2drsi5xmld"]
 
-[ext_resource type="Texture2D" uid="uid://h8pe6fs03b1m" path="res://Resources/Sprites/Items/donut.png" id="1_o2q1u"]
+[ext_resource type="Texture2D" uid="uid://h8pe6fs03b1m" path="res://Resources/Sprites/Items/Donut.png" id="1_o2q1u"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_0gauc"]
 [ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Scenes/Effects/EatingEffect.tscn" id="3_5ebsm"]
 

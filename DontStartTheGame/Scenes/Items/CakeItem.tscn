@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bqga264qiwpvw"]
 
-[ext_resource type="Texture2D" uid="uid://dbsbi2ibpsica" path="res://Resources/Sprites/Items/cake.png" id="1_0ow81"]
+[ext_resource type="Texture2D" uid="uid://dbsbi2ibpsica" path="res://Resources/Sprites/Items/Cake.png" id="1_0ow81"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_2qily"]
 [ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Scenes/Effects/EatingEffect.tscn" id="3_g0cn1"]
 [ext_resource type="Script" path="res://Scripts/Effects/BagPopEffect.gd" id="4_a1vsb"]

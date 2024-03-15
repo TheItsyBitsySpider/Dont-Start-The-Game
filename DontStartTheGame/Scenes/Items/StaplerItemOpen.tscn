@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://c1pqr5wgkibmi"]
 
-[ext_resource type="Texture2D" uid="uid://d22ri6gxuvmat" path="res://Resources/Sprites/Items/open-stapler.png" id="1_xs20i"]
+[ext_resource type="Texture2D" uid="uid://d22ri6gxuvmat" path="res://Resources/Sprites/Items/StaplerOpen.png" id="1_xs20i"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_ix25t"]
 [ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Scenes/Effects/EatingEffect.tscn" id="3_u8ws7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2mvom"]
 
-[node name="OpenStaplerItem" type="Sprite2D"]
+[node name="StaplerItemOpen" type="Sprite2D"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_xs20i")
 script = ExtResource("2_ix25t")

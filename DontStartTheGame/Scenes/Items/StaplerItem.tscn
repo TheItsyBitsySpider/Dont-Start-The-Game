@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cjef1d2tjsny6"]
 
-[ext_resource type="Texture2D" uid="uid://dey67wd8a0275" path="res://Resources/Sprites/Items/stapler.png" id="1_jrrv3"]
+[ext_resource type="Texture2D" uid="uid://dey67wd8a0275" path="res://Resources/Sprites/Items/Stapler.png" id="1_jrrv3"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_l42lb"]
 [ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Scenes/Effects/EatingEffect.tscn" id="3_oj477"]
 

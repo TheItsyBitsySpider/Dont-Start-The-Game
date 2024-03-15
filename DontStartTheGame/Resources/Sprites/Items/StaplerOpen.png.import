@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d22ri6gxuvmat"
-path="res://.godot/imported/open-stapler.png-499bc2b2c5e67af02e6792560c83f53d.ctex"
+path="res://.godot/imported/StaplerOpen.png-2718dd5e4812a19515265acbd68a1ef8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Sprites/Items/open-stapler.png"
-dest_files=["res://.godot/imported/open-stapler.png-499bc2b2c5e67af02e6792560c83f53d.ctex"]
+source_file="res://Resources/Sprites/Items/StaplerOpen.png"
+dest_files=["res://.godot/imported/StaplerOpen.png-2718dd5e4812a19515265acbd68a1ef8.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dpt37lchpgfrk"]
 
-[ext_resource type="Texture2D" uid="uid://dydvk7koj5w3y" path="res://Resources/Sprites/Items/duck.png" id="1_whmsc"]
+[ext_resource type="Texture2D" uid="uid://dydvk7koj5w3y" path="res://Resources/Sprites/Items/RubberDuck.png" id="1_whmsc"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_pebwo"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="3_tf8ua"]
 [ext_resource type="Script" path="res://Scripts/Items/ItemEffects/CanBeEaten.gd" id="4_8jfcc"]

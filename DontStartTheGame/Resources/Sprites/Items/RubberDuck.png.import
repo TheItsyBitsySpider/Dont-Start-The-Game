@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dydvk7koj5w3y"
-path="res://.godot/imported/duck.png-e5611306be970c060b799d63ee152751.ctex"
+path="res://.godot/imported/RubberDuck.png-89624aba81214909ddab1924afdc06d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Sprites/Items/duck.png"
-dest_files=["res://.godot/imported/duck.png-e5611306be970c060b799d63ee152751.ctex"]
+source_file="res://Resources/Sprites/Items/RubberDuck.png"
+dest_files=["res://.godot/imported/RubberDuck.png-89624aba81214909ddab1924afdc06d1.ctex"]
 
 [params]
 
