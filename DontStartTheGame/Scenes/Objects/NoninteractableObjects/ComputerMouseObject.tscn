@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgumw8oovexs8"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/NoninteractableObjects/MoldObject.gd" id="1_ct8hv"]
+[ext_resource type="Texture2D" uid="uid://pmby12eehful" path="res://Resources/Sprites/Items/Temporary/ScrollEmpty.png" id="2_av2nc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_edg6c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pqqf4"]
+radius = 15.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ko1st"]
+size = Vector2(16, 16)
+
+[node name="ComputerMouseObject" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_edg6c")
+script = ExtResource("1_ct8hv")
+description = "Just a normal electronic mouse used to navigate the computer normally. What, were you expecting something else?"
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource("CircleShape2D_pqqf4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ko1st")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_av2nc")
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

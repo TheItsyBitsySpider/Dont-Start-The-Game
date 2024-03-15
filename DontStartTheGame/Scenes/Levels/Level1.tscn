@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://drlv0oshwlrm7"]
+[gd_scene load_steps=37 format=3 uid="uid://drlv0oshwlrm7"]
 
 [ext_resource type="TileSet" uid="uid://dna5am6weug3i" path="res://Resources/Sprites/Map/Temporary/FloorAndWalls.tres" id="1_hxa14"]
 [ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_wxf60"]
@@ -25,6 +25,17 @@
 [ext_resource type="PackedScene" uid="uid://dgi358fm0p4hp" path="res://Scenes/Items/BrightLampItem.tscn" id="23_bfp3f"]
 [ext_resource type="PackedScene" uid="uid://8fj33kxm0eku" path="res://Scenes/Items/BellItem.tscn" id="24_i5oyq"]
 [ext_resource type="PackedScene" uid="uid://cq630tyyau6y0" path="res://Scenes/Items/BagOfChipsItem.tscn" id="25_1pygi"]
+[ext_resource type="PackedScene" uid="uid://jn5tgdc2i0sl" path="res://Scenes/Objects/NoninteractableObjects/MoldObject.tscn" id="26_ppr64"]
+[ext_resource type="PackedScene" uid="uid://6abwf74h8cj2" path="res://Scenes/Objects/NoninteractableObjects/CrackInTheWallObject.tscn" id="27_yda42"]
+[ext_resource type="PackedScene" uid="uid://duw46r82pnl45" path="res://Scenes/Objects/NoninteractableObjects/ModernPaintingObject.tscn" id="28_yeymf"]
+[ext_resource type="PackedScene" uid="uid://ckk80dlh25d57" path="res://Scenes/Objects/NoninteractableObjects/OfficeChairObject.tscn" id="29_sxhbc"]
+[ext_resource type="PackedScene" uid="uid://lim8mh5ywllb" path="res://Scenes/Objects/NoninteractableObjects/RadioactiveLizardObject.tscn" id="30_dpsy3"]
+[ext_resource type="PackedScene" uid="uid://buxnxmf088jcp" path="res://Scenes/Objects/NoninteractableObjects/PinkCockroachObject.tscn" id="31_2mjga"]
+[ext_resource type="PackedScene" uid="uid://dv27irx3vfr1b" path="res://Scenes/Objects/NoninteractableObjects/PreciousGoldRingObject.tscn" id="32_axvp4"]
+[ext_resource type="PackedScene" uid="uid://brxqv8706fbmf" path="res://Scenes/Objects/NoninteractableObjects/BlueLeggoBrickObject.tscn" id="33_pc2tk"]
+[ext_resource type="PackedScene" uid="uid://duhq0b0ta8uja" path="res://Scenes/Objects/NoninteractableObjects/PencilObject.tscn" id="34_snc5n"]
+[ext_resource type="PackedScene" uid="uid://dgumw8oovexs8" path="res://Scenes/Objects/NoninteractableObjects/ComputerMouseObject.tscn" id="35_41j6u"]
+[ext_resource type="PackedScene" uid="uid://p0jj2uxw7uyk" path="res://Scenes/Objects/NoninteractableObjects/MopObject.tscn" id="36_30ly6"]
 
 [node name="Level1" type="TileMap"]
 tile_set = ExtResource("1_hxa14")
@@ -123,3 +134,36 @@ position = Vector2(-123, 3)
 
 [node name="BagOfChipsItem" parent="." instance=ExtResource("25_1pygi")]
 position = Vector2(-123, 19)
+
+[node name="MoldObject" parent="." instance=ExtResource("26_ppr64")]
+position = Vector2(113, -67)
+
+[node name="CrackInTheWallObject" parent="." instance=ExtResource("27_yda42")]
+position = Vector2(112, -38)
+
+[node name="ModernPaintingObject" parent="." instance=ExtResource("28_yeymf")]
+position = Vector2(112, 23)
+
+[node name="OfficeChairObject" parent="." instance=ExtResource("29_sxhbc")]
+position = Vector2(111, -10)
+
+[node name="RadioactiveLizardObject" parent="." instance=ExtResource("30_dpsy3")]
+position = Vector2(112, 53)
+
+[node name="PinkCockroachObject" parent="." instance=ExtResource("31_2mjga")]
+position = Vector2(90, 80)
+
+[node name="PreciousGoldRingObject" parent="." instance=ExtResource("32_axvp4")]
+position = Vector2(57, 81)
+
+[node name="BlueLeggoBrickObject" parent="." instance=ExtResource("33_pc2tk")]
+position = Vector2(26, 81)
+
+[node name="PencilObject" parent="." instance=ExtResource("34_snc5n")]
+position = Vector2(2, 81)
+
+[node name="ComputerMouseObject" parent="." instance=ExtResource("35_41j6u")]
+position = Vector2(-23, 81)
+
+[node name="MopObject" parent="." instance=ExtResource("36_30ly6")]
+position = Vector2(-50, 83)
