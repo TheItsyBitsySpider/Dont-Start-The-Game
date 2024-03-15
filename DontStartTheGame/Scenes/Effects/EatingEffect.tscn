@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjm4p0u6iegt7"]
 
 [ext_resource type="Script" path="res://Scripts/Items/ItemEffects/CanBeEaten.gd" id="1_v8ye7"]
-[ext_resource type="AudioStream" uid="uid://txahyaesvocb" path="res://Resources/Sounds/SoundEffects/Coin.wav" id="2_rpmmf"]
+[ext_resource type="AudioStream" uid="uid://txahyaesvocb" path="res://Resources/Sounds/SoundEffects/Temporary/Coin.wav" id="2_rpmmf"]
 
 [node name="EatingEffect" type="Node2D"]
 script = ExtResource("1_v8ye7")

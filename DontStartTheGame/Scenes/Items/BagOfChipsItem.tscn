@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_s56n3"]
 [ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Scenes/Effects/EatingEffect.tscn" id="3_vbu67"]
 [ext_resource type="Script" path="res://Scripts/Effects/BagPopEffect.gd" id="4_03cni"]
-[ext_resource type="AudioStream" uid="uid://deo7npjppbb7a" path="res://Resources/Sounds/SoundEffects/Magic2.wav" id="5_454qo"]
+[ext_resource type="AudioStream" uid="uid://deo7npjppbb7a" path="res://Resources/Sounds/SoundEffects/Temporary/Magic2.wav" id="5_454qo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2mvom"]
 

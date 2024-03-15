@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtdssf5kyh7yh"]
+[gd_scene load_steps=13 format=3 uid="uid://dtdssf5kyh7yh"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/PlayerCharacter.gd" id="1_6kdyp"]
+[ext_resource type="AudioStream" uid="uid://b8f1uliaqfdxn" path="res://Resources/Sounds/SoundEffects/ShoutSoundEffects/CartoonShout.mp3" id="2_g152q"]
 [ext_resource type="Texture2D" uid="uid://cem8i6cbi8o8" path="res://Resources/Sprites/Character/Player/Player.png" id="2_p4wws"]
-[ext_resource type="AudioStream" uid="uid://txahyaesvocb" path="res://Resources/Sounds/SoundEffects/Coin.wav" id="2_uewhj"]
+[ext_resource type="AudioStream" uid="uid://8u8t81tav0po" path="res://Resources/Sounds/SoundEffects/ShoutSoundEffects/LoudAngryShout.mp3" id="3_a5ewo"]
 [ext_resource type="Texture2D" uid="uid://bomphqy12pyod" path="res://Resources/Sprites/Character/Player/PlayerShadow.png" id="3_plx14"]
+[ext_resource type="AudioStream" uid="uid://ch37rb3ry2lmx" path="res://Resources/Sounds/SoundEffects/ShoutSoundEffects/LoudScaredShout.mp3" id="4_nw2wy"]
+[ext_resource type="AudioStream" uid="uid://cty31207ngsju" path="res://Resources/Sounds/SoundEffects/ShoutSoundEffects/ScaredShout.mp3" id="5_fmvro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h154s"]
 size = Vector2(12, 15)
@@ -69,7 +72,10 @@ collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_6kdyp")
 SPEED = 100
-shout_sfx = ExtResource("2_uewhj")
+shout_sfx_1 = ExtResource("2_g152q")
+shout_sfx_2 = ExtResource("3_a5ewo")
+shout_sfx_3 = ExtResource("4_nw2wy")
+shout_sfx_4 = ExtResource("5_fmvro")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)

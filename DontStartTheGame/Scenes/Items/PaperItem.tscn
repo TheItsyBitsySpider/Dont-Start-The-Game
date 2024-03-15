@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_s4hm2"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="4_oapju"]
 [ext_resource type="Script" path="res://Scripts/Effects/SpillEffect.gd" id="5_l5ukw"]
-[ext_resource type="AudioStream" uid="uid://deo7npjppbb7a" path="res://Resources/Sounds/SoundEffects/Magic2.wav" id="6_mepdq"]
+[ext_resource type="AudioStream" uid="uid://deo7npjppbb7a" path="res://Resources/Sounds/SoundEffects/Temporary/Magic2.wav" id="6_mepdq"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_hm4rk"]
 
