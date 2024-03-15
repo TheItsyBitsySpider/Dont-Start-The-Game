@@ -3,6 +3,10 @@ extends Node2D
 @export var starting_level: PackedScene
 @export var rule_completed_sfx_1: Resource
 @export var rule_completed_sfx_2: Resource
+@export var level_completed_sfx_1: Resource
+@export var level_completed_sfx_2: Resource
+@export var level_completed_sfx_3: Resource
+@export var level_completed_sfx_4: Resource
 @onready var player := $PlayerCharacter
 @onready var current_level = null
 @onready var inventory_manager := $CanvasLayer/InventoryManager
@@ -22,11 +26,25 @@ func _ready():
 	load_level(starting_level)
 
 func _on_rule_completed():
-	if rng.randi_range(0, 1) == 0:
-		player.play_sound(rule_completed_sfx_1)
-	else:
-		player.play_sound(rule_completed_sfx_2)
+	var rule_completed_sfx_list := [ rule_completed_sfx_1, rule_completed_sfx_2 ]
+	var i := rng.randi_range(0, len(rule_completed_sfx_list) - 1)
+	player.play_sound(rule_completed_sfx_list[i])
 	update_rules()
+
+func _on_level_completed():
+	var timer: SceneTreeTimer = get_tree().create_timer(0.5)
+	timer.timeout.connect(_on_level_completed_helper)
+	current_level.unlock_elevator()
+
+func _on_level_completed_helper():
+	var level_completed_sfx_list := [
+		level_completed_sfx_1,
+		level_completed_sfx_2,
+		level_completed_sfx_3,
+		level_completed_sfx_4
+	]
+	var i := rng.randi_range(0, len(level_completed_sfx_list) - 1)
+	player.play_sound(level_completed_sfx_list[i])
 
 func update_rules():
 	var rules = current_level.rule_manager.get_children()
@@ -42,8 +60,9 @@ func update_rules():
 			rules_text += rule.rule_text
 		rules_text += "\n"
 	rules_list.set_text(rules_text)
-	if rule_completion_count >= len(rules):
-		current_level.unlock_elevator()
+	if rule_completion_count >= len(rules) \
+	and current_level.level_elevator.is_locked:
+		_on_level_completed()
 
 func load_level(level):
 	get_tree().call_group("Residuals", "on_level_exit")
