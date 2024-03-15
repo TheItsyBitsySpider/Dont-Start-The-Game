@@ -1,23 +1,25 @@
 [gd_scene load_steps=7 format=3 uid="uid://bqga264qiwpvw"]
 
-[ext_resource type="Texture2D" uid="uid://dsgc4eqa7icv2" path="res://Resources/Sprites/Items/Temporary/Shrimp.png" id="1_iwjma"]
+[ext_resource type="Texture2D" uid="uid://dbsbi2ibpsica" path="res://Resources/Sprites/Items/cake.png" id="1_0ow81"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_2qily"]
 [ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Scenes/Effects/EatingEffect.tscn" id="3_g0cn1"]
 [ext_resource type="Script" path="res://Scripts/Effects/BagPopEffect.gd" id="4_a1vsb"]
 [ext_resource type="AudioStream" uid="uid://deo7npjppbb7a" path="res://Resources/Sounds/SoundEffects/Magic2.wav" id="5_ms83v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2mvom"]
+radius = 12.0
 
 [node name="CakeItem" type="Sprite2D"]
-texture = ExtResource("1_iwjma")
+texture = ExtResource("1_0ow81")
 script = ExtResource("2_2qily")
+description = "A heavily frosted birthday cake made for your coworker. As you lean in, you hear a small whisper regarding the dishonesty of the cake."
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 1)
+position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_2mvom")
 
 [node name="Popup" type="Control" parent="."]
