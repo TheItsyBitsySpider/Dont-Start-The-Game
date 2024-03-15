@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://b8dgjaipbj226" path="res://Resources/Sounds/SoundEffects/PencilCheckMark2.mp3" id="4_52ow2"]
 [ext_resource type="Script" path="res://Scripts/GUI/InventoryManager.gd" id="4_bxpfm"]
 [ext_resource type="AudioStream" uid="uid://bo8htsxlsd4he" path="res://Resources/Sounds/SoundEffects/SuccessMelody.mp3" id="5_anfn1"]
-[ext_resource type="AudioStream" uid="uid://x4m34nkofa6k" path="res://Resources/Sounds/Soundtracks/DSTG_Soundtrack_v1.1.mp3" id="6_00wia"]
+[ext_resource type="AudioStream" uid="uid://dib4byuj0lppi" path="res://Resources/Sounds/Soundtracks/DSTGTheme.mp3" id="6_00wia"]
 [ext_resource type="AudioStream" uid="uid://tubomleqiq7p" path="res://Resources/Sounds/SoundEffects/SuccessSports.mp3" id="6_k0px2"]
 [ext_resource type="Texture2D" uid="uid://cwn3m5bhhwkn5" path="res://Resources/Sprites/GUI/RuleBox.png" id="6_l8oko"]
 [ext_resource type="AudioStream" uid="uid://brpuo8yvwbs8p" path="res://Resources/Sounds/SoundEffects/SuccessTrumpet.mp3" id="7_c3m86"]
