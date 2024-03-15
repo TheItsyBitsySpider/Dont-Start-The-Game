@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://drlv0oshwlrm7"]
+[gd_scene load_steps=13 format=3 uid="uid://drlv0oshwlrm7"]
 
 [ext_resource type="TileSet" uid="uid://dna5am6weug3i" path="res://Resources/Sprites/Map/Temporary/FloorAndWalls.tres" id="1_hxa14"]
 [ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_wxf60"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c1pqr5wgkibmi" path="res://Scenes/Items/StaplerItemOpen.tscn" id="9_4q0eu"]
 [ext_resource type="PackedScene" uid="uid://7exaf65wj72v" path="res://Scenes/Items/OuroborosBananaItem.tscn" id="10_2loek"]
 [ext_resource type="PackedScene" uid="uid://gsvxtqqxrs6k" path="res://Scenes/Items/DonutItem.tscn" id="11_8knrj"]
+[ext_resource type="PackedScene" uid="uid://dtrpsdayuxfqx" path="res://Scenes/Objects/NoninteractableObjects/WindowObject.tscn" id="12_weaxh"]
 
 [node name="Level1" type="TileMap"]
 tile_set = ExtResource("1_hxa14")
@@ -67,3 +68,6 @@ position = Vector2(66, -5)
 
 [node name="DonutItem" parent="." instance=ExtResource("11_8knrj")]
 position = Vector2(66, 6)
+
+[node name="WindowObject" parent="." instance=ExtResource("12_weaxh")]
+position = Vector2(72, -88)

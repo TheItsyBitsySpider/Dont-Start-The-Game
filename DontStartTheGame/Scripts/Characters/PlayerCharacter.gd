@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var SPEED: int
 @export var current_level: Node
+@export var description_text: RichTextLabel
 @export var shout_sfx_1: Resource
 @export var shout_sfx_2: Resource
 @export var shout_sfx_3: Resource
@@ -17,6 +18,7 @@ var rng := RandomNumberGenerator.new()
 
 var nearby_items := []
 var nearby_interactables := []
+var nearby_objects_with_descriptions := []
 var inventory_items := []
 var selected_inventory_slot := 0
 var item_held = null
@@ -40,6 +42,10 @@ func _physics_process(_delta):
 	velocity = direction * SPEED
 	player_moved = velocity != Vector2.ZERO
 	move_and_slide()
+	
+	if player_moved and description_text.text != "":
+		description_text.get_parent().visible = false
+		description_text.text = ""
 	
 	# Controls animation
 	if player_moved and animation_player.current_animation != "walk_front_right":
@@ -80,6 +86,9 @@ func _physics_process(_delta):
 	elif Input.is_action_just_pressed("interact") and not nearby_interactables.is_empty():
 		interact_with_object(nearby_interactables.front())
 	
+	# Gets the description of a non-interactable object
+	elif Input.is_action_just_pressed("interact") and not nearby_objects_with_descriptions.is_empty():
+		get_description(nearby_objects_with_descriptions.front())
 	# Traverses inventory using number keys
 	for i in min(MAX_INVENTORY, 10):
 		if Input.is_physical_key_pressed((KEY_1 + i) % (KEY_9 + 1)):
@@ -173,3 +182,7 @@ func use_item(selected_item):
 func remove_item_from_inventory(index):
 	inventory_items[index] = null
 	remove_from_inventory.emit(index)
+
+func get_description(selected_object):
+	description_text.get_parent().visible = true
+	description_text.text = selected_object.description
