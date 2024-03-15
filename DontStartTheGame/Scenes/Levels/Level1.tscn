@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://drlv0oshwlrm7"]
+[gd_scene load_steps=9 format=3 uid="uid://drlv0oshwlrm7"]
 
 [ext_resource type="TileSet" uid="uid://dna5am6weug3i" path="res://Resources/Sprites/Map/Temporary/FloorAndWalls.tres" id="1_hxa14"]
 [ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_wxf60"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://Scripts/Rules/AutoCompleteRule.gd" id="4_23f38"]
 [ext_resource type="Script" path="res://Scripts/Rules/TutorialRule.gd" id="5_p4ukl"]
 [ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://Scenes/Levels/Elevator.tscn" id="6_ae6ls"]
+[ext_resource type="PackedScene" uid="uid://b8glwhonmkb6j" path="res://Scenes/Items/StaplerItem.tscn" id="7_cxktr"]
+[ext_resource type="PackedScene" uid="uid://dhg2drsi5xmld" path="res://Scenes/Items/BagelItem.tscn" id="8_qnuwu"]
 
 [node name="Level1" type="TileMap"]
 tile_set = ExtResource("1_hxa14")
@@ -47,3 +49,9 @@ target_action = "move_right"
 
 [node name="Spawnpoint" type="Node2D" parent="."]
 position = Vector2(-8, 56.05)
+
+[node name="Item" parent="." instance=ExtResource("7_cxktr")]
+position = Vector2(-79, -16)
+
+[node name="BagelItem" parent="." instance=ExtResource("8_qnuwu")]
+position = Vector2(66, -16)
