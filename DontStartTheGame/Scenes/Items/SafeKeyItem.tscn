@@ -11,6 +11,7 @@ size = Vector2(8, 10)
 [node name="SafeKeyItem" type="Sprite2D"]
 texture = ExtResource("1_0865y")
 script = ExtResource("2_xy4om")
+description = "Where is it? Where is the safe? Should be on this floor, right?"
 
 [node name="NullEffect" parent="." instance=ExtResource("3_5uqv8")]
 

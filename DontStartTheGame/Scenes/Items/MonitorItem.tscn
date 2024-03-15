@@ -11,6 +11,7 @@ radius = 7.07107
 [node name="MonitorItem" type="Sprite2D"]
 texture = ExtResource("1_orbqx")
 script = ExtResource("2_8psna")
+description = "The perpetrator of every eye disease you currently have. Majority of your hours everyday have been spent staring at this very object."
 
 [node name="Popup" parent="." instance=ExtResource("3_645fs")]
 

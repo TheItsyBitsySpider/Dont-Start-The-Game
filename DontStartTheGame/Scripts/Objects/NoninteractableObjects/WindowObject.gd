@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+@export var description := "None of the rules say defenestration isn’t allowed."
+
 @onready var window_sfx := $SFX
 
 var player = null
@@ -18,6 +20,8 @@ func _on_interact_area_body_entered(body):
 		body.get_parent().get_parent().remove_child(body.get_parent())
 	else:
 		player = body
+		player.nearby_objects_with_descriptions.append(self)
 
 func _on_interact_area_body_exited(_body):
+	player.nearby_objects_with_descriptions.erase(self)
 	player = null

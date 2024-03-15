@@ -25,8 +25,9 @@ level_completed_sfx_2 = ExtResource("6_k0px2")
 level_completed_sfx_3 = ExtResource("7_c3m86")
 level_completed_sfx_4 = ExtResource("8_dhuln")
 
-[node name="PlayerCharacter" parent="." instance=ExtResource("1_1grki")]
+[node name="PlayerCharacter" parent="." node_paths=PackedStringArray("description_text") instance=ExtResource("1_1grki")]
 z_index = 1
+description_text = NodePath("../CanvasLayer/ObjectDescriptionBox/DescriptionText")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -125,6 +126,25 @@ offset_right = 345.0
 offset_bottom = 96.0
 theme_override_fonts/normal_font = ExtResource("7_dcpal")
 theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+
+[node name="ObjectDescriptionBox" type="TextureRect" parent="CanvasLayer"]
+visible = false
+offset_left = 394.0
+offset_top = 535.0
+offset_right = 745.0
+offset_bottom = 635.0
+texture = ExtResource("6_l8oko")
+
+[node name="DescriptionText" type="RichTextLabel" parent="CanvasLayer/ObjectDescriptionBox"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 345.0
+offset_bottom = 96.0
+theme_override_fonts/normal_font = ExtResource("7_dcpal")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_00wia")

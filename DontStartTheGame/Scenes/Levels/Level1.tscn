@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://drlv0oshwlrm7"]
+[gd_scene load_steps=37 format=3 uid="uid://drlv0oshwlrm7"]
 
 [ext_resource type="TileSet" uid="uid://dna5am6weug3i" path="res://Resources/Sprites/Map/Temporary/FloorAndWalls.tres" id="1_hxa14"]
 [ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_wxf60"]
@@ -9,6 +9,33 @@
 [ext_resource type="PackedScene" uid="uid://cjef1d2tjsny6" path="res://Scenes/Items/StaplerItem.tscn" id="7_cxktr"]
 [ext_resource type="PackedScene" uid="uid://dhg2drsi5xmld" path="res://Scenes/Items/BagelItem.tscn" id="8_qnuwu"]
 [ext_resource type="PackedScene" uid="uid://c1pqr5wgkibmi" path="res://Scenes/Items/StaplerItemOpen.tscn" id="9_4q0eu"]
+[ext_resource type="PackedScene" uid="uid://7exaf65wj72v" path="res://Scenes/Items/OuroborosBananaItem.tscn" id="10_2loek"]
+[ext_resource type="PackedScene" uid="uid://gsvxtqqxrs6k" path="res://Scenes/Items/DonutItem.tscn" id="11_8knrj"]
+[ext_resource type="PackedScene" uid="uid://dtrpsdayuxfqx" path="res://Scenes/Objects/NoninteractableObjects/WindowObject.tscn" id="12_weaxh"]
+[ext_resource type="PackedScene" uid="uid://b2a15aky6e23r" path="res://Scenes/Items/KeyboardItem.tscn" id="13_qotp4"]
+[ext_resource type="PackedScene" uid="uid://fmpmmr8rxspt" path="res://Scenes/Items/MonitorItem.tscn" id="14_xtdny"]
+[ext_resource type="PackedScene" uid="uid://n45u5rj4f2cy" path="res://Scenes/Items/ScissorsItem.tscn" id="15_lvfl5"]
+[ext_resource type="PackedScene" uid="uid://cu05a5cjwjkcg" path="res://Scenes/Items/RedPushpinItem.tscn" id="16_spct5"]
+[ext_resource type="PackedScene" uid="uid://bmhe6iakpm8oj" path="res://Scenes/Items/CoffeeMugItem.tscn" id="17_i0x5r"]
+[ext_resource type="PackedScene" uid="uid://bba7qmvrw0ily" path="res://Scenes/Items/PaperAirplaneItem.tscn" id="18_4gxvy"]
+[ext_resource type="PackedScene" uid="uid://it1giy30tru2" path="res://Scenes/Items/ComputerItem.tscn" id="19_132gm"]
+[ext_resource type="PackedScene" uid="uid://2wr0cx6j1f26" path="res://Scenes/Items/CookiesItem.tscn" id="20_7p0bt"]
+[ext_resource type="PackedScene" uid="uid://bqga264qiwpvw" path="res://Scenes/Items/CakeItem.tscn" id="21_fybuj"]
+[ext_resource type="PackedScene" uid="uid://bm3h5erhlgsf0" path="res://Scenes/Items/SafeKeyItem.tscn" id="22_i3pjx"]
+[ext_resource type="PackedScene" uid="uid://dgi358fm0p4hp" path="res://Scenes/Items/BrightLampItem.tscn" id="23_bfp3f"]
+[ext_resource type="PackedScene" uid="uid://8fj33kxm0eku" path="res://Scenes/Items/BellItem.tscn" id="24_i5oyq"]
+[ext_resource type="PackedScene" uid="uid://cq630tyyau6y0" path="res://Scenes/Items/BagOfChipsItem.tscn" id="25_1pygi"]
+[ext_resource type="PackedScene" uid="uid://jn5tgdc2i0sl" path="res://Scenes/Objects/NoninteractableObjects/MoldObject.tscn" id="26_ppr64"]
+[ext_resource type="PackedScene" uid="uid://6abwf74h8cj2" path="res://Scenes/Objects/NoninteractableObjects/CrackInTheWallObject.tscn" id="27_yda42"]
+[ext_resource type="PackedScene" uid="uid://duw46r82pnl45" path="res://Scenes/Objects/NoninteractableObjects/ModernPaintingObject.tscn" id="28_yeymf"]
+[ext_resource type="PackedScene" uid="uid://ckk80dlh25d57" path="res://Scenes/Objects/NoninteractableObjects/OfficeChairObject.tscn" id="29_sxhbc"]
+[ext_resource type="PackedScene" uid="uid://lim8mh5ywllb" path="res://Scenes/Objects/NoninteractableObjects/RadioactiveLizardObject.tscn" id="30_dpsy3"]
+[ext_resource type="PackedScene" uid="uid://buxnxmf088jcp" path="res://Scenes/Objects/NoninteractableObjects/PinkCockroachObject.tscn" id="31_2mjga"]
+[ext_resource type="PackedScene" uid="uid://dv27irx3vfr1b" path="res://Scenes/Objects/NoninteractableObjects/PreciousGoldRingObject.tscn" id="32_axvp4"]
+[ext_resource type="PackedScene" uid="uid://brxqv8706fbmf" path="res://Scenes/Objects/NoninteractableObjects/BlueLeggoBrickObject.tscn" id="33_pc2tk"]
+[ext_resource type="PackedScene" uid="uid://duhq0b0ta8uja" path="res://Scenes/Objects/NoninteractableObjects/PencilObject.tscn" id="34_snc5n"]
+[ext_resource type="PackedScene" uid="uid://dgumw8oovexs8" path="res://Scenes/Objects/NoninteractableObjects/ComputerMouseObject.tscn" id="35_41j6u"]
+[ext_resource type="PackedScene" uid="uid://p0jj2uxw7uyk" path="res://Scenes/Objects/NoninteractableObjects/MopObject.tscn" id="36_30ly6"]
 
 [node name="Level1" type="TileMap"]
 tile_set = ExtResource("1_hxa14")
@@ -55,7 +82,88 @@ position = Vector2(-8, 56.05)
 position = Vector2(-79, -16)
 
 [node name="BagelItem" parent="." instance=ExtResource("8_qnuwu")]
-position = Vector2(66, -16)
+position = Vector2(-62, -13)
 
 [node name="OpenStaplerItem" parent="." instance=ExtResource("9_4q0eu")]
 position = Vector2(-81, 0)
+
+[node name="OuroborosBananaItem" parent="." instance=ExtResource("10_2loek")]
+position = Vector2(-62, -2)
+
+[node name="DonutItem" parent="." instance=ExtResource("11_8knrj")]
+position = Vector2(-62, 9)
+
+[node name="WindowObject" parent="." instance=ExtResource("12_weaxh")]
+position = Vector2(72, -88)
+
+[node name="KeyboardItem" parent="." instance=ExtResource("13_qotp4")]
+position = Vector2(-123, -60)
+
+[node name="MonitorItem" parent="." instance=ExtResource("14_xtdny")]
+position = Vector2(-103, -59)
+
+[node name="ScissorsItem" parent="." instance=ExtResource("15_lvfl5")]
+position = Vector2(-101, -38)
+
+[node name="RedPushpinItem" parent="." instance=ExtResource("16_spct5")]
+position = Vector2(-87, -37)
+
+[node name="CoffeeMugItem" parent="." instance=ExtResource("17_i0x5r")]
+position = Vector2(-101, -31)
+
+[node name="PaperAirplaneItem" parent="." instance=ExtResource("18_4gxvy")]
+position = Vector2(-62, -24)
+
+[node name="ComputerItem" parent="." instance=ExtResource("19_132gm")]
+position = Vector2(-82, -59)
+
+[node name="CookiesItem" parent="." instance=ExtResource("20_7p0bt")]
+position = Vector2(-101, -22)
+
+[node name="CakeItem" parent="." instance=ExtResource("21_fybuj")]
+position = Vector2(-123, -38)
+
+[node name="SafeKeyItem" parent="." instance=ExtResource("22_i3pjx")]
+position = Vector2(-102, -10)
+
+[node name="BrightLampItem" parent="." instance=ExtResource("23_bfp3f")]
+position = Vector2(-123, -13)
+
+[node name="BellItem" parent="." instance=ExtResource("24_i5oyq")]
+position = Vector2(-123, 3)
+
+[node name="BagOfChipsItem" parent="." instance=ExtResource("25_1pygi")]
+position = Vector2(-123, 19)
+
+[node name="MoldObject" parent="." instance=ExtResource("26_ppr64")]
+position = Vector2(113, -67)
+
+[node name="CrackInTheWallObject" parent="." instance=ExtResource("27_yda42")]
+position = Vector2(112, -38)
+
+[node name="ModernPaintingObject" parent="." instance=ExtResource("28_yeymf")]
+position = Vector2(112, 23)
+
+[node name="OfficeChairObject" parent="." instance=ExtResource("29_sxhbc")]
+position = Vector2(111, -10)
+
+[node name="RadioactiveLizardObject" parent="." instance=ExtResource("30_dpsy3")]
+position = Vector2(112, 53)
+
+[node name="PinkCockroachObject" parent="." instance=ExtResource("31_2mjga")]
+position = Vector2(90, 80)
+
+[node name="PreciousGoldRingObject" parent="." instance=ExtResource("32_axvp4")]
+position = Vector2(57, 81)
+
+[node name="BlueLeggoBrickObject" parent="." instance=ExtResource("33_pc2tk")]
+position = Vector2(26, 81)
+
+[node name="PencilObject" parent="." instance=ExtResource("34_snc5n")]
+position = Vector2(2, 81)
+
+[node name="ComputerMouseObject" parent="." instance=ExtResource("35_41j6u")]
+position = Vector2(-23, 81)
+
+[node name="MopObject" parent="." instance=ExtResource("36_30ly6")]
+position = Vector2(-50, 83)
