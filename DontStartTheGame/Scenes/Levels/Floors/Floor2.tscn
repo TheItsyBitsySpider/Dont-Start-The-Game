@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://e7j7lvkolmu4"]
+[gd_scene load_steps=11 format=3 uid="uid://e7j7lvkolmu4"]
 
 [ext_resource type="TileSet" uid="uid://d2rpavaogyt1m" path="res://Resources/Sprites/Map/TileSets/TileSet.tres" id="1_ap05j"]
 [ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_mhqt5"]
 [ext_resource type="PackedScene" uid="uid://bwmbm5xutb0ov" path="res://Scenes/Levels/EndingScreen.tscn" id="3_eni4j"]
 [ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://Scenes/Levels/Elevator.tscn" id="4_pk16q"]
 [ext_resource type="Script" path="res://Scripts/Rules/PickupRule.gd" id="5_ea5s8"]
+[ext_resource type="Script" path="res://Scripts/Rules/CountRule.gd" id="7_dp05h"]
+[ext_resource type="PackedScene" uid="uid://dhmcd026kml5u" path="res://Scenes/Objects/InteractableObjects/WaterCoolerObject.tscn" id="8_pb451"]
 [ext_resource type="PackedScene" uid="uid://wn6sn7rh4lfx" path="res://Scenes/Items/MugItem.tscn" id="9_3nydm"]
 [ext_resource type="PackedScene" uid="uid://fgwc3iilkyyd" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectWorking.tscn" id="10_0mko1"]
+[ext_resource type="PackedScene" uid="uid://c6cs2cfnf18tj" path="res://Scenes/Objects/NoninteractableObjects/ComputerObject.tscn" id="10_oxd4c"]
 
 [node name="Floor2" type="TileMap"]
 tile_set = ExtResource("1_ap05j")
@@ -60,6 +63,21 @@ rule_text = "1. Don't press the E key to pick up the Coffee Mug."
 target = 1
 target_item = ExtResource("9_3nydm")
 
+[node name="InteractRule" type="Node2D" parent="Rules"]
+script = ExtResource("7_dp05h")
+rule_text = "2. Don’t press the E key to use the water cooler."
+target = 1
+
+[node name="FloodRule" type="Node2D" parent="Rules"]
+script = ExtResource("7_dp05h")
+rule_text = "3. Don’t flood the office."
+target = 3
+
+[node name="DrinksRule" type="Node2D" parent="Rules"]
+script = ExtResource("7_dp05h")
+rule_text = "5. Don’t bring drinks near the computers."
+target = 1
+
 [node name="CoworkerObjectWorking" parent="." instance=ExtResource("10_0mko1")]
 position = Vector2(208, 168)
 
@@ -69,4 +87,17 @@ position = Vector2(272, 168)
 [node name="MugItem" parent="." instance=ExtResource("9_3nydm")]
 position = Vector2(264, 152)
 
+[node name="WaterCoolerObject" parent="." instance=ExtResource("8_pb451")]
+position = Vector2(280, 144)
+
+[node name="ComputerObject" parent="." instance=ExtResource("10_oxd4c")]
+position = Vector2(204, 179)
+
+[node name="ComputerObject2" parent="." instance=ExtResource("10_oxd4c")]
+position = Vector2(268, 179)
+
 [connection signal="on_item_picked_up" from="." to="Rules/PickupRule" method="increment_count_item"]
+[connection signal="play_effect" from="WaterCoolerObject" to="Rules/InteractRule" method="increment_count"]
+[connection signal="play_spill_effect" from="WaterCoolerObject" to="Rules/FloodRule" method="increment_count"]
+[connection signal="play_effect" from="ComputerObject" to="Rules/DrinksRule" method="increment_count"]
+[connection signal="play_effect" from="ComputerObject2" to="Rules/DrinksRule" method="increment_count"]

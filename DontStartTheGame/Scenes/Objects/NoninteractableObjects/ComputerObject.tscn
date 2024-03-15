@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6cs2cfnf18tj"]
+[gd_scene load_steps=6 format=3 uid="uid://c6cs2cfnf18tj"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/NoninteractableObjects/ComputerObject.gd" id="1_gvwxo"]
-[ext_resource type="Texture2D" uid="uid://doptbkt6c8b1d" path="res://Resources/Sprites/Map/Temporary/TilesetElement.png" id="2_cfopc"]
 [ext_resource type="PackedScene" uid="uid://d0erkvsfbp0iv" path="res://Scenes/Items/WaterMugItem.tscn" id="2_uy8mw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_edg6c"]
@@ -13,26 +12,21 @@ radius = 15.0
 size = Vector2(14, 12)
 
 [node name="ComputerObject" type="StaticBody2D"]
-collision_layer = 4
+collision_layer = 7
 collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_edg6c")
 script = ExtResource("1_gvwxo")
 required_item = ExtResource("2_uy8mw")
 
 [node name="InteractArea" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 shape = SubResource("CircleShape2D_pqqf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_ko1st")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_cfopc")
-hframes = 16
-vframes = 15
-frame = 6
 
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

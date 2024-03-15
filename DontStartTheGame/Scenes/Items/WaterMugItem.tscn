@@ -15,7 +15,7 @@ z_index = 5
 texture = ExtResource("1_816nj")
 script = ExtResource("2_dxutu")
 description = "Your key to survival. This is the compromise after being told you weren’t allowed to take the whole coffee pot."
-weight = 30
+weight = 20
 post_consume_item = ExtResource("3_hxxnc")
 
 [node name="Area2D" type="Area2D" parent="."]

@@ -4,6 +4,7 @@
 
 [node name="Popup" type="Control"]
 visible = false
+z_index = 7
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

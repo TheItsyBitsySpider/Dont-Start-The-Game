@@ -19,10 +19,9 @@ func _process(_delta):
 		effect_happened = true
 
 func _on_interact_area_body_entered(body):
-	player = body
+	if body is CharacterBody2D:
+		player = body
 
-func _on_interact_area_body_exited(_body):
-	player = null
-
-func _on_item_detection():
-	play_effect.emit()
+func _on_interact_area_body_exited(body):
+	if body is CharacterBody2D:
+		player = null

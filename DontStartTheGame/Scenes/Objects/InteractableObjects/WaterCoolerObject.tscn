@@ -1,16 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhmcd026kml5u"]
+[gd_scene load_steps=14 format=3 uid="uid://dhmcd026kml5u"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/InteractableObject.gd" id="1_xtfwy"]
+[ext_resource type="Texture2D" uid="uid://c31m3wb6ej0cp" path="res://Resources/Sprites/Objects/WaterCooler/WaterCooler.png" id="2_aqvmp"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="2_nq1hs"]
-[ext_resource type="Texture2D" uid="uid://doptbkt6c8b1d" path="res://Resources/Sprites/Map/Temporary/TilesetElement.png" id="3_c1qvi"]
+[ext_resource type="Texture2D" uid="uid://coy86ec0n1fup" path="res://Resources/Sprites/Objects/WaterCooler/WaterCoolerSpilled1.png" id="3_axca2"]
 [ext_resource type="Script" path="res://Scripts/Items/ItemEffects/GiveItemEffect.gd" id="4_53xs2"]
+[ext_resource type="Texture2D" uid="uid://d0k570ptosg4p" path="res://Resources/Sprites/Objects/WaterCooler/WaterCoolerSpilled2.png" id="4_hl6v7"]
 [ext_resource type="PackedScene" uid="uid://d0erkvsfbp0iv" path="res://Scenes/Items/WaterMugItem.tscn" id="5_8rivn"]
+[ext_resource type="Texture2D" uid="uid://d0de1sdw7ue4g" path="res://Resources/Sprites/Objects/WaterCooler/WaterCoolerSpilled3.png" id="5_femob"]
+[ext_resource type="AudioStream" uid="uid://cx0yryquk2knt" path="res://Resources/Sounds/SoundEffects/Splash.mp3" id="6_gly1e"]
 [ext_resource type="PackedScene" uid="uid://wn6sn7rh4lfx" path="res://Scenes/Items/MugItem.tscn" id="6_ucm1e"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5d0hg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8crf"]
-size = Vector2(12, 15)
+size = Vector2(11, 10)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s2lir"]
 radius = 17.0294
@@ -20,17 +24,17 @@ collision_layer = 4
 collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_5d0hg")
 script = ExtResource("1_xtfwy")
-
-[node name="Popup" parent="." instance=ExtResource("2_nq1hs")]
+normal_sprite = ExtResource("2_aqvmp")
+spilled_sprite_1 = ExtResource("3_axca2")
+spilled_sprite_2 = ExtResource("4_hl6v7")
+spilled_sprite_3 = ExtResource("5_femob")
+splash_sfx = ExtResource("6_gly1e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_c1qvi")
-hframes = 16
-vframes = 15
-frame = 1
+texture = ExtResource("2_aqvmp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(-0.5, -10)
 shape = SubResource("RectangleShape2D_l8crf")
 
 [node name="InteractArea" type="Area2D" parent="."]
@@ -43,6 +47,11 @@ script = ExtResource("4_53xs2")
 required_item = ExtResource("6_ucm1e")
 item_to_give = ExtResource("5_8rivn")
 
+[node name="Popup" parent="." instance=ExtResource("2_nq1hs")]
+offset_top = -20.0
+offset_bottom = 20.0
+
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
+[connection signal="interact_with_without_required_item" from="GiveItemEffect" to="." method="spill"]
 [connection signal="play_effect" from="GiveItemEffect" to="." method="_on_give_item_effect_play_effect"]

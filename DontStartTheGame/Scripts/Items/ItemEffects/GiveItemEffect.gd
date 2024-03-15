@@ -3,6 +3,7 @@ extends Node2D
 @export var required_item: PackedScene
 @export var item_to_give: PackedScene
 
+signal interact_with_without_required_item
 signal play_effect
 
 func _ready():
@@ -26,4 +27,6 @@ func give_item_effect(player):
 		if not player.add_item_to_inventory(item_instance):
 			item_instance.queue_free()
 		play_effect.emit()
+	else:
+		interact_with_without_required_item.emit()
 	return false
