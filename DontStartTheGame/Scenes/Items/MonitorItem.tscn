@@ -14,6 +14,8 @@ script = ExtResource("2_8psna")
 description = "The perpetrator of every eye disease you currently have. Majority of your hours everyday have been spent staring at this very object."
 
 [node name="Popup" parent="." instance=ExtResource("3_645fs")]
+offset_top = -14.0
+offset_bottom = 26.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6
