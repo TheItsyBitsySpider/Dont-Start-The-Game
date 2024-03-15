@@ -44,6 +44,7 @@ offset_left = 478.4
 offset_top = 15.92
 offset_right = 576.0
 offset_bottom = 109.44
+description_to_show = NodePath("../../DescriptionBox/DescriptionText")
 
 [node name="InventorySlot2" parent="CanvasLayer/InventoryManager" node_paths=PackedStringArray("description_to_show") instance=ExtResource("3_afhwo")]
 layout_mode = 1
@@ -55,6 +56,7 @@ offset_left = 583.08
 offset_top = 16.0
 offset_right = 680.64
 offset_bottom = 109.44
+description_to_show = NodePath("../../DescriptionBox/DescriptionText")
 
 [node name="InventorySlot3" parent="CanvasLayer/InventoryManager" node_paths=PackedStringArray("description_to_show") instance=ExtResource("3_afhwo")]
 layout_mode = 1
@@ -62,6 +64,7 @@ offset_left = 694.4
 offset_top = 15.92
 offset_right = 792.0
 offset_bottom = 109.56
+description_to_show = NodePath("../../DescriptionBox/DescriptionText")
 
 [node name="InventorySlot4" parent="CanvasLayer/InventoryManager" node_paths=PackedStringArray("description_to_show") instance=ExtResource("3_afhwo")]
 layout_mode = 1
@@ -69,6 +72,7 @@ offset_left = 802.4
 offset_top = 15.92
 offset_right = 900.0
 offset_bottom = 109.56
+description_to_show = NodePath("../../DescriptionBox/DescriptionText")
 
 [node name="RuleBox" type="TextureRect" parent="CanvasLayer"]
 show_behind_parent = true

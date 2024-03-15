@@ -2,8 +2,8 @@ extends TextureRect
 
 @export var sprite: Resource
 @export var sprite_selected: Resource
-@onready var item_sprite := $ItemSprite
 @export var description_to_show: RichTextLabel
+@onready var item_sprite := $ItemSprite
 
 var item_ID = null
 var item_effect = null
