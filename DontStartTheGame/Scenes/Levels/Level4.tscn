@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Rules/PickupRule.gd" id="5_x0x62"]
 [ext_resource type="Script" path="res://Scripts/Rules/CountRule.gd" id="7_tb72r"]
 [ext_resource type="PackedScene" uid="uid://bba7qmvrw0ily" path="res://Scenes/Items/PaperAirplaneItem.tscn" id="8_a4y8j"]
-[ext_resource type="PackedScene" uid="uid://cv2uu5bg561ju" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObject.tscn" id="9_usvu6"]
+[ext_resource type="PackedScene" uid="uid://cv2uu5bg561ju" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectFacingRight.tscn" id="9_usvu6"]
 [ext_resource type="PackedScene" uid="uid://fji8ex54nd5a" path="res://Scenes/Items/PaperItem.tscn" id="10_mnmxu"]
 [ext_resource type="PackedScene" uid="uid://bm3h5erhlgsf0" path="res://Scenes/Items/SafeKeyItem.tscn" id="11_6klbq"]
 [ext_resource type="PackedScene" uid="uid://cvif1p6i0g38r" path="res://Scenes/Objects/InteractableObjects/SafeObject.tscn" id="12_ti4df"]

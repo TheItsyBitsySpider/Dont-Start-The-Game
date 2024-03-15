@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/Rules/CountRule.gd" id="6_p6g4f"]
 [ext_resource type="PackedScene" uid="uid://b1egalx5bm7s5" path="res://Scenes/Items/PencilItem.tscn" id="7_0tt36"]
 [ext_resource type="PackedScene" uid="uid://dmxgcwu76w4cp" path="res://Scenes/Objects/NoninteractableObjects/BirthdayBalloonObject.tscn" id="8_lt578"]
-[ext_resource type="PackedScene" uid="uid://cv2uu5bg561ju" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObject.tscn" id="9_7q8hg"]
+[ext_resource type="PackedScene" uid="uid://cv2uu5bg561ju" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectFacingRight.tscn" id="9_7q8hg"]
 [ext_resource type="PackedScene" uid="uid://cq630tyyau6y0" path="res://Scenes/Items/BagOfChipsItem.tscn" id="9_qof0k"]
 [ext_resource type="PackedScene" uid="uid://bqga264qiwpvw" path="res://Scenes/Items/CakeItem.tscn" id="10_3rdhj"]
 

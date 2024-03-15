@@ -1,0 +1,53 @@
+[gd_scene load_steps=11 format=3 uid="uid://cv2uu5bg561ju"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/NoninteractableObjects/CoworkerObject.gd" id="1_hxw16"]
+[ext_resource type="Texture2D" uid="uid://bj1diiefbvpdd" path="res://Resources/Sprites/Effects/AngerEffectCoworkerStanding1.png" id="2_huwii"]
+[ext_resource type="PackedScene" uid="uid://bba7qmvrw0ily" path="res://Scenes/Items/PaperAirplaneItem.tscn" id="2_j6vxs"]
+[ext_resource type="Texture2D" uid="uid://d37ioky1nrllo" path="res://Resources/Sprites/Effects/AngerEffectCoworkerStanding2.png" id="3_i3fec"]
+[ext_resource type="Texture2D" uid="uid://jq621cw7t2nv" path="res://Resources/Sprites/Character/Coworkers/CoworkerFacingRight.png" id="3_vyqcd"]
+[ext_resource type="AudioStream" uid="uid://dwgwhtmjukb43" path="res://Resources/Sounds/SoundEffects/AngrySoundEffects/Grunt.mp3" id="4_dbhlc"]
+[ext_resource type="AudioStream" uid="uid://bue7jg4il3lhh" path="res://Resources/Sounds/SoundEffects/AngrySoundEffects/Sigh.mp3" id="5_eirof"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hfun6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lhgnr"]
+radius = 15.0333
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffgch"]
+size = Vector2(11, 6)
+
+[node name="CoworkerObjectFacingRight" type="StaticBody2D"]
+z_index = 2
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_hfun6")
+script = ExtResource("1_hxw16")
+anger_effect_sprite_1 = ExtResource("2_huwii")
+anger_effect_sprite_2 = ExtResource("3_i3fec")
+angry_sfx_1 = ExtResource("4_dbhlc")
+angry_sfx_2 = ExtResource("5_eirof")
+required_item = ExtResource("2_j6vxs")
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(8, 0)
+shape = SubResource("CircleShape2D_lhgnr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7.5, -4)
+shape = SubResource("RectangleShape2D_ffgch")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_vyqcd")
+
+[node name="SpeechCloud" type="Sprite2D" parent="."]
+visible = false
+z_index = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

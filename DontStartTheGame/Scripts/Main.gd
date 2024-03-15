@@ -94,10 +94,10 @@ func set_gui_visibility(visibility: bool):
 func resize():
 	if get_viewport_rect().size.x >= 1600:
 		rule_box.position = Vector2(32, 32)
-		rule_box.size = Vector2(624, 272)
+		rule_box.size = Vector2(624, 304)
 		rules_label.set("theme_override_font_sizes/font_size", 40)
 		rules_list.position = Vector2(40, 54)
-		rules_list.size = Vector2(560, 202)
+		rules_list.size = Vector2(560, 234)
 		rules_list.set("theme_override_font_sizes/normal_font_size", 32)
 		rules_list.set("theme_override_constants/line_separation", -12)
 		for i in range(inventory_manager.get_children().size()):
@@ -105,10 +105,10 @@ func resize():
 			inventory_manager.get_children()[i].position.y = 32
 	else:
 		rule_box.position = Vector2(16, 16)
-		rule_box.size = Vector2(464, 208)
+		rule_box.size = Vector2(464, 224)
 		rules_label.set("theme_override_font_sizes/font_size", 32)
 		rules_list.position = Vector2(32, 46)
-		rules_list.size = Vector2(408, 146)
+		rules_list.size = Vector2(408, 162)
 		rules_list.set("theme_override_font_sizes/normal_font_size", 24)
 		rules_list.set("theme_override_constants/line_separation", -10)
 		for i in range(inventory_manager.get_children().size()):
