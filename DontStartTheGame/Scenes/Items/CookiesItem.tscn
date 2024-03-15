@@ -1,17 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://cq630tyyau6y0"]
+[gd_scene load_steps=5 format=3 uid="uid://2wr0cx6j1f26"]
 
-[ext_resource type="Texture2D" uid="uid://brlyklee01cw3" path="res://Resources/Sprites/Items/Temporary/Onigiri.png" id="1_rbiwf"]
-[ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_s56n3"]
-[ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Scenes/Effects/EatingEffect.tscn" id="3_vbu67"]
-[ext_resource type="Script" path="res://Scripts/Effects/BagPopEffect.gd" id="4_03cni"]
-[ext_resource type="AudioStream" uid="uid://deo7npjppbb7a" path="res://Resources/Sounds/SoundEffects/Temporary/Magic2.wav" id="5_454qo"]
+[ext_resource type="Texture2D" uid="uid://brlyklee01cw3" path="res://Resources/Sprites/Items/Temporary/Onigiri.png" id="1_4voai"]
+[ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_ttnac"]
+[ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Scenes/Effects/EatingEffect.tscn" id="3_m4cho"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2mvom"]
 
-[node name="BagOfChipsItem" type="Sprite2D"]
-texture = ExtResource("1_rbiwf")
-script = ExtResource("2_s56n3")
-description = "People actually pay money for this bag of air."
+[node name="CookiesItem" type="Sprite2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_4voai")
+script = ExtResource("2_ttnac")
+description = "They may be stale but at least they’re free."
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6
@@ -42,9 +41,8 @@ offset_right = 22.0
 offset_bottom = 40.0
 text = "E"
 
-[node name="Effect" parent="." instance=ExtResource("3_vbu67")]
-script = ExtResource("4_03cni")
-pop_sfx = ExtResource("5_454qo")
+[node name="Effect" parent="." instance=ExtResource("3_m4cho")]
+eat_sfx = null
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

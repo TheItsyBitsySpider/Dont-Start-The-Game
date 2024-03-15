@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://n45u5rj4f2cy"]
+
+[ext_resource type="Texture2D" uid="uid://brlyklee01cw3" path="res://Resources/Sprites/Items/Temporary/Onigiri.png" id="1_di4br"]
+[ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_ccthb"]
+[ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="3_2ghim"]
+[ext_resource type="Script" path="res://Scripts/Effects/NullEffect.gd" id="4_djdo2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6qke"]
+size = Vector2(17, 12)
+
+[node name="ScissorsItem" type="Sprite2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_di4br")
+script = ExtResource("2_ccthb")
+description = "Someone in history took a good look at knives and went, “What if they were conjoined twins?”"
+
+[node name="Popup" parent="." instance=ExtResource("3_2ghim")]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 6
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_l6qke")
+
+[node name="Effect" type="Node2D" parent="."]
+script = ExtResource("4_djdo2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

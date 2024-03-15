@@ -11,6 +11,7 @@ radius = 7.07107
 [node name="ComputerItem" type="Sprite2D"]
 texture = ExtResource("1_4idta")
 script = ExtResource("2_mphex")
+description = "The bane of your existence."
 
 [node name="Popup" parent="." instance=ExtResource("3_4ft1u")]
 
