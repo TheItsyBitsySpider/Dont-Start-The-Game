@@ -25,10 +25,10 @@ collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_5d0hg")
 script = ExtResource("1_xtfwy")
 normal_sprite = ExtResource("2_aqvmp")
-spilled_sprite_1 = ExtResource("3_axca2")
-spilled_sprite_2 = ExtResource("4_hl6v7")
-spilled_sprite_3 = ExtResource("5_femob")
-splash_sfx = ExtResource("6_gly1e")
+special_sprite_1 = ExtResource("3_axca2")
+special_sprite_2 = ExtResource("4_hl6v7")
+special_sprite_3 = ExtResource("5_femob")
+normal_sfx = ExtResource("6_gly1e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_aqvmp")
@@ -53,5 +53,5 @@ offset_bottom = 20.0
 
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
-[connection signal="interact_with_without_required_item" from="GiveItemEffect" to="." method="spill"]
+[connection signal="interact_with_without_required_item" from="GiveItemEffect" to="." method="cycle"]
 [connection signal="play_effect" from="GiveItemEffect" to="." method="_on_give_item_effect_play_effect"]

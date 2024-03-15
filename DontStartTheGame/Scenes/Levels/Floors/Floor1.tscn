@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dphr3n1v0k4i0"]
+[gd_scene load_steps=13 format=3 uid="uid://dphr3n1v0k4i0"]
 
 [ext_resource type="TileSet" uid="uid://d2rpavaogyt1m" path="res://Resources/Sprites/Map/TileSets/TileSet.tres" id="1_grpac"]
 [ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_x6kxr"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cv2uu5bg561ju" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectFacingRight.tscn" id="8_bggxo"]
 [ext_resource type="PackedScene" uid="uid://fgwc3iilkyyd" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectWorking.tscn" id="9_pwsao"]
 [ext_resource type="PackedScene" uid="uid://dhmcd026kml5u" path="res://Scenes/Objects/InteractableObjects/WaterCoolerObject.tscn" id="11_fs7lu"]
+[ext_resource type="PackedScene" uid="uid://dcjormrjy1761" path="res://Scenes/Objects/InteractableObjects/PlantObject.tscn" id="12_s1a7m"]
 
 [node name="Floor1" type="TileMap"]
 tile_set = ExtResource("1_grpac")
@@ -23,7 +24,7 @@ layer_1/z_index = 2
 layer_1/tile_data = PackedInt32Array(655372, 196613, 0, 655376, 196613, 0)
 layer_2/name = "Decor2"
 layer_2/z_index = 1
-layer_2/tile_data = PackedInt32Array(655372, 5, 0, 720908, 5, 1, 655373, 65541, 0, 720909, 65541, 1, 655376, 5, 0, 720912, 5, 1, 655377, 65541, 0, 720913, 65541, 1, 524302, 5, 2, 524304, 6, 0, 589840, 6, 1, 524300, 131078, 0)
+layer_2/tile_data = PackedInt32Array(655372, 5, 0, 720908, 5, 1, 655373, 65541, 0, 720909, 65541, 1, 655376, 5, 0, 720912, 5, 1, 655377, 65541, 0, 720913, 65541, 1, 524302, 5, 2, 524300, 131078, 0)
 layer_3/name = "Wall"
 layer_3/tile_data = PackedInt32Array(327695, 327683, 1, 327694, 262147, 1, 327696, 393219, 1, 262157, 196611, 0, 262158, 262147, 0, 262159, 262147, 0, 262160, 262147, 0, 262161, 458755, 0, 327697, 458755, 1, 327693, 196611, 1, 393229, 196611, 1, 393233, 458755, 1, 524301, 65539, 1, 524300, 65539, 1, 524302, 262147, 3, 524304, 393219, 3, 524305, 65539, 1, 524299, 3, 1, 458763, 3, 0, 589835, 3, 1, 655371, 3, 1, 720907, 3, 1, 786443, 3, 1, 851979, 3, 2, 851980, 65539, 2, 851981, 65539, 2, 851982, 65539, 2, 851983, 65539, 2, 851984, 65539, 2, 851985, 65539, 2, 851986, 131075, 2, 786450, 131075, 1, 720914, 131075, 1, 655378, 131075, 1, 589842, 131075, 1, 524306, 131075, 1, 458770, 131075, 0, 458764, 65539, 0, 655372, 65545, 1, 655373, 131081, 1, 655376, 9, 1, 655377, 65545, 1)
 layer_4/name = "WallShadow"
@@ -106,6 +107,9 @@ position = Vector2(272, 168)
 
 [node name="WaterCoolerObject" parent="." instance=ExtResource("11_fs7lu")]
 position = Vector2(280, 144)
+
+[node name="PlantObject" parent="." instance=ExtResource("12_s1a7m")]
+position = Vector2(264, 144)
 
 [connection signal="is_mad" from="CoworkerObjectFacingLeft" to="Rules/AngerRule" method="increment_count"]
 [connection signal="is_mad" from="CoworkerObjectFacingRight" to="Rules/AngerRule" method="increment_count"]

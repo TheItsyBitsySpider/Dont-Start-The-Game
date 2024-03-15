@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://e7j7lvkolmu4"]
+[gd_scene load_steps=12 format=3 uid="uid://e7j7lvkolmu4"]
 
 [ext_resource type="TileSet" uid="uid://d2rpavaogyt1m" path="res://Resources/Sprites/Map/TileSets/TileSet.tres" id="1_ap05j"]
 [ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_mhqt5"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://wn6sn7rh4lfx" path="res://Scenes/Items/MugItem.tscn" id="9_3nydm"]
 [ext_resource type="PackedScene" uid="uid://fgwc3iilkyyd" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectWorking.tscn" id="10_0mko1"]
 [ext_resource type="PackedScene" uid="uid://c6cs2cfnf18tj" path="res://Scenes/Objects/NoninteractableObjects/ComputerObject.tscn" id="10_oxd4c"]
+[ext_resource type="PackedScene" uid="uid://dcjormrjy1761" path="res://Scenes/Objects/InteractableObjects/PlantObject.tscn" id="10_rfanm"]
 
 [node name="Floor2" type="TileMap"]
 tile_set = ExtResource("1_ap05j")
@@ -21,7 +22,6 @@ layer_1/name = "Decor"
 layer_1/z_index = 2
 layer_1/tile_data = PackedInt32Array(655372, 196613, 0, 655376, 196613, 0)
 layer_2/name = "Decor2"
-layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(655372, 5, 0, 720908, 5, 1, 655373, 65541, 0, 720909, 65541, 1, 655376, 5, 0, 720912, 5, 1, 655377, 65541, 0, 720913, 65541, 1, 524302, 65541, 2)
 layer_3/name = "Wall"
 layer_3/tile_data = PackedInt32Array(327695, 327683, 1, 327694, 262147, 1, 327696, 393219, 1, 262157, 196611, 0, 262158, 262147, 0, 262159, 262147, 0, 262160, 262147, 0, 262161, 458755, 0, 327697, 458755, 1, 327693, 196611, 1, 393229, 196611, 1, 393233, 458755, 1, 524301, 65539, 1, 524300, 65539, 1, 524302, 262147, 3, 524304, 393219, 3, 524305, 65539, 1, 524299, 3, 1, 458763, 3, 0, 589835, 3, 1, 655371, 3, 1, 720907, 3, 1, 786443, 3, 1, 851979, 3, 2, 851980, 65539, 2, 851981, 65539, 2, 851982, 65539, 2, 851983, 65539, 2, 851984, 65539, 2, 851985, 65539, 2, 851986, 131075, 2, 786450, 131075, 1, 720914, 131075, 1, 655378, 131075, 1, 589842, 131075, 1, 524306, 131075, 1, 458770, 131075, 0, 458764, 65539, 0, 655372, 65545, 1, 655373, 131081, 1, 655376, 9, 1, 655377, 65545, 1)
@@ -73,6 +73,11 @@ script = ExtResource("7_dp05h")
 rule_text = "3. Don’t flood the office."
 target = 3
 
+[node name="OverwaterRule" type="Node2D" parent="Rules"]
+script = ExtResource("7_dp05h")
+rule_text = "4. Don’t overwater the plants."
+target = 3
+
 [node name="DrinksRule" type="Node2D" parent="Rules"]
 script = ExtResource("7_dp05h")
 rule_text = "5. Don’t bring drinks near the computers."
@@ -90,6 +95,15 @@ position = Vector2(264, 152)
 [node name="WaterCoolerObject" parent="." instance=ExtResource("8_pb451")]
 position = Vector2(280, 144)
 
+[node name="PlantObject" parent="." instance=ExtResource("10_rfanm")]
+position = Vector2(200, 144)
+
+[node name="PlantObject2" parent="." instance=ExtResource("10_rfanm")]
+position = Vector2(216, 144)
+
+[node name="PlantObject3" parent="." instance=ExtResource("10_rfanm")]
+position = Vector2(232, 144)
+
 [node name="ComputerObject" parent="." instance=ExtResource("10_oxd4c")]
 position = Vector2(204, 179)
 
@@ -99,5 +113,8 @@ position = Vector2(268, 179)
 [connection signal="on_item_picked_up" from="." to="Rules/PickupRule" method="increment_count_item"]
 [connection signal="play_effect" from="WaterCoolerObject" to="Rules/InteractRule" method="increment_count"]
 [connection signal="play_spill_effect" from="WaterCoolerObject" to="Rules/FloodRule" method="increment_count"]
+[connection signal="play_spill_effect" from="PlantObject" to="Rules/OverwaterRule" method="increment_count"]
+[connection signal="play_spill_effect" from="PlantObject2" to="Rules/OverwaterRule" method="increment_count"]
+[connection signal="play_spill_effect" from="PlantObject3" to="Rules/OverwaterRule" method="increment_count"]
 [connection signal="play_effect" from="ComputerObject" to="Rules/DrinksRule" method="increment_count"]
 [connection signal="play_effect" from="ComputerObject2" to="Rules/DrinksRule" method="increment_count"]

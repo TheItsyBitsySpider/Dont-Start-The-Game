@@ -1,47 +1,52 @@
-[gd_scene load_steps=9 format=3 uid="uid://dcjormrjy1761"]
+[gd_scene load_steps=11 format=3 uid="uid://dcjormrjy1761"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/InteractableObject.gd" id="1_lluj6"]
-[ext_resource type="Texture2D" uid="uid://doptbkt6c8b1d" path="res://Resources/Sprites/Map/Temporary/TilesetElement.png" id="2_lbie8"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="2_mybo3"]
+[ext_resource type="Texture2D" uid="uid://chsa4j8lsw518" path="res://Resources/Sprites/Objects/Plant/Plant.png" id="3_sfjdd"]
+[ext_resource type="Texture2D" uid="uid://cn8ovrhcy5ekm" path="res://Resources/Sprites/Objects/Plant/PlantOverwatered.png" id="3_srit3"]
+[ext_resource type="AudioStream" uid="uid://cx0yryquk2knt" path="res://Resources/Sounds/SoundEffects/Splash.mp3" id="4_8y2le"]
 [ext_resource type="Script" path="res://Scripts/Items/ItemEffects/WaterPlant.gd" id="4_dd3g0"]
 [ext_resource type="PackedScene" uid="uid://d0erkvsfbp0iv" path="res://Scenes/Items/WaterMugItem.tscn" id="5_ojlur"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hfun6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w6ld4"]
-radius = 20.0998
+radius = 8.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffgch"]
-size = Vector2(13, 19)
+size = Vector2(16, 8)
 
-[node name="PlantObject" type="StaticBody2D"]
+[node name="PlantObject" type="StaticBody2D" node_paths=PackedStringArray("item_effect")]
 collision_layer = 4
 collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_hfun6")
 script = ExtResource("1_lluj6")
+normal_sprite = ExtResource("3_sfjdd")
+special_sprite_1 = ExtResource("3_srit3")
+normal_sfx = ExtResource("4_8y2le")
+item_effect = NodePath("WaterPlant")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_sfjdd")
 
 [node name="InteractArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 shape = SubResource("CircleShape2D_w6ld4")
 
-[node name="Popup" parent="." instance=ExtResource("2_mybo3")]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_lbie8")
-hframes = 16
-vframes = 12
-frame = 96
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.5)
+position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_ffgch")
 
-[node name="WaterPlant" type="Node2D" parent="." node_paths=PackedStringArray("plant_sprite")]
+[node name="WaterPlant" type="Node2D" parent="."]
 script = ExtResource("4_dd3g0")
 required_item = ExtResource("5_ojlur")
-plant_sprite = NodePath("../Sprite2D")
+
+[node name="Popup" parent="." instance=ExtResource("2_mybo3")]
+offset_top = -20.0
+offset_bottom = 20.0
 
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
+[connection signal="overwater" from="WaterPlant" to="." method="cycle"]
 [connection signal="play_effect" from="WaterPlant" to="." method="_on_give_item_effect_play_effect"]
