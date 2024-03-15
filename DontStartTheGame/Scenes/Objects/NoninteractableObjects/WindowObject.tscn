@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtrpsdayuxfqx"]
+[gd_scene load_steps=8 format=3 uid="uid://dtrpsdayuxfqx"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/NoninteractableObjects/WindowObject.gd" id="1_qskt7"]
-[ext_resource type="Texture2D" uid="uid://pmby12eehful" path="res://Resources/Sprites/Items/Temporary/ScrollEmpty.png" id="2_x77ww"]
+[ext_resource type="Texture2D" uid="uid://d3qvqa88cn5rh" path="res://Resources/Sprites/Objects/WindowBroken.png" id="2_lh7xe"]
+[ext_resource type="Texture2D" uid="uid://ck2ouo74y6hvb" path="res://Resources/Sprites/Objects/Window.png" id="3_02hhx"]
 [ext_resource type="AudioStream" uid="uid://txahyaesvocb" path="res://Resources/Sounds/SoundEffects/Temporary/Coin.wav" id="3_tykiq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_edg6c"]
@@ -10,13 +11,14 @@
 radius = 15.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ko1st"]
-size = Vector2(16, 16)
+size = Vector2(16, 7)
 
 [node name="WindowObject" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_edg6c")
 script = ExtResource("1_qskt7")
+broken_window_sprite = ExtResource("2_lh7xe")
 
 [node name="InteractArea" type="Area2D" parent="."]
 collision_mask = 3
@@ -25,15 +27,15 @@ collision_mask = 3
 shape = SubResource("CircleShape2D_pqqf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_ko1st")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_x77ww")
+texture = ExtResource("3_02hhx")
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_tykiq")
 
 [connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
-[connection signal="area_shape_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
