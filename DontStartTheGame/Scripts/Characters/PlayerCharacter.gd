@@ -180,6 +180,7 @@ func use_item(selected_item):
 	if is_consumable:
 		if selected_item.post_consume_item != null:
 			var new_item_instance = selected_item.post_consume_item.instantiate()
+			new_item_instance.scale = selected_item.scale
 			add_child(new_item_instance)
 			selected_item.give_signal_connections_to(new_item_instance)
 			remove_item_from_inventory(selected_inventory_slot)	
