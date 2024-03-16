@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmxgcwu76w4cp"]
+[gd_scene load_steps=8 format=3 uid="uid://dmxgcwu76w4cp"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/NoninteractableObjects/BirthdayBalloonObject.gd" id="1_yrvs5"]
-[ext_resource type="Texture2D" uid="uid://cg410s636bx14" path="res://Resources/Sprites/Items/Temporary/SeedBig1.png" id="2_7udu0"]
-[ext_resource type="AudioStream" uid="uid://txahyaesvocb" path="res://Resources/Sounds/SoundEffects/Temporary/Coin.wav" id="3_c5xns"]
+[ext_resource type="Texture2D" uid="uid://bapv8xbwli200" path="res://Resources/Sprites/Objects/Balloons/balloons.png" id="2_olyby"]
+[ext_resource type="Texture2D" uid="uid://ci8ol338kt1hs" path="res://Resources/Sprites/Objects/Balloons/balloonsPopped.png" id="2_pq70i"]
+[ext_resource type="AudioStream" uid="uid://cpd0lngv8oyxe" path="res://Resources/Sounds/SoundEffects/PopSFX.mp3" id="4_r0ru1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_edg6c"]
 
@@ -17,6 +18,7 @@ collision_layer = 0
 collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_edg6c")
 script = ExtResource("1_yrvs5")
+popped_sprite = ExtResource("2_pq70i")
 
 [node name="InteractArea" type="Area2D" parent="."]
 collision_mask = 7
@@ -29,10 +31,10 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_ko1st")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_7udu0")
+texture = ExtResource("2_olyby")
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_c5xns")
+stream = ExtResource("4_r0ru1")
 
 [connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
