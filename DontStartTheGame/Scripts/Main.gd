@@ -61,7 +61,7 @@ func update_rules():
 		else:
 			rules_text += rule.rule_text
 		rules_text += "\n"
-	rules_list.set_text(rules_text)
+	rules_list.set_text(rules_text.replace("\\n", "\n"))
 	if rule_completion_count >= len(rules) \
 	and current_level.level_elevator.is_locked:
 		_on_level_completed()
@@ -69,6 +69,10 @@ func update_rules():
 func load_level(level):
 	get_tree().call_group("Residuals", "on_level_exit")
 	player.frozen = true
+	player.inventory_items = []
+	player.item_held = null
+	for inventory_slot in inventory_manager.get_children():
+		inventory_slot.remove_item()
 	call_deferred("_load_level_helper", level)
 
 func _load_level_helper(level):
@@ -105,25 +109,25 @@ func set_gui_visibility(visibility: bool):
 func resize():
 	if get_viewport_rect().size.x >= 1600:
 		rule_box.position = Vector2(32, 32)
-		rule_box.size = Vector2(624, 304)
+		rule_box.size = Vector2(672, 304)
 		rules_label.set("theme_override_font_sizes/font_size", 40)
 		rules_list.position = Vector2(40, 54)
-		rules_list.size = Vector2(560, 234)
+		rules_list.size = Vector2(608, 234)
 		rules_list.set("theme_override_font_sizes/normal_font_size", 32)
 		rules_list.set("theme_override_constants/line_separation", -12)
 		for i in range(inventory_manager.get_children().size()):
-			inventory_manager.get_children()[i].position.x = 672 + 108 * i
+			inventory_manager.get_children()[i].position.x = 720 + 108 * i
 			inventory_manager.get_children()[i].position.y = 32
 	else:
 		rule_box.position = Vector2(16, 16)
-		rule_box.size = Vector2(480, 224)
+		rule_box.size = Vector2(528, 224)
 		rules_label.set("theme_override_font_sizes/font_size", 32)
 		rules_list.position = Vector2(32, 46)
-		rules_list.size = Vector2(424, 162)
+		rules_list.size = Vector2(472, 162)
 		rules_list.set("theme_override_font_sizes/normal_font_size", 25)
 		rules_list.set("theme_override_constants/line_separation", -10)
 		for i in range(inventory_manager.get_children().size()):
-			inventory_manager.get_children()[i].position.x = 512 + 108 * i
+			inventory_manager.get_children()[i].position.x = 560 + 108 * i
 			inventory_manager.get_children()[i].position.y = 16
 
 func play_sound_effect(sound_effect: Resource):

@@ -116,7 +116,7 @@ func _physics_process(_delta):
 	
 	# Uses selected item
 	if Input.is_action_just_pressed("use") and selected_item != null:
-		use_item(selected_item)
+		use_item(selected_item, true)
 
 	# Throws selected item
 	if Input.is_action_just_pressed("throw") and selected_item != null and current_level != null:
@@ -174,9 +174,14 @@ func interact_with_object(interactable):
 		if is_consumable:
 			interactable.queue_free()
 
-func use_item(selected_item):
-	consume_item.emit(selected_item.effect)
-	var is_consumable = selected_item.effect.call(self)
+func use_item(selected_item, should_play_sfx = false):
+	var is_consumable := false
+	if should_play_sfx and selected_item.effect_with_sfx != null:
+		consume_item.emit(selected_item.effect_with_sfx)
+		is_consumable = selected_item.effect_with_sfx.call(self)
+	else:
+		consume_item.emit(selected_item.effect)
+		is_consumable = selected_item.effect.call(self)
 	if is_consumable:
 		if selected_item.post_consume_item != null:
 			var new_item_instance = selected_item.post_consume_item.instantiate()
@@ -186,8 +191,6 @@ func use_item(selected_item):
 			remove_item_from_inventory(selected_inventory_slot)	
 			if not add_item_to_inventory(new_item_instance):
 				new_item_instance.queue_free()
-			if selected_item.consume_sfx != null:
-				play_sound(selected_item.consume_sfx)
 		else:
 			remove_item_from_inventory(selected_inventory_slot)	
 
