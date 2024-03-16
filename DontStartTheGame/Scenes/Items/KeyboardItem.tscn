@@ -1,32 +1,33 @@
 [gd_scene load_steps=6 format=3 uid="uid://b2a15aky6e23r"]
 
-[ext_resource type="Texture2D" uid="uid://b3sh56fkptpk7" path="res://Resources/Sprites/Items/keyboard.png" id="1_nxnuo"]
+[ext_resource type="Texture2D" uid="uid://ppd7eanh2dbc" path="res://Resources/Sprites/Items/Keyboard.png" id="1_bebdg"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_o5aj1"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="3_d4i0h"]
 [ext_resource type="Script" path="res://Scripts/Effects/NullEffect.gd" id="4_lihv1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nuccb"]
-size = Vector2(12, 6)
+size = Vector2(14, 9)
 
 [node name="KeyboardItem" type="Sprite2D"]
-texture = ExtResource("1_nxnuo")
+z_index = 5
+texture = ExtResource("1_bebdg")
 script = ExtResource("2_o5aj1")
 description = "The daily victim to your rage and stress when the yet-to-be finished 8-paged document of the week is due in 20 minutes."
-
-[node name="Popup" parent="." instance=ExtResource("3_d4i0h")]
-offset_top = -14.0
-offset_bottom = 26.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 1)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_nuccb")
 
 [node name="Effect" type="Node2D" parent="."]
 script = ExtResource("4_lihv1")
+
+[node name="Popup" parent="." instance=ExtResource("3_d4i0h")]
+offset_top = -11.0
+offset_bottom = 29.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -8,11 +8,11 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_edg6c"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pqqf4"]
-radius = 15.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5sq01"]
+size = Vector2(16, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ko1st"]
-size = Vector2(16, 7)
+size = Vector2(16, 16)
 
 [node name="WindowObject" type="StaticBody2D"]
 collision_layer = 4
@@ -25,10 +25,9 @@ broken_window_sprite = ExtResource("2_lh7xe")
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
-shape = SubResource("CircleShape2D_pqqf4")
+shape = SubResource("RectangleShape2D_5sq01")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_ko1st")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,32 +1,32 @@
 [gd_scene load_steps=6 format=3 uid="uid://fmpmmr8rxspt"]
 
-[ext_resource type="Texture2D" uid="uid://b3veg56k0uxt1" path="res://Resources/Sprites/Items/monitor.png" id="1_5lei6"]
+[ext_resource type="Texture2D" uid="uid://b3veg56k0uxt1" path="res://Resources/Sprites/Items/Monitor.png" id="1_gom1d"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_8psna"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="3_645fs"]
 [ext_resource type="Script" path="res://Scripts/Effects/NullEffect.gd" id="4_too7p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sap3q"]
-size = Vector2(16, 15)
+size = Vector2(12, 12)
 
 [node name="MonitorItem" type="Sprite2D"]
-texture = ExtResource("1_5lei6")
+z_index = 5
+texture = ExtResource("1_gom1d")
 script = ExtResource("2_8psna")
 description = "The perpetrator of every eye disease you currently have. Majority of your hours everyday have been spent staring at this very object."
-
-[node name="Popup" parent="." instance=ExtResource("3_645fs")]
-offset_top = -14.0
-offset_bottom = 26.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_sap3q")
 
 [node name="Effect" type="Node2D" parent="."]
 script = ExtResource("4_too7p")
+
+[node name="Popup" parent="." instance=ExtResource("3_645fs")]
+offset_top = -12.0
+offset_bottom = 28.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

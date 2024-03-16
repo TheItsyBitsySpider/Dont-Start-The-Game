@@ -102,25 +102,17 @@ position = Vector2(272, 168)
 position = Vector2(200, 135)
 duck_in_level = NodePath("../RubberDuckItem")
 
-[node name="ComputerItem" parent="." instance=ExtResource("8_ii64p")]
-z_index = 5
-position = Vector2(204, 177)
-scale = Vector2(0.5, 0.5)
+[node name="KeyboardItem" parent="." instance=ExtResource("10_j0sjp")]
+position = Vector2(200, 200)
 
 [node name="MonitorItem" parent="." instance=ExtResource("9_qh1oi")]
-z_index = 5
-position = Vector2(203, 169)
-scale = Vector2(0.5, 0.5)
+position = Vector2(200, 184)
 
-[node name="KeyboardItem" parent="." instance=ExtResource("10_j0sjp")]
-z_index = 5
-position = Vector2(197, 171)
-scale = Vector2(0.5, 0.5)
+[node name="ComputerItem" parent="." instance=ExtResource("8_ii64p")]
+position = Vector2(216, 184)
 
 [node name="RubberDuckItem" parent="." instance=ExtResource("12_xh0ls")]
-z_index = 5
-position = Vector2(259, 171)
-scale = Vector2(0.25, 0.25)
+position = Vector2(248, 184)
 
 [node name="DonutItem" parent="." instance=ExtResource("13_at00o")]
 position = Vector2(264, 200)
@@ -138,9 +130,9 @@ position = Vector2(264, 144)
 [connection signal="play_effect" from="WindowObject" to="Rules/DefenestrateKeyboardRule" method="increment_count_item"]
 [connection signal="play_effect" from="WindowObject" to="Rules/DefenestrateMonitorRule" method="increment_count_item"]
 [connection signal="play_effect" from="WindowObject" to="Rules/DefenestrateComputerRule" method="increment_count_item"]
-[connection signal="on_item_thrown" from="ComputerItem" to="Rules/ThrowItemRule" method="increment_count"]
-[connection signal="on_item_thrown" from="MonitorItem" to="Rules/ThrowItemRule" method="increment_count"]
 [connection signal="on_item_thrown" from="KeyboardItem" to="Rules/ThrowItemRule" method="increment_count"]
+[connection signal="on_item_thrown" from="MonitorItem" to="Rules/ThrowItemRule" method="increment_count"]
+[connection signal="on_item_thrown" from="ComputerItem" to="Rules/ThrowItemRule" method="increment_count"]
 [connection signal="on_item_thrown" from="RubberDuckItem" to="Rules/ThrowItemRule" method="increment_count"]
 [connection signal="play_effect" from="RubberDuckItem" to="Rules/UseRubberDuckRule" method="increment_count"]
 [connection signal="play_effect" from="RubberDuckItem" to="Rules/SpamRubberDuckRule" method="increment_count"]

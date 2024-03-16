@@ -36,12 +36,40 @@ func _on_interact_area_body_entered(body):
 		if body.get_parent() == duck_in_level:
 			# Can add a message chastising player later
 			duck_in_level.velocity = Vector2.ZERO
-			duck_in_level.position = saved_item_position
+			get_parent().remove_child(duck_in_level)
+			var timer: SceneTreeTimer = get_tree().create_timer(0.5)
+			timer.timeout.connect(_return_duck)
 		else:
 			body.get_parent().get_parent().remove_child(body.get_parent())
 	elif body.collision_layer == 5:
 		player = body
 		player.nearby_objects_with_descriptions.append(self)
+
+func _return_duck():
+	duck_in_level.position = saved_item_position
+	get_parent().add_child(duck_in_level)
+	duck_in_level.process_mode = Node.PROCESS_MODE_DISABLED
+	duck_in_level.self_modulate.a = 0.0
+	_lock = false
+	_fade_in_duck()
+
+var _lock := false
+
+func _fade_in_duck():
+	if not _lock and duck_in_level.self_modulate.a >= 0.5:
+		var sfx := AudioStreamPlayer.new()
+		get_parent().add_child(sfx)
+		sfx.set_stream(duck_in_level.effect_node.squeak_sfx)
+		sfx.play()
+		sfx.connect("finished", sfx.queue_free)
+		_lock = true
+	if duck_in_level.self_modulate.a >= 1.0:
+		duck_in_level.self_modulate.a = 1.0
+		duck_in_level.process_mode = Node.PROCESS_MODE_INHERIT
+		return
+	duck_in_level.self_modulate.a = duck_in_level.self_modulate.a + 0.03
+	var timer: SceneTreeTimer = get_tree().create_timer(0.01)
+	timer.timeout.connect(_fade_in_duck)
 
 func _on_interact_area_body_exited(_body):
 	if player != null:
