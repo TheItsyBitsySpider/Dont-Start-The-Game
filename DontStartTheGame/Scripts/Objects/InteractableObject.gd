@@ -17,8 +17,6 @@ signal play_effect
 signal play_spill_effect
 
 func _process(_delta):
-	if player != null:
-		print(player.nearby_interactables)
 	if item_effect == null:
 		return
 	popup_node.visible = false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl1n6mu062173"
-path="res://.godot/imported/PaperAirplane.png-589f4023d7ad700ee07c7b89ac5de635.ctex"
+uid="uid://t4v47iyp05ca"
+path="res://.godot/imported/Paper.png-a8c3c8183634916526cd2a4fb7eb6c5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Sprites/Items/PaperAirplane.png"
-dest_files=["res://.godot/imported/PaperAirplane.png-589f4023d7ad700ee07c7b89ac5de635.ctex"]
+source_file="res://Resources/Sprites/Items/Paper.png"
+dest_files=["res://.godot/imported/Paper.png-a8c3c8183634916526cd2a4fb7eb6c5c.ctex"]
 
 [params]
 
