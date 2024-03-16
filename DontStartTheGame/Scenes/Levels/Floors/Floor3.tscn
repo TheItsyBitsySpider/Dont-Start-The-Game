@@ -98,8 +98,9 @@ position = Vector2(208, 168)
 [node name="CoworkerObjectWorking2" parent="." instance=ExtResource("10_pl8sl")]
 position = Vector2(272, 168)
 
-[node name="WindowObject" parent="." instance=ExtResource("6_ojsx5")]
+[node name="WindowObject" parent="." node_paths=PackedStringArray("duck_in_level") instance=ExtResource("6_ojsx5")]
 position = Vector2(200, 135)
+duck_in_level = NodePath("../RubberDuckItem")
 
 [node name="ComputerItem" parent="." instance=ExtResource("8_ii64p")]
 position = Vector2(225, 193)
@@ -121,5 +122,6 @@ scale = Vector2(0.25, 0.25)
 [connection signal="on_item_thrown" from="ComputerItem" to="Rules/ThrowAnythingRule" method="increment_count"]
 [connection signal="on_item_thrown" from="MonitorItem" to="Rules/ThrowAnythingRule" method="increment_count"]
 [connection signal="on_item_thrown" from="KeyboardItem" to="Rules/ThrowAnythingRule" method="increment_count"]
-[connection signal="play_effect" from="RubberDuckItem" to="Rules/UseDuckRule" method="increment_count"]
+[connection signal="on_item_thrown" from="RubberDuckItem" to="Rules/ThrowAnythingRule" method="increment_count"]
 [connection signal="play_effect" from="RubberDuckItem" to="Rules/UseAnythingRule" method="increment_count"]
+[connection signal="play_effect" from="RubberDuckItem" to="Rules/UseDuckRule" method="increment_count"]
