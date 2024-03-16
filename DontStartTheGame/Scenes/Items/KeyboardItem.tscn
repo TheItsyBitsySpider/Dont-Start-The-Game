@@ -1,15 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://b2a15aky6e23r"]
 
-[ext_resource type="Texture2D" uid="uid://cg410s636bx14" path="res://Resources/Sprites/Items/Temporary/SeedBig1.png" id="1_8hqm0"]
+[ext_resource type="Texture2D" uid="uid://b3sh56fkptpk7" path="res://Resources/Sprites/Items/keyboard.png" id="1_nxnuo"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_o5aj1"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="3_d4i0h"]
 [ext_resource type="Script" path="res://Scripts/Effects/NullEffect.gd" id="4_lihv1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d6xt8"]
-radius = 7.07107
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nuccb"]
+size = Vector2(12, 6)
 
 [node name="KeyboardItem" type="Sprite2D"]
-texture = ExtResource("1_8hqm0")
+texture = ExtResource("1_nxnuo")
 script = ExtResource("2_o5aj1")
 description = "The daily victim to your rage and stress when the yet-to-be finished 8-paged document of the week is due in 20 minutes."
 
@@ -22,7 +22,8 @@ collision_layer = 6
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_d6xt8")
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_nuccb")
 
 [node name="Effect" type="Node2D" parent="."]
 script = ExtResource("4_lihv1")

@@ -1,15 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://it1giy30tru2"]
 
-[ext_resource type="Texture2D" uid="uid://dsgc4eqa7icv2" path="res://Resources/Sprites/Items/Temporary/Shrimp.png" id="1_4idta"]
+[ext_resource type="Texture2D" uid="uid://c582xr0el2hov" path="res://Resources/Sprites/Items/computer.png" id="1_okkov"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_mphex"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="3_4ft1u"]
 [ext_resource type="Script" path="res://Scripts/Effects/NullEffect.gd" id="4_eesa7"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d6xt8"]
-radius = 7.07107
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfpnx"]
+size = Vector2(8, 13)
 
 [node name="ComputerItem" type="Sprite2D"]
-texture = ExtResource("1_4idta")
+texture = ExtResource("1_okkov")
 script = ExtResource("2_mphex")
 description = "The bane of your existence."
 
@@ -22,7 +22,8 @@ collision_layer = 6
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_d6xt8")
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_xfpnx")
 
 [node name="Effect" type="Node2D" parent="."]
 script = ExtResource("4_eesa7")
