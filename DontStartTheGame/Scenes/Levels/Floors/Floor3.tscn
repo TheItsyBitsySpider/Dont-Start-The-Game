@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dei7r66uey60v"]
+[gd_scene load_steps=13 format=3 uid="uid://7rl12a38t2dv"]
 
 [ext_resource type="TileSet" uid="uid://d2rpavaogyt1m" path="res://Resources/Sprites/Map/TileSets/TileSet.tres" id="1_uyw11"]
 [ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_378l2"]
-[ext_resource type="PackedScene" uid="uid://bwmbm5xutb0ov" path="res://Scenes/Levels/EndingScreen.tscn" id="3_hhmhc"]
+[ext_resource type="PackedScene" uid="uid://cvxyx3hlhaegs" path="res://Scenes/Levels/Floors/Floor4.tscn" id="3_uw8um"]
 [ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://Scenes/Levels/Elevator.tscn" id="4_tdjhw"]
 [ext_resource type="Script" path="res://Scripts/Rules/PickupRule.gd" id="6_fqk44"]
 [ext_resource type="PackedScene" uid="uid://dtrpsdayuxfqx" path="res://Scenes/Objects/NoninteractableObjects/WindowObject.tscn" id="6_ojsx5"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://fgwc3iilkyyd" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectWorking.tscn" id="10_pl8sl"]
 [ext_resource type="PackedScene" uid="uid://dpt37lchpgfrk" path="res://Scenes/Items/RubberDuckItem.tscn" id="12_xh0ls"]
 
-[node name="Floor" type="TileMap"]
+[node name="Floor3" type="TileMap"]
 tile_set = ExtResource("1_uyw11")
 format = 2
 layer_0/name = "Overhang"
@@ -49,7 +49,7 @@ layer_11/name = "Building"
 layer_11/z_index = -4
 layer_11/tile_data = PackedInt32Array(851979, 4, 0, 851980, 65540, 0, 851981, 65540, 0, 851982, 65540, 0, 851983, 65540, 0, 851984, 65540, 0, 851985, 65540, 0, 851986, 262148, 0, 917515, 4, 1, 983051, 4, 2, 1048587, 4, 2, 917516, 65540, 1, 917517, 131076, 1, 917518, 131076, 1, 917519, 131076, 1, 917520, 131076, 1, 917521, 196612, 1, 917522, 262148, 1, 983052, 65540, 2, 983053, 131076, 2, 983054, 131076, 2, 983055, 131076, 2, 983056, 131076, 2, 983057, 196612, 2, 983058, 262148, 2, 1048588, 65540, 3, 1048593, 196612, 3, 1048589, 131076, 3, 1048590, 131076, 3, 1048591, 131076, 3, 1048592, 131076, 3, 1114124, 65540, 4, 1114125, 131076, 4, 1114126, 131076, 4, 1114127, 131076, 4, 1114128, 131076, 4, 1114129, 196612, 4, 1179660, 65540, 2, 1179661, 131076, 2, 1179662, 131076, 2, 1179663, 131076, 2, 1179664, 131076, 2, 1179665, 196612, 2, 1245196, 65540, 3, 1245197, 131076, 3, 1245198, 131076, 3, 1245199, 131076, 3, 1245200, 131076, 3, 1245201, 196612, 3, 1114130, 262148, 2, 1179666, 262148, 2, 1245202, 262148, 2, 1114123, 4, 2, 1179659, 4, 2, 1245195, 4, 2, 1048594, 262148, 2, 1310732, 65540, 4, 1310733, 131076, 4, 1310734, 131076, 4, 1310735, 131076, 4, 1310736, 131076, 4, 1310737, 196612, 4, 1310738, 262148, 2, 1310731, 4, 2)
 script = ExtResource("2_378l2")
-next_level = ExtResource("3_hhmhc")
+next_level = ExtResource("3_uw8um")
 
 [node name="Spawnpoint" type="Node2D" parent="."]
 position = Vector2(248, 120)

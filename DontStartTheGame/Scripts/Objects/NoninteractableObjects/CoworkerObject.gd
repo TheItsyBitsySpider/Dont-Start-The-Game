@@ -26,15 +26,6 @@ func _ready():
 	var timer2 = get_tree().create_timer(6.0)
 	timer2.timeout.connect(_type)
 
-func _process(_delta):
-	if player != null \
-	and not effect_happened \
-	and required_item != null \
-	and player.item_held != null \
-	and player.item_held.scene_file_path == required_item.resource_path:
-		play_effect.emit()
-		effect_happened = true
-
 func _type():
 	if sfx.playing:
 		return
@@ -82,6 +73,7 @@ func _on_interact_area_body_entered(body):
 	if body.collision_layer == 6 \
 	and body.scene_file_path == required_item.resource_path:
 		play_effect.emit()
+		anger()
 	elif body.collision_layer == 5:
 		player = body
 		player.shouted.connect(anger)
