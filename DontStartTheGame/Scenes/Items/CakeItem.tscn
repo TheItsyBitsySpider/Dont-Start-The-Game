@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqga264qiwpvw"]
+[gd_scene load_steps=11 format=3 uid="uid://bqga264qiwpvw"]
 
-[ext_resource type="Texture2D" uid="uid://dbsbi2ibpsica" path="res://Resources/Sprites/Items/Cake.png" id="1_0ow81"]
+[ext_resource type="Texture2D" uid="uid://dbsbi2ibpsica" path="res://Resources/Sprites/Items/cake.png" id="1_0ow81"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_2qily"]
 [ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Scenes/Effects/EatingEffect.tscn" id="3_g0cn1"]
-[ext_resource type="Script" path="res://Scripts/Effects/BagPopEffect.gd" id="4_a1vsb"]
-[ext_resource type="AudioStream" uid="uid://deo7npjppbb7a" path="res://Resources/Sounds/SoundEffects/Temporary/Magic2.wav" id="5_ms83v"]
+[ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="3_nxjhk"]
+[ext_resource type="Script" path="res://Scripts/Effects/NullEffect.gd" id="4_fnne8"]
+[ext_resource type="Script" path="res://Scripts/Effects/ThrowEffect.gd" id="5_fmfii"]
+[ext_resource type="PackedScene" uid="uid://bjb036p4caw3x" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectFacingLeft.tscn" id="6_otb14"]
+[ext_resource type="AudioStream" uid="uid://k7feajna7p4o" path="res://Resources/Sounds/SoundEffects/ItemSoundEffects/Splat.mp3" id="7_dc2ww"]
+[ext_resource type="PackedScene" uid="uid://cv2uu5bg561ju" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectFacingRight.tscn" id="8_te22o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2mvom"]
 radius = 12.0
@@ -14,6 +18,10 @@ texture = ExtResource("1_0ow81")
 script = ExtResource("2_2qily")
 description = "A heavily frosted birthday cake made for your coworker. As you lean in, you hear a small whisper regarding the dishonesty of the cake."
 
+[node name="Popup" parent="." instance=ExtResource("3_nxjhk")]
+offset_top = -14.0
+offset_bottom = 26.0
+
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6
 collision_mask = 5
@@ -22,31 +30,25 @@ collision_mask = 5
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_2mvom")
 
-[node name="Popup" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchor_left = 0.687
-anchor_top = -2.187
-anchor_right = 3.187
-anchor_bottom = 0.312
-offset_left = -7.992
-offset_top = -8.008
-offset_right = -7.992
-offset_bottom = -7.992
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Popup"]
-modulate = Color(0, 1, 0, 1)
-layout_mode = 0
-offset_left = -6.0
-offset_top = 13.0
-offset_right = 22.0
-offset_bottom = 40.0
-text = "E"
-
 [node name="Effect" parent="." instance=ExtResource("3_g0cn1")]
-script = ExtResource("4_a1vsb")
-pop_sfx = ExtResource("5_ms83v")
+script = ExtResource("4_fnne8")
+
+[node name="ThrowEffect" type="Node2D" parent="."]
+script = ExtResource("5_fmfii")
+required_object = ExtResource("6_otb14")
+
+[node name="SFX" type="AudioStreamPlayer" parent="ThrowEffect"]
+stream = ExtResource("7_dc2ww")
+
+[node name="ThrowEffect2" type="Node2D" parent="."]
+script = ExtResource("5_fmfii")
+required_object = ExtResource("8_te22o")
+
+[node name="SFX" type="AudioStreamPlayer" parent="ThrowEffect2"]
+stream = ExtResource("7_dc2ww")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="ThrowEffect" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="ThrowEffect2" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="play_effect" from="Effect" to="." method="_on_effect_effect_played"]
