@@ -9,7 +9,7 @@
 radius = 15.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ko1st"]
-size = Vector2(14, 12)
+size = Vector2(0, 0)
 
 [node name="ComputerObject" type="StaticBody2D"]
 collision_layer = 7
@@ -27,6 +27,7 @@ shape = SubResource("CircleShape2D_pqqf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ko1st")
+disabled = true
 
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

@@ -17,17 +17,22 @@ signal play_effect
 signal play_spill_effect
 
 func _process(_delta):
-	if item_effect != null:
-		popup_node.visible = false
+	if player != null:
+		print(player.nearby_interactables)
+	if item_effect == null:
+		return
+	popup_node.visible = false
 	if player != null and player.item_held != null and item_effect != null \
 	and player.item_held.scene_file_path == item_effect.required_item.resource_path:
 		popup_node.visible = true
+		if not player.nearby_interactables.has(self):
+			player.nearby_interactables.append(self)
 
 func _on_interact_area_body_entered(body):
 	if body is CharacterBody2D:
 		player = body
-		player.nearby_interactables.append(self)
 		if item_effect == null:
+			player.nearby_interactables.append(self)
 			popup_node.visible = true
 
 func _on_interact_area_body_exited(body):
