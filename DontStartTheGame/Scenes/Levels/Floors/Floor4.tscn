@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cvxyx3hlhaegs"]
+[gd_scene load_steps=14 format=3 uid="uid://cvxyx3hlhaegs"]
 
 [ext_resource type="TileSet" uid="uid://d2rpavaogyt1m" path="res://Resources/Sprites/Map/TileSets/TileSet.tres" id="1_tgxvp"]
 [ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_joxk6"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dcjormrjy1761" path="res://Scenes/Objects/InteractableObjects/PlantObject.tscn" id="8_8eb4u"]
 [ext_resource type="PackedScene" uid="uid://fji8ex54nd5a" path="res://Scenes/Items/PaperItem.tscn" id="9_tr04e"]
 [ext_resource type="PackedScene" uid="uid://fgwc3iilkyyd" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectWorking.tscn" id="10_vgkdc"]
+[ext_resource type="PackedScene" uid="uid://bm3h5erhlgsf0" path="res://Scenes/Items/SafeKeyItem.tscn" id="13_sak65"]
 
 [node name="Floor4" type="TileMap"]
 tile_set = ExtResource("1_tgxvp")
@@ -103,6 +104,9 @@ position = Vector2(216, 200)
 
 [node name="PaperItem3" parent="." instance=ExtResource("9_tr04e")]
 position = Vector2(280, 200)
+
+[node name="SafeKeyItem" parent="." instance=ExtResource("13_sak65")]
+position = Vector2(200, 200)
 
 [connection signal="play_effect" from="CoworkerObjectFacingLeft" to="Rules/AttackRule" method="increment_count"]
 [connection signal="play_effect" from="CoworkerObjectFacingRight" to="Rules/AttackRule" method="increment_count"]
