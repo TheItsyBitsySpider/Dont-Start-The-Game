@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://h8pe6fs03b1m"
-path="res://.godot/imported/Donut.png-189937b23ee52289a6d791ed6411b4f3.ctex"
+path="res://.godot/imported/donut.png-111657f1e10d1cc0279a980c2daf3bb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Sprites/Items/Donut.png"
-dest_files=["res://.godot/imported/Donut.png-189937b23ee52289a6d791ed6411b4f3.ctex"]
+source_file="res://Resources/Sprites/Items/donut.png"
+dest_files=["res://.godot/imported/donut.png-111657f1e10d1cc0279a980c2daf3bb4.ctex"]
 
 [params]
 

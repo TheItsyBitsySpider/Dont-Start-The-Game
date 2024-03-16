@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvxyx3hlhaegs"]
+[gd_scene load_steps=15 format=3 uid="uid://cvxyx3hlhaegs"]
 
 [ext_resource type="TileSet" uid="uid://d2rpavaogyt1m" path="res://Resources/Sprites/Map/TileSets/TileSet.tres" id="1_tgxvp"]
 [ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_joxk6"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dcjormrjy1761" path="res://Scenes/Objects/InteractableObjects/PlantObject.tscn" id="8_8eb4u"]
 [ext_resource type="PackedScene" uid="uid://fji8ex54nd5a" path="res://Scenes/Items/PaperItem.tscn" id="9_tr04e"]
 [ext_resource type="PackedScene" uid="uid://fgwc3iilkyyd" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectWorking.tscn" id="10_vgkdc"]
+[ext_resource type="PackedScene" uid="uid://cvif1p6i0g38r" path="res://Scenes/Objects/InteractableObjects/SafeObject.tscn" id="12_4eyeh"]
 [ext_resource type="PackedScene" uid="uid://bm3h5erhlgsf0" path="res://Scenes/Items/SafeKeyItem.tscn" id="13_sak65"]
 
 [node name="Floor4" type="TileMap"]
@@ -25,7 +26,7 @@ layer_1/z_index = 2
 layer_1/tile_data = PackedInt32Array(655372, 196613, 0, 655376, 196613, 0, 524305, 131078, 0)
 layer_2/name = "Decor2"
 layer_2/z_index = 1
-layer_2/tile_data = PackedInt32Array(655372, 5, 0, 720908, 5, 1, 655373, 65541, 0, 720909, 65541, 1, 655376, 5, 0, 720912, 5, 1, 655377, 65541, 0, 720913, 65541, 1, 524302, 196613, 2)
+layer_2/tile_data = PackedInt32Array(655372, 5, 0, 720908, 5, 1, 655373, 65541, 0, 720909, 65541, 1, 655376, 5, 0, 720912, 5, 1, 655377, 65541, 0, 720913, 65541, 1)
 layer_3/name = "Wall"
 layer_3/tile_data = PackedInt32Array(327695, 327683, 1, 327694, 262147, 1, 327696, 393219, 1, 262157, 196611, 0, 262158, 262147, 0, 262159, 262147, 0, 262160, 262147, 0, 262161, 458755, 0, 327697, 458755, 1, 327693, 196611, 1, 393229, 196611, 1, 393233, 458755, 1, 524301, 65539, 1, 524302, 262147, 3, 524304, 393219, 3, 524305, 65539, 1, 524299, 3, 1, 458763, 3, 0, 589835, 3, 1, 655371, 3, 1, 720907, 3, 1, 786443, 3, 1, 851979, 3, 2, 851980, 65539, 2, 851981, 65539, 2, 851982, 65539, 2, 851983, 65539, 2, 851984, 65539, 2, 851985, 65539, 2, 851986, 131075, 2, 786450, 131075, 1, 720914, 131075, 1, 655378, 131075, 1, 589842, 131075, 1, 524306, 131075, 1, 458770, 131075, 0, 458764, 65539, 0, 655372, 65545, 1, 655373, 131081, 1, 655376, 9, 1, 655377, 65545, 1, 524300, 65539, 1)
 layer_4/name = "WallShadow"
@@ -96,6 +97,13 @@ position = Vector2(272, 168)
 [node name="PlantObject" parent="." instance=ExtResource("8_8eb4u")]
 position = Vector2(200, 144)
 
+[node name="PlantObject2" parent="." node_paths=PackedStringArray("item_effect") instance=ExtResource("8_8eb4u")]
+position = Vector2(232, 144)
+item_effect = NodePath("../PlantObject/WaterPlant")
+
+[node name="SafeObject" parent="." instance=ExtResource("12_4eyeh")]
+position = Vector2(216, 145)
+
 [node name="PaperItem" parent="." instance=ExtResource("9_tr04e")]
 position = Vector2(232, 184)
 
@@ -112,6 +120,7 @@ position = Vector2(200, 200)
 [connection signal="play_effect" from="CoworkerObjectFacingRight" to="Rules/AttackRule" method="increment_count"]
 [connection signal="play_effect" from="CoworkerObjectWorking" to="Rules/AttackRule" method="increment_count"]
 [connection signal="play_effect" from="CoworkerObjectWorking2" to="Rules/AttackRule" method="increment_count"]
+[connection signal="play_effect" from="SafeObject" to="Rules/SafeRule" method="increment_count"]
 [connection signal="on_item_thrown" from="PaperItem" to="Rules/FlyRule" method="increment_count_item"]
 [connection signal="play_effect" from="PaperItem" to="Rules/CraftRule" method="increment_count"]
 [connection signal="on_item_thrown" from="PaperItem2" to="Rules/FlyRule" method="increment_count_item"]

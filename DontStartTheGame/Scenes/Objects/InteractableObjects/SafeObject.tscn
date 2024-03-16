@@ -1,51 +1,55 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvif1p6i0g38r"]
+[gd_scene load_steps=12 format=3 uid="uid://cvif1p6i0g38r"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/InteractableObject.gd" id="1_0nros"]
+[ext_resource type="Texture2D" uid="uid://ba5ly116cay7s" path="res://Resources/Sprites/Objects/Safe/Safe.png" id="2_15u61"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="2_wwism"]
-[ext_resource type="Texture2D" uid="uid://doptbkt6c8b1d" path="res://Resources/Sprites/Map/Temporary/TilesetElement.png" id="3_aobnd"]
+[ext_resource type="Texture2D" uid="uid://d2p8xgka4w44s" path="res://Resources/Sprites/Objects/Safe/SafeOpen.png" id="3_6fr6w"]
+[ext_resource type="AudioStream" uid="uid://cgv24etu28yvj" path="res://Resources/Sounds/SoundEffects/Unlock.mp3" id="3_v1v7p"]
 [ext_resource type="Script" path="res://Scripts/Effects/UnlockSafeEffect.gd" id="4_mifoe"]
-[ext_resource type="PackedScene" uid="uid://fji8ex54nd5a" path="res://Scenes/Items/PaperItem.tscn" id="5_cjlm8"]
 [ext_resource type="PackedScene" uid="uid://bm3h5erhlgsf0" path="res://Scenes/Items/SafeKeyItem.tscn" id="6_7t73n"]
-[ext_resource type="Texture2D" uid="uid://dj46sf8lclsvi" path="res://Resources/Sprites/Items/Temporary/GoldCup.png" id="7_4264u"]
+[ext_resource type="PackedScene" uid="uid://d3ilp20uqi0g6" path="res://Scenes/Items/OuroborosBananaItem.tscn" id="6_bn416"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_edg6c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pqqf4"]
-radius = 15.0
+radius = 8.06226
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ko1st"]
-size = Vector2(14, 12)
+size = Vector2(10, 2)
 
-[node name="SafeObject" type="StaticBody2D"]
+[node name="SafeObject" type="StaticBody2D" node_paths=PackedStringArray("item_effect")]
 collision_layer = 4
 collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_edg6c")
 script = ExtResource("1_0nros")
+normal_sprite = ExtResource("2_15u61")
+normal_sfx = ExtResource("3_v1v7p")
+item_effect = NodePath("UnlockSafeEffect")
 
-[node name="Popup" parent="." instance=ExtResource("2_wwism")]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_15u61")
 
 [node name="InteractArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_pqqf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_ko1st")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_aobnd")
-hframes = 16
-vframes = 15
-frame = 6
 
 [node name="UnlockSafeEffect" type="Node2D" parent="." node_paths=PackedStringArray("sprite_to_change")]
 script = ExtResource("4_mifoe")
 required_item = ExtResource("6_7t73n")
-item_to_give = ExtResource("5_cjlm8")
-opened_safe_sprite = ExtResource("7_4264u")
+item_to_give = ExtResource("6_bn416")
+opened_safe_sprite = ExtResource("3_6fr6w")
 sprite_to_change = NodePath("../Sprite2D")
+
+[node name="Popup" parent="." instance=ExtResource("2_wwism")]
+offset_top = -17.0
+offset_bottom = 23.0
 
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
-[connection signal="play_effect" from="UnlockSafeEffect" to="." method="_on_give_item_effect_play_effect"]
+[connection signal="play_effect" from="UnlockSafeEffect" to="." method="cycle"]
