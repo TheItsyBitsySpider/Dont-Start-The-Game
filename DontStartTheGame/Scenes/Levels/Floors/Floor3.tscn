@@ -21,7 +21,7 @@ layer_0/z_index = 5
 layer_0/tile_data = PackedInt32Array(458767, 327683, 2, 458766, 262147, 2, 458768, 393219, 2, 458765, 196611, 2, 458769, 458755, 2, 655376, 9, 0, 655372, 65545, 0, 655377, 65545, 0, 655373, 131081, 0)
 layer_1/name = "Decor"
 layer_1/z_index = 2
-layer_1/tile_data = PackedInt32Array(655372, 196613, 0, 655376, 196613, 0)
+layer_1/tile_data = PackedInt32Array(655376, 196613, 0)
 layer_2/name = "Decor2"
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(655372, 5, 0, 720908, 5, 1, 655373, 65541, 0, 720909, 65541, 1, 655376, 5, 0, 720912, 5, 1, 655377, 65541, 0, 720913, 65541, 1, 524302, 5, 2, 524304, 6, 0, 589840, 6, 1, 524305, 65542, 0, 589841, 65542, 1)
@@ -61,7 +61,7 @@ position = Vector2(265, 132)
 
 [node name="ThrowAnythingRule" type="Node2D" parent="Rules"]
 script = ExtResource("7_w2xq6")
-rule_text = "Don't press the Left Mouse Button to throw an item."
+rule_text = "[Don't press the Left Mouse Button to throw an item."
 target = 1
 
 [node name="UseAnythingRule" type="Node2D" parent="Rules"]
@@ -92,23 +92,27 @@ script = ExtResource("7_w2xq6")
 rule_text = "Don’t repeatedly squeeze the Rubber Duck."
 target = 10
 
-[node name="CoworkerObjectWorking" parent="." instance=ExtResource("10_pl8sl")]
-position = Vector2(208, 168)
-
 [node name="CoworkerObjectWorking2" parent="." instance=ExtResource("10_pl8sl")]
 position = Vector2(272, 168)
 
-[node name="WindowObject" parent="." instance=ExtResource("6_ojsx5")]
+[node name="WindowObject" parent="." node_paths=PackedStringArray("duck_in_level") instance=ExtResource("6_ojsx5")]
 position = Vector2(200, 135)
+duck_in_level = NodePath("../RubberDuckItem")
 
 [node name="ComputerItem" parent="." instance=ExtResource("8_ii64p")]
-position = Vector2(225, 193)
+z_index = 1
+position = Vector2(204, 177)
+scale = Vector2(0.5, 0.5)
 
 [node name="MonitorItem" parent="." instance=ExtResource("9_qh1oi")]
-position = Vector2(242, 196)
+z_index = 2
+position = Vector2(203, 169)
+scale = Vector2(0.5, 0.5)
 
 [node name="KeyboardItem" parent="." instance=ExtResource("10_j0sjp")]
-position = Vector2(210, 200)
+z_index = 1
+position = Vector2(197, 171)
+scale = Vector2(0.5, 0.5)
 
 [node name="RubberDuckItem" parent="." instance=ExtResource("12_xh0ls")]
 z_index = 1
@@ -121,5 +125,6 @@ scale = Vector2(0.25, 0.25)
 [connection signal="on_item_thrown" from="ComputerItem" to="Rules/ThrowAnythingRule" method="increment_count"]
 [connection signal="on_item_thrown" from="MonitorItem" to="Rules/ThrowAnythingRule" method="increment_count"]
 [connection signal="on_item_thrown" from="KeyboardItem" to="Rules/ThrowAnythingRule" method="increment_count"]
+[connection signal="on_item_thrown" from="RubberDuckItem" to="Rules/ThrowAnythingRule" method="increment_count"]
 [connection signal="play_effect" from="RubberDuckItem" to="Rules/UseAnythingRule" method="increment_count"]
 [connection signal="play_effect" from="RubberDuckItem" to="Rules/UseDuckRule" method="increment_count"]

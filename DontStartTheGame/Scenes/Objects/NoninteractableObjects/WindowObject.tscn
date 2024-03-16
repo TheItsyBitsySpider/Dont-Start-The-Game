@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtrpsdayuxfqx"]
+[gd_scene load_steps=9 format=3 uid="uid://dtrpsdayuxfqx"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/NoninteractableObjects/WindowObject.gd" id="1_qskt7"]
 [ext_resource type="Texture2D" uid="uid://d3qvqa88cn5rh" path="res://Resources/Sprites/Objects/WindowBroken.png" id="2_lh7xe"]
 [ext_resource type="Texture2D" uid="uid://ck2ouo74y6hvb" path="res://Resources/Sprites/Objects/Window.png" id="3_02hhx"]
-[ext_resource type="AudioStream" uid="uid://txahyaesvocb" path="res://Resources/Sounds/SoundEffects/Temporary/Coin.wav" id="3_tykiq"]
+[ext_resource type="AudioStream" uid="uid://bvloka7pmg8t2" path="res://Resources/Sounds/SoundEffects/ObjectSoundEffects/CrashingSound.mp3" id="3_sm4t5"]
+[ext_resource type="AudioStream" uid="uid://dmevwrnjm77sc" path="res://Resources/Sounds/SoundEffects/ObjectSoundEffects/WindowBreak.mp3" id="4_fa4c4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_edg6c"]
 
@@ -33,8 +34,11 @@ shape = SubResource("RectangleShape2D_ko1st")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_02hhx")
 
-[node name="SFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_tykiq")
+[node name="BreakSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fa4c4")
+
+[node name="CrashSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sm4t5")
 
 [connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
