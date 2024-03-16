@@ -4,6 +4,7 @@ extends Sprite2D
 @export var weight := 10
 @export var floatiness := 1.0
 @export var post_consume_item: PackedScene
+@export var consume_sfx: Resource
 
 @onready var popup_node := $Popup
 @onready var collision_layer = $Area2D.collision_layer

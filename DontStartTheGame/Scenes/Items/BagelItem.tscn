@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhg2drsi5xmld"]
+[gd_scene load_steps=7 format=3 uid="uid://dhg2drsi5xmld"]
 
-[ext_resource type="Texture2D" uid="uid://h8pe6fs03b1m" path="res://Resources/Sprites/Items/Donut.png" id="1_o2q1u"]
+[ext_resource type="Texture2D" uid="uid://5knt80xmksxs" path="res://Resources/Sprites/Items/Bagel.png" id="1_o2q1u"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_0gauc"]
 [ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Scenes/Effects/EatingEffect.tscn" id="3_5ebsm"]
+[ext_resource type="AudioStream" uid="uid://blv12hih356gd" path="res://Resources/Sounds/SoundEffects/FoodSoundEffects/Eat.mp3" id="4_00pnc"]
+[ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="4_bexbf"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2mvom"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k5fp"]
+size = Vector2(12, 12)
 
 [node name="BagelItem" type="Sprite2D"]
-scale = Vector2(0.5, 0.5)
+z_index = 5
 texture = ExtResource("1_o2q1u")
 script = ExtResource("2_0gauc")
 description = "You could say it’s just a donut, but dull and flavorless."
@@ -17,31 +20,14 @@ collision_layer = 6
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 1)
-shape = SubResource("CircleShape2D_2mvom")
-
-[node name="Popup" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchor_left = 0.687
-anchor_top = -2.187
-anchor_right = 3.187
-anchor_bottom = 0.312
-offset_left = -7.992
-offset_top = -8.008
-offset_right = -7.992
-offset_bottom = -7.992
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Popup"]
-modulate = Color(0, 1, 0, 1)
-layout_mode = 0
-offset_left = -6.0
-offset_top = 13.0
-offset_right = 22.0
-offset_bottom = 40.0
-text = "E"
+shape = SubResource("RectangleShape2D_1k5fp")
 
 [node name="Effect" parent="." instance=ExtResource("3_5ebsm")]
+eat_sfx = ExtResource("4_00pnc")
+
+[node name="Popup" parent="." instance=ExtResource("4_bexbf")]
+offset_top = -12.0
+offset_bottom = 28.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

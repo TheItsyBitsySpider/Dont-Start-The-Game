@@ -1,17 +1,17 @@
 [gd_scene load_steps=7 format=3 uid="uid://d3ilp20uqi0g6"]
 
-[ext_resource type="Texture2D" uid="uid://h8pe6fs03b1m" path="res://Resources/Sprites/Items/donut.png" id="1_bngf4"]
+[ext_resource type="Texture2D" uid="uid://5knt80xmksxs" path="res://Resources/Sprites/Items/Bagel.png" id="1_skt47"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_pqcul"]
 [ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Scenes/Effects/EatingEffect.tscn" id="3_fpm3r"]
 [ext_resource type="Script" path="res://Scripts/Effects/NullEffect.gd" id="4_h2q0i"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="5_r7qci"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2mvom"]
-radius = 7.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dd5e"]
+size = Vector2(12, 12)
 
 [node name="OuroborosBananaItem" type="Sprite2D"]
 z_index = 5
-texture = ExtResource("1_bngf4")
+texture = ExtResource("1_skt47")
 script = ExtResource("2_pqcul")
 description = "It’s a banana that goes all the way around. An ouroboros banana. You're not sure how to peel it."
 
@@ -20,14 +20,14 @@ collision_layer = 6
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_2mvom")
+shape = SubResource("RectangleShape2D_1dd5e")
 
 [node name="NullEffect" parent="." instance=ExtResource("3_fpm3r")]
 script = ExtResource("4_h2q0i")
 
 [node name="Popup" parent="." instance=ExtResource("5_r7qci")]
-offset_top = -13.0
-offset_bottom = 27.0
+offset_top = -12.0
+offset_bottom = 28.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

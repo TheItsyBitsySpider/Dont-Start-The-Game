@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://e7j7lvkolmu4"]
+[gd_scene load_steps=13 format=3 uid="uid://e7j7lvkolmu4"]
 
 [ext_resource type="TileSet" uid="uid://d2rpavaogyt1m" path="res://Resources/Sprites/Map/TileSets/TileSet.tres" id="1_ap05j"]
 [ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_mhqt5"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Rules/CountRule.gd" id="7_dp05h"]
 [ext_resource type="PackedScene" uid="uid://dhmcd026kml5u" path="res://Scenes/Objects/InteractableObjects/WaterCoolerObject.tscn" id="8_pb451"]
 [ext_resource type="PackedScene" uid="uid://wn6sn7rh4lfx" path="res://Scenes/Items/MugItem.tscn" id="9_3nydm"]
+[ext_resource type="PackedScene" uid="uid://dhg2drsi5xmld" path="res://Scenes/Items/BagelItem.tscn" id="9_i8wdh"]
 [ext_resource type="PackedScene" uid="uid://fgwc3iilkyyd" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectWorking.tscn" id="10_0mko1"]
 [ext_resource type="PackedScene" uid="uid://c6cs2cfnf18tj" path="res://Scenes/Objects/NoninteractableObjects/ComputerObject.tscn" id="10_oxd4c"]
 [ext_resource type="PackedScene" uid="uid://dcjormrjy1761" path="res://Scenes/Objects/InteractableObjects/PlantObject.tscn" id="10_rfanm"]
@@ -89,6 +90,9 @@ position = Vector2(272, 168)
 
 [node name="MugItem" parent="." instance=ExtResource("9_3nydm")]
 position = Vector2(216, 200)
+
+[node name="BagelItem" parent="." instance=ExtResource("9_i8wdh")]
+position = Vector2(232, 184)
 
 [node name="WaterCoolerObject" parent="." instance=ExtResource("8_pb451")]
 position = Vector2(280, 144)

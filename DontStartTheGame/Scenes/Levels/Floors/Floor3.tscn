@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://7rl12a38t2dv"]
+[gd_scene load_steps=14 format=3 uid="uid://7rl12a38t2dv"]
 
 [ext_resource type="TileSet" uid="uid://d2rpavaogyt1m" path="res://Resources/Sprites/Map/TileSets/TileSet.tres" id="1_uyw11"]
 [ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_378l2"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b2a15aky6e23r" path="res://Scenes/Items/KeyboardItem.tscn" id="10_j0sjp"]
 [ext_resource type="PackedScene" uid="uid://fgwc3iilkyyd" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectWorking.tscn" id="10_pl8sl"]
 [ext_resource type="PackedScene" uid="uid://dpt37lchpgfrk" path="res://Scenes/Items/RubberDuckItem.tscn" id="12_xh0ls"]
+[ext_resource type="PackedScene" uid="uid://chlqwtdvy2vqk" path="res://Scenes/Items/DonutItem.tscn" id="13_at00o"]
 
 [node name="Floor3" type="TileMap"]
 tile_set = ExtResource("1_uyw11")
@@ -118,6 +119,9 @@ scale = Vector2(0.5, 0.5)
 z_index = 1
 position = Vector2(259, 171)
 scale = Vector2(0.25, 0.25)
+
+[node name="DonutItem" parent="." instance=ExtResource("13_at00o")]
+position = Vector2(264, 200)
 
 [connection signal="play_effect" from="WindowObject" to="Rules/DefenestrateKeyboard" method="increment_count_item"]
 [connection signal="play_effect" from="WindowObject" to="Rules/DefenestrateMonitor" method="increment_count_item"]

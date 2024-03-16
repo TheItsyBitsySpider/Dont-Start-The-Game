@@ -186,6 +186,8 @@ func use_item(selected_item):
 			remove_item_from_inventory(selected_inventory_slot)	
 			if not add_item_to_inventory(new_item_instance):
 				new_item_instance.queue_free()
+			if selected_item.consume_sfx != null:
+				play_sound(selected_item.consume_sfx)
 		else:
 			remove_item_from_inventory(selected_inventory_slot)	
 
