@@ -5,11 +5,11 @@ extends StaticBody2D
 
 @onready var speech_box := $SpeechBubble
 @onready var speech_dialogue := $SpeechBubble/Dialogue
-@onready var popup_timer := $SpeechBubble/PopupVisible
 @onready var text_timer := $SpeechBubble/AnimateText
 
 var player = null
 var monologue = false
+var has_started = false
 var speech_sentences = []
 var effect
 var effect_node
@@ -26,7 +26,7 @@ func _ready():
 	speech_sentences = speech.split("\n")
 	stripped_text.compile("\\[.*?\\]")
 
-func _process(delta):
+func _process(_delta):
 	if monologue:
 		if Input.is_action_just_pressed('interact'):
 			$SpeechBubble/Popup.visible = false
@@ -36,8 +36,9 @@ func _process(delta):
 func _on_interact_area_body_entered(body):
 	if "collision_layer" not in body:
 		return
-	if body.collision_layer == 5:
+	if body.collision_layer == 5 and not has_started:
 		player = body
+		has_started = true
 		start_speech()
 
 func start_speech():
