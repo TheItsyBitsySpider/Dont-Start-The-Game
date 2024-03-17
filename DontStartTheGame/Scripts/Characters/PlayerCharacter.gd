@@ -24,6 +24,7 @@ var nearby_objects_with_descriptions := []
 var inventory_items := []
 var selected_inventory_slot := 0
 var item_held = null
+var can_move := true
 
 enum Directions { UP, DOWN, LEFT, RIGHT }
 var direction_facing := Directions.DOWN
@@ -45,6 +46,8 @@ func _physics_process(_delta):
 	var player_moved = false
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * SPEED
+	if not can_move:
+		velocity = Vector2.ZERO
 	player_moved = velocity != Vector2.ZERO
 	move_and_slide()
 	
@@ -201,3 +204,6 @@ func remove_item_from_inventory(index):
 func get_description(selected_object):
 	description_text.get_parent().visible = true
 	description_text.text = selected_object.description
+
+func get_camera():
+	return $Camera2D
