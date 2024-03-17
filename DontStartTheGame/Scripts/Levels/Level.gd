@@ -4,6 +4,7 @@ extends TileMap
 @onready var level_elevator := $Elevator
 @onready var spawnpoint := $Spawnpoint
 @export var next_level := PackedScene
+@export_multiline var elevator_tooltip: String = "Hello, world!"
 
 signal on_item_picked_up
 

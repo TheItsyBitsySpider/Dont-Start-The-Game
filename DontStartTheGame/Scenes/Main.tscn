@@ -31,6 +31,20 @@ description_text = NodePath("../CanvasLayer/ObjectDescriptionBox/DescriptionText
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="ElevatorTooltipContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="ElevatorTooltip" type="RichTextLabel" parent="CanvasLayer/ElevatorTooltipContainer"]
+modulate = Color(0.94902, 0.941176, 0.898039, 1)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("7_dcpal")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
 [node name="InventoryManager" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0

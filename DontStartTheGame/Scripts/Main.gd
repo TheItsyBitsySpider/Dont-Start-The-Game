@@ -9,6 +9,8 @@ extends Node2D
 @export var level_completed_sfx_4: Resource
 @onready var player := $PlayerCharacter
 @onready var current_level = null
+@onready var elevator_tooltip_container := $CanvasLayer/ElevatorTooltipContainer
+@onready var elevator_tooltip := $CanvasLayer/ElevatorTooltipContainer/ElevatorTooltip
 @onready var inventory_manager := $CanvasLayer/InventoryManager
 @onready var rule_box := $CanvasLayer/RuleBox
 @onready var rules_label := $CanvasLayer/RuleBox/RuleListerLabel
@@ -86,7 +88,10 @@ func _load_level_helper(level):
 		remove_child(player)
 		return
 	set_gui_visibility(false)
-	visible = false
+	player.visible = false
+	current_level.visible = false
+	elevator_tooltip.text = "[center]" + current_level.elevator_tooltip + "[/center]"
+	elevator_tooltip_container.visible = true
 	current_level.level_elevator.relinquished_control.connect(_on_elevator_relinquished_control)
 	player.position = current_level.get_spawnpoint()
 	update_rules()
@@ -94,7 +99,9 @@ func _load_level_helper(level):
 
 func _on_elevator_relinquished_control():
 	set_gui_visibility(true)
-	visible = true
+	player.visible = true
+	current_level.visible = true
+	elevator_tooltip_container.visible = false
 	player.unfreeze()
 
 func update_connections():
@@ -107,7 +114,9 @@ func set_gui_visibility(visibility: bool):
 	description_box.visible = visibility
 
 func resize():
+	elevator_tooltip_container.size = get_viewport_rect().size
 	if get_viewport_rect().size.x >= 1600:
+		elevator_tooltip.set("theme_override_font_sizes/normal_font_size", 48)
 		rule_box.position = Vector2(32, 32)
 		rule_box.size = Vector2(672, 304)
 		rules_label.set("theme_override_font_sizes/font_size", 40)
@@ -119,6 +128,7 @@ func resize():
 			inventory_manager.get_children()[i].position.x = 720 + 108 * i
 			inventory_manager.get_children()[i].position.y = 32
 	else:
+		elevator_tooltip.set("theme_override_font_sizes/normal_font_size", 32)
 		rule_box.position = Vector2(16, 16)
 		rule_box.size = Vector2(528, 224)
 		rules_label.set("theme_override_font_sizes/font_size", 32)
