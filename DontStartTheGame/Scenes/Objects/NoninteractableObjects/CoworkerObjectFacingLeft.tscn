@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bj1diiefbvpdd" path="res://Resources/Sprites/Effects/AngerEffectCoworkerStanding1.png" id="2_eoob7"]
 [ext_resource type="PackedScene" uid="uid://bba7qmvrw0ily" path="res://Scenes/Items/PaperAirplaneItem.tscn" id="2_kfh01"]
 [ext_resource type="AudioStream" uid="uid://cxsl1gnq0n0d5" path="res://Resources/Sounds/SoundEffects/TalkingSoundEffects/Talking.mp3" id="2_s74ji"]
-[ext_resource type="Texture2D" uid="uid://dnggnoedjk7r7" path="res://Resources/Sprites/Character/Coworkers/CoworkerFacingLeft.png" id="3_c22wc"]
+[ext_resource type="Texture2D" uid="uid://dnggnoedjk7r7" path="res://Resources/Sprites/Characters/Coworkers/CoworkerFacingLeft.png" id="3_c22wc"]
 [ext_resource type="Texture2D" uid="uid://d37ioky1nrllo" path="res://Resources/Sprites/Effects/AngerEffectCoworkerStanding2.png" id="3_ftfrs"]
 [ext_resource type="AudioStream" uid="uid://bfsv48hn0f4s4" path="res://Resources/Sounds/SoundEffects/TalkingSoundEffects/Questioning.mp3" id="3_j55bx"]
 [ext_resource type="AudioStream" uid="uid://dwgwhtmjukb43" path="res://Resources/Sounds/SoundEffects/AngrySoundEffects/Grunt.mp3" id="4_8ufie"]

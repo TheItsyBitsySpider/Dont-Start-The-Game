@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cxsl1gnq0n0d5" path="res://Resources/Sounds/SoundEffects/TalkingSoundEffects/Talking.mp3" id="2_jbpi2"]
 [ext_resource type="AudioStream" uid="uid://bfsv48hn0f4s4" path="res://Resources/Sounds/SoundEffects/TalkingSoundEffects/Questioning.mp3" id="3_2lh63"]
 [ext_resource type="Texture2D" uid="uid://d37ioky1nrllo" path="res://Resources/Sprites/Effects/AngerEffectCoworkerStanding2.png" id="3_i3fec"]
-[ext_resource type="Texture2D" uid="uid://jq621cw7t2nv" path="res://Resources/Sprites/Character/Coworkers/CoworkerFacingRight.png" id="3_vyqcd"]
+[ext_resource type="Texture2D" uid="uid://jq621cw7t2nv" path="res://Resources/Sprites/Characters/Coworkers/CoworkerFacingRight.png" id="3_vyqcd"]
 [ext_resource type="AudioStream" uid="uid://dwgwhtmjukb43" path="res://Resources/Sounds/SoundEffects/AngrySoundEffects/Grunt.mp3" id="4_dbhlc"]
 [ext_resource type="AudioStream" uid="uid://bue7jg4il3lhh" path="res://Resources/Sounds/SoundEffects/AngrySoundEffects/Sigh.mp3" id="5_eirof"]
 

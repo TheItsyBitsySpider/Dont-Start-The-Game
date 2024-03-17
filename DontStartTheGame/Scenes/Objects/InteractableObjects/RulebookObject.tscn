@@ -1,50 +1,53 @@
 [gd_scene load_steps=10 format=3 uid="uid://bmw8qxd2lf8qf"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/InteractableObject.gd" id="1_wdwln"]
-[ext_resource type="Texture2D" uid="uid://ba5ly116cay7s" path="res://Resources/Sprites/Objects/Safe/Safe.png" id="2_ils2x"]
+[ext_resource type="Texture2D" uid="uid://c3rvj1xrt34hi" path="res://Resources/Sprites/Objects/RuleBook.png" id="2_iqn0b"]
 [ext_resource type="AudioStream" uid="uid://cgv24etu28yvj" path="res://Resources/Sounds/SoundEffects/Unlock.mp3" id="3_ty68v"]
-[ext_resource type="Script" path="res://Scripts/Effects/WriteInRulebookEffect.gd" id="4_04211"]
+[ext_resource type="Script" path="res://Scripts/Effects/ChangeRuleEffect.gd" id="4_4axs1"]
 [ext_resource type="PackedScene" uid="uid://hshda4qy5pe3" path="res://Scenes/Items/OfficePenItem.tscn" id="5_qfox0"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="8_rk51g"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_edg6c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pqqf4"]
-radius = 8.06226
+radius = 12.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ko1st"]
-size = Vector2(10, 2)
+size = Vector2(14, 32)
 
 [node name="RulebookObject" type="StaticBody2D" node_paths=PackedStringArray("item_effect")]
 collision_layer = 4
 collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_edg6c")
 script = ExtResource("1_wdwln")
-normal_sprite = ExtResource("2_ils2x")
+normal_sprite = ExtResource("2_iqn0b")
 normal_sfx = ExtResource("3_ty68v")
-item_effect = NodePath("WriteInRulebookEffect")
+item_effect = NodePath("ChangeRuleEffect")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ils2x")
+texture = ExtResource("2_iqn0b")
 
 [node name="InteractArea" type="Area2D" parent="."]
+position = Vector2(-1, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_pqqf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -10)
+position = Vector2(-1, 5)
 shape = SubResource("RectangleShape2D_ko1st")
 
-[node name="WriteInRulebookEffect" type="Node2D" parent="."]
-script = ExtResource("4_04211")
+[node name="ChangeRuleEffect" type="Node2D" parent="."]
+script = ExtResource("4_4axs1")
 required_item = ExtResource("5_qfox0")
 
 [node name="Popup" parent="." instance=ExtResource("8_rk51g")]
-offset_top = -17.0
-offset_bottom = 23.0
+offset_left = -1.0
+offset_top = -6.0
+offset_right = 39.0
+offset_bottom = 34.0
 
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
-[connection signal="play_effect" from="WriteInRulebookEffect" to="." method="cycle"]
+[connection signal="play_effect" from="ChangeRuleEffect" to="." method="cycle"]

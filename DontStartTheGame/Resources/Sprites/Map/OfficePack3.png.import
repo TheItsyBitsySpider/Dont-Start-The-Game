@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jq621cw7t2nv"
-path="res://.godot/imported/CoworkerFacingRight.png-b5e2026b78ea6d94bbee28ce72f886f8.ctex"
+uid="uid://ci7dnou0nvcng"
+path="res://.godot/imported/OfficePack3.png-31d13090118e94b1dbf38da93a8409b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Sprites/Character/Coworkers/CoworkerFacingRight.png"
-dest_files=["res://.godot/imported/CoworkerFacingRight.png-b5e2026b78ea6d94bbee28ce72f886f8.ctex"]
+source_file="res://Resources/Sprites/Map/OfficePack3.png"
+dest_files=["res://.godot/imported/OfficePack3.png-31d13090118e94b1dbf38da93a8409b8.ctex"]
 
 [params]
 

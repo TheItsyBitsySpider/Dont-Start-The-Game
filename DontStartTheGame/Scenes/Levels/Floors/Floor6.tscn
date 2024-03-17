@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_c33tp"]
 [ext_resource type="PackedScene" uid="uid://bwmbm5xutb0ov" path="res://Scenes/Levels/EndingScreen.tscn" id="3_85wfe"]
 [ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://Scenes/Levels/Elevator.tscn" id="4_0aha7"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/NoninteractableObjects/CEO.tscn" id="6_wxtm3"]
+[ext_resource type="PackedScene" uid="uid://digkt7tqkyfe8" path="res://Scenes/Objects/NoninteractableObjects/BossObject.tscn" id="6_ejjfn"]
 [ext_resource type="Script" path="res://Scripts/Rules/CountRule.gd" id="7_k8jc5"]
 [ext_resource type="PackedScene" uid="uid://bmw8qxd2lf8qf" path="res://Scenes/Objects/InteractableObjects/RulebookObject.tscn" id="8_34qs7"]
 [ext_resource type="PackedScene" uid="uid://hshda4qy5pe3" path="res://Scenes/Items/OfficePenItem.tscn" id="8_am5tb"]
@@ -17,7 +17,7 @@ layer_0/z_index = 6
 layer_0/tile_data = PackedInt32Array(458767, 196608, 3, 458766, 131072, 3, 458768, 262144, 3, 458765, 65536, 3, 458769, 327680, 3)
 layer_1/name = "Decor"
 layer_1/z_index = 2
-layer_1/tile_data = PackedInt32Array(524302, 0, 1, 589838, 0, 2, 589841, 0, 1, 655377, 0, 2, 655376, 0, 1, 720912, 0, 2, 720913, 0, 1, 786449, 0, 2, 720910, 0, 1, 786446, 0, 2, 589837, 65536, 0, 655373, 65536, 1, 720909, 65536, 2)
+layer_1/tile_data = PackedInt32Array(524302, 0, 1, 589838, 0, 2, 589841, 0, 1, 655377, 0, 2, 655376, 11, 0, 720912, 11, 1, 720913, 0, 1, 786449, 0, 2, 720910, 11, 0, 786446, 11, 1)
 layer_2/name = "Decor2"
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(524302, 6, 0, 524301, 6, 0, 524304, 6, 0, 589840, 6, 1, 524305, 6, 0, 589841, 6, 1, 655376, 0, 1, 720910, 0, 1, 589838, 6, 1, 589837, 6, 1)
@@ -58,13 +58,13 @@ position = Vector2(265, 132)
 
 [node name="Rules" type="Node2D" parent="."]
 
-[node name="RuleChange" type="Node2D" parent="Rules"]
+[node name="ChangeRule" type="Node2D" parent="Rules"]
 script = ExtResource("7_k8jc5")
-rule_text = "Don't change the rules."
+rule_text = "1. Don't change the rules."
 target = 1
 
-[node name="CEO" parent="." instance=ExtResource("6_wxtm3")]
-position = Vector2(366, 163)
+[node name="BossObject" parent="." instance=ExtResource("6_ejjfn")]
+position = Vector2(200, 173)
 speech = "So you're the one messing everything up!
 Well, guess what...
 [center]YOU.[/center]
@@ -72,9 +72,9 @@ Well, guess what...
 [center][color=red]FIRED.[/color][/center]"
 
 [node name="RulebookObject" parent="." instance=ExtResource("8_34qs7")]
-position = Vector2(308, 147)
+position = Vector2(216, 168)
 
 [node name="OfficePenItem" parent="." instance=ExtResource("8_am5tb")]
 position = Vector2(264, 200)
 
-[connection signal="play_effect" from="RulebookObject" to="Rules/RuleChange" method="increment_count"]
+[connection signal="play_effect" from="RulebookObject" to="Rules/ChangeRule" method="increment_count"]

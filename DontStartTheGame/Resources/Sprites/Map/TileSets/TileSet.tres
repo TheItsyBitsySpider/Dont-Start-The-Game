@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://d2rpavaogyt1m"]
+[gd_resource type="TileSet" load_steps=25 format=3 uid="uid://d2rpavaogyt1m"]
 
 [ext_resource type="Texture2D" uid="uid://ghvhbsgf40q2" path="res://Resources/Sprites/Map/Decor/Decor2.png" id="1_7sqr7"]
 [ext_resource type="Texture2D" uid="uid://c7s5h34cvyusp" path="res://Resources/Sprites/Map/Floors/Floor.png" id="1_8yqnx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cib2avnj2l2vm" path="res://Resources/Sprites/Map/OfficePack.png" id="1_bekyy"]
 [ext_resource type="Texture2D" uid="uid://d3srut5l0h4c8" path="res://Resources/Sprites/Map/Background/Building.png" id="1_dklhg"]
 [ext_resource type="Texture2D" uid="uid://cf3gugjs2mijx" path="res://Resources/Sprites/Map/Walls/WallShadow.png" id="3_2joxb"]
+[ext_resource type="Texture2D" uid="uid://ci7dnou0nvcng" path="res://Resources/Sprites/Map/OfficePack3.png" id="4_8huj5"]
 [ext_resource type="Texture2D" uid="uid://be1k7koj7rwna" path="res://Resources/Sprites/Map/Walls/Wall.png" id="4_ob6pf"]
 [ext_resource type="Texture2D" uid="uid://ck6jjf6cuqnxr" path="res://Resources/Sprites/Map/Background/BuildingShadow.png" id="5_0po7v"]
 [ext_resource type="Texture2D" uid="uid://bqttldiuwqv8a" path="res://Resources/Sprites/Map/Walls/Divider.png" id="7_jmli6"]
@@ -139,6 +140,17 @@ texture = ExtResource("5_0po7v")
 5:1/0 = 0
 5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:1/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ljvfw"]
+texture = ExtResource("4_8huj5")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, 5, 6, 5, 6, 8, -5, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -8, 6, -8, 6, -4, -5, -4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm428"]
 texture = ExtResource("3_2joxb")
@@ -442,3 +454,4 @@ sources/9 = SubResource("TileSetAtlasSource_fpy7g")
 sources/6 = SubResource("TileSetAtlasSource_dt7bo")
 sources/0 = SubResource("TileSetAtlasSource_7dqe4")
 sources/7 = SubResource("TileSetAtlasSource_pg86a")
+sources/11 = SubResource("TileSetAtlasSource_ljvfw")

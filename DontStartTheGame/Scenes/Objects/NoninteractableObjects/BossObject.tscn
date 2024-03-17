@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://digkt7tqkyfe8"]
 
-[ext_resource type="Script" path="res://Scripts/Objects/NoninteractableObjects/CEO.gd" id="1_3atfa"]
+[ext_resource type="Script" path="res://Scripts/Objects/NoninteractableObjects/Boss.gd" id="1_3atfa"]
 [ext_resource type="AudioStream" uid="uid://dimex58k8csxt" path="res://Resources/Sounds/Soundtracks/DSTGBossTheme.mp3" id="2_3ir0m"]
 [ext_resource type="Texture2D" uid="uid://cwnic1jjfcx05" path="res://Resources/Sprites/Effects/DialogueBox.png" id="3_30fbs"]
+[ext_resource type="Texture2D" uid="uid://csckmqy8pb1qu" path="res://Resources/Sprites/Characters/Boss/Boss.png" id="3_vmtq0"]
 [ext_resource type="FontFile" uid="uid://clr5semwmkeg" path="res://Resources/Fonts/m5x7.ttf" id="4_ib12i"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="4_wd1p5"]
-[ext_resource type="Texture2D" uid="uid://dnggnoedjk7r7" path="res://Resources/Sprites/Character/Coworkers/CoworkerFacingLeft.png" id="9_6cuyv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hfun6"]
 
@@ -13,9 +13,9 @@
 radius = 52.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffgch"]
-size = Vector2(11, 6)
+size = Vector2(12, 6)
 
-[node name="CEO" type="StaticBody2D"]
+[node name="BossObject" type="StaticBody2D"]
 z_index = 2
 collision_layer = 4
 collision_mask = 5
@@ -36,11 +36,11 @@ position = Vector2(-7, 0)
 shape = SubResource("CircleShape2D_w6ld4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7.5, -4)
+position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_ffgch")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("9_6cuyv")
+texture = ExtResource("3_vmtq0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = 10.0

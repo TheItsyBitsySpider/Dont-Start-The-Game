@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b446p1fr2f84h"
-path="res://.godot/imported/CoworkerWorking.png-4b93ab8447727827d61401881e97fa9e.ctex"
+uid="uid://csckmqy8pb1qu"
+path="res://.godot/imported/Boss.png-feb9e5c3d1ffc8f1e7bae21eea305be4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Sprites/Character/Coworkers/CoworkerWorking.png"
-dest_files=["res://.godot/imported/CoworkerWorking.png-4b93ab8447727827d61401881e97fa9e.ctex"]
+source_file="res://Resources/Sprites/Characters/Boss/Boss.png"
+dest_files=["res://.godot/imported/Boss.png-feb9e5c3d1ffc8f1e7bae21eea305be4.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnggnoedjk7r7"
-path="res://.godot/imported/CoworkerFacingLeft.png-8fe7e1ea72dd692d5610bd8efbcf5237.ctex"
+uid="uid://dclmolqah8rv0"
+path="res://.godot/imported/CoworkerBirthdayBoy.png-f6c0acba6f10437b53329505098a46cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Sprites/Character/Coworkers/CoworkerFacingLeft.png"
-dest_files=["res://.godot/imported/CoworkerFacingLeft.png-8fe7e1ea72dd692d5610bd8efbcf5237.ctex"]
+source_file="res://Resources/Sprites/Characters/Coworkers/CoworkerBirthdayBoy.png"
+dest_files=["res://.godot/imported/CoworkerBirthdayBoy.png-f6c0acba6f10437b53329505098a46cb.ctex"]
 
 [params]
 

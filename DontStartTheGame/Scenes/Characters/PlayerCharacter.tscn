@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/Characters/PlayerCharacter.gd" id="1_6kdyp"]
 [ext_resource type="AudioStream" uid="uid://b8f1uliaqfdxn" path="res://Resources/Sounds/SoundEffects/ShoutSoundEffects/CartoonShout.mp3" id="2_g152q"]
-[ext_resource type="Texture2D" uid="uid://cem8i6cbi8o8" path="res://Resources/Sprites/Character/Player/Player.png" id="2_p4wws"]
+[ext_resource type="Texture2D" uid="uid://cem8i6cbi8o8" path="res://Resources/Sprites/Characters/Player/Player.png" id="2_p4wws"]
 [ext_resource type="AudioStream" uid="uid://8u8t81tav0po" path="res://Resources/Sounds/SoundEffects/ShoutSoundEffects/LoudAngryShout.mp3" id="3_a5ewo"]
-[ext_resource type="Texture2D" uid="uid://bomphqy12pyod" path="res://Resources/Sprites/Character/Player/PlayerShadow.png" id="3_plx14"]
+[ext_resource type="Texture2D" uid="uid://bomphqy12pyod" path="res://Resources/Sprites/Characters/Player/PlayerShadow.png" id="3_plx14"]
 [ext_resource type="AudioStream" uid="uid://ch37rb3ry2lmx" path="res://Resources/Sounds/SoundEffects/ShoutSoundEffects/LoudScaredShout.mp3" id="4_nw2wy"]
 [ext_resource type="AudioStream" uid="uid://cty31207ngsju" path="res://Resources/Sounds/SoundEffects/ShoutSoundEffects/ScaredShout.mp3" id="5_fmvro"]
 
