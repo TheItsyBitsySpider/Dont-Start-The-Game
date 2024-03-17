@@ -16,6 +16,7 @@ extends Node2D
 @onready var rules_label := $CanvasLayer/RuleBox/RuleListerLabel
 @onready var rules_list := $CanvasLayer/RuleBox/RuleLister
 @onready var description_box := $CanvasLayer/DescriptionBox
+@onready var description_text := $CanvasLayer/DescriptionBox/DescriptionText
 @onready var reset_level_container := $CanvasLayer/ResetLevelContainer
 @onready var reset_level_box := $CanvasLayer/ResetLevelBox
 @onready var reset_level_label := $CanvasLayer/ResetLevelContainer/ResetLevelLabel
@@ -85,6 +86,7 @@ func load_level(level):
 	player.item_held = null
 	for inventory_slot in inventory_manager.get_children():
 		inventory_slot.remove_item()
+	description_text.text = ""
 	call_deferred("_load_level_helper", level)
 
 func _load_level_helper(level):

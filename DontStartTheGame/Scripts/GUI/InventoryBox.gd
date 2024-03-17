@@ -12,8 +12,6 @@ var item_description := ""
 func _ready():
 	texture = sprite
 	item_sprite.visible = false
-	connect("mouse_entered", show_description)
-	connect("mouse_exited", hide_description)
 
 func add_item(item):
 	item_sprite.texture = item.texture
@@ -31,9 +29,11 @@ func remove_item():
 
 func highlight():
 	texture = sprite_selected
+	show_description()
 
 func unhighlight():
 	texture = sprite
+	hide_description()
 
 func show_description():
 	description_to_show.text = item_description
