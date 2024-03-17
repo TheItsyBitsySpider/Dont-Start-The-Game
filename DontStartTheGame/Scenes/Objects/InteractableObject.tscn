@@ -1,18 +1,39 @@
-[gd_scene load_steps=9 format=3 uid="uid://d31b6krl6qhyh"]
+[gd_scene load_steps=13 format=3 uid="uid://dk7ph2hjl53pn"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/InteractableObject.gd" id="1_i4sup"]
-[ext_resource type="Texture2D" uid="uid://doptbkt6c8b1d" path="res://Resources/Sprites/Map/Temporary/TilesetElement.png" id="2_rwcrs"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="3_2fdqr"]
+[ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="4_3h3h7"]
 [ext_resource type="Script" path="res://Scripts/Items/ItemEffects/GiveItemEffect.gd" id="4_ex15t"]
-[ext_resource type="PackedScene" uid="uid://dd27rs1lpil6h" path="res://Scenes/Items/Item.tscn" id="5_6v8ni"]
+[ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Scenes/Effects/EatingEffect.tscn" id="5_ifkgc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s74pn"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5srx7"]
+load_path = "res://.godot/imported/TilesetElement.png-543bc0c31279510fea411da534b4eec5.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b1701"]
 size = Vector2(15, 14)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wa41v"]
 radius = 17.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2cgsq"]
+load_path = "res://.godot/imported/Onigiri.png-fa5eb93a958c57785ea51b83ba8e16ac.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2mvom"]
+
+[sub_resource type="PackedScene" id="PackedScene_5sf1x"]
+_bundled = {
+"conn_count": 3,
+"conns": PackedInt32Array(1073741830, 1073741829, 35, 34, 2, 0, 0, 1073741832, 1073741831, 37, 36, 2, 0, 0, 1073741834, 1073741833, 39, 38, 2, 0, 0),
+"editable_instances": [],
+"names": PackedStringArray("Item", "Sprite2D", "texture", "script", "Area2D", "Area2D", "collision_layer", "collision_mask", "CollisionShape2D", "CollisionShape2D", "position", "shape", "Popup", "Control", "visible", "layout_mode", "anchor_left", "anchor_top", "anchor_right", "anchor_bottom", "offset_left", "offset_top", "offset_right", "offset_bottom", "RichTextLabel", "RichTextLabel", "modulate", "layout_mode", "offset_left", "offset_top", "offset_right", "offset_bottom", "text", "Effect", "_on_area_2d_body_entered", "body_entered", "_on_area_2d_body_exited", "body_exited", "_on_effect_effect_played", "play_effect"),
+"node_count": 6,
+"node_paths": [NodePath("."), NodePath("./Area2D"), NodePath("."), NodePath("./Popup"), NodePath("."), NodePath("."), NodePath("Area2D"), NodePath("."), NodePath("Area2D"), NodePath("."), NodePath("Effect")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 2, 2, 0, 3, 1, 0, 1073741824, 0, 5, 4, -1, 2, 6, 2, 7, 3, 0, 1073741825, 0, 9, 8, -1, 2, 10, 4, 11, 5, 0, 1073741826, 0, 13, 12, -1, 10, 14, 6, 15, 7, 16, 8, 17, 9, 18, 10, 19, 11, 20, 12, 21, 13, 22, 14, 23, 15, 0, 1073741827, 0, 25, 24, -1, 7, 26, 16, 27, 17, 28, 18, 29, 19, 30, 20, 31, 21, 32, 22, 0, 1073741828, 0, 2147483647, 33, 23, 0, 0),
+"variants": [SubResource("CompressedTexture2D_2cgsq"), ExtResource("4_3h3h7"), 6, 5, Vector2(0, 1), SubResource("CircleShape2D_2mvom"), false, 3, 0.687, -2.187, 3.187, 0.312, -7.992, -8.008, -7.992, -7.992, Color(0, 1, 0, 1), 0, -6.0, 13.0, 22.0, 40.0, "E", ExtResource("5_ifkgc")],
+"version": 3
+}
 
 [node name="InteractableObject" type="StaticBody2D"]
 collision_layer = 4
@@ -21,7 +42,7 @@ physics_material_override = SubResource("PhysicsMaterial_s74pn")
 script = ExtResource("1_i4sup")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_rwcrs")
+texture = SubResource("CompressedTexture2D_5srx7")
 hframes = 15
 vframes = 15
 
@@ -40,7 +61,7 @@ shape = SubResource("CircleShape2D_wa41v")
 
 [node name="GiveItemEffect" type="Node2D" parent="."]
 script = ExtResource("4_ex15t")
-item_to_give = ExtResource("5_6v8ni")
+item_to_give = SubResource("PackedScene_5sf1x")
 
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

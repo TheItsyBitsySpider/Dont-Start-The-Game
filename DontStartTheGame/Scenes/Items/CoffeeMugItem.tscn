@@ -1,16 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://7qpsgdpdnlli"]
+[gd_scene load_steps=6 format=3 uid="uid://bqct2ovk0x420"]
 
-[ext_resource type="Texture2D" uid="uid://brlyklee01cw3" path="res://Resources/Sprites/Items/Temporary/Onigiri.png" id="1_svnqf"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_qk7xl"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="3_70ry4"]
 [ext_resource type="Script" path="res://Scripts/Effects/NullEffect.gd" id="4_khwn3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2cgsq"]
+load_path = "res://.godot/imported/Onigiri.png-fa5eb93a958c57785ea51b83ba8e16ac.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l6qke"]
 size = Vector2(17, 12)
 
 [node name="CoffeeMugItem" type="Sprite2D"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_svnqf")
+texture = SubResource("CompressedTexture2D_2cgsq")
 script = ExtResource("2_qk7xl")
 description = "Your key to survival. This is the compromise after being told you weren’t allowed to take the whole coffee pot."
 

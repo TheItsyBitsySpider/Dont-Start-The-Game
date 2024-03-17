@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dd27rs1lpil6h"]
+[gd_scene load_steps=5 format=3 uid="uid://dmpn2hjh7qd7a"]
 
-[ext_resource type="Texture2D" uid="uid://brlyklee01cw3" path="res://Resources/Sprites/Items/Temporary/Onigiri.png" id="1_qdtqb"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_lyvtq"]
 [ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Scenes/Effects/EatingEffect.tscn" id="3_ess84"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2cgsq"]
+load_path = "res://.godot/imported/Onigiri.png-fa5eb93a958c57785ea51b83ba8e16ac.ctex"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2mvom"]
 
 [node name="Item" type="Sprite2D"]
-texture = ExtResource("1_qdtqb")
+texture = SubResource("CompressedTexture2D_2cgsq")
 script = ExtResource("2_lyvtq")
 
 [node name="Area2D" type="Area2D" parent="."]
