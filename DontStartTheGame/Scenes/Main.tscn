@@ -161,6 +161,24 @@ theme_override_fonts/normal_font = ExtResource("7_dcpal")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 
+[node name="ResetLevelContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 280.0
+offset_bottom = 40.0
+alignment = 2
+
+[node name="ResetLevelLabel" type="Label" parent="CanvasLayer/ResetLevelContainer"]
+modulate = Color(0.94902, 0.941176, 0.898039, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_dcpal")
+theme_override_font_sizes/font_size = 32
+text = "Stuck? Click to reset level."
+
+[node name="ResetLevelBox" type="TextureRect" parent="CanvasLayer"]
+show_behind_parent = true
+z_index = -1
+offset_right = 280.0
+offset_bottom = 16.0
+
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_00wia")
 autoplay = true

@@ -16,6 +16,9 @@ extends Node2D
 @onready var rules_label := $CanvasLayer/RuleBox/RuleListerLabel
 @onready var rules_list := $CanvasLayer/RuleBox/RuleLister
 @onready var description_box := $CanvasLayer/DescriptionBox
+@onready var reset_level_container := $CanvasLayer/ResetLevelContainer
+@onready var reset_level_box := $CanvasLayer/ResetLevelBox
+@onready var reset_level_label := $CanvasLayer/ResetLevelContainer/ResetLevelLabel
 
 var rng := RandomNumberGenerator.new()
 
@@ -28,6 +31,12 @@ func _ready():
 	player.change_selected_inventory_slot.connect(inventory_manager.change_selected)
 	inventory_manager.change_selected(0)
 	load_level(starting_level)
+
+func _input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		var bounds := Rect2(reset_level_box.position, reset_level_box.size)
+		if bounds.has_point(event.position) and reset_level_box.visible:
+			load_level(load(current_level.scene_file_path))
 
 func _on_rule_completed():
 	var rule_completed_sfx_list := [ rule_completed_sfx_1, rule_completed_sfx_2 ]
@@ -112,6 +121,8 @@ func set_gui_visibility(visibility: bool):
 		inventory_slot.visible = visibility
 	rule_box.visible = visibility
 	description_box.visible = visibility
+	reset_level_container.visible = visibility
+	reset_level_box.visible = visibility
 
 func resize():
 	elevator_tooltip_container.size = get_viewport_rect().size
@@ -127,6 +138,9 @@ func resize():
 		for i in range(inventory_manager.get_children().size()):
 			inventory_manager.get_children()[i].position.x = 720 + 108 * i
 			inventory_manager.get_children()[i].position.y = 32
+		reset_level_container.position = Vector2(40, 32)
+		reset_level_box.size = Vector2(288, 24)
+		reset_level_label.set("theme_override_font_sizes/font_size", 32)
 	else:
 		elevator_tooltip.set("theme_override_font_sizes/normal_font_size", 32)
 		rule_box.position = Vector2(16, 16)
@@ -139,6 +153,14 @@ func resize():
 		for i in range(inventory_manager.get_children().size()):
 			inventory_manager.get_children()[i].position.x = 560 + 108 * i
 			inventory_manager.get_children()[i].position.y = 16
+		reset_level_container.position = Vector2(32, 16)
+		reset_level_box.size = Vector2(224, 16)
+		reset_level_label.set("theme_override_font_sizes/font_size", 25)
+	reset_level_container.size.x = get_viewport_rect().size.x - reset_level_container.position.x * 2
+	reset_level_container.size.y = get_viewport_rect().size.y - reset_level_container.position.y * 2
+	reset_level_box.position.x = reset_level_container.position.x
+	reset_level_box.position.y = reset_level_container.position.y \
+	+ reset_level_container.size.y - reset_level_box.size.y
 
 func play_sound_effect(sound_effect: Resource):
 	var sfx := AudioStreamPlayer.new()
