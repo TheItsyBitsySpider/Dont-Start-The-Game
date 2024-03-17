@@ -1,0 +1,59 @@
+[gd_scene load_steps=13 format=3 uid="uid://cwfxogp7xlhv5"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/NoninteractableObjects/CoworkerObject.gd" id="1_u16o2"]
+[ext_resource type="AudioStream" uid="uid://cxsl1gnq0n0d5" path="res://Resources/Sounds/SoundEffects/TalkingSoundEffects/Talking.mp3" id="2_r2u4q"]
+[ext_resource type="AudioStream" uid="uid://bfsv48hn0f4s4" path="res://Resources/Sounds/SoundEffects/TalkingSoundEffects/Questioning.mp3" id="3_gifwu"]
+[ext_resource type="Texture2D" uid="uid://bj1diiefbvpdd" path="res://Resources/Sprites/Effects/AngerEffectCoworkerStanding1.png" id="4_eq61g"]
+[ext_resource type="Texture2D" uid="uid://d37ioky1nrllo" path="res://Resources/Sprites/Effects/AngerEffectCoworkerStanding2.png" id="5_ev58e"]
+[ext_resource type="AudioStream" uid="uid://dwgwhtmjukb43" path="res://Resources/Sounds/SoundEffects/AngrySoundEffects/Grunt.mp3" id="6_s3d72"]
+[ext_resource type="AudioStream" uid="uid://bue7jg4il3lhh" path="res://Resources/Sounds/SoundEffects/AngrySoundEffects/Sigh.mp3" id="7_fhrjb"]
+[ext_resource type="PackedScene" uid="uid://bba7qmvrw0ily" path="res://Scenes/Items/PaperAirplaneItem.tscn" id="8_x5g16"]
+[ext_resource type="Texture2D" uid="uid://dclmolqah8rv0" path="res://Resources/Sprites/Character/Coworkers/CoworkerBirthdayBoy.png" id="9_wu0tn"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hfun6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w6ld4"]
+radius = 15.0333
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffgch"]
+size = Vector2(11, 6)
+
+[node name="CoworkerObjectBirthdayBoy" type="StaticBody2D"]
+z_index = 2
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_hfun6")
+script = ExtResource("1_u16o2")
+normal_sfx_1 = ExtResource("2_r2u4q")
+normal_sfx_2 = ExtResource("3_gifwu")
+anger_effect_sprite_1 = ExtResource("4_eq61g")
+anger_effect_sprite_2 = ExtResource("5_ev58e")
+angry_sfx_1 = ExtResource("6_s3d72")
+angry_sfx_2 = ExtResource("7_fhrjb")
+required_item = ExtResource("8_x5g16")
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(-7, 0)
+shape = SubResource("CircleShape2D_w6ld4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.5, -4)
+shape = SubResource("RectangleShape2D_ffgch")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("9_wu0tn")
+
+[node name="SpeechCloud" type="Sprite2D" parent="."]
+visible = false
+z_index = 4
+scale = Vector2(-1, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 10.0
+
+[connection signal="area_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

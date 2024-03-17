@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chwpusn3vkc5n"
-path="res://.godot/imported/chipsPopped.png-b30ff158603426e3efadb91e601bcda3.ctex"
+uid="uid://ddyfapyxk7nxy"
+path="res://.godot/imported/ChipsPopped.png-b52af509b86bd0648c31a8b63a0c7f5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Sprites/Items/chipsPopped.png"
-dest_files=["res://.godot/imported/chipsPopped.png-b30ff158603426e3efadb91e601bcda3.ctex"]
+source_file="res://Resources/Sprites/Items/ChipsPopped.png"
+dest_files=["res://.godot/imported/ChipsPopped.png-b52af509b86bd0648c31a8b63a0c7f5c.ctex"]
 
 [params]
 

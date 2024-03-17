@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsf4bron327bd"
-path="res://.godot/imported/Balloons.png-261e1918e53b89c26b6b34376bdce1f6.ctex"
+uid="uid://dclmolqah8rv0"
+path="res://.godot/imported/CoworkerBirthdayBoy.png-75632a9f203e8bd77bb29f6ceca54e8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Sprites/Objects/Balloons/Balloons.png"
-dest_files=["res://.godot/imported/Balloons.png-261e1918e53b89c26b6b34376bdce1f6.ctex"]
+source_file="res://Resources/Sprites/Character/Coworkers/CoworkerBirthdayBoy.png"
+dest_files=["res://.godot/imported/CoworkerBirthdayBoy.png-75632a9f203e8bd77bb29f6ceca54e8c.ctex"]
 
 [params]
 

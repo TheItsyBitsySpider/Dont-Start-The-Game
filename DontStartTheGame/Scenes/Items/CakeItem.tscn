@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqga264qiwpvw"]
+[gd_scene load_steps=12 format=3 uid="uid://bqga264qiwpvw"]
 
-[ext_resource type="Texture2D" uid="uid://dbsbi2ibpsica" path="res://Resources/Sprites/Items/cake.png" id="1_0ow81"]
+[ext_resource type="Texture2D" uid="uid://dbsbi2ibpsica" path="res://Resources/Sprites/Items/Cake.png" id="1_0ow81"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_2qily"]
 [ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Scenes/Effects/EatingEffect.tscn" id="3_g0cn1"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="3_nxjhk"]
@@ -9,26 +9,23 @@
 [ext_resource type="PackedScene" uid="uid://bjb036p4caw3x" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectFacingLeft.tscn" id="6_otb14"]
 [ext_resource type="AudioStream" uid="uid://k7feajna7p4o" path="res://Resources/Sounds/SoundEffects/ItemSoundEffects/Splat.mp3" id="7_dc2ww"]
 [ext_resource type="PackedScene" uid="uid://cv2uu5bg561ju" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectFacingRight.tscn" id="8_te22o"]
+[ext_resource type="PackedScene" uid="uid://cwfxogp7xlhv5" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectBirthdayBoy.tscn" id="10_51a7f"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2mvom"]
-radius = 12.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgx5k"]
+size = Vector2(14, 12)
 
 [node name="CakeItem" type="Sprite2D"]
+z_index = 5
 texture = ExtResource("1_0ow81")
 script = ExtResource("2_2qily")
 description = "A heavily frosted birthday cake made for your coworker. As you lean in, you hear a small whisper regarding the dishonesty of the cake."
-
-[node name="Popup" parent="." instance=ExtResource("3_nxjhk")]
-offset_top = -14.0
-offset_bottom = 26.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 3)
-shape = SubResource("CircleShape2D_2mvom")
+shape = SubResource("RectangleShape2D_bgx5k")
 
 [node name="Effect" parent="." instance=ExtResource("3_g0cn1")]
 script = ExtResource("4_fnne8")
@@ -47,8 +44,20 @@ required_object = ExtResource("8_te22o")
 [node name="SFX" type="AudioStreamPlayer" parent="ThrowEffect2"]
 stream = ExtResource("7_dc2ww")
 
+[node name="ThrowEffect3" type="Node2D" parent="."]
+script = ExtResource("5_fmfii")
+required_object = ExtResource("10_51a7f")
+
+[node name="SFX" type="AudioStreamPlayer" parent="ThrowEffect3"]
+stream = ExtResource("7_dc2ww")
+
+[node name="Popup" parent="." instance=ExtResource("3_nxjhk")]
+offset_top = -12.0
+offset_bottom = 28.0
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="ThrowEffect" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="ThrowEffect2" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="ThrowEffect3" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="play_effect" from="Effect" to="." method="_on_effect_effect_played"]

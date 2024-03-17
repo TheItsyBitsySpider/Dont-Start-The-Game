@@ -1,37 +1,38 @@
 [gd_scene load_steps=8 format=3 uid="uid://dmxgcwu76w4cp"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/NoninteractableObjects/BirthdayBalloonObject.gd" id="1_yrvs5"]
-[ext_resource type="Texture2D" uid="uid://bapv8xbwli200" path="res://Resources/Sprites/Objects/Balloons/balloons.png" id="2_olyby"]
-[ext_resource type="Texture2D" uid="uid://ci8ol338kt1hs" path="res://Resources/Sprites/Objects/Balloons/balloonsPopped.png" id="2_pq70i"]
+[ext_resource type="Texture2D" uid="uid://8ed7od5ii3f2" path="res://Resources/Sprites/Objects/Balloons/BalloonsPopped.png" id="2_6gd83"]
+[ext_resource type="Texture2D" uid="uid://dsf4bron327bd" path="res://Resources/Sprites/Objects/Balloons/Balloons.png" id="3_g4fkr"]
 [ext_resource type="AudioStream" uid="uid://cpd0lngv8oyxe" path="res://Resources/Sounds/SoundEffects/PopSFX.mp3" id="4_r0ru1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_edg6c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pqqf4"]
-radius = 15.0
+radius = 8.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ko1st"]
-size = Vector2(10, 13)
+size = Vector2(12, 8)
 
 [node name="BirthdayBalloonObject" type="StaticBody2D"]
-collision_layer = 0
+collision_layer = 4
 collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_edg6c")
 script = ExtResource("1_yrvs5")
-popped_sprite = ExtResource("2_pq70i")
+popped_sprite = ExtResource("2_6gd83")
 
 [node name="InteractArea" type="Area2D" parent="."]
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_pqqf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
+position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_ko1st")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_olyby")
+texture = ExtResource("3_g4fkr")
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_r0ru1")

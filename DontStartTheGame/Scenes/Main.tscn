@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dtdssf5kyh7yh" path="res://Scenes/Characters/PlayerCharacter.tscn" id="1_1grki"]
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_mehqf"]
-[ext_resource type="PackedScene" uid="uid://7rl12a38t2dv" path="res://Scenes/Levels/Floors/Floor3.tscn" id="2_dd3gh"]
+[ext_resource type="PackedScene" uid="uid://dphr3n1v0k4i0" path="res://Scenes/Levels/Floors/Floor1.tscn" id="2_u21qw"]
 [ext_resource type="PackedScene" uid="uid://b41s6myqpr0d2" path="res://Scenes/GUI/InventoryBox.tscn" id="3_afhwo"]
 [ext_resource type="AudioStream" uid="uid://uoot6ewophmk" path="res://Resources/Sounds/SoundEffects/RuleCompletedSoundEffects/PencilCheckMark1.mp3" id="3_osn5y"]
 [ext_resource type="AudioStream" uid="uid://b8dgjaipbj226" path="res://Resources/Sounds/SoundEffects/RuleCompletedSoundEffects/PencilCheckMark2.mp3" id="4_52ow2"]
@@ -17,7 +17,7 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_mehqf")
-starting_level = ExtResource("2_dd3gh")
+starting_level = ExtResource("2_u21qw")
 rule_completed_sfx_1 = ExtResource("3_osn5y")
 rule_completed_sfx_2 = ExtResource("4_52ow2")
 level_completed_sfx_1 = ExtResource("5_anfn1")

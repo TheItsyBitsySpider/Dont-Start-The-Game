@@ -6,15 +6,13 @@
 [ext_resource type="Script" path="res://Scripts/Effects/NullEffect.gd" id="4_ghih7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l6qke"]
-size = Vector2(18, 7)
+size = Vector2(12, 13)
 
 [node name="PencilItem" type="Sprite2D"]
-scale = Vector2(0.5, 0.5)
+z_index = 5
 texture = ExtResource("1_23png")
 script = ExtResource("2_g3hbl")
 description = "You forgot these existed."
-
-[node name="Popup" parent="." instance=ExtResource("3_rjnb4")]
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6
@@ -26,6 +24,10 @@ shape = SubResource("RectangleShape2D_l6qke")
 
 [node name="Effect" type="Node2D" parent="."]
 script = ExtResource("4_ghih7")
+
+[node name="Popup" parent="." instance=ExtResource("3_rjnb4")]
+offset_top = -12.0
+offset_bottom = 28.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

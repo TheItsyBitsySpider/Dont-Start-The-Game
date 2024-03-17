@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://capgl7w045moc"
-path="res://.godot/imported/chips.png-fec75b72c82ef9d6e8cef310b9a3d66c.ctex"
+uid="uid://cd6m5vprkd0np"
+path="res://.godot/imported/Chips.png-b5cf9ad755c75e7e2ec695288f869456.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Sprites/Items/chips.png"
-dest_files=["res://.godot/imported/chips.png-fec75b72c82ef9d6e8cef310b9a3d66c.ctex"]
+source_file="res://Resources/Sprites/Items/Chips.png"
+dest_files=["res://.godot/imported/Chips.png-b5cf9ad755c75e7e2ec695288f869456.ctex"]
 
 [params]
 

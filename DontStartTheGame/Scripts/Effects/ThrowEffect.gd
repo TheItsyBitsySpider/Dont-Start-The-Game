@@ -12,4 +12,5 @@ func _on_area_2d_body_entered(body):
 		parent.visible = false
 		$SFX.play()
 		await $SFX.finished
-		parent.get_parent().remove_child(parent)
+		if parent.get_parent():
+			parent.get_parent().remove_child(parent)

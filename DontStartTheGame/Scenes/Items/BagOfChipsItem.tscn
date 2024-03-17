@@ -1,36 +1,38 @@
 [gd_scene load_steps=9 format=3 uid="uid://cq630tyyau6y0"]
 
-[ext_resource type="Texture2D" uid="uid://capgl7w045moc" path="res://Resources/Sprites/Items/chips.png" id="1_lbfof"]
+[ext_resource type="Texture2D" uid="uid://cd6m5vprkd0np" path="res://Resources/Sprites/Items/Chips.png" id="1_vy560"]
 [ext_resource type="Script" path="res://Scripts/Items/Item.gd" id="2_s56n3"]
-[ext_resource type="PackedScene" uid="uid://hhfdklrl20p4" path="res://Scenes/Items/PoppedBagOfChipsItem.tscn" id="3_uss7t"]
+[ext_resource type="PackedScene" uid="uid://tmukf41dnn8q" path="res://Scenes/Items/PoppedBagOfChipsItem.tscn" id="3_uss7t"]
 [ext_resource type="PackedScene" uid="uid://cjm4p0u6iegt7" path="res://Scenes/Effects/EatingEffect.tscn" id="3_vbu67"]
 [ext_resource type="Script" path="res://Scripts/Effects/BagPopEffect.gd" id="4_03cni"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="4_gipjd"]
 [ext_resource type="AudioStream" uid="uid://cpd0lngv8oyxe" path="res://Resources/Sounds/SoundEffects/PopSFX.mp3" id="5_ryjmq"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2mvom"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xko7t"]
+size = Vector2(15, 14)
 
 [node name="BagOfChipsItem" type="Sprite2D"]
-texture = ExtResource("1_lbfof")
+z_index = 5
+texture = ExtResource("1_vy560")
 script = ExtResource("2_s56n3")
 description = "People actually pay money for this bag of air."
 post_consume_item = ExtResource("3_uss7t")
-
-[node name="Popup" parent="." instance=ExtResource("4_gipjd")]
-offset_top = -14.0
-offset_bottom = 26.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 1)
-shape = SubResource("CircleShape2D_2mvom")
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_xko7t")
 
 [node name="Effect" parent="." instance=ExtResource("3_vbu67")]
 script = ExtResource("4_03cni")
 pop_sfx = ExtResource("5_ryjmq")
+
+[node name="Popup" parent="." instance=ExtResource("4_gipjd")]
+offset_top = -13.0
+offset_bottom = 27.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
