@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://da7jpqrbb6s3k"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/InteractableObject.gd" id="1_wdwln"]
+[ext_resource type="Texture2D" uid="uid://ba5ly116cay7s" path="res://Resources/Sprites/Objects/Safe/Safe.png" id="2_ils2x"]
+[ext_resource type="AudioStream" uid="uid://cgv24etu28yvj" path="res://Resources/Sounds/SoundEffects/Unlock.mp3" id="3_ty68v"]
+[ext_resource type="Script" path="res://Scripts/Effects/WriteInRulebookEffect.gd" id="4_04211"]
+[ext_resource type="PackedScene" uid="uid://b1egalx5bm7s5" path="res://Scenes/Items/PencilItem.tscn" id="5_8lgdo"]
+[ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="8_rk51g"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_edg6c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pqqf4"]
+radius = 8.06226
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ko1st"]
+size = Vector2(10, 2)
+
+[node name="RulebookObject" type="StaticBody2D" node_paths=PackedStringArray("item_effect")]
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_edg6c")
+script = ExtResource("1_wdwln")
+normal_sprite = ExtResource("2_ils2x")
+normal_sfx = ExtResource("3_ty68v")
+item_effect = NodePath("WriteInRulebookEffect")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ils2x")
+
+[node name="InteractArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_pqqf4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_ko1st")
+
+[node name="WriteInRulebookEffect" type="Node2D" parent="."]
+script = ExtResource("4_04211")
+required_item = ExtResource("5_8lgdo")
+
+[node name="Popup" parent="." instance=ExtResource("8_rk51g")]
+offset_top = -17.0
+offset_bottom = 23.0
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
+[connection signal="play_effect" from="WriteInRulebookEffect" to="." method="cycle"]

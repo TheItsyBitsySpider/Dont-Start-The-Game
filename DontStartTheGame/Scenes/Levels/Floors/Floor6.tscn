@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cp5oiywhd7uhw"]
+[gd_scene load_steps=9 format=3 uid="uid://cp5oiywhd7uhw"]
 
 [ext_resource type="TileSet" uid="uid://d2rpavaogyt1m" path="res://Resources/Sprites/Map/TileSets/TileSet.tres" id="1_h5214"]
 [ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_c33tp"]
 [ext_resource type="PackedScene" uid="uid://bwmbm5xutb0ov" path="res://Scenes/Levels/EndingScreen.tscn" id="3_85wfe"]
 [ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://Scenes/Levels/Elevator.tscn" id="4_0aha7"]
+[ext_resource type="PackedScene" uid="uid://b1egalx5bm7s5" path="res://Scenes/Items/PencilItem.tscn" id="6_4de3g"]
 [ext_resource type="PackedScene" uid="uid://digkt7tqkyfe8" path="res://Scenes/Objects/NoninteractableObjects/CEO.tscn" id="6_wxtm3"]
 [ext_resource type="Script" path="res://Scripts/Rules/CountRule.gd" id="7_k8jc5"]
+[ext_resource type="PackedScene" uid="uid://da7jpqrbb6s3k" path="res://Scenes/Objects/InteractableObjects/RulebookObject.tscn" id="8_34qs7"]
 
 [node name="Floor5" type="TileMap"]
 tile_set = ExtResource("1_h5214")
@@ -64,3 +66,11 @@ target = 1
 
 [node name="CEO" parent="." instance=ExtResource("6_wxtm3")]
 position = Vector2(247, 197)
+
+[node name="PencilItem" parent="." instance=ExtResource("6_4de3g")]
+position = Vector2(201, 155)
+
+[node name="RulebookObject" parent="." instance=ExtResource("8_34qs7")]
+position = Vector2(278, 201)
+
+[connection signal="play_effect" from="RulebookObject" to="Rules/RuleChange" method="increment_count"]
