@@ -201,9 +201,10 @@ func remove_item_from_inventory(index):
 	inventory_items[index] = null
 	remove_from_inventory.emit(index)
 
-func get_description(selected_object):
-	description_text.get_parent().visible = true
-	description_text.text = selected_object.description
+func get_description(_selected_object):
+	# description_text.get_parent().visible = true
+	# description_text.text = selected_object.description
+	pass
 
 func get_camera():
 	return $Camera2D
