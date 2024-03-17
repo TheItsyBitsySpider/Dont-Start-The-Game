@@ -19,6 +19,7 @@ extends Node2D
 @onready var reset_level_container := $CanvasLayer/ResetLevelContainer
 @onready var reset_level_box := $CanvasLayer/ResetLevelBox
 @onready var reset_level_label := $CanvasLayer/ResetLevelContainer/ResetLevelLabel
+@onready var music_player := $BackgroundMusic
 
 var rng := RandomNumberGenerator.new()
 
@@ -168,3 +169,7 @@ func play_sound_effect(sound_effect: Resource):
 	sfx.set_stream(sound_effect)
 	sfx.play()
 	sfx.connect("finished", sfx.queue_free)
+
+func change_music(music: Resource):
+	music_player.stream = music
+	music_player.play()

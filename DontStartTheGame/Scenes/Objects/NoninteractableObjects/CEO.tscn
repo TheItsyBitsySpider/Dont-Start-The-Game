@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://digkt7tqkyfe8"]
+[gd_scene load_steps=10 format=3 uid="uid://digkt7tqkyfe8"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/NoninteractableObjects/CEO.gd" id="1_3atfa"]
+[ext_resource type="AudioStream" uid="uid://dimex58k8csxt" path="res://Resources/Sounds/Soundtracks/DSTGBossTheme.mp3" id="2_3ir0m"]
 [ext_resource type="Texture2D" uid="uid://cwnic1jjfcx05" path="res://Resources/Sprites/Effects/DialogueBox.png" id="3_30fbs"]
 [ext_resource type="FontFile" uid="uid://clr5semwmkeg" path="res://Resources/Fonts/m5x7.ttf" id="4_ib12i"]
+[ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="4_wd1p5"]
 [ext_resource type="Texture2D" uid="uid://dnggnoedjk7r7" path="res://Resources/Sprites/Character/Coworkers/CoworkerFacingLeft.png" id="9_6cuyv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hfun6"]
@@ -19,6 +21,7 @@ collision_layer = 4
 collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_hfun6")
 script = ExtResource("1_3atfa")
+boss_theme = ExtResource("2_3ir0m")
 speech = "So you're the one messing everything up!!!
 Well, guess what...
 [center]YOU[/center]
@@ -50,6 +53,13 @@ offset_right = 26.0
 offset_bottom = -9.0
 texture = ExtResource("3_30fbs")
 
+[node name="Popup" parent="SpeechBubble" instance=ExtResource("4_wd1p5")]
+offset_left = 60.0
+offset_top = 12.0
+offset_right = 100.0
+offset_bottom = 52.0
+scale = Vector2(0.5, 0.5)
+
 [node name="Dialogue" type="RichTextLabel" parent="SpeechBubble"]
 layout_mode = 0
 offset_left = 2.0
@@ -61,5 +71,9 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("4_ib12i")
 bbcode_enabled = true
 
+[node name="AnimateText" type="Timer" parent="SpeechBubble"]
+wait_time = 0.04
+
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
+[connection signal="timeout" from="SpeechBubble/AnimateText" to="." method="_on_animate_text_timeout"]
