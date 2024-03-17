@@ -26,7 +26,7 @@ speech = "So you're the one messing everything up!!!
 Well, guess what...
 [center]YOU[/center]
 [center]ARE[/center]
-[center][color=red]FIRED[/color][/center]"
+[center][color=red]FIRED!!! F-I-R-E-D!!!! FIRED!!!!![/color][/center]"
 
 [node name="InteractArea" type="Area2D" parent="."]
 collision_mask = 7

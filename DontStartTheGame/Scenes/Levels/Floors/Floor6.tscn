@@ -69,7 +69,7 @@ speech = "So you're the one messing everything up!
 Well, guess what...
 [center]YOU.[/center]
 [center]ARE.[/center]
-[center][color=red]FIRED.[/color][/center]"
+[center][color=red]FIRED!!! F-I-R-E-D!!!! FIRED!!!!![/color][/center]"
 
 [node name="RulebookObject" parent="." instance=ExtResource("8_34qs7")]
 position = Vector2(216, 168)
