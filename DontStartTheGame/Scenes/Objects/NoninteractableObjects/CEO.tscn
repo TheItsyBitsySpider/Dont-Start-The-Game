@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://digkt7tqkyfe8"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/NoninteractableObjects/CEO.gd" id="1_3atfa"]
+[ext_resource type="Texture2D" uid="uid://cwnic1jjfcx05" path="res://Resources/Sprites/Effects/DialogueBox.png" id="3_30fbs"]
+[ext_resource type="FontFile" uid="uid://clr5semwmkeg" path="res://Resources/Fonts/m5x7.ttf" id="4_ib12i"]
+[ext_resource type="Texture2D" uid="uid://dnggnoedjk7r7" path="res://Resources/Sprites/Character/Coworkers/CoworkerFacingLeft.png" id="9_6cuyv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hfun6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w6ld4"]
+radius = 52.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffgch"]
+size = Vector2(11, 6)
+
+[node name="CEO" type="StaticBody2D"]
+z_index = 2
+collision_layer = 4
+collision_mask = 5
+physics_material_override = SubResource("PhysicsMaterial_hfun6")
+script = ExtResource("1_3atfa")
+speech = "So you're the one messing everything up!!!
+Well, guess what...
+[center]YOU[/center]
+[center]ARE[/center]
+[center][color=red]FIRED[/color][/center]"
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(-7, 0)
+shape = SubResource("CircleShape2D_w6ld4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.5, -4)
+shape = SubResource("RectangleShape2D_ffgch")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("9_6cuyv")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 10.0
+
+[node name="SpeechBubble" type="TextureRect" parent="."]
+visible = false
+offset_left = -38.0
+offset_top = -25.0
+offset_right = 26.0
+offset_bottom = -9.0
+texture = ExtResource("3_30fbs")
+
+[node name="Dialogue" type="RichTextLabel" parent="SpeechBubble"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 173.0
+offset_bottom = 36.0
+scale = Vector2(0.35, 0.35)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_ib12i")
+bbcode_enabled = true
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

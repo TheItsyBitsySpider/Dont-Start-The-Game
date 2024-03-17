@@ -1,21 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1ygsgwuvhb50"]
+[gd_scene load_steps=7 format=3 uid="uid://cp5oiywhd7uhw"]
 
-[ext_resource type="TileSet" uid="uid://d2rpavaogyt1m" path="res://Resources/Sprites/Map/TileSets/TileSet.tres" id="1_l7qo6"]
-[ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_fwuwc"]
-[ext_resource type="PackedScene" uid="uid://cp5oiywhd7uhw" path="res://Scenes/Levels/Floors/Floor6.tscn" id="3_4iu5x"]
-[ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://Scenes/Levels/Elevator.tscn" id="4_0ksat"]
-[ext_resource type="Script" path="res://Scripts/Rules/PickupRule.gd" id="5_8dw3n"]
-[ext_resource type="Script" path="res://Scripts/Rules/CountRule.gd" id="7_7116j"]
-[ext_resource type="PackedScene" uid="uid://dmxgcwu76w4cp" path="res://Scenes/Objects/NoninteractableObjects/BirthdayBalloonObject.tscn" id="7_qedj1"]
-[ext_resource type="PackedScene" uid="uid://cv2uu5bg561ju" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectFacingRight.tscn" id="9_m0yn2"]
-[ext_resource type="PackedScene" uid="uid://cwfxogp7xlhv5" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectBirthdayBoy.tscn" id="10_714t6"]
-[ext_resource type="PackedScene" uid="uid://bqga264qiwpvw" path="res://Scenes/Items/CakeItem.tscn" id="10_w4g2i"]
-[ext_resource type="PackedScene" uid="uid://cq630tyyau6y0" path="res://Scenes/Items/BagOfChipsItem.tscn" id="11_p231y"]
-[ext_resource type="PackedScene" uid="uid://b1egalx5bm7s5" path="res://Scenes/Items/PencilItem.tscn" id="13_6r21d"]
-[ext_resource type="PackedScene" uid="uid://ctqsme8da1v3p" path="res://Scenes/Items/RedVelvetCupcakeItem.tscn" id="15_f6qfn"]
+[ext_resource type="TileSet" uid="uid://d2rpavaogyt1m" path="res://Resources/Sprites/Map/TileSets/TileSet.tres" id="1_h5214"]
+[ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_c33tp"]
+[ext_resource type="PackedScene" uid="uid://bwmbm5xutb0ov" path="res://Scenes/Levels/EndingScreen.tscn" id="3_85wfe"]
+[ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://Scenes/Levels/Elevator.tscn" id="4_0aha7"]
+[ext_resource type="PackedScene" uid="uid://digkt7tqkyfe8" path="res://Scenes/Objects/NoninteractableObjects/CEO.tscn" id="6_wxtm3"]
+[ext_resource type="Script" path="res://Scripts/Rules/CountRule.gd" id="7_k8jc5"]
 
 [node name="Floor5" type="TileMap"]
-tile_set = ExtResource("1_l7qo6")
+tile_set = ExtResource("1_h5214")
 format = 2
 layer_0/name = "Overhang"
 layer_0/z_index = 6
@@ -49,8 +42,8 @@ layer_10/tile_data = PackedInt32Array(1310732, 65546, 0, 1310733, 65546, 0, 1310
 layer_11/name = "Building"
 layer_11/z_index = -4
 layer_11/tile_data = PackedInt32Array(851979, 4, 0, 851980, 65540, 0, 851981, 65540, 0, 851982, 65540, 0, 851983, 65540, 0, 851984, 65540, 0, 851985, 65540, 0, 851986, 262148, 0, 917515, 4, 1, 983051, 4, 2, 1048587, 4, 2, 917516, 65540, 1, 917517, 131076, 1, 917518, 131076, 1, 917519, 131076, 1, 917520, 131076, 1, 917521, 196612, 1, 917522, 262148, 1, 983052, 65540, 2, 983053, 131076, 2, 983054, 131076, 2, 983055, 131076, 2, 983056, 131076, 2, 983057, 196612, 2, 983058, 262148, 2, 1048588, 65540, 3, 1048593, 196612, 3, 1048589, 131076, 3, 1048590, 131076, 3, 1048591, 131076, 3, 1048592, 131076, 3, 1114124, 65540, 4, 1114125, 131076, 4, 1114126, 131076, 4, 1114127, 131076, 4, 1114128, 131076, 4, 1114129, 196612, 4, 1179660, 65540, 2, 1179661, 131076, 2, 1179662, 131076, 2, 1179663, 131076, 2, 1179664, 131076, 2, 1179665, 196612, 2, 1245196, 65540, 3, 1245197, 131076, 3, 1245198, 131076, 3, 1245199, 131076, 3, 1245200, 131076, 3, 1245201, 196612, 3, 1114130, 262148, 2, 1179666, 262148, 2, 1245202, 262148, 2, 1114123, 4, 2, 1179659, 4, 2, 1245195, 4, 2, 1048594, 262148, 2, 1310732, 65540, 4, 1310733, 131076, 4, 1310734, 131076, 4, 1310735, 131076, 4, 1310736, 131076, 4, 1310737, 196612, 4, 1310738, 262148, 2, 1310731, 4, 2)
-script = ExtResource("2_fwuwc")
-next_level = ExtResource("3_4iu5x")
+script = ExtResource("2_c33tp")
+next_level = ExtResource("3_85wfe")
 elevator_tooltip = "A pink cockroach in the elevator greets you.
 The color does not make it any less menacing.
 You are not sure if it is the kind that can fly,
@@ -59,74 +52,15 @@ and you do not feel like sticking around to find out."
 [node name="Spawnpoint" type="Node2D" parent="."]
 position = Vector2(248, 120)
 
-[node name="Elevator" parent="." instance=ExtResource("4_0ksat")]
+[node name="Elevator" parent="." instance=ExtResource("4_0aha7")]
 position = Vector2(265, 132)
 
 [node name="Rules" type="Node2D" parent="."]
 
-[node name="PencilRule" type="Node2D" parent="Rules"]
-script = ExtResource("5_8dw3n")
-rule_text = "1. Don’t throw sharp objects."
-target = 1
-target_item = ExtResource("13_6r21d")
-
-[node name="BalloonRule" type="Node2D" parent="Rules"]
-script = ExtResource("7_7116j")
-rule_text = "2. Don’t pop the birthday balloons."
-target = 2
-
-[node name="ChipsRule" type="Node2D" parent="Rules"]
-script = ExtResource("7_7116j")
-rule_text = "3. Don’t pop the Bag of Chips."
+[node name="RuleChange" type="Node2D" parent="Rules"]
+script = ExtResource("7_k8jc5")
+rule_text = "Don't change the rules."
 target = 1
 
-[node name="StealRule" type="Node2D" parent="Rules"]
-script = ExtResource("7_7116j")
-rule_text = "4. Don’t eat your coworkers’ food."
-target = 1
-
-[node name="CakeRule" type="Node2D" parent="Rules"]
-script = ExtResource("7_7116j")
-rule_text = "5. Don’t throw the Birthday Cake at your coworker’s face."
-target = 1
-
-[node name="CoworkerObjectBirthdayBoy" parent="." instance=ExtResource("10_714t6")]
-position = Vector2(236, 142)
-required_item = ExtResource("10_w4g2i")
-
-[node name="CoworkerObjectFacingRight" parent="." instance=ExtResource("9_m0yn2")]
-position = Vector2(205, 142)
-required_item = ExtResource("10_w4g2i")
-
-[node name="CoworkerObjectFacingRight2" parent="." instance=ExtResource("9_m0yn2")]
-position = Vector2(192, 142)
-required_item = ExtResource("10_w4g2i")
-
-[node name="BirthdayBalloonObject" parent="." instance=ExtResource("7_qedj1")]
-position = Vector2(266, 144)
-required_item = ExtResource("13_6r21d")
-
-[node name="BirthdayBalloonObject2" parent="." instance=ExtResource("7_qedj1")]
-position = Vector2(281, 144)
-required_item = ExtResource("13_6r21d")
-
-[node name="BagOfChipsItem" parent="." instance=ExtResource("11_p231y")]
-position = Vector2(200, 200)
-
-[node name="PencilItem" parent="." instance=ExtResource("13_6r21d")]
-position = Vector2(216, 184)
-
-[node name="CakeItem" parent="." instance=ExtResource("10_w4g2i")]
-position = Vector2(264, 184)
-
-[node name="RedVelvetCupcakeItem" parent="." instance=ExtResource("15_f6qfn")]
-position = Vector2(232, 168)
-
-[connection signal="play_effect" from="CoworkerObjectBirthdayBoy" to="Rules/CakeRule" method="increment_count"]
-[connection signal="play_effect" from="CoworkerObjectFacingRight" to="Rules/CakeRule" method="increment_count"]
-[connection signal="play_effect" from="CoworkerObjectFacingRight2" to="Rules/CakeRule" method="increment_count"]
-[connection signal="play_effect" from="BirthdayBalloonObject" to="Rules/BalloonRule" method="increment_count"]
-[connection signal="play_effect" from="BirthdayBalloonObject2" to="Rules/BalloonRule" method="increment_count"]
-[connection signal="play_effect" from="BagOfChipsItem" to="Rules/ChipsRule" method="increment_count"]
-[connection signal="on_item_thrown" from="PencilItem" to="Rules/PencilRule" method="increment_count_item"]
-[connection signal="play_effect" from="RedVelvetCupcakeItem" to="Rules/StealRule" method="increment_count"]
+[node name="CEO" parent="." instance=ExtResource("6_wxtm3")]
+position = Vector2(247, 197)
