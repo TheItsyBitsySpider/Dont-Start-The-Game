@@ -16,5 +16,6 @@ func give_item_effect(player):
 	and player.item_held.scene_file_path == required_item.resource_path \
 	and unwritten:
 		play_effect.emit()
+		required_item = null
 		unwritten = false
 	return false

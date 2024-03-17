@@ -21,6 +21,7 @@ func _process(_delta):
 		return
 	popup_node.visible = false
 	if player != null and player.item_held != null and item_effect != null \
+	and item_effect.required_item != null \
 	and player.item_held.scene_file_path == item_effect.required_item.resource_path:
 		popup_node.visible = true
 		if not player.nearby_interactables.has(self):

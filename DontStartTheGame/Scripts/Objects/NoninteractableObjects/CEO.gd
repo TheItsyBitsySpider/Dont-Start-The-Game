@@ -1,7 +1,6 @@
 extends StaticBody2D
 
 @export_multiline var speech: String = "Hello, world!"
-
 @onready var speech_box = $SpeechBubble
 @onready var speech_dialogue = $SpeechBubble/Dialogue
 
@@ -21,11 +20,10 @@ signal play_effect
 func _ready():
 	speech_sentences = speech.split("\n")
 
-func _process(delta):
+func _process(_delta):
 	if monologue:
 		if Input.is_action_just_pressed('interact'):
 			show_next_line()
-
 
 func _on_interact_area_body_entered(body):
 	if "collision_layer" not in body:
@@ -45,7 +43,6 @@ func start_speech():
 	show_next_line()
 	
 	monologue = true
-	
 
 func show_next_line():
 	if speech_sentences.is_empty():

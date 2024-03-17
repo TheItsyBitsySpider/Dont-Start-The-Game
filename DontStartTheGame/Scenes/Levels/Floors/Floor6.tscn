@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://Scripts/Levels/Level.gd" id="2_c33tp"]
 [ext_resource type="PackedScene" uid="uid://bwmbm5xutb0ov" path="res://Scenes/Levels/EndingScreen.tscn" id="3_85wfe"]
 [ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://Scenes/Levels/Elevator.tscn" id="4_0aha7"]
-[ext_resource type="PackedScene" uid="uid://b1egalx5bm7s5" path="res://Scenes/Items/PencilItem.tscn" id="6_4de3g"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/NoninteractableObjects/CEO.tscn" id="6_wxtm3"]
 [ext_resource type="Script" path="res://Scripts/Rules/CountRule.gd" id="7_k8jc5"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/InteractableObjects/RulebookObject.tscn" id="8_34qs7"]
+[ext_resource type="PackedScene" uid="uid://bmw8qxd2lf8qf" path="res://Scenes/Objects/InteractableObjects/RulebookObject.tscn" id="8_34qs7"]
+[ext_resource type="PackedScene" uid="uid://hshda4qy5pe3" path="res://Scenes/Items/OfficePenItem.tscn" id="8_am5tb"]
 
 [node name="Floor6" type="TileMap"]
 tile_set = ExtResource("1_h5214")
@@ -65,11 +65,16 @@ target = 1
 
 [node name="CEO" parent="." instance=ExtResource("6_wxtm3")]
 position = Vector2(247, 197)
-
-[node name="PencilItem" parent="." instance=ExtResource("6_4de3g")]
-position = Vector2(201, 155)
+speech = "So you're the one messing everything up!
+Well, guess what...
+[center]YOU.[/center]
+[center]ARE.[/center]
+[center][color=red]FIRED.[/color][/center]"
 
 [node name="RulebookObject" parent="." instance=ExtResource("8_34qs7")]
 position = Vector2(278, 201)
+
+[node name="OfficePenItem" parent="." instance=ExtResource("8_am5tb")]
+position = Vector2(280, 152)
 
 [connection signal="play_effect" from="RulebookObject" to="Rules/RuleChange" method="increment_count"]

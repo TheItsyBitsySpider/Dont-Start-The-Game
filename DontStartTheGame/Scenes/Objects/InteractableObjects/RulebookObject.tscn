@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://da7jpqrbb6s3k"]
+[gd_scene load_steps=10 format=3 uid="uid://bmw8qxd2lf8qf"]
 
 [ext_resource type="Script" path="res://Scripts/Objects/InteractableObject.gd" id="1_wdwln"]
 [ext_resource type="Texture2D" uid="uid://ba5ly116cay7s" path="res://Resources/Sprites/Objects/Safe/Safe.png" id="2_ils2x"]
 [ext_resource type="AudioStream" uid="uid://cgv24etu28yvj" path="res://Resources/Sounds/SoundEffects/Unlock.mp3" id="3_ty68v"]
 [ext_resource type="Script" path="res://Scripts/Effects/WriteInRulebookEffect.gd" id="4_04211"]
-[ext_resource type="PackedScene" uid="uid://b1egalx5bm7s5" path="res://Scenes/Items/PencilItem.tscn" id="5_8lgdo"]
+[ext_resource type="PackedScene" uid="uid://hshda4qy5pe3" path="res://Scenes/Items/OfficePenItem.tscn" id="5_qfox0"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="8_rk51g"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_edg6c"]
@@ -39,7 +39,7 @@ shape = SubResource("RectangleShape2D_ko1st")
 
 [node name="WriteInRulebookEffect" type="Node2D" parent="."]
 script = ExtResource("4_04211")
-required_item = ExtResource("5_8lgdo")
+required_item = ExtResource("5_qfox0")
 
 [node name="Popup" parent="." instance=ExtResource("8_rk51g")]
 offset_top = -17.0
