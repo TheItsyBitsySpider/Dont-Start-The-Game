@@ -59,7 +59,9 @@ Azia Bay-Asen, Programming and Art
 Kael Madar, Programming and Art
 Sterling Hudgens, Art
 Ethan Norrid, Music
-Aurum, Writing"
+Aurum, Writing
+
+SFX acquired from https://pixabay.com/"
 
 [node name="Spawnpoint" type="Node2D" parent="."]
 position = Vector2(248, 120)
