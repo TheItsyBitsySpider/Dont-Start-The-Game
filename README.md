@@ -3,9 +3,9 @@ A game submission for the [Student Game Developer Association (SGDA) Spring 2024
 
 ## Screenshots
 
-![Screenshot (179)](https://github.com/TheItsyBitsySpider/Dont-Start-The-Game/assets/99378816/277c2345-563b-43cc-bd8c-89aeffd96958)
+![Screenshot (179) (1)](https://github.com/TheItsyBitsySpider/Dont-Start-The-Game/assets/99378816/856df482-2bd1-49ec-8164-e4a45d864f6b)
 
-![Screenshot (178)](https://github.com/TheItsyBitsySpider/Dont-Start-The-Game/assets/99378816/0230ff5f-c509-4f35-9d00-79c7a299c51f)
+![Screenshot (178) (1)](https://github.com/TheItsyBitsySpider/Dont-Start-The-Game/assets/99378816/54c4de6b-f46f-4500-b39a-367d563893a8)
 
 ## Controls
 * W or Up — move up
