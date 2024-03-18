@@ -1,6 +1,8 @@
 # Don't Start the Game
 A game submission for the [Student Game Developer Association (SGDA) Spring 2024 Game Jam](https://itch.io/jam/spring-24-jam) about being told to not break the rules, and not break the mold, but doing it anyway.
 
+Play the game [here](https://theitsybitsyspider.itch.io/dont-start-the-game)!
+
 ## Screenshots
 
 ![Screenshot (179) (1)](https://github.com/TheItsyBitsySpider/Dont-Start-The-Game/assets/99378816/856df482-2bd1-49ec-8164-e4a45d864f6b)
