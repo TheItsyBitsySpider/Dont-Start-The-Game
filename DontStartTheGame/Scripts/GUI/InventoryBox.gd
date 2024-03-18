@@ -29,14 +29,14 @@ func remove_item():
 
 func highlight():
 	texture = sprite_selected
-	show_description()
 
 func unhighlight():
 	texture = sprite
-	hide_description()
 
 func show_description():
+	description_to_show.get_parent().visible = true
 	description_to_show.text = item_description
 
 func hide_description():
+	description_to_show.get_parent().visible = false
 	description_to_show.text = ""

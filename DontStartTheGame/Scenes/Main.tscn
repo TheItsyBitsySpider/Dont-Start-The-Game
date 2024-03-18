@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dtdssf5kyh7yh" path="res://Scenes/Characters/PlayerCharacter.tscn" id="1_1grki"]
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_mehqf"]
-[ext_resource type="PackedScene" uid="uid://dphr3n1v0k4i0" path="res://Scenes/Levels/Floors/Floor1.tscn" id="2_r45ff"]
+[ext_resource type="PackedScene" uid="uid://e7j7lvkolmu4" path="res://Scenes/Levels/Floors/Floor2.tscn" id="2_quso1"]
 [ext_resource type="PackedScene" uid="uid://b41s6myqpr0d2" path="res://Scenes/GUI/InventoryBox.tscn" id="3_afhwo"]
 [ext_resource type="AudioStream" uid="uid://uoot6ewophmk" path="res://Resources/Sounds/SoundEffects/RuleCompletedSoundEffects/PencilCheckMark1.mp3" id="3_osn5y"]
 [ext_resource type="AudioStream" uid="uid://b8dgjaipbj226" path="res://Resources/Sounds/SoundEffects/RuleCompletedSoundEffects/PencilCheckMark2.mp3" id="4_52ow2"]
@@ -17,7 +17,7 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_mehqf")
-starting_level = ExtResource("2_r45ff")
+starting_level = ExtResource("2_quso1")
 rule_completed_sfx_1 = ExtResource("3_osn5y")
 rule_completed_sfx_2 = ExtResource("4_52ow2")
 level_completed_sfx_1 = ExtResource("5_anfn1")
@@ -126,23 +126,6 @@ theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 scroll_active = false
 
-[node name="DescriptionBox" type="TextureRect" parent="CanvasLayer"]
-offset_left = 501.0
-offset_top = 124.0
-offset_right = 852.0
-offset_bottom = 224.0
-texture = ExtResource("6_l8oko")
-
-[node name="DescriptionText" type="RichTextLabel" parent="CanvasLayer/DescriptionBox"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 345.0
-offset_bottom = 96.0
-theme_override_fonts/normal_font = ExtResource("7_dcpal")
-theme_override_font_sizes/normal_font_size = 20
-bbcode_enabled = true
-
 [node name="ObjectDescriptionBox" type="TextureRect" parent="CanvasLayer"]
 visible = false
 offset_left = 394.0
@@ -160,6 +143,25 @@ offset_bottom = 96.0
 theme_override_fonts/normal_font = ExtResource("7_dcpal")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
+
+[node name="DescriptionBox" type="TextureRect" parent="CanvasLayer"]
+visible = false
+offset_top = 24.0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_l8oko")
+
+[node name="DescriptionText" type="RichTextLabel" parent="CanvasLayer/DescriptionBox"]
+modulate = Color(0.94902, 0.941176, 0.898039, 1)
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 25.0
+offset_bottom = 16.0
+theme_override_fonts/normal_font = ExtResource("7_dcpal")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+scroll_active = false
 
 [node name="ResetLevelContainer" type="VBoxContainer" parent="CanvasLayer"]
 offset_right = 280.0

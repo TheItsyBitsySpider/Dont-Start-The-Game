@@ -23,3 +23,6 @@ func change_selected(i):
 	for inventory_slot in inventory_slots:
 		inventory_slot.unhighlight()
 	inventory_slots[i].highlight()
+	inventory_slots[i].hide_description()
+	if inventory_slots[i].item_sprite.texture != null:
+		inventory_slots[i].show_description()
