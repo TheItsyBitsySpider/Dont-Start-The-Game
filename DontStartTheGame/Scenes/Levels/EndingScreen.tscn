@@ -1,17 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwmbm5xutb0ov"]
+[gd_scene load_steps=3 format=3 uid="uid://bwmbm5xutb0ov"]
 
 [ext_resource type="FontFile" uid="uid://clr5semwmkeg" path="res://Resources/Fonts/m5x7.ttf" id="1_uu6py"]
+[ext_resource type="Script" path="res://Scripts/GUI/EndingScreenCrawl.gd" id="2_g5cwo"]
 
 [node name="EndingScreen" type="Node2D"]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -184.0
-offset_top = -28.0
-offset_right = -84.0
-offset_bottom = 2.0
-scale = Vector2(3.71538, 3.30769)
+offset_left = -339.0
+offset_top = -193.0
+offset_right = 63.0
+offset_bottom = 61.0
+scale = Vector2(1.686, 1.5)
 theme_override_fonts/normal_font = ExtResource("1_uu6py")
-text = "You've been fired..."
+text = "And so the game ends. You have broken the mold, and have surpassed the rules of the universe to create your very own, just so you wouldn’t get fired. But at what cost? None, really, unless you count the trail of destruction left behind you and the spiraling downfall of the CEO’s sanity. Also known as your boss, y’know, the one who gives you your salary. The salary of which you survive off of. And frequently buy video games with.
+
+But it’s no big deal, right? You have powers to bend anything to your will now! Which also means, you can take over MY job, and I can finally go into retirement! HA! Well then, good luck, no need for instructions or rules for this position since that defeats the whole point. Have fun being the owner of the game, BYE!"
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("2_g5cwo")
+
+[node name="Timer" type="Timer" parent="RichTextLabel"]
+wait_time = 0.02
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.69, 1.69)
+
+[connection signal="timeout" from="RichTextLabel/Timer" to="RichTextLabel" method="_on_timer_timeout"]
