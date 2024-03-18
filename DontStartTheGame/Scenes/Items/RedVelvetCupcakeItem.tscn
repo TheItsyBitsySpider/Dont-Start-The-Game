@@ -15,7 +15,7 @@ z_index = 5
 texture = ExtResource("1_ngr4c")
 script = ExtResource("2_j153m")
 description = "Coworker's Red Velvet Cupcake
-A store-bought cupcake. You are not confident on whether or not the red is actually from food-coloring."
+A store-bought cupcake. You are not confident on whether or not the red is actually from food coloring."
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6
