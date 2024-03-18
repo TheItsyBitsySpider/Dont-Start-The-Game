@@ -60,6 +60,7 @@ volume_db = 10.0
 
 [node name="SpeechBubble" type="TextureRect" parent="."]
 visible = false
+z_index = 7
 offset_left = -37.0
 offset_top = -27.0
 offset_right = 27.0
