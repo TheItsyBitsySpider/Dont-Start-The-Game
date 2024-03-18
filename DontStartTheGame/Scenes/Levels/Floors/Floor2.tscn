@@ -65,28 +65,28 @@ position = Vector2(265, 132)
 
 [node name="PickupRule" type="Node2D" parent="Rules"]
 script = ExtResource("5_ea5s8")
-rule_text = "1. Don't press the E key to pick up the Coffee Mug."
+rule_text = "1. Do not press the E key to pick up the Coffee Mug."
 target = 1
 target_item = ExtResource("9_3nydm")
 
 [node name="InteractRule" type="Node2D" parent="Rules"]
 script = ExtResource("7_dp05h")
-rule_text = "2. Don’t press the E key to use the water cooler."
+rule_text = "2. Do not press the E key to use the water cooler."
 target = 1
 
 [node name="FloodRule" type="Node2D" parent="Rules"]
 script = ExtResource("7_dp05h")
-rule_text = "3. Don’t flood the office."
+rule_text = "3. Do not flood the office."
 target = 3
 
 [node name="OverwaterRule" type="Node2D" parent="Rules"]
 script = ExtResource("7_dp05h")
-rule_text = "4. Don’t overwater the plants."
+rule_text = "4. Do not overwater the plants."
 target = 3
 
 [node name="DrinksRule" type="Node2D" parent="Rules"]
 script = ExtResource("7_dp05h")
-rule_text = "5. Don’t bring drinks near the computers."
+rule_text = "5. Do not bring drinks near the computers."
 target = 1
 
 [node name="CoworkerObjectWorking" parent="." instance=ExtResource("10_0mko1")]

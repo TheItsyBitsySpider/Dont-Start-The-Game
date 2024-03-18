@@ -60,19 +60,20 @@ position = Vector2(265, 132)
 
 [node name="ChangeRule" type="Node2D" parent="Rules"]
 script = ExtResource("7_k8jc5")
-rule_text = "1. Don't change the rules."
+rule_text = "1. Do not change the rules."
 target = 1
 
 [node name="BossObject" parent="." instance=ExtResource("6_ejjfn")]
 position = Vector2(200, 173)
-speech = "Y'know.
+speech = "You know.
 They told me about you.
 Every last coworker that you have shouted near.
 Flown paper airplanes at.
 Stood next to and repeatedly squeezed the rubber duck?
-I've heard you've even eaten someone's red velvet cupcake...
-Even I wouldn't go that far.
-And I'm the CEO.
+I have heard you have even eaten a red velvet cupcake
+that was not yours...
+Even I would not go that far.
+And I am the CEO.
 Do you have no respect for the rules?
 I wrote them all, you know.
 Every last one of them.
@@ -96,10 +97,10 @@ He was also the CEO.
 Take a look at this book right in front of me.
 On my desk. I'll read it for you.
 Rule #520.
-\"Don't break the rules.
-Don't break the mold.
+Do not break the rules.
+Do not break the mold.
 Any employee found in violation is subject to be
-fired.\"
+fired.
 Do you hear that?
 You.
 Are.

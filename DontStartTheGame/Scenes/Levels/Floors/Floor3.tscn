@@ -67,34 +67,34 @@ position = Vector2(265, 132)
 
 [node name="ThrowItemRule" type="Node2D" parent="Rules"]
 script = ExtResource("7_w2xq6")
-rule_text = "1. Don't press the Left Mouse button to throw things.\\n"
+rule_text = "1. Do not press the Left Mouse button to throw things."
 target = 1
 
 [node name="UseRubberDuckRule" type="Node2D" parent="Rules"]
 script = ExtResource("7_w2xq6")
-rule_text = "2. Don't press the Space key to squeeze the Rubber Duck."
+rule_text = "2. Do not press the Space key to squeeze the Rubber Duck."
 target = 1
 
 [node name="SpamRubberDuckRule" type="Node2D" parent="Rules"]
 script = ExtResource("7_w2xq6")
-rule_text = "3. Don’t squeeze the Rubber Duck over and over again."
+rule_text = "3. Do not squeeze the Rubber Duck over and over again."
 target = 10
 
 [node name="DefenestrateKeyboardRule" type="Node2D" parent="Rules"]
 script = ExtResource("6_fqk44")
-rule_text = "4. Don’t throw your keyboard out the window."
+rule_text = "4. Do not throw your keyboard out the window."
 target = 1
 target_item = ExtResource("10_j0sjp")
 
 [node name="DefenestrateMonitorRule" type="Node2D" parent="Rules"]
 script = ExtResource("6_fqk44")
-rule_text = "5. Don’t throw your monitor out the window."
+rule_text = "5. Do not throw your monitor out the window."
 target = 1
 target_item = ExtResource("9_qh1oi")
 
 [node name="DefenestrateComputerRule" type="Node2D" parent="Rules"]
 script = ExtResource("6_fqk44")
-rule_text = "6. Don’t throw your computer out the window."
+rule_text = "6. Do not throw your computer out the window."
 target = 1
 target_item = ExtResource("8_ii64p")
 

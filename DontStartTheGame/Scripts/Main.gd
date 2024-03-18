@@ -146,7 +146,6 @@ func resize():
 		rules_list.position = Vector2(40, 54)
 		rules_list.size = Vector2(608, 234)
 		rules_list.set("theme_override_font_sizes/normal_font_size", 32)
-		rules_list.set("theme_override_constants/line_separation", -12)
 		for i in range(inventory_manager.get_children().size()):
 			inventory_manager.get_children()[i].position.x = 720 + 108 * i
 			inventory_manager.get_children()[i].position.y = 32
@@ -164,7 +163,6 @@ func resize():
 		rules_list.position = Vector2(32, 46)
 		rules_list.size = Vector2(472, 162)
 		rules_list.set("theme_override_font_sizes/normal_font_size", 25)
-		rules_list.set("theme_override_constants/line_separation", -10)
 		for i in range(inventory_manager.get_children().size()):
 			inventory_manager.get_children()[i].position.x = 560 + 108 * i
 			inventory_manager.get_children()[i].position.y = 16

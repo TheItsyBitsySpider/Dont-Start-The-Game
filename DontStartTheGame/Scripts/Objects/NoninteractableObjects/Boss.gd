@@ -56,16 +56,16 @@ func start_reaction():
 		"Hey! What have you just written?",
 		"...",
 		"Rule #521.",
-		"\"Don't fire your employees.\"",
+		"Do not fire your employees.",
 		"...",
 		"Never in a million years...",
-		"Now there's a contradition...",
+		"Now there is a contradition...",
 		"Between Rule #520 and #521...",
-		"It's rule-ception...",
+		"It is rule-ception...",
 		"Does the sanctity of rules mean nothing to you...?",
 		"...",
 		"I...",
-		"You've won this round..."
+		"You have won this round..."
 	]
 	player.can_move = false
 	var camera = player.get_camera() as Camera2D

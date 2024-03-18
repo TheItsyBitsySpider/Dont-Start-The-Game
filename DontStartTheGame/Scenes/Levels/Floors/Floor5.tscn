@@ -66,28 +66,28 @@ position = Vector2(265, 132)
 
 [node name="PencilRule" type="Node2D" parent="Rules"]
 script = ExtResource("5_8dw3n")
-rule_text = "1. Don’t throw sharp objects."
+rule_text = "1. Do not throw sharp objects."
 target = 1
 target_item = ExtResource("13_6r21d")
 
 [node name="BalloonRule" type="Node2D" parent="Rules"]
 script = ExtResource("7_7116j")
-rule_text = "2. Don’t pop the birthday balloons."
+rule_text = "2. Do not pop the birthday balloons."
 target = 2
 
 [node name="ChipsRule" type="Node2D" parent="Rules"]
 script = ExtResource("7_7116j")
-rule_text = "3. Don’t pop the Bag of Chips."
+rule_text = "3. Do not pop the Bag of Chips."
 target = 1
 
 [node name="StealRule" type="Node2D" parent="Rules"]
 script = ExtResource("7_7116j")
-rule_text = "4. Don’t eat your coworkers’ food."
+rule_text = "4. Do not eat food owned by your coworkers."
 target = 1
 
 [node name="CakeRule" type="Node2D" parent="Rules"]
 script = ExtResource("7_7116j")
-rule_text = "5. Don’t throw the Birthday Cake at your coworker’s face."
+rule_text = "5. Do not throw the Birthday Cake at your coworkers."
 target = 1
 
 [node name="CoworkerObjectBirthdayBoy" parent="." instance=ExtResource("10_714t6")]

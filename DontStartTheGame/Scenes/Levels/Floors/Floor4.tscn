@@ -67,23 +67,23 @@ position = Vector2(265, 132)
 
 [node name="CraftRule" type="Node2D" parent="Rules"]
 script = ExtResource("5_dg70o")
-rule_text = "1. Don’t make Paper Airplanes during work hours."
+rule_text = "1. Do not make Paper Airplanes during work hours."
 target = 3
 
 [node name="FlyRule" type="Node2D" parent="Rules"]
 script = ExtResource("6_jjdhs")
-rule_text = "2. Don’t fly Paper Airplanes in the office."
+rule_text = "2. Do not fly Paper Airplanes in the office."
 target = 1
 target_item = ExtResource("7_5n51f")
 
 [node name="AttackRule" type="Node2D" parent="Rules"]
 script = ExtResource("5_dg70o")
-rule_text = "3. Don’t fly Paper Airplanes at your coworkers."
+rule_text = "3. Do not fly Paper Airplanes at your coworkers."
 target = 1
 
 [node name="SafeRule" type="Node2D" parent="Rules"]
 script = ExtResource("5_dg70o")
-rule_text = "4. Don’t open the safe."
+rule_text = "4. Do not open the safe."
 target = 1
 
 [node name="CoworkerObjectFacingLeft" parent="." instance=ExtResource("5_cy65c")]

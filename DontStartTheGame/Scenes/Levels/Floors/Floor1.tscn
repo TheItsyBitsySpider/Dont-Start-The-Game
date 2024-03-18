@@ -73,36 +73,36 @@ position = Vector2(265, 132)
 
 [node name="LateRule" type="Node2D" parent="Rules"]
 script = ExtResource("5_3dilb")
-rule_text = "1. Don't be late."
+rule_text = "1. Do not be late."
 
 [node name="MoveUpRule" type="Node2D" parent="Rules"]
 script = ExtResource("6_d8250")
-rule_text = "2. Don’t press Up or the W key to move up."
+rule_text = "2. Do not press Up or the W key to move up."
 target_action = "move_up"
 
 [node name="MoveDownRule" type="Node2D" parent="Rules"]
 script = ExtResource("6_d8250")
-rule_text = "3. Don’t press Down or the S key to move down."
+rule_text = "3. Do not press Down or the S key to move down."
 target_action = "move_down"
 
 [node name="MoveLeftRule" type="Node2D" parent="Rules"]
 script = ExtResource("6_d8250")
-rule_text = "4. Don’t press Left or the A key to move left."
+rule_text = "4. Do not press Left or the A key to move left."
 target_action = "move_left"
 
 [node name="MoveRightRule" type="Node2D" parent="Rules"]
 script = ExtResource("6_d8250")
-rule_text = "5. Don’t press Right or the D key to move right."
+rule_text = "5. Do not press Right or the D key to move right."
 target_action = "move_right"
 
 [node name="ShoutRule" type="Node2D" parent="Rules"]
 script = ExtResource("6_d8250")
-rule_text = "6. Don’t press the Z key to shout."
+rule_text = "6. Do not press the Z key to shout."
 target_action = "shout"
 
 [node name="AngerRule" type="Node2D" parent="Rules"]
 script = ExtResource("7_4r5as")
-rule_text = "7. Don’t annoy your coworkers with your shouting."
+rule_text = "7. Do not annoy your coworkers with your shouting."
 target = 1
 
 [node name="CoworkerObjectFacingLeft" parent="." instance=ExtResource("7_oh7c7")]
