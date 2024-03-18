@@ -27,7 +27,7 @@ func _ready():
 	stripped_text.compile("\\[.*?\\]")
 
 func _process(_delta):
-	if monologue:
+	if monologue and $SpeechBubble/Popup.visible:
 		if Input.is_action_just_pressed('interact'):
 			$SpeechBubble/Popup.visible = false
 			show_next_line()
@@ -46,13 +46,10 @@ func start_speech():
 	camera.position_smoothing_speed = 1
 	camera.position_smoothing_enabled = true
 	camera.position = position - player.position
-	
 	player.get_parent().change_music(boss_theme)
-	
 	speech_box.visible = true
-	show_next_line()
-	
 	monologue = true
+	show_next_line()
 
 func show_next_line():
 	if speech_sentences.is_empty():
@@ -73,14 +70,12 @@ func _on_interact_area_body_exited(_body):
 	if player != null:
 		player = null
 
-
 func _on_animate_text_timeout():
 	speech_dialogue.visible_characters += 1
 	var stripped_speech_dialogue = stripped_text.sub(speech_dialogue.text, "", true)
 	if speech_dialogue.visible_characters >= len(stripped_speech_dialogue):
 		text_timer.stop()
 		$SpeechBubble/Popup.visible = true
-
 
 func _on_popup_visible_timeout():
 	$SpeechBubble/Popup.visible = true
