@@ -103,12 +103,12 @@ func _load_level_helper(level):
 	current_level = level.instantiate()
 	player.current_level = current_level
 	add_child(current_level)
+	if music_player.stream.resource_path == boss_theme.resource_path:
+		change_music(normal_theme)
 	if current_level.name == "EndingScreen":
 		set_gui_visibility(false)
 		remove_child(player)
 		return
-	if music_player.stream.resource_path == boss_theme.resource_path:
-		change_music(normal_theme)
 	set_gui_visibility(false)
 	player.visible = false
 	current_level.visible = false
