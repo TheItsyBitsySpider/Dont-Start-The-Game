@@ -57,6 +57,7 @@ texture = ExtResource("3_vmtq0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = 10.0
+autoplay = true
 
 [node name="SpeechBubble" type="TextureRect" parent="."]
 visible = false
