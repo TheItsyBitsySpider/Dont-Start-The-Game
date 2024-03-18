@@ -65,11 +65,51 @@ target = 1
 
 [node name="BossObject" parent="." instance=ExtResource("6_ejjfn")]
 position = Vector2(200, 173)
-speech = "So you're the one messing everything up!
-Well, guess what...
-[center]YOU.[/center]
-[center]ARE.[/center]
-[center][color=red]FIRED!!! F-I-R-E-D!!!! FIRED!!!!![/color][/center]"
+speech = "Y'know.
+They told me about you.
+Every last coworker that you have shouted near.
+Flown paper airplanes at.
+Stood next to and repeatedly squeezed the rubber duck?
+I've heard you've even eaten someone's red velvet cupcake...
+Even I wouldn't go that far.
+And I'm the CEO.
+Do you have no respect for the rules?
+I wrote them all, you know.
+Every last one of them.
+Look around you.
+Stacks and stacks of books.
+All filled with various rules.
+Every day and every night.
+I sit in this otherwise empty office.
+That the developers definitely did not run out of time to
+design the sprites for and decorate.
+And I write rules. And rules. And rules.
+Designed for the express purpose.
+Of keeping in line.
+People.
+Like.
+You.
+There is no greater sanctity than what is found in a
+rulebook.
+My father said the same thing.
+He was also the CEO.
+Take a look at this book right in front of me.
+On my desk. I'll read it for you.
+Rule #520.
+\"Don't break the rules.
+Don't break the mold.
+Any employee found in violation is subject to be
+fired.\"
+Do you hear that?
+You.
+Are.
+Fired.
+F.
+I.
+R.
+E.
+D.
+FIREDDDDDDDDDDDDDDDDDDDD!"
 
 [node name="RulebookObject" parent="." instance=ExtResource("8_34qs7")]
 position = Vector2(216, 168)
@@ -77,4 +117,5 @@ position = Vector2(216, 168)
 [node name="OfficePenItem" parent="." instance=ExtResource("8_am5tb")]
 position = Vector2(264, 200)
 
+[connection signal="complete_rule" from="Rules/ChangeRule" to="BossObject" method="start_reaction"]
 [connection signal="play_effect" from="RulebookObject" to="Rules/ChangeRule" method="increment_count"]

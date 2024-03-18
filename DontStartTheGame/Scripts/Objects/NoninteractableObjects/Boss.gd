@@ -51,6 +51,31 @@ func start_speech():
 	monologue = true
 	show_next_line()
 
+func start_reaction():
+	speech_sentences = [
+		"Hey! What have you just written?",
+		"...",
+		"Rule #521.",
+		"\"Don't fire your employees.\"",
+		"...",
+		"Never in a million years...",
+		"Now there's a contradition...",
+		"Between Rule #520 and #521...",
+		"It's rule-ception...",
+		"Does the sanctity of rules mean nothing to you...?",
+		"...",
+		"I...",
+		"You've won this round..."
+	]
+	player.can_move = false
+	var camera = player.get_camera() as Camera2D
+	camera.position_smoothing_speed = 1
+	camera.position_smoothing_enabled = true
+	camera.position = position - player.position
+	speech_box.visible = true
+	monologue = true
+	show_next_line()
+
 func show_next_line():
 	if speech_sentences.is_empty():
 		player.can_move = true
@@ -65,10 +90,6 @@ func show_next_line():
 		speech_dialogue.visible_characters = 0
 		text_timer.start()
 		speech_sentences.remove_at(0)
-
-func _on_interact_area_body_exited(_body):
-	if player != null:
-		player = null
 
 func _on_animate_text_timeout():
 	speech_dialogue.visible_characters += 1

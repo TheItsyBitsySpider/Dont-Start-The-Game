@@ -22,11 +22,24 @@ collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_hfun6")
 script = ExtResource("1_3atfa")
 boss_theme = ExtResource("2_3ir0m")
-speech = "So you're the one messing everything up!!!
-Well, guess what...
-[center]YOU[/center]
-[center]ARE[/center]
-[center][color=red]FIRED!!! F-I-R-E-D!!!! FIRED!!!!![/color][/center]"
+speech = "Y'know.
+They told me about you.
+Every last coworker that you have shouted near.
+Flown paper airplanes at.
+Stood next to and repeatedly squeezed the rubber duck?
+I've heard you've even eaten someone's red velvet cupcake...
+Even I wouldn't go that far.
+And I'm the CEO.
+Well, guess what.
+You.
+Are.
+Fired.
+F.
+I.
+R.
+E.
+D.
+FIREDDDDDDDD."
 
 [node name="InteractArea" type="Area2D" parent="."]
 collision_mask = 7
