@@ -33,7 +33,7 @@ func _process(_delta):
 			show_next_line()
 
 func _on_interact_area_body_entered(body):
-	if "collision_layer" not in body:
+	if "collision_layer" not in body or get_parent().level_elevator.has_control:
 		return
 	if body.collision_layer == 5 and not has_started:
 		player = body

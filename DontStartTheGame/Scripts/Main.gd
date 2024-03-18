@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var normal_theme: Resource
+@export var boss_theme: Resource
 @export var starting_level: PackedScene
 @export var rule_completed_sfx_1: Resource
 @export var rule_completed_sfx_2: Resource
@@ -91,6 +93,11 @@ func load_level(level):
 	call_deferred("_load_level_helper", level)
 
 func _load_level_helper(level):
+	player.can_move = true
+	var camera = player.get_camera() as Camera2D
+	camera.position_smoothing_speed = 1
+	camera.position_smoothing_enabled = false
+	camera.position = Vector2.ZERO
 	if current_level != null:
 		current_level.queue_free()
 	current_level = level.instantiate()
@@ -100,6 +107,8 @@ func _load_level_helper(level):
 		set_gui_visibility(false)
 		remove_child(player)
 		return
+	if music_player.stream.resource_path == boss_theme.resource_path:
+		change_music(normal_theme)
 	set_gui_visibility(false)
 	player.visible = false
 	current_level.visible = false
