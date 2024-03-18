@@ -15,7 +15,8 @@ size = Vector2(15, 14)
 z_index = 5
 texture = ExtResource("1_vy560")
 script = ExtResource("2_s56n3")
-description = "People actually pay money for this bag of air."
+description = "Bag of Chips
+People actually pay money for this bag of air."
 post_consume_item = ExtResource("3_uss7t")
 
 [node name="Area2D" type="Area2D" parent="."]

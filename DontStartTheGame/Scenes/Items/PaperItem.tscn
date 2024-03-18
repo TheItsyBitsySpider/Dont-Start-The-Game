@@ -15,7 +15,8 @@ z_index = 5
 position = Vector2(-2.38419e-07, -2.38419e-07)
 texture = ExtResource("1_eiikd")
 script = ExtResource("2_s4hm2")
-description = "Standard letter sized paper. Did you know the easiest way to figure out if you have any invisible paper cuts is to use hand sanitizer? [font_size={12}][Please note: we are not responsible for any physical or emotional damages should you heed this advice.][/font_size]"
+description = "Paper
+Standard letter-sized paper. Did you know that the easiest way to figure out if you have any invisible paper cuts is to use hand sanitizer?"
 post_consume_item = ExtResource("2_nm77h")
 
 [node name="Popup" parent="." instance=ExtResource("4_oapju")]

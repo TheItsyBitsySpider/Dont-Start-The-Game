@@ -13,7 +13,8 @@ size = Vector2(14.75, 14)
 z_index = 5
 texture = ExtResource("1_mh51n")
 script = ExtResource("2_aiu3s")
-description = "People actually pay money for this bag of air."
+description = "Popped Bag of Chips
+Sad and deflated. Just like your life."
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6

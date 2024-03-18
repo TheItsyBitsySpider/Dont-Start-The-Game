@@ -12,7 +12,8 @@ size = Vector2(14, 14)
 z_index = 5
 texture = ExtResource("1_eeykc")
 script = ExtResource("2_8lyip")
-description = "Not the most sophisticated or aerodynamic design but it’ll still fly farther than your future."
+description = "Paper Airplane
+Not the most sophisticated or aerodynamic design, but it will still fly farther than your future."
 weight = 40
 floatiness = 0.25
 

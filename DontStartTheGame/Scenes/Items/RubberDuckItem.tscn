@@ -13,7 +13,8 @@ size = Vector2(13, 10)
 z_index = 5
 texture = ExtResource("1_whmsc")
 script = ExtResource("2_pebwo")
-description = "The only therapist that you can currently afford. Conversations are usually one-sided though."
+description = "Rubber Duck
+The only therapist that you can currently afford. Conversations are usually one-sided."
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6

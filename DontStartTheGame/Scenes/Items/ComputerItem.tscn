@@ -12,7 +12,8 @@ size = Vector2(7, 12)
 z_index = 5
 texture = ExtResource("1_tyos7")
 script = ExtResource("2_mphex")
-description = "The bane of your existence."
+description = "Computer
+The bane of your existence."
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6

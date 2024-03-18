@@ -13,7 +13,8 @@ size = Vector2(12, 12)
 z_index = 5
 texture = ExtResource("1_o2q1u")
 script = ExtResource("2_0gauc")
-description = "You could say it’s just a donut, but dull and flavorless."
+description = "Bagel
+You could say it is like a donut, but dull and flavorless."
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6

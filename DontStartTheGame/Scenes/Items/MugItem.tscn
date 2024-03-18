@@ -12,7 +12,8 @@ size = Vector2(12, 12)
 z_index = 5
 texture = ExtResource("1_a2ujx")
 script = ExtResource("2_04kwh")
-description = "Your key to survival. This is the compromise after being told you weren’t allowed to take the whole coffee pot."
+description = "Coffee Mug
+Your key to survival. This was the compromise after being told you were not allowed to take the whole coffee pot."
 
 [node name="NullEffect" parent="." instance=ExtResource("3_ik06x")]
 

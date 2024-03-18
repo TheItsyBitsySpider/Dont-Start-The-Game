@@ -159,9 +159,9 @@ func resize():
 		for i in range(inventory_manager.get_children().size()):
 			inventory_manager.get_children()[i].position.x = 560 + 108 * i
 			inventory_manager.get_children()[i].position.y = 16
-		description_box.size = Vector2(512, 128)
+		description_box.size = Vector2(608, 128)
 		description_box.position.y = get_viewport_rect().size.y - description_box.size.y - 16
-		description_text.set("theme_override_font_sizes/normal_font_size", 25)
+		description_text.set("theme_override_font_sizes/normal_font_size", 28)
 		reset_level_container.position = Vector2(32, 16)
 		reset_level_box.size = Vector2(224, 16)
 		reset_level_label.set("theme_override_font_sizes/font_size", 25)

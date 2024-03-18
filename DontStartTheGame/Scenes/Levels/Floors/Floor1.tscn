@@ -61,7 +61,7 @@ Sterling Hudgens, Art
 Ethan Norrid, Music
 Aurum, Writing
 
-SFX acquired from https://pixabay.com/"
+Credit to pixabay.com for SFX"
 
 [node name="Spawnpoint" type="Node2D" parent="."]
 position = Vector2(248, 120)

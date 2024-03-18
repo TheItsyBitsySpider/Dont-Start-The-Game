@@ -12,7 +12,8 @@ size = Vector2(13, 13)
 z_index = 5
 texture = ExtResource("1_evfpe")
 script = ExtResource("2_p3qeb")
-description = "Your standard office pen. It has more ink than the printer, and a longer lifespan than your car."
+description = "Office Pen
+Your standard office pen. It has more ink than the printer, and a longer lifespan than your car."
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6

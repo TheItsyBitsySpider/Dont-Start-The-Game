@@ -12,7 +12,8 @@ size = Vector2(14, 9)
 z_index = 5
 texture = ExtResource("1_bebdg")
 script = ExtResource("2_o5aj1")
-description = "The daily victim to your rage and stress when the yet-to-be finished 8-paged document of the week is due in 20 minutes."
+description = "Keyboard
+The daily victim to your rage and stress when the yet-to-be finished eight-page document of the week is due in twenty minutes."
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6

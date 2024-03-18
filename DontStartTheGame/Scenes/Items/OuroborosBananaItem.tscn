@@ -13,7 +13,8 @@ size = Vector2(12, 12)
 z_index = 5
 texture = ExtResource("1_skt47")
 script = ExtResource("2_pqcul")
-description = "It’s a banana that goes all the way around. An ouroboros banana. You're not sure how to peel it."
+description = "Ouroboros Banana
+It is a banana that goes all the way around. An ouroboros banana. You are not sure how to peel it."
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6

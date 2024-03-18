@@ -18,7 +18,8 @@ size = Vector2(14, 12)
 z_index = 5
 texture = ExtResource("1_0ow81")
 script = ExtResource("2_2qily")
-description = "A heavily frosted birthday cake made for your coworker. As you lean in, you hear a small whisper regarding the dishonesty of the cake."
+description = "Birthday Cake
+A heavily frosted birthday cake made for your coworker. As you lean in, you hear a small whisper regarding its dishonesties."
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6

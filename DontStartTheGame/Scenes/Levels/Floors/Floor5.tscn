@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xu3c353e7nda" path="res://Scenes/Levels/Elevator.tscn" id="4_0ksat"]
 [ext_resource type="Script" path="res://Scripts/Rules/PickupRule.gd" id="5_8dw3n"]
 [ext_resource type="Script" path="res://Scripts/Rules/CountRule.gd" id="7_7116j"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/NoninteractableObjects/BirthdayBalloonObject.tscn" id="7_qedj1"]
+[ext_resource type="PackedScene" uid="uid://dmxgcwu76w4cp" path="res://Scenes/Objects/NoninteractableObjects/BirthdayBalloonObject.tscn" id="7_qedj1"]
 [ext_resource type="PackedScene" uid="uid://cv2uu5bg561ju" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectFacingRight.tscn" id="9_m0yn2"]
 [ext_resource type="PackedScene" uid="uid://cwfxogp7xlhv5" path="res://Scenes/Objects/NoninteractableObjects/CoworkerObjectBirthdayBoy.tscn" id="10_714t6"]
 [ext_resource type="PackedScene" uid="uid://bqga264qiwpvw" path="res://Scenes/Items/CakeItem.tscn" id="10_w4g2i"]

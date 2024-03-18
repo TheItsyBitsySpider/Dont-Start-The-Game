@@ -12,7 +12,8 @@ size = Vector2(12, 13)
 z_index = 5
 texture = ExtResource("1_23png")
 script = ExtResource("2_g3hbl")
-description = "You forgot these existed."
+description = "No. 2 Pencil
+You forgot these existed."
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6

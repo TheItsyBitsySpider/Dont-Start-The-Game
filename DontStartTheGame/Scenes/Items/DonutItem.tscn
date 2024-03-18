@@ -13,7 +13,8 @@ size = Vector2(12, 12)
 z_index = 5
 texture = ExtResource("1_f1031")
 script = ExtResource("2_birsi")
-description = "The bagel’s more exciting and flavorful cousin. It even comes with sprinkles. [font_size={12}][Yes, the sprinkles are there. No, it is not because the dev team cut corners.][/font_size]"
+description = "Donut
+The more exciting and flavorful cousin of the bagel. It even comes with sprinkles. [font_size={16}][Yes, the sprinkles are there. No, it is not because the dev team cut corners.][/font_size]"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6

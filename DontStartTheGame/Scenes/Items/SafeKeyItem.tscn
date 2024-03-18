@@ -12,7 +12,8 @@ size = Vector2(12, 6)
 z_index = 5
 texture = ExtResource("1_wrctq")
 script = ExtResource("2_xy4om")
-description = "Where is it? Where is the safe? Should be on this floor, right?"
+description = "Safe Key
+Where is it? Where is the safe? Should be on this floor, right?"
 
 [node name="NullEffect" parent="." instance=ExtResource("3_5uqv8")]
 

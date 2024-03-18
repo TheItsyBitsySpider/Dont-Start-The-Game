@@ -12,7 +12,8 @@ size = Vector2(12, 12)
 z_index = 5
 texture = ExtResource("1_gom1d")
 script = ExtResource("2_8psna")
-description = "The perpetrator of every eye disease you currently have. Majority of your hours everyday have been spent staring at this very object."
+description = "Monitor
+The perpetrator of every eye disease you currently have. The majority of your hours every day have been spent staring at this very object."
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 6
