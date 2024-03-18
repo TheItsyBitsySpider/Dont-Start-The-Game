@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Objects/InteractableObject.gd" id="1_wdwln"]
 [ext_resource type="Texture2D" uid="uid://c3rvj1xrt34hi" path="res://Resources/Sprites/Objects/RuleBook.png" id="2_iqn0b"]
-[ext_resource type="AudioStream" uid="uid://cgv24etu28yvj" path="res://Resources/Sounds/SoundEffects/Unlock.mp3" id="3_ty68v"]
+[ext_resource type="AudioStream" uid="uid://dmw37lf0nub3c" path="res://Resources/Sounds/SoundEffects/ObjectSoundEffects/Scribble.mp3" id="3_878x4"]
 [ext_resource type="Script" path="res://Scripts/Effects/ChangeRuleEffect.gd" id="4_4axs1"]
 [ext_resource type="PackedScene" uid="uid://hshda4qy5pe3" path="res://Scenes/Items/OfficePenItem.tscn" id="5_qfox0"]
 [ext_resource type="PackedScene" uid="uid://b82wwxcm0kjdy" path="res://Scenes/GUI/Popup.tscn" id="8_rk51g"]
@@ -21,7 +21,7 @@ collision_mask = 5
 physics_material_override = SubResource("PhysicsMaterial_edg6c")
 script = ExtResource("1_wdwln")
 normal_sprite = ExtResource("2_iqn0b")
-normal_sfx = ExtResource("3_ty68v")
+normal_sfx = ExtResource("3_878x4")
 item_effect = NodePath("ChangeRuleEffect")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
