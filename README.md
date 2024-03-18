@@ -12,6 +12,7 @@ A game submission for the [Student Game Developer Association (SGDA) Spring 2024
 * A or Left — move left
 * S or Down — move down
 * D or Right — move right
+* Number Keys or Scroll Wheel — select inventory slot
 * Z — shout
 * E — pick up items, interact with objects, and advance dialogue
 * Space — use items
