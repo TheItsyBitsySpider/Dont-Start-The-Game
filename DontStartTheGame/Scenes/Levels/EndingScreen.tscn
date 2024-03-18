@@ -5,24 +5,32 @@
 
 [node name="EndingScreen" type="Node2D"]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -339.0
-offset_top = -193.0
-offset_right = 63.0
-offset_bottom = 61.0
-scale = Vector2(1.686, 1.5)
-theme_override_fonts/normal_font = ExtResource("1_uu6py")
-text = "And so the game ends. You have broken the mold, and have surpassed the rules of the universe to create your very own, just so you wouldn’t get fired. But at what cost? None, really, unless you count the trail of destruction left behind you and the spiraling downfall of the CEO’s sanity. Also known as your boss, y’know, the one who gives you your salary. The salary of which you survive off of. And frequently buy video games with.
+[node name="Camera2D" type="Camera2D" parent="."]
 
-But it’s no big deal, right? You have powers to bend anything to your will now! Which also means, you can take over MY job, and I can finally go into retirement! HA! Well then, good luck, no need for instructions or rules for this position since that defeats the whole point. Have fun being the owner of the game, BYE!"
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+modulate = Color(0.94902, 0.941176, 0.898039, 1)
+offset_right = 683.0
+offset_bottom = 383.0
+theme_override_fonts/normal_font = ExtResource("1_uu6py")
+text = "And so the game ends. You have broken the mold, and have surpassed the rules of the universe to create your very own. Just so you would not get fired. But at what cost? None, really, unless you count the trail of destruction left in your wake. Or the repercussions on the CEO and the spiralling downfall of his sanity.
+
+The CEO. Also known as your boss. You know. The one who gives you your salary. The salary which you survive off of. And frequently buy video games with.
+
+But it is no big deal, right? You have the power to bend anything to your will now! Which also means, you can take over MY job, and I can finally go into game developer retirement! Ha! Well then, good luck. No need for instructions or rules for this position, since you would break all of them anyway. Have fun being the owner of the game and all of its spaghetti. Goodbye!
+
+THE END.
+
+Thank you for playing!
+
+- Azia Bay-Asen, Kael Madar, Sterling Hudgens, Ethan Norrid, and Aurum"
+scroll_active = false
 visible_characters = 0
 visible_ratio = 0.0
 script = ExtResource("2_g5cwo")
 
-[node name="Timer" type="Timer" parent="RichTextLabel"]
-wait_time = 0.02
+[node name="Timer" type="Timer" parent="CanvasLayer/RichTextLabel"]
+wait_time = 0.04
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.69, 1.69)
-
-[connection signal="timeout" from="RichTextLabel/Timer" to="RichTextLabel" method="_on_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/RichTextLabel/Timer" to="CanvasLayer/RichTextLabel" method="_on_timer_timeout"]
