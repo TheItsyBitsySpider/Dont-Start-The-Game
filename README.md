@@ -1,5 +1,7 @@
 # Don't Start the Game
-A game submission for the [Student Game Developer Association (SGDA) Spring 2024 Game Jam](https://itch.io/jam/spring-24-jam) about being told to not break the rules, and not break the mold, but doing it anyway.
+A game submission for the [Student Game Developer Association (SGDA) Spring 2024 Game Jam](https://itch.io/jam/spring-24-jam).
+
+Break the company mold, one rule at a time.
 
 Play the game [here](https://theitsybitsyspider.itch.io/dont-start-the-game)!
 
@@ -21,8 +23,8 @@ Play the game [here](https://theitsybitsyspider.itch.io/dont-start-the-game)!
 * Left Mouse Button — throw items
 
 ## Developers
-* Azia Bay-Asen, Programming and Art
-* Kael Madar, Programming and Art
+* [Azia Bay-Asen](https://github.com/Azia-Bay), Programming and Art
+* [Kael Madar](https://github.com/TheItsyBitsySpider), Programming and Art
 * Sterling Hudgens, Art
 * Ethan Norrid, Music
 * Aurum, Writing
